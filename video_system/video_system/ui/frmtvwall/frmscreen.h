@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <QVector>
 #include <QDragEnterEvent>
-#include <QDragEvent>
+#include <QDropEvent>
 
 struct Coordinate {
 	int x;
@@ -35,7 +35,7 @@ signals:
 	void restore(frmScreen* item);
 
 private slots:
-	void showContextMenu(const QPointer& pos);
+	void showContextMenu(const QPoint& pos);
 
 protected:
 	void paintEvent(QPaintEvent* event);

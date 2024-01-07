@@ -1,0 +1,3383 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Form Files">
+      <UniqueIdentifier>{99349809-55BA-4b9d-BF79-8FDBB0286EB3}</UniqueIdentifier>
+      <Extensions>ui</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Generated Files">
+      <UniqueIdentifier>{71ED8ED8-ACB9-4CE9-BBE1-E00B30144E11}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;moc;h;def;odl;idl;res;</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\main">
+      <UniqueIdentifier>{3f0536bc-6c77-415a-91b1-33fa387cffc6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui">
+      <UniqueIdentifier>{9d596fb8-2086-454d-a39b-a0716203c1ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\class">
+      <UniqueIdentifier>{82774f62-630b-4147-9ea6-4ff7f2b2a6d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\class\api">
+      <UniqueIdentifier>{e0ec157f-7ce9-4132-ab4f-6e4bb571f018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\class\app">
+      <UniqueIdentifier>{5a4d3c4a-0877-4f44-b955-034b7ec5a482}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\class\devicecustom">
+      <UniqueIdentifier>{26e3783f-fbfb-4763-8d61-90b6e0c88db1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\class\devicevideo">
+      <UniqueIdentifier>{2bbb7f1d-f0bf-4806-9bb5-fea20ba3d018}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\class\usercontrol">
+      <UniqueIdentifier>{23d15356-d4a9-409d-a697-c6301aa911db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmdata">
+      <UniqueIdentifier>{617ac90a-ab62-43d6-bcca-91cafbb8d195}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmdemo">
+      <UniqueIdentifier>{8a812d63-df4d-4cb5-94d7-10316ae05a97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmipc">
+      <UniqueIdentifier>{0f92275c-9866-478e-8471-3e7a632b14c1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmmain">
+      <UniqueIdentifier>{0dd8af69-cffc-45aa-8098-94b3720a3893}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmmap">
+      <UniqueIdentifier>{33a837aa-378a-4b61-802b-fcc3a9dac9f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmmodule">
+      <UniqueIdentifier>{bff5d5bd-98f8-4b70-8ae4-6cf1cc17435d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmtvwall">
+      <UniqueIdentifier>{729c192a-34e8-4cff-9075-418e6e47fdc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmvideo">
+      <UniqueIdentifier>{e99e5a3b-09bb-4afd-9c49-de662654bdd6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmconfig">
+      <UniqueIdentifier>{c41badd6-bbf5-42b1-901f-ff2ead074058}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\main\ui\frmrobot">
+      <UniqueIdentifier>{3d4b49d5-e29d-4ca1-bda0-2a7910a55a76}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\core_videobase\abstractsavethread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\abstractvideosurface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\abstractvideothread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\abstractvideowidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_audio\audiohelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_audio\audiolevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_audio\audioplayer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_audio\audiorecorder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\bannerwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\base64helper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\bottomwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\colorcombobox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\commonkey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\commonnav.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\commonstyle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\cpumemorylabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\util\customstyle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\customtitlebar.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_dataout\datacsv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_dataout\datahelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_dataout\dataother.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_dataout\dataprint.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_dataout\datareport.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_dataout\dataxls.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbcleanthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbconnthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbdelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbhttpthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbpage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbpagemodel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\dbtablemodel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\devicebutton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoffmpeg\ffmpegfilter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoffmpeg\ffmpeghelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoffmpeg\ffmpegsave.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoffmpeg\ffmpegsync.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoffmpeg\ffmpegthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoffmpeg\ffmpegutil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\filterhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_form\formhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\framelesswidget2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_form\frmconfigdb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_form\frmconfiguser.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_tcpfile\frmfileupload.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_form\frmlogin.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_form\frmlogout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\util\globalconfig.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\util\globalstyle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\util\iconhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\imagelabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\lcddatetime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_map\mapbaidu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_map\maphelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_db\navpage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoopengl\nv12openglwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifbase.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifdevice.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifevent.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifother.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifptz.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifquery.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifrequest.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifsearch.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifsnap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifthread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifvideo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_onvif\onvifxml.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\panelwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\playwav.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qtabout.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qtdateselect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qtform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelpercore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelperdata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelperfile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelperform.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelperimage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelpernet.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\helper\qthelperother.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qtinputbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qtmessagebox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qtsplash.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_qthelper\form\qttipbox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoopengl\rgbopenglwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\savelog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_common\saveruntime.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\switchbutton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_tcpfile\tcpfilehelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_tcpfile\tcpreceivefileserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_tcpfile\tcpreceivefilethread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_tcpfile\tcpsearchfileserver.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_tcpfile\tcpsendfilethread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\urlhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_form\userhelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videobox.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videohelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videomanage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videoplayback.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videotask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videothread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videourl.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videoutil.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_video\videowidgetx.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_webview\webjsdata.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_webview\webview.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videobase\widgethelper.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\xlineedit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_control\xslider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files\main</Filter>
+    </ClCompile>
+    <ClCompile Include="class\api\dbdata.cpp">
+      <Filter>Source Files\main\class\api</Filter>
+    </ClCompile>
+    <ClCompile Include="class\api\dbquery.cpp">
+      <Filter>Source Files\main\class\api</Filter>
+    </ClCompile>
+    <ClCompile Include="class\app\appdata.cpp">
+      <Filter>Source Files\main\class\app</Filter>
+    </ClCompile>
+    <ClCompile Include="class\app\appevent.cpp">
+      <Filter>Source Files\main\class\app</Filter>
+    </ClCompile>
+    <ClCompile Include="class\app\appinit.cpp">
+      <Filter>Source Files\main\class\app</Filter>
+    </ClCompile>
+    <ClCompile Include="class\app\appstyle.cpp">
+      <Filter>Source Files\main\class\app</Filter>
+    </ClCompile>
+    <ClCompile Include="class\app\appconfig.cpp">
+      <Filter>Source Files\main\class\app</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicecustom\devicerobot.cpp">
+      <Filter>Source Files\main\class\devicecustom</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicecustom\devicerobot2.cpp">
+      <Filter>Source Files\main\class\devicecustom</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicecustom\deviceuavsserver.cpp">
+      <Filter>Source Files\main\class\devicecustom</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicecustom\deviceuavsvideo.cpp">
+      <Filter>Source Files\main\class\devicecustom</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicevideo\devicehelper.cpp">
+      <Filter>Source Files\main\class\devicevideo</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicevideo\devicemap.cpp">
+      <Filter>Source Files\main\class\devicevideo</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicevideo\deviceonvif.cpp">
+      <Filter>Source Files\main\class\devicevideo</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicevideo\devicethreadui.cpp">
+      <Filter>Source Files\main\class\devicevideo</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicevideo\devicevideosmart.cpp">
+      <Filter>Source Files\main\class\devicevideo</Filter>
+    </ClCompile>
+    <ClCompile Include="class\usercontrol\barvolume.cpp">
+      <Filter>Source Files\main\class\usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="class\usercontrol\cityhelper.cpp">
+      <Filter>Source Files\main\class\usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="class\usercontrol\gaugecloud.cpp">
+      <Filter>Source Files\main\class\usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="class\usercontrol\tasktableview.cpp">
+      <Filter>Source Files\main\class\usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="class\usercontrol\weather.cpp">
+      <Filter>Source Files\main\class\usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="class\usercontrol\widgetsound.cpp">
+      <Filter>Source Files\main\class\usercontrol</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfig.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigipc.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigipcsearch.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfignvr.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigother.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigplus.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigpoll.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigrecord.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigsystem.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigpollplus.cpp">
+      <Filter>Source Files\main\ui\frmconfig</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdata\frmdata.cpp">
+      <Filter>Source Files\main\ui\frmdata</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdata\frmdatadevice.cpp">
+      <Filter>Source Files\main\ui\frmdata</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdata\frmdatauser.cpp">
+      <Filter>Source Files\main\ui\frmdata</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemo.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemohelper.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideochange.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideodrag.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideodraw.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideoimage.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideoosd.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideoplay4.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideoplus.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideosave.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideovolume.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmdemo\frmdemovideowidget.cpp">
+      <Filter>Source Files\main\ui\frmdemo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmipc\frmipccontrol.cpp">
+      <Filter>Source Files\main\ui\frmipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmipc\frmipcnetconfig.cpp">
+      <Filter>Source Files\main\ui\frmipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmipc\frmipcosd.cpp">
+      <Filter>Source Files\main\ui\frmipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmipc\frmipcpolling.cpp">
+      <Filter>Source Files\main\ui\frmipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmipc\frmipcpreset.cpp">
+      <Filter>Source Files\main\ui\frmipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmipc\frmipcptz.cpp">
+      <Filter>Source Files\main\ui\frmipc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmain\frmmain.cpp">
+      <Filter>Source Files\main\ui\frmmain</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmain\frmmain1.cpp">
+      <Filter>Source Files\main\ui\frmmain</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmain\frmweather.cpp">
+      <Filter>Source Files\main\ui\frmmain</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmain\frmwelcome.cpp">
+      <Filter>Source Files\main\ui\frmmain</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmain\frmtimecpu.cpp">
+      <Filter>Source Files\main\ui\frmmain</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmap.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmapcore.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmapdevice.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmapimage.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmaplocal.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmaproute.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmap\frmmapweb.cpp">
+      <Filter>Source Files\main\ui\frmmap</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmdevicegps.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmdevicegps2.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmdevicetree.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmmodule.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmmsglist.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmmsglistitem.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmmsgtable.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmmodule\frmwebview.cpp">
+      <Filter>Source Files\main\ui\frmmodule</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmrobot\frmrobotdata.cpp">
+      <Filter>Source Files\main\ui\frmrobot</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmrobot\frmrobotdebug.cpp">
+      <Filter>Source Files\main\ui\frmrobot</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmrobot\frmrobotdebug2.cpp">
+      <Filter>Source Files\main\ui\frmrobot</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmrobot\frmrobotemulate.cpp">
+      <Filter>Source Files\main\ui\frmrobot</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmrobot\frmrobotlog.cpp">
+      <Filter>Source Files\main\ui\frmrobot</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideo.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideopanel.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideopaneltool.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideoplayimage.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideoplaylocal.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideoplayrtsp.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideoplayweb.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideoupload.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideowidgetpreview.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideowidgetslider.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmvideo\frmvideowidgetvolume.cpp">
+      <Filter>Source Files\main\ui\frmvideo</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmscreen.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmtvwall.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmtvwallwidget.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="..\core_videobase\abstractsavethread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videobase\abstractvideosurface.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videobase\abstractvideothread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videobase\abstractvideowidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="class\app\appconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="class\app\appdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="class\app\appevent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\app\appinit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="class\app\appstyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_audio\audiohelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_audio\audioinclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_audio\audiolevel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_audio\audioplayer.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_audio\audiorecorder.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videobase\bannerwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\usercontrol\barvolume.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_common\base64helper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\bottomwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="class\usercontrol\cityhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\colorcombobox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_common\commonkey.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_common\commonnav.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_common\commonstyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\cpumemorylabel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_qthelper\util\customstyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\customtitlebar.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_dataout\datacsv.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_dataout\datahead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_dataout\datahelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_dataout\dataother.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_dataout\dataprint.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_dataout\datareport.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_dataout\datastruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_dataout\dataxls.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_db\dbcleanthread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_db\dbconnthread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="class\api\dbdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_db\dbdelegate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_db\dbhead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_db\dbhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_db\dbhttpthread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_db\dbpage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_db\dbpagemodel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="class\api\dbquery.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_db\dbtablemodel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_control\devicebutton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="class\devicevideo\devicehelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="class\devicevideo\devicemap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicevideo\deviceonvif.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicecustom\devicerobot.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicecustom\devicerobot2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicevideo\devicethreadui.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicecustom\deviceuavsserver.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicecustom\deviceuavsvideo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicevideo\devicevideosmart.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_videoffmpeg\ffmpegfilter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_videoffmpeg\ffmpeghelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_videoffmpeg\ffmpeginclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_videoffmpeg\ffmpegsave.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_videoffmpeg\ffmpegstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_videoffmpeg\ffmpegsync.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videoffmpeg\ffmpegthread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_videoffmpeg\ffmpegutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_videobase\filterhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_form\formhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_common\framelesswidget2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfig.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_form\frmconfigdb.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigipc.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigipcsearch.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfignvr.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigother.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigplus.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigpoll.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigpollplus.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigrecord.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigsystem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_form\frmconfiguser.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdata\frmdata.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdata\frmdatadevice.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdata\frmdatauser.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemohelper.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideochange.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideodrag.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideodraw.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideoimage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideoosd.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideoplay4.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideoplus.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideosave.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideovolume.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmdemo\frmdemovideowidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmdevicegps.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmdevicegps2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmdevicetree.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_tcpfile\frmfileupload.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmipc\frmipccontrol.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmipc\frmipcnetconfig.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmipc\frmipcosd.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmipc\frmipcpolling.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmipc\frmipcpreset.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmipc\frmipcptz.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_form\frmlogin.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_form\frmlogout.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmain\frmmain.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmain\frmmain1.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmapcore.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmapdevice.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmapimage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmaplocal.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmaproute.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmap\frmmapweb.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmmodule.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmmsglist.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmmsglistitem.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmmsgtable.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmrobot\frmrobotdata.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmrobot\frmrobotdebug.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmrobot\frmrobotdebug2.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmrobot\frmrobotemulate.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmrobot\frmrobotlog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmain\frmtimecpu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideopanel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideopaneltool.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideoplayimage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideoplaylocal.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideoplayrtsp.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideoplayweb.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideoupload.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideowidgetpreview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideowidgetslider.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmvideo\frmvideowidgetvolume.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmain\frmweather.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmodule\frmwebview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmmain\frmwelcome.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\usercontrol\gaugecloud.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_qthelper\util\globalconfig.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\util\globalhead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\util\globalstyle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <CustomBuild Include="head.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <QtMoc Include="..\core_qthelper\util\iconhelper.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videobase\imagelabel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_control\lcddatetime.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_map\mapbaidu.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_map\maphelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_db\navpage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videoopengl\nv12openglwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifbase.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifdevice.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifevent.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_onvif\onvifhead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_onvif\onvifhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_onvif\onvifother.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifptz.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifquery.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifrequest.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifsearch.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifsnap.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_onvif\onvifstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_onvif\onvifthread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_onvif\onvifvideo.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_onvif\onvifxml.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_videoopengl\openglinclude.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\panelwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_common\playwav.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_qthelper\form\qtabout.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_qthelper\form\qtdateselect.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_qthelper\form\qtform.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_qthelper\helper\qthelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelpercore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelperdata.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelperfile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelperform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelperimage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelpernet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_qthelper\helper\qthelperother.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_qthelper\form\qtinputbox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_qthelper\form\qtmessagebox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_qthelper\form\qtsplash.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_qthelper\form\qttipbox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videoopengl\rgbopenglwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_common\savelog.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_common\saveruntime.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_qthelper\util\singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\switchbutton.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\usercontrol\tasktableview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_tcpfile\tcpfilehead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_tcpfile\tcpfilehelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_tcpfile\tcpreceivefileserver.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_tcpfile\tcpreceivefilethread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_tcpfile\tcpsearchfileserver.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_tcpfile\tcpsendfilethread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_videobase\urlhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_form\userhelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_video\videobox.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_video\videohead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_video\videohelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_video\videomanage.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_video\videoplayback.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_video\videostruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_video\videotask.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_video\videothread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_video\videourl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_video\videoutil.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_video\videowidgetx.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="class\usercontrol\weather.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_webview\webjsdata.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_webview\webview.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_videobase\widgethead.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\core_videobase\widgethelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="class\usercontrol\widgetsound.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <ClInclude Include="..\core_videobase\widgetstruct.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <QtMoc Include="..\core_control\xlineedit.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_control\xslider.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="..\core_videoopengl\yuvopenglwidget.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmscreen.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmtvwall.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmtvwallwidget.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="head.h.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <CustomBuild Include="temp\moc\moc_predefs.h.cbt">
+      <Filter>Generated Files</Filter>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <QtUic Include="ui\frmconfig\frmconfig.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_form\frmconfigdb.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigipc.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigipcsearch.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfignvr.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigother.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigplus.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigpoll.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigpollplus.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigrecord.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigsystem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_form\frmconfiguser.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdata\frmdata.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdata\frmdatadevice.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdata\frmdatauser.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemohelper.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideochange.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideodrag.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideodraw.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideoimage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideoosd.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideoplay4.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideoplus.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideosave.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideovolume.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmdemo\frmdemovideowidget.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmdevicegps.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmdevicegps2.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmdevicetree.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_tcpfile\frmfileupload.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmipc\frmipccontrol.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmipc\frmipcnetconfig.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmipc\frmipcosd.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmipc\frmipcpolling.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmipc\frmipcpreset.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmipc\frmipcptz.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_form\frmlogin.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_form\frmlogout.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmain\frmmain.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmain\frmmain1.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmap.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmapcore.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmapdevice.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmapimage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmaplocal.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmaproute.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmap\frmmapweb.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmmodule.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmmsglist.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmmsglistitem.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmmsgtable.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmrobot\frmrobotdata.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmrobot\frmrobotdebug.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmrobot\frmrobotdebug2.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmrobot\frmrobotemulate.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmrobot\frmrobotlog.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmain\frmtimecpu.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideo.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideopanel.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideopaneltool.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideoplayimage.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideoplaylocal.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideoplayrtsp.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideoplayweb.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideoupload.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideowidgetpreview.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideowidgetslider.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmvideo\frmvideowidgetvolume.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmain\frmweather.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmodule\frmwebview.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmmain\frmwelcome.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qtabout.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qtdateselect.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qtform.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qtinputbox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qtmessagebox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qtsplash.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="..\core_qthelper\form\qttipbox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\core_onvif\onvifsend\CreatePullPointSubscription.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetCapabilities.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetCurrentPreset.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetImagingSettings.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetOptions.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetProfiles.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetServices.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetSnapshotUri.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetStreamUri.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\GetVideoSources.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\OsdDeleteOSD.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\OsdGetOSD.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\OsdGetOSDs.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzAbsoluteMove.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzContinuousMove.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzContinuousMoveZoom.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzGetPresetTours.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzGetPresets.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzGetStatus.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzGotoHomePosition.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzGotoPreset.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzRelativeMove.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzRelativeMoveZoom.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzRemovePreset.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzSetHomePosition.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzSetPreset.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzSetPreset2.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PtzStop.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\PullMessages.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\SearchDevice1.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\SearchDevice2.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\SearchDevice3.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_onvif\onvifsend\SearchDevice4.xml">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\add_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\add_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\add_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\add_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\arrow_bottom.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\arrow_left.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\arrow_right.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\arrow_top.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\bg_banner.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\bg_novideo.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\bg_splash.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\bg_splash1.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\branch_close.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\branch_open.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\calendar_nextmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\calendar_prevmonth.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\checkbox_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\checkbox_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\checkbox_parcial.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\checkbox_parcial_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\checkbox_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\checkbox_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\font\city.json">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="..\core_control\control.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="..\core_qthelper\qrc\qss\darkblack.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\demo0.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\demo1.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\demo2.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\demo3.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_black_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_black_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_black_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_black_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_black_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_black_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_blue_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_blue_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_blue_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_blue_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_blue_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_blue_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_gray_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_gray_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_gray_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_gray_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_gray_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_gray_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_green_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_green_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_green_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_green_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_green_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_green_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_purple_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_purple_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_purple_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_purple_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_purple_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_purple_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_red_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_red_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_red_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_red_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_red_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_red_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_yellow_bubble.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_yellow_bubble2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_yellow_circle.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_yellow_msg.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_yellow_msg2.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_control\image\devicebutton\devicebutton_yellow_police.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="..\core_qthelper\qrc\font.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="..\core_qthelper\qrc\font\fontawesome-webfont.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\gps1.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\gps2.txt">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\font\iconfont.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\liuyifei0.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\liuyifei1.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\image\liuyifei2.jpg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\logo.svg">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="qrc\main.ico">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="qrc\main.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\menu_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="..\core_onvif\onvif.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="..\core_qthelper\qrc\qss\otherblue.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery.css">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\font\pe-icon-set-weather.ttf">
+      <Filter>Resource Files</Filter>
+    </None>
+    <QtRcc Include="..\core_qthelper\qrc\qm.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <QtRcc Include="..\core_qthelper\qrc\qss.qrc">
+      <Filter>Resource Files</Filter>
+    </QtRcc>
+    <None Include="..\core_qthelper\qrc\qm\qt_zh_CN.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\radiobutton_checked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\radiobutton_checked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\radiobutton_unchecked.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blacksoft\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\blackvideo\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblack\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\darkgray\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblack\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\flatgray\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblack\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\lightgray\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newblack\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\newpurple\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblack\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\normalgray\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherblue\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\otherpurple\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qss\othersilvery\radiobutton_unchecked_disable.png">
+      <Filter>Resource Files</Filter>
+    </None>
+    <None Include="..\core_qthelper\qrc\qm\widgets.qm">
+      <Filter>Resource Files</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="qrc\main.rc" />
+  </ItemGroup>
+</Project>

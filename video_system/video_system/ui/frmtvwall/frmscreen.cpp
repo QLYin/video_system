@@ -4,14 +4,14 @@
 #include <QMimeData>
 #include <QDebug>
 
-frmScreen:frmScreen(QWidget* parent)
+frmScreen::frmScreen(QWidget* parent)
 {
-	setAcceptDrops(true) :
-	setAlignment(Qt::AlignCenter) :
+	setAcceptDrops(true);
+	setAlignment(Qt::AlignCenter);
 	setContextMenuPolicy(Qt::CustomContextMenu);
-	connect(this, &frmscreen::customContextMenuRequested,
-		this, &frmscreen::showContextMenu)
-	setStyleSheet("background-color: lightGray; border: 1px, soild, gray;") :
+	connect(this, &frmScreen::customContextMenuRequested,
+		this, &frmScreen::showContextMenu);
+	setStyleSheet("background-color: lightGray; border: 1px, soild, gray;");
 }
 
 frmScreen::~frmScreen()
@@ -21,16 +21,16 @@ frmScreen::~frmScreen()
 
 void frmScreen::showContextMenu(const QPoint&pos)
 {
-	QMenu contextMenu(this) :
-	QAction* splitAction = contextMenu.addAction(QString::fromLocal8bit("切割画面"));
-	QAction* undoAction = contextMenu.addAction(QString::fromLocal8bit("撤销切割"));
-	if (originalScreens.size() > 1) {
-		contextMenu.addSeparator() :
-		QAction* restoreAction = contextMenu.addAction(QString::fromLocal8bit("恢复"));
+	QMenu contextMenu(this);
+	QAction* splitAction = contextMenu.addAction(QString::fromLocal8Bit("切割画面"));
+	QAction* undoAction = contextMenu.addAction(QString::fromLocal8Bit("撤销切割"));
+	if (m_originalScreens.size() > 1) {
+		contextMenu.addSeparator();
+		QAction* restoreAction = contextMenu.addAction(QString::fromLocal8Bit("恢复"));
 		connect(restoreAction, &QAction::triggered, [this]()
-		{
-			enit restore(this) :
-		}
+			{
+				emit restore(this);
+			});
 	}
 	QMenu splitMenu(this);
 	splitMenu.addAction("2x2", [this]()
@@ -83,7 +83,7 @@ int frmScreen::index()
 
 Coordinate frmScreen::coordinate()
 {
-	return m_originalScreens.at(0) :
+	return m_originalScreens.at(0);
 }
 
 QVector<Coordinate> frmScreen::originalScreens()
@@ -99,31 +99,31 @@ void frmScreen::setOriginalScreens(QVector<Coordinate> coords)
 void frmScreen::appendScreenCoordinate(int x, int y)
 {
 	Coordinate cor;
-	cor.x = x:
+	cor.x = x;
 	cor.y = y;
-	m_originalScreens.push_back(cor) :
+	m_originalScreens.push_back(cor);
 }
 
 void frmScreen::paintEvent(QPaintEvent* event)
 {
 	if (m_cutRow > 0 || m_cutCol > 0) {
-		QPainter painter(this) :
-		painter.setRenderHint(QPainter::Antialiasing, true):
-		painter.setPen(QPen(Qt::black, 2)) :
-		int cellWidth = width() / m cutCol :
-		int cellHeight = height() / m cutRow :
+		QPainter painter(this);
+		painter.setRenderHint(QPainter::Antialiasing, true);
+		painter.setPen(QPen(Qt::black, 2));
+		int cellWidth = width() / m_cutCol;
+		int cellHeight = height() / m_cutRow;
 		// 绘制睡直分割线
 		for (int i = 1; i < m_cutCol; ++i) {
-			int x = i * celiWidth :
-			painter.drawLine(x, 0, x, height()); :
+			int x = i * cellWidth;
+			painter.drawLine(x, 0, x, height());
 		}
 		// 绘制水平分线
 		for (int i = 1; i < m_cutRow; ++i) {
-			int y=i *cellHeight :
+			int y = i * cellHeight;
 			painter.drawLine(0, y, width(), y);
 		}
 	}
-	return QLabel::paintEvent(event) :
+	return QLabel::paintEvent(event);
 }
 
 void frmScreen::dragEnterEvent(QDragEnterEvent* event)
@@ -135,5 +135,11 @@ void frmScreen::dragEnterEvent(QDragEnterEvent* event)
 
 void frmScreen::dropEvent(QDropEvent* event)
 {
-
+	if (event->mimeData()->hasText()) {
+		QString text = event->mimeData()->text();
+		setText(text);
+		QFont font("Arial", 30);
+		setFont(font);
+		event->acceptProposedAction();
+	}
 }
