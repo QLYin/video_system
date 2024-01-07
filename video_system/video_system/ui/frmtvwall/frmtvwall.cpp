@@ -39,7 +39,7 @@ void frmTVWall::initForm()
     treeWidget->setDragEnabled(true);
     connect(treeWidget, &QTreeWidget::itemPressed, [&](QTreeWidgetItem* item, int column) 
         {
-            QDrag* drag = new QDrag(treeWidget);
+            QDrag* drag = new QDrag(this);
             QMimeData* mimeData = new QMimeData;
             mimeData->setText(item->text(column));
             drag->setMimeData(mimeData);

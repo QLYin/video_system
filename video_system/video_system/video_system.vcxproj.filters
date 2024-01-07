@@ -99,6 +99,9 @@
     <Filter Include="Source Files\main\ui\frmrobot">
       <UniqueIdentifier>{3d4b49d5-e29d-4ca1-bda0-2a7910a55a76}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\main\class\deviceconnect">
+      <UniqueIdentifier>{efe7d806-df75-495a-8d4e-c862036ceea0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\core_videobase\abstractsavethread.cpp">
@@ -715,6 +718,12 @@
     </ClCompile>
     <ClCompile Include="ui\frmtvwall\frmtvwallwidget.cpp">
       <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+    <ClCompile Include="class\deviceconnect\tcpclient.cpp">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
+    </ClCompile>
+    <ClCompile Include="class\deviceconnect\tcpclienthelper.cpp">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1380,6 +1389,9 @@
     </QtMoc>
     <QtMoc Include="ui\frmtvwall\frmtvwallwidget.h">
       <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+    <QtMoc Include="class\deviceconnect\tcpclient.h">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -3379,5 +3391,10 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="qrc\main.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="class\deviceconnect\tcpclienthelper.h">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

@@ -46,6 +46,9 @@ signals:
     void itemDoubleClicked(const QString &url, const QString &text, bool isNvr);
     void receiveLngLat(const QString &lnglat);
 
+    void tcpConnected();
+    void tcpSockectData(const QVariantMap data);
+
 public slots:
     //软件退出
     void slot_exitAll();
@@ -102,6 +105,10 @@ public slots:
     void slot_itemDoubleClicked(const QString &url, const QString &text, bool isNvr);
     //机器人经纬度改变
     void slot_receiveLngLat(const QString &lnglat);
+
+    // tcp连接成功
+    void slot_tcpConnected();
+    void slot_tcpSockectData(const QVariantMap data);
 };
 
 #endif // APPEVENT_H

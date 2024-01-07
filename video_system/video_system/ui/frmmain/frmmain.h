@@ -69,6 +69,9 @@ private slots:
     //加载标题中文英文
     void initTitleInfo();
 
+    // 初始化设备连接
+    void initDeviceConnect();
+
     //识别全屏切换
     void fullScreen(bool full);
     //全局鼠标右键松开

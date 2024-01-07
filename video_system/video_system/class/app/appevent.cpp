@@ -166,3 +166,13 @@ void AppEvent::slot_receiveLngLat(const QString &lnglat)
 {
     emit receiveLngLat(lnglat);
 }
+
+void AppEvent::slot_tcpConnected()
+{
+    emit tcpConnected();
+}
+
+void AppEvent::slot_tcpSockectData(const QVariantMap data)
+{
+    emit tcpSockectData(data);
+}
