@@ -353,10 +353,10 @@ void frmMain::initDeviceConnect()
         {
             AppEvent::Instance()->slot_tcpConnected();
             TcpClientHelper::sendUnlockDevice();
-            //TcpClientHelper::sendDataSync(1);
-            //TcpClientHelper::sendDataSync(4);
-            //TcpClientHelper::sendSceneInfo();
-            TcpClientHelper::sendWallSet();
+            TcpClientHelper::sendDataSync(1);
+            TcpClientHelper::sendDataSync(4);
+            TcpClientHelper::sendSceneInfo();
+            //TcpClientHelper::sendWallSet();
         });
 
     connect(TcpClient::Instance(), &TcpClient::socketData, this, [](const QVariantMap data)
