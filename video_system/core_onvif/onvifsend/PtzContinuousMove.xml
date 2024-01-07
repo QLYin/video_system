@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+  %1
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <ContinuousMove xmlns="http://www.onvif.org/ver20/ptz/wsdl">
+      <ProfileToken>%2</ProfileToken>
+      <Velocity>
+        <PanTilt x="%3" y="%4" xmlns="http://www.onvif.org/ver10/schema"/>
+      </Velocity>
+    </ContinuousMove>
+  </s:Body>
+</s:Envelope>
