@@ -186,6 +186,6 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 
 	int rowSpan = -1, colSpan = -1;
 	calculateSpan(cords, rowSpan, colSpan);
-	gridLayout->addWidget(mergeScreen, mergeScreen->coordinate().x, mergeScreen->coordinate().y);
+	gridLayout->addWidget(mergeScreen, mergeScreen->coordinate().x, mergeScreen->coordinate().y, rowSpan, colSpan);
 	childWidgets.append(mergeScreen);
 }
