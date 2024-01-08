@@ -3,7 +3,7 @@
 #include "qthelper.h"
 #include "devicehelper.h"
 
-frmDeviceTree::frmDeviceTree(QWidget *parent) : QWidget(parent), ui(new Ui::frmDeviceTree)
+frmDeviceTree::frmDeviceTree(QWidget *parent, QString flag) : QWidget(parent),m_flag(flag), ui(new Ui::frmDeviceTree)
 {
     ui->setupUi(this);
     this->initForm();
@@ -61,9 +61,16 @@ void frmDeviceTree::initForm()
     ui->treeWidget->viewport()->installEventFilter(this);
 
     //初始化树状列表加载设备信息
-    DeviceHelper::setTreeWidget(ui->treeWidget);
-    DeviceHelper::initDeviceTree();
-    DeviceHelper::initVideoIcon();
+    if (m_flag.indexOf("tvwall") == -1)
+    {
+        DeviceHelper::setTreeWidget(ui->treeWidget);
+    }
+    else
+    {
+        DeviceHelper::setTVWallTreeWidget(ui->treeWidget);
+    }
+    DeviceHelper::initDeviceTree(ui->treeWidget);
+    DeviceHelper::initVideoIcon(ui->treeWidget);
 
     connect(AppEvent::Instance(), SIGNAL(exitAll()), this, SLOT(exitAll()));
     connect(AppEvent::Instance(), SIGNAL(fileDragOpen()), this, SLOT(fileDragOpen()));

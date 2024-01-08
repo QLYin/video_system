@@ -12,7 +12,7 @@ class frmDeviceTree : public QWidget
     Q_OBJECT
 
 public:
-    explicit frmDeviceTree(QWidget *parent = 0);
+    explicit frmDeviceTree(QWidget* parent = 0, QString flag = "");
     ~frmDeviceTree();
 
 protected:
@@ -25,6 +25,8 @@ private:
     bool treePressed;
     //按下的坐标
     QPointF treePos;
+
+    QString m_flag;
 
 private slots:
     //初始化窗体数据

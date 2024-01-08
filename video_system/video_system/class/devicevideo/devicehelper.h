@@ -16,6 +16,7 @@ public:
     static void setLabel(QLabel *label);
     static void setTableWidget(QTableWidget *tableWidget);
     static void setTreeWidget(QTreeWidget *treeWidget);
+    static void setTVWallTreeWidget(QTreeWidget* treeWidget);
     static void setListWidget(QListWidget *listWidget);    
     static void setMsgList(frmMsgList *msgList);
 
@@ -35,6 +36,7 @@ public:
 
     //初始化图标
     static void initVideoIcon();
+    static void initVideoIcon(QTreeWidget* treeWidget);
     //改变图标比如上下线
     static void setVideoIcon(const QString &url, bool online = true);
     static void setVideoIcon2(const QString &ip, bool online = true);

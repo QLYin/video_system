@@ -8,6 +8,7 @@
 #include <QMimeData>
 
 #include "frmtvwallwidget.h"
+#include "frmdevicetree.h"
 
 struct Camera {
     int id;
@@ -27,48 +28,60 @@ frmTVWall::~frmTVWall()
 
 void frmTVWall::initForm()
 {
-    Camera item1{1, "test", "rtsp://192.168.1.220:554/11","192.168.1.220"};
-    Camera item2{ 2, "haikang", "rtsp://192.168.1.220:554/11","192.168.1.220" };
-    QVector<Camera> CameraList;
-    CameraList.push_back(item1);
-    CameraList.push_back(item2);
+    auto widgetTop = new QWidget(this);
+    widgetTop->setFixedHeight(30);
+    widgetTop->setObjectName(QString::fromUtf8("widgetTop"));
+    auto topLayout = new QHBoxLayout(widgetTop);
+    topLayout->setSpacing(6);
+    topLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+    topLayout->setContentsMargins(0, 0, 0, 0);
+    btnReresh = new QPushButton(widgetTop);
+    btnReresh->setObjectName(QString::fromUtf8("btnReresh"));
+    btnReresh->setText(QString::fromLocal8Bit("刷新"));
+    btnReresh->setFixedWidth(70);
+    topLayout->addWidget(btnReresh);
+
+    btnCreateWall = new QPushButton(widgetTop);
+    btnCreateWall->setObjectName(QString::fromUtf8("btnCreateWall"));
+    btnCreateWall->setText(QString::fromLocal8Bit("创建幕墙"));
+    btnCreateWall->setFixedWidth(70);
+    topLayout->addWidget(btnCreateWall);
+
+    btnCallAll = new QPushButton(widgetTop);
+    btnCallAll->setObjectName(QString::fromUtf8("btnCreateWall"));
+    btnCallAll->setText(QString::fromLocal8Bit("全部调入"));
+    btnCallAll->setFixedWidth(70);
+    topLayout->addWidget(btnCallAll);
+
+    btnConnect = new QPushButton(widgetTop);
+    btnConnect->setObjectName(QString::fromUtf8("btnCreateWall"));
+    btnConnect->setText(QString::fromLocal8Bit("连接"));
+    btnConnect->setFixedWidth(70);
+    topLayout->addWidget(btnConnect);
+    topLayout->addStretch();
 
     QWidget* pGroup1 = new QWidget;
-
-    QTreeWidget* treeWidget = new QTreeWidget(pGroup1);
-    treeWidget->setDragEnabled(true);
-    connect(treeWidget, &QTreeWidget::itemPressed, [&](QTreeWidgetItem* item, int column) 
-        {
-            QDrag* drag = new QDrag(this);
-            QMimeData* mimeData = new QMimeData;
-            mimeData->setText(item->text(column));
-            drag->setMimeData(mimeData);
-            drag->exec();
-        });
-    QTreeWidgetItem* root = new QTreeWidgetItem(treeWidget);
-    root->setText(0, "Root");
-
-    for (auto& item : CameraList) {
-        QTreeWidgetItem* child = new QTreeWidgetItem(root);
-        child->setText(0, item.name);
-    }
-
+    auto treeWidget = new frmDeviceTree(pGroup1, "tvwall");
     QVBoxLayout* pLayout1 = new QVBoxLayout(pGroup1);
     pLayout1->setMargin(10);
     pLayout1->setAlignment(Qt::AlignmentFlag::AlignLeft);
     pLayout1->addWidget(treeWidget);
 
     QWidget* pGroup2 = new QWidget;
-
     QTabWidget* pTab = new QTabWidget(this);
     pTab->setFixedWidth(180);
     pTab->addTab(pGroup1, "ipc");
     pTab->addTab(pGroup2, "telephone");
-
     frmTVWallWidget* tvWallWidget = new frmTVWallWidget(this);
 
-    QHBoxLayout* mainLayout = new QHBoxLayout;
-    setLayout(mainLayout);
-    mainLayout->addWidget(pTab);
-    mainLayout->addWidget(tvWallWidget);
+    QHBoxLayout* hLayout = new QHBoxLayout;
+    hLayout->addWidget(pTab);
+    hLayout->addWidget(tvWallWidget);
+
+    QVBoxLayout* mainLayout = new QVBoxLayout(this);
+    mainLayout->setMargin(2);
+    mainLayout->setSpacing(5);
+    mainLayout->addWidget(widgetTop);
+    mainLayout->addSpacing(2);
+    mainLayout->addLayout(hLayout);
 }

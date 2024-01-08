@@ -19,6 +19,7 @@ QTreeWidget *deviceTree = NULL;     //设备树状列表
 QListWidget *deviceMap = NULL;      //地图缩略图
 frmMsgList *deviceMsg = NULL;       //图文警情列表
 QList<DeviceButton *> btns;         //设备按钮集合
+QTreeWidget *deviceTreeTVWall = NULL;     //设备树状列表 -- 电视墙
 }
 
 void DeviceHelper::setLabel(QLabel *label)
@@ -35,6 +36,11 @@ void DeviceHelper::setTableWidget(QTableWidget *tableWidget)
 void DeviceHelper::setTreeWidget(QTreeWidget *treeWidget)
 {
     deviceTree = treeWidget;
+}
+
+void DeviceHelper::setTVWallTreeWidget(QTreeWidget* treeWidget)
+{
+    deviceTreeTVWall = treeWidget;
 }
 
 void DeviceHelper::setListWidget(QListWidget *listWidget)
@@ -136,12 +142,18 @@ void DeviceHelper::clearMsgList()
 
 void DeviceHelper::initDeviceTree()
 {
-    initDeviceTree(deviceTree);
+    QList<QTreeWidget*> deviceTrees;
+    deviceTrees.push_back(deviceTree);
+    deviceTrees.push_back(deviceTreeTVWall);
+    for (auto& tree : deviceTrees)
+    {
+        initDeviceTree(tree);
+    }
 }
 
 void DeviceHelper::initDeviceTree(QTreeWidget *treeWidget)
 {
-    if (!deviceTree) {
+    if (!treeWidget) {
         return;
     }
 
@@ -217,10 +229,23 @@ void DeviceHelper::initDeviceTree(QTreeWidget *treeWidget)
 
 void DeviceHelper::initVideoIcon()
 {
-    if (!deviceTree) {
+    if (!deviceTree && !deviceTreeTVWall) {
         return;
     }
 
+    QList<QTreeWidget*> deviceTrees;
+    deviceTrees.push_back(deviceTree);
+    deviceTrees.push_back(deviceTreeTVWall);
+
+    //不同的节点显示不同的图标
+    for (auto& tree : deviceTrees)
+    {      
+        initVideoIcon(tree);
+    }
+}
+
+void DeviceHelper::initVideoIcon(QTreeWidget* treeWidget)
+{
     //图标的大小和宽高
     int size = AppConfig::TreeBig ? 22 : 18;
     int width = size + 2;
@@ -233,16 +258,17 @@ void DeviceHelper::initVideoIcon()
     QPixmap iconIpc = IconHelper::getPixmap(color, 0xea07, size, width, height);
     QPixmap iconSub = IconHelper::getPixmap(color, 0xe9ff, size, width, height);
 
-    //不同的节点显示不同的图标
-    QTreeWidgetItemIterator it(deviceTree);
+    QTreeWidgetItemIterator it(treeWidget);
     while (*it) {
-        QTreeWidgetItem *item = (*it);
+        QTreeWidgetItem* item = (*it);
         QString text = item->text(0);
         if (item->parent() == 0) {
             item->setIcon(0, iconNvr);
-        } else if (text == "主码流" || text == "子码流") {
+        }
+        else if (text == "主码流" || text == "子码流") {
             item->setIcon(0, iconSub);
-        } else {
+        }
+        else {
             item->setIcon(0, iconIpc);
         }
         ++it;
@@ -260,6 +286,10 @@ void DeviceHelper::setVideoIcon2(const QString &ip, bool online)
         return;
     }
 
+    QList<QTreeWidget*> deviceTrees;
+    deviceTrees.push_back(deviceTree);
+    deviceTrees.push_back(deviceTreeTVWall);
+
     //图标的大小和宽高
     int size = AppConfig::TreeBig ? 22 : 18;
     int width = size + 2;
@@ -271,34 +301,38 @@ void DeviceHelper::setVideoIcon2(const QString &ip, bool online)
     QPixmap iconIpcx = IconHelper::getPixmap(AppConfig::ColorIconAlarm, 0xea07, size, width, height);
     QPixmap iconSubx = IconHelper::getPixmap(AppConfig::ColorIconAlarm, 0xe9ff, size, width, height);
 
-    QTreeWidgetItemIterator it(deviceTree);
-    while (*it) {
-        QTreeWidgetItem *item = (*it);
-        QString url = item->data(0, Qt::UserRole).toString();
+    for (auto& tree : deviceTrees)
+    {
+        QTreeWidgetItemIterator it(tree);
+        while (*it) {
+            QTreeWidgetItem* item = (*it);
+            QString url = item->data(0, Qt::UserRole).toString();
 #if 1
-        //限定对摄像机节点处理就行
-        if (item->childCount() > 0 && item->parent()) {
-            //如果不是带IP的地址则会自动用原地址判断
-            if (UrlHelper::getUrlIP(url) == ip) {
-                item->setIcon(0, online ? iconIpc : iconIpcx);
-                //对下面的码流节点同样处理
-                item->child(0)->setIcon(0, online ? iconSub : iconSubx);
-                item->child(1)->setIcon(0, online ? iconSub : iconSubx);
-                //这里还要继续因为可能是同一台NVR他的IP地址是一样的
-                //break;
+            //限定对摄像机节点处理就行
+            if (item->childCount() > 0 && item->parent()) {
+                //如果不是带IP的地址则会自动用原地址判断
+                if (UrlHelper::getUrlIP(url) == ip) {
+                    item->setIcon(0, online ? iconIpc : iconIpcx);
+                    //对下面的码流节点同样处理
+                    item->child(0)->setIcon(0, online ? iconSub : iconSubx);
+                    item->child(1)->setIcon(0, online ? iconSub : iconSubx);
+                    //这里还要继续因为可能是同一台NVR他的IP地址是一样的
+                    //break;
+                }
             }
-        }
 #else
-        if (UrlHelper::getUrlIP(url) == ip) {
-            //item->setDisabled(!online);
-            if (online) {
-                item->setIcon(0, item->childCount() > 0 ? iconIpc : iconSub);
-            } else {
-                item->setIcon(0, item->childCount() > 0 ? iconIpcx : iconSubx);
+            if (UrlHelper::getUrlIP(url) == ip) {
+                //item->setDisabled(!online);
+                if (online) {
+                    item->setIcon(0, item->childCount() > 0 ? iconIpc : iconSub);
+                }
+                else {
+                    item->setIcon(0, item->childCount() > 0 ? iconIpcx : iconSubx);
+                }
             }
-        }
 #endif
-        ++it;
+            ++it;
+}
     }
 }
 

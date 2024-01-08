@@ -2,6 +2,7 @@
 #define FRMTVWALL_H
 
 #include <QWidget>
+#include <QPushButton>
 
 class frmTVWall : public QWidget
 {
@@ -14,6 +15,12 @@ public:
 
 private slots:
     void initForm();
+
+private:
+    QPushButton* btnReresh;
+    QPushButton* btnCreateWall;
+    QPushButton* btnCallAll;
+    QPushButton* btnConnect;
 };
 
 #endif // FRMTVWALL_H
