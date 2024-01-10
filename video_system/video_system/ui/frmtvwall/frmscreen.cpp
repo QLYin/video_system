@@ -11,7 +11,7 @@ frmScreen::frmScreen(QWidget* parent)
 	setContextMenuPolicy(Qt::CustomContextMenu);
 	connect(this, &frmScreen::customContextMenuRequested,
 		this, &frmScreen::showContextMenu);
-	setStyleSheet("background-color: lightGray; border: 1px, soild, gray;");
+	setStyleSheet("background-color: rgb(68, 73, 79);");
 }
 
 frmScreen::~frmScreen()

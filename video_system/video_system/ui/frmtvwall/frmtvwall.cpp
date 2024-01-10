@@ -9,6 +9,7 @@
 
 #include "frmtvwallwidget.h"
 #include "frmdevicetree.h"
+#include "frmwallsetdialog.h"
 
 struct Camera {
     int id;
@@ -40,24 +41,28 @@ void frmTVWall::initForm()
     btnReresh->setText(QString::fromLocal8Bit("刷新"));
     btnReresh->setFixedWidth(70);
     topLayout->addWidget(btnReresh);
+    connect(btnReresh, &QPushButton::clicked, this, &frmTVWall::on_btnRereshClicked);
 
     btnCreateWall = new QPushButton(widgetTop);
     btnCreateWall->setObjectName(QString::fromUtf8("btnCreateWall"));
     btnCreateWall->setText(QString::fromLocal8Bit("创建幕墙"));
     btnCreateWall->setFixedWidth(70);
     topLayout->addWidget(btnCreateWall);
+    connect(btnCreateWall, &QPushButton::clicked, this, &frmTVWall::on_btnCreateWallClicked);
 
     btnCallAll = new QPushButton(widgetTop);
     btnCallAll->setObjectName(QString::fromUtf8("btnCreateWall"));
     btnCallAll->setText(QString::fromLocal8Bit("全部调入"));
     btnCallAll->setFixedWidth(70);
     topLayout->addWidget(btnCallAll);
+    connect(btnCallAll, &QPushButton::clicked, this, &frmTVWall::on_btnCallAllClicked);
 
     btnConnect = new QPushButton(widgetTop);
     btnConnect->setObjectName(QString::fromUtf8("btnCreateWall"));
     btnConnect->setText(QString::fromLocal8Bit("连接"));
     btnConnect->setFixedWidth(70);
     topLayout->addWidget(btnConnect);
+    connect(btnConnect, &QPushButton::clicked, this, &frmTVWall::on_btnConnectClicked);
     topLayout->addStretch();
 
     QWidget* pGroup1 = new QWidget;
@@ -72,11 +77,11 @@ void frmTVWall::initForm()
     pTab->setFixedWidth(180);
     pTab->addTab(pGroup1, "ipc");
     pTab->addTab(pGroup2, "telephone");
-    frmTVWallWidget* tvWallWidget = new frmTVWallWidget(this);
+    m_tvWallWidget = new frmTVWallWidget(this);
 
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->addWidget(pTab);
-    hLayout->addWidget(tvWallWidget);
+    hLayout->addWidget(m_tvWallWidget);
 
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(2);
@@ -85,3 +90,24 @@ void frmTVWall::initForm()
     mainLayout->addSpacing(2);
     mainLayout->addLayout(hLayout);
 }
+
+void frmTVWall::on_btnRereshClicked()
+{}
+
+void frmTVWall::on_btnCreateWallClicked()
+{
+    frmWallSetDialog dialog;
+    if (dialog.exec() == QDialog::Accepted)
+    {
+        auto userData = dialog.userData();
+        int row = userData["rows"].toInt();
+        int col = userData["cols"].toInt();
+        m_tvWallWidget->createTVWall(row, col);
+    }
+}
+
+void frmTVWall::on_btnCallAllClicked()
+{}
+
+void frmTVWall::on_btnConnectClicked()
+{}

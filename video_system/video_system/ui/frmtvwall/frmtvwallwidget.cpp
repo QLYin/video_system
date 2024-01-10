@@ -40,7 +40,7 @@ void frmTVWallWidget::mouseMoveEvent(QMouseEvent* event)
 			{
 				selectedWidgets.append(widget);
 			}
-			widget->setStyleSheet("background-color: yellow;");
+			widget->setStyleSheet("background-color: rgb(71, 140, 182);");
 		}
 	}
 	update();
@@ -57,8 +57,7 @@ void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 
 void frmTVWallWidget::restorScreens(frmScreen* item)
 {
-	QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout());
-	if (!gridLayout) return;
+	if (!m_gridLayout) return;
 
 	if (item) {
 		int currentIndex = item->index();
@@ -72,7 +71,7 @@ void frmTVWallWidget::restorScreens(frmScreen* item)
 				screenItem->setIndex(cordItem.x * m_cols + cordItem.y);
 				screenItem->appendScreenCoordinate(cordItem.x, cordItem.y);
 
-				gridLayout->addWidget(screenItem, cordItem.x, cordItem.y);
+				m_gridLayout->addWidget(screenItem, cordItem.x, cordItem.y);
 				childWidgets.append(screenItem);
 			}
 		}
@@ -85,13 +84,34 @@ void frmTVWallWidget::createTVWall(int row, int col)
 {
 	m_rows = row;
 	m_cols = col;
-	QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout());
-	if (!gridLayout)
-	{
-		gridLayout = new QGridLayout(this);
-		gridLayout->setSpacing(5);
-		setLayout(gridLayout);
+	
+	if (!m_gridLayout) {
+		m_gridLayout = new QGridLayout(this);
+		setLayout(m_gridLayout);
+		m_gridLayout->setSpacing(5);
 	}
+	else
+	{
+		/*QLayoutItem* child;
+		while ((child = m_gridLayout->takeAt(0)) != 0) {
+			if (child->widget()) {
+				child->widget()->setParent(NULL);
+				m_gridLayout->removeWidget(child->widget());
+				delete child;
+			}
+		}*/
+		if (childWidgets.size() > 0)
+		{
+			for (auto& widget : childWidgets)
+			{
+				widget->setParent(NULL);
+				delete widget;
+			}
+			childWidgets.clear();
+		}
+		
+	}
+		
 	for (int i = 0; i < m_rows; ++i) 
 	{
 		for (int j = 0; j < m_cols; ++j)
@@ -99,7 +119,7 @@ void frmTVWallWidget::createTVWall(int row, int col)
 			frmScreen* childWidget = new frmScreen(this);
 			childWidget->setIndex(i * m_cols + j);
 			childWidget->appendScreenCoordinate(i, j);
-			gridLayout->addWidget(childWidget, i , j);
+			m_gridLayout->addWidget(childWidget, i , j);
 			childWidgets.append(childWidget);
 		}
 	}
@@ -135,7 +155,7 @@ void frmTVWallWidget::showMergeDialog()
 	{
 		for (auto& widget : selectedWidgets)
 		{
-			widget->setStyleSheet("background-color: lightGray; border: 1px, soild, gray;");
+			widget->setStyleSheet(" background-color: rgb(68, 73, 79);");
 		}
 	}
 }
@@ -143,8 +163,7 @@ void frmTVWallWidget::showMergeDialog()
 
 void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 {
-	QGridLayout* gridLayout = qobject_cast<QGridLayout*>(layout());
-	if (!gridLayout) return;
+	if (!m_gridLayout) return;
 
 	QRect boundingRect = widgets.first()->geometry();
 	auto firstScreen = qobject_cast<frmScreen*>(widgets.at(0));
@@ -186,6 +205,6 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 
 	int rowSpan = -1, colSpan = -1;
 	calculateSpan(cords, rowSpan, colSpan);
-	gridLayout->addWidget(mergeScreen, mergeScreen->coordinate().x, mergeScreen->coordinate().y, rowSpan, colSpan);
+	m_gridLayout->addWidget(mergeScreen, mergeScreen->coordinate().x, mergeScreen->coordinate().y, rowSpan, colSpan);
 	childWidgets.append(mergeScreen);
 }
