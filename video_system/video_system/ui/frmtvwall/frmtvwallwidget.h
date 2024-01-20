@@ -14,6 +14,7 @@ class frmTVWallWidget : public QWidget
 public:
 	frmTVWallWidget(QWidget* parent = nullptr);
 	void createTVWall(int row = 3, int col = 3);
+	void updateIndex(int firstX, int firstY, int index);
 
 protected:
 	void mousePressEvent(QMouseEvent* event) override;

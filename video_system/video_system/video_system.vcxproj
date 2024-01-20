@@ -322,6 +322,7 @@
     <ClCompile Include="ui\frmrobot\frmrobotemulate.cpp" />
     <ClCompile Include="ui\frmrobot\frmrobotlog.cpp" />
     <ClCompile Include="ui\frmmain\frmtimecpu.cpp" />
+    <ClCompile Include="ui\frmtvwall\frmcell.cpp" />
     <ClCompile Include="ui\frmtvwall\frmscreen.cpp" />
     <ClCompile Include="ui\frmtvwall\frmtvwall.cpp" />
     <ClCompile Include="ui\frmtvwall\frmtvwallwidget.cpp" />
@@ -412,6 +413,7 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ui\frmtvwall\frmcell.h" />
     <QtMoc Include="ui\frmtvwall\frmwallsetdialog.h" />
     <QtMoc Include="ui\frmtvwall\frmtvwallwidget.h" />
     <QtMoc Include="ui\frmtvwall\frmtvwall.h" />

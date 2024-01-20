@@ -55,28 +55,40 @@ void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 }
 
 
-void frmTVWallWidget::restorScreens(frmScreen* item)
+void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 {
 	if (!m_gridLayout) return;
 
-	if (item) {
-		int currentIndex = item->index();
-		childWidgets.removeOne(item);
-		QVector<Coordinate> cords = item->originalScreens();
-		if (cords.size() > 0)
+	if (mergeScreen) {
+		int firstX = mergeScreen->screenInfo().x;
+		int firstY = mergeScreen->screenInfo().y;
+		int currentIndex = mergeScreen->index();
+		childWidgets.removeOne(mergeScreen);
+		QVector<ScreenInfo> infos = mergeScreen->childScreenInfos();
+		bool needUpdate = false;
+		if (infos.size() > 0)
 		{
-			for (auto& cordItem : cords) 
+			for (auto& info : infos)
 			{
 				auto screenItem = new frmScreen(this);
-				screenItem->setIndex(cordItem.x * m_cols + cordItem.y);
-				screenItem->appendScreenCoordinate(cordItem.x, cordItem.y);
+				screenItem->setIndex(info.x * m_cols + info.y);
+				screenItem->appendScreenInfo(info.x, info.y, info.row, info.col);
+				if (info.row > 1 || info.col > 1)
+				{
+					screenItem->cutScreen(info.row, info.col, false);
+					needUpdate = true;
+				}
 
-				m_gridLayout->addWidget(screenItem, cordItem.x, cordItem.y);
+				m_gridLayout->addWidget(screenItem, info.x, info.y, 1, 1);
 				childWidgets.append(screenItem);
 			}
 		}
+		mergeScreen->deleteLater();
+		if (needUpdate)
+		{
+			updateIndex(firstX, firstY, currentIndex);
+		}
 	}
-	item->deleteLater();
 }
 
 
@@ -117,8 +129,9 @@ void frmTVWallWidget::createTVWall(int row, int col)
 		for (int j = 0; j < m_cols; ++j)
 		{
 			frmScreen* childWidget = new frmScreen(this);
+			connect(childWidget, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
 			childWidget->setIndex(i * m_cols + j);
-			childWidget->appendScreenCoordinate(i, j);
+			childWidget->appendScreenInfo(i, j, -1, -1);
 			m_gridLayout->addWidget(childWidget, i , j);
 			childWidgets.append(childWidget);
 		}
@@ -170,17 +183,17 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 	int index = firstScreen->index();
 	int w = firstScreen->width();
 	int h = firstScreen->height();
-	QVector<Coordinate> cords;
+	QVector<ScreenInfo> infos;
 
 	for (QWidget* wdiget : widgets) {
 		auto screenItem = qobject_cast<frmScreen*>(wdiget);
-		cords.push_back(screenItem->coordinate());
+		infos.push_back(screenItem->screenInfo());
 		boundingRect = boundingRect.united(screenItem->geometry());
 		childWidgets.removeOne(screenItem);
 		screenItem->deleteLater();
 	}
 
-	auto calculateSpan = [](QVector<Coordinate> cords, int& rowSpan, int& colSpan)
+	auto calculateSpan = [](QVector<ScreenInfo> cords, int& rowSpan, int& colSpan)
 	{
 		QVector<int> rows, cols;
 		for (auto& item : cords) {
@@ -200,11 +213,50 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 
 	auto mergeScreen = new frmScreen(this);
 	mergeScreen->setIndex(index);
-	mergeScreen->setOriginalScreens(cords);
-	connect(mergeScreen, &frmScreen::restore, this, &frmTVWallWidget::restorScreens);
+	mergeScreen->setChildScreenInfos(infos);
+	connect(mergeScreen, &frmScreen::screenMergeRestore, this, &frmTVWallWidget::restorScreens);
+	connect(mergeScreen, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
 
 	int rowSpan = -1, colSpan = -1;
-	calculateSpan(cords, rowSpan, colSpan);
-	m_gridLayout->addWidget(mergeScreen, mergeScreen->coordinate().x, mergeScreen->coordinate().y, rowSpan, colSpan);
+	calculateSpan(infos, rowSpan, colSpan);
+	m_gridLayout->addWidget(mergeScreen, mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, rowSpan, colSpan);
 	childWidgets.append(mergeScreen);
+}
+
+void frmTVWallWidget::updateIndex(int firstX, int firstY, int index)
+{
+	if (firstX < 0 || firstY < 0 || index < 0)
+	{
+		return;
+	}
+	if (!m_gridLayout) return;
+
+	QSet<frmScreen*> screenList;
+	int currentIndex = index;
+	for (int i = firstX; i < m_rows; ++i)
+	{
+		for (int j = 0; j < m_cols; ++j)
+		{
+			if (i == firstX && j < firstY)
+			{
+				continue;
+			}
+			QLayoutItem* child = m_gridLayout->itemAtPosition(i, j);
+			if (!child) 
+			{
+				return;
+			}
+			auto screen = qobject_cast<frmScreen*>(child->widget());
+			if (screenList.contains(screen))
+			{ 
+				currentIndex += 1;
+			}
+			else 
+			{
+				currentIndex = screen->updateIndex(currentIndex);
+				screenList.insert(screen);
+			}
+
+		}
+	}
 }

@@ -728,6 +728,9 @@
     <ClCompile Include="ui\frmtvwall\frmwallsetdialog.cpp">
       <Filter>Source Files\main\ui\frmtvwall</Filter>
     </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmcell.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\core_videobase\abstractsavethread.h">
@@ -1397,6 +1400,9 @@
       <Filter>Source Files\main\class\deviceconnect</Filter>
     </QtMoc>
     <QtMoc Include="ui\frmtvwall\frmwallsetdialog.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmcell.h">
       <Filter>Source Files\main\ui\frmtvwall</Filter>
     </QtMoc>
   </ItemGroup>

@@ -5,10 +5,13 @@
 #include <QVector>
 #include <QDragEnterEvent>
 #include <QDropEvent>
+#include <QGridLayout>
 
-struct Coordinate {
+struct ScreenInfo {
 	int x;
 	int y;
+	int row;
+	int col;
 };
 
 class frmScreen : public QLabel
@@ -19,26 +22,30 @@ public:
 	frmScreen(QWidget* parent = nullptr);
 	~frmScreen();
 
-	void cutScreen(int row, int col);
-	void revert();
+	void cutScreen(int row, int col, bool needUpdate = true);
+	void revert(bool needUpdate = true);
 	
 	void setIndex(int index);
 	int index();
+	int updateIndex(int index);
 
-	Coordinate coordinate();
-	QVector<Coordinate> originalScreens();
+	ScreenInfo screenInfo();
+	QVector<ScreenInfo> childScreenInfos();
 
-	void setOriginalScreens(QVector<Coordinate> coords);
-	void appendScreenCoordinate(int x, int y);
+	void setChildScreenInfos(QVector<ScreenInfo> infos);
+	void appendScreenInfo(int x, int y, int row, int col);
+	bool hasCut();
+	int cutRow();
+	int cutCol();
 
 signals:
-	void restore(frmScreen* item);
+	void indexUpdate(int x, int y, int nextIndex);
+	void screenMergeRestore(frmScreen* item);
 
 private slots:
 	void showContextMenu(const QPoint& pos);
 
 protected:
-	void paintEvent(QPaintEvent* event);
 	void dragEnterEvent(QDragEnterEvent* event);
 	void dropEvent(QDropEvent* event);
 
@@ -46,8 +53,9 @@ private:
 	int m_cutRow = -1;
 	int m_cutCol = -1;
 	int m_index = -1;
-	QVector<Coordinate> m_originalScreens;
-
+	QVector<ScreenInfo> m_ChildScreens;
+	QGridLayout* m_gridLayout = nullptr;
+	QLabel* m_topLabel = nullptr;
 };
 
 #endif
