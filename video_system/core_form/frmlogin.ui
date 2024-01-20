@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>363</width>
-    <height>214</height>
+    <width>397</width>
+    <height>226</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -169,60 +169,7 @@ border-radius:0px;
          <bool>true</bool>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <item row="0" column="0">
-          <widget class="QLabel" name="labUserName">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>用户姓名</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QPushButton" name="btnLogin">
-           <property name="minimumSize">
-            <size>
-             <width>80</width>
-             <height>0</height>
-            </size>
-           </property>
-           <property name="text">
-            <string>登 录</string>
-           </property>
-           <property name="icon">
-            <iconset>
-             <normaloff>:/image/btn_ok.png</normaloff>:/image/btn_ok.png</iconset>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="labUserPwd">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-           <property name="text">
-            <string>用户密码</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1" colspan="2">
-          <widget class="XLineEdit" name="txtUserPwd">
-           <property name="text">
-            <string/>
-           </property>
-           <property name="echoMode">
-            <enum>QLineEdit::Password</enum>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3">
+         <item row="2" column="3">
           <widget class="QPushButton" name="btnClose">
            <property name="minimumSize">
             <size>
@@ -242,21 +189,44 @@ border-radius:0px;
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
+         <item row="2" column="1" colspan="2">
+          <widget class="XLineEdit" name="txtUserPwd">
+           <property name="text">
+            <string/>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Password</enum>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
           <widget class="QCheckBox" name="ckAutoPwd">
            <property name="text">
             <string>记住密码</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="2">
+         <item row="2" column="0">
+          <widget class="QLabel" name="labUserPwd">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>用户密码</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="2">
           <widget class="QCheckBox" name="ckAutoLogin">
            <property name="text">
             <string>自动登录</string>
            </property>
           </widget>
          </item>
-         <item row="0" column="1" colspan="2">
+         <item row="1" column="1" colspan="2">
           <widget class="QComboBox" name="cboxUserName">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -265,6 +235,46 @@ border-radius:0px;
             </sizepolicy>
            </property>
           </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="labUserName">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Fixed" vsizetype="Preferred">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+           <property name="text">
+            <string>用户姓名</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QPushButton" name="btnLogin">
+           <property name="minimumSize">
+            <size>
+             <width>80</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>登 录</string>
+           </property>
+           <property name="icon">
+            <iconset>
+             <normaloff>:/image/btn_ok.png</normaloff>:/image/btn_ok.png</iconset>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="labelIP">
+           <property name="text">
+            <string>设备地址</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="QLineEdit" name="lineEditIP"/>
          </item>
         </layout>
        </widget>

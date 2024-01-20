@@ -49,6 +49,8 @@ void frmLogin::initTitle()
 
 void frmLogin::initForm()
 {
+    //初始化IP
+    ui->lineEditIP->setText(AppConfig::DeviceIP);
     //将对应用户的密码和类型存入链表,在用户登录时对比,比从数据库中查询速度要快.
     ui->cboxUserName->addItems(UserHelper::UserInfo_UserName);
     //设置最后登录的用户
@@ -102,6 +104,7 @@ void frmLogin::on_btnLogin_clicked()
         AppConfig::AutoPwd = ui->ckAutoPwd->isChecked();
         AppConfig::AutoLogin = ui->ckAutoLogin->isChecked();
         AppConfig::LastLoginer = UserHelper::CurrentUserName;
+        AppConfig::DeviceIP = ui->lineEditIP->text().trimmed();
         AppConfig::writeConfig();
 
         //如果是密码A则为超级管理员默认所有权限都有

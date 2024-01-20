@@ -255,11 +255,14 @@ public:
     static QString VideoChangeUrl2; //视频切换地址2
     static QString VideoDrawUrl;    //标签图形地址
     static QString VideoOsdUrl;     //水印文字地址
+    static QString DeviceIP;
 
     //读写软件配置文件
     static void readConfig();       //读取配置文件,在main函数最开始加载程序载入
     static void checkConfig();      //检验配置参数,比如限定最小值最大值重新校正配置参数等
     static void writeConfig();      //写入配置文件,在更改配置文件程序关闭时调用
+    static QVariant getValue();    //对单个配置写
+    static void setValue();
 
     //读写布局配置文件
     static QByteArray readLayout(const QString &file);

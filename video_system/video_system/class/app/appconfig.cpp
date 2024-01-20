@@ -46,6 +46,7 @@ QString AppConfig::LastFormVideo = "btnVideoPlayLocal";
 QString AppConfig::LastFormMap = "btnMapWeb";
 QString AppConfig::LastFormData = "btnDataUser";
 QString AppConfig::LastFormConfig = "btnConfigSystem";
+QString AppConfig::DeviceIP = "113.118.203.234";
 
 bool AppConfig::FullScreen = false;
 bool AppConfig::VisibleIpcSearch = true;
@@ -286,6 +287,7 @@ void AppConfig::readConfig()
     LastFormMap = set.value("LastFormMap", LastFormMap).toString();
     LastFormData = set.value("LastFormData", LastFormData).toString();
     LastFormConfig = set.value("LastFormConfig", LastFormConfig).toString();
+    DeviceIP = set.value("DeviceIP", DeviceIP).toString();
     set.endGroup();
 
     set.beginGroup("VisibleConfig");
@@ -605,6 +607,7 @@ void AppConfig::writeConfig()
     set.setValue("LastFormMap", LastFormMap);
     set.setValue("LastFormData", LastFormData);
     set.setValue("LastFormConfig", LastFormConfig);
+    set.setValue("DeviceIP", DeviceIP);
     set.endGroup();
 
     set.beginGroup("VisibleConfig");
