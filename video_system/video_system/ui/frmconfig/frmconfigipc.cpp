@@ -76,7 +76,7 @@ void frmConfigIpc::initData()
 
     //初始化列名和列宽
     columnNames << "编号" << "名称" << "录像机" << "厂家" << "设备地址" << "配置文件" << "视频文件" << "主码流地址" << "子码流地址"
-                << "经纬度" << "地图" << "X坐标" << "Y坐标" << "用户姓名" << "用户密码" << "启用" << "备注";
+                << "主码流分辨率" << "子码流分辨率" << "X坐标" << "Y坐标" << "用户姓名" << "用户密码" << "启用" << "备注";
     columnWidths << 40 << 90 << 90 << 80 << 250 << 100 << 100 << 130 << 130
                  << 150 << 90 << 45 << 45 << 80 << 80 << 40 << 60;
 
@@ -116,11 +116,17 @@ void frmConfigIpc::initData()
     d_cbox_ipcType->setDelegateValue(AppData::IpcTypes);
     //ui->tableView->setItemDelegateForColumn(3, d_cbox_ipcType);
 
-    //背景地图委托
-    d_cbox_ipcImage = new DbDelegate(this);
-    d_cbox_ipcImage->setDelegateType("QComboBox");
-    ui->tableView->setItemDelegateForColumn(10, d_cbox_ipcImage);
-    ipcImageChanged();
+    // 主码流分辨率委托
+    d_cbox_mainResolution = new DbDelegate(this);
+    d_cbox_mainResolution->setDelegateType("QComboBox");
+    ui->tableView->setItemDelegateForColumn(9, d_cbox_mainResolution);
+    mainResolutionChanged();
+
+    // 子码流分辨率委托
+    d_cbox_subResolution = new DbDelegate(this);
+    d_cbox_subResolution->setDelegateType("QComboBox");
+    ui->tableView->setItemDelegateForColumn(10, d_cbox_subResolution);
+    subResolutionChanged();
 
     //用户密码委托
     DbDelegate *d_txt_userPwd = new DbDelegate(this);
@@ -149,11 +155,18 @@ void frmConfigIpc::nvrNameChanged()
     d_cbox_nvrName->setDelegateValue(nvrNames);
 }
 
-void frmConfigIpc::ipcImageChanged()
+void frmConfigIpc::mainResolutionChanged()
 {
-    QStringList mapNames;
-    mapNames << " -- 无 -- " << AppData::MapNames;
-    d_cbox_ipcImage->setDelegateValue(mapNames);
+    QStringList resolutions;
+    resolutions << "1200W" << "800W" << "600W" << "500W" << "400W" << "300W" << "1080P" << "960P" << "720P" << "D1" << "CIF";
+    d_cbox_mainResolution->setDelegateValue(resolutions);
+}
+
+void frmConfigIpc::subResolutionChanged()
+{
+    QStringList resolutions;
+    resolutions << "自动"  << "D1" << "CIF";
+    d_cbox_subResolution->setDelegateValue(resolutions);
 }
 
 void frmConfigIpc::addDevice(const QStringList &deviceInfo)
@@ -173,8 +186,8 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     QString videoSource = model->index(row, 6).data().toString();
     QString rtspMain = model->index(row, 7).data().toString();
     QString rtspSub = model->index(row, 8).data().toString();
-    QString ipcPosition = model->index(row, 9).data().toString();
-    QString ipcImage = model->index(row, 10).data().toString();
+    QString mainResolution = model->index(row, 9).data().toString();
+    QString subResolution = model->index(row, 10).data().toString();
     int ipcX = model->index(row, 11).data().toInt();
     int ipcY = model->index(row, 12).data().toInt();
     QString userName = model->index(row, 13).data().toString();
@@ -218,10 +231,12 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         rtspSub = "rtsp://192.168.1.128:554/1";
 
         //默认值取中心点
-        ipcPosition = AppConfig::MapCenter;
-        ipcPosition.replace(",", "|");
+        //ipcPosition = AppConfig::MapCenter;
+        //ipcPosition.replace(",", "|");
+        mainResolution = "1080P";
+        subResolution = "D1";
 
-        ipcImage = AppData::MapNames.count() > 0 ? AppData::MapNames.first() : " -- 无 -- ";
+        //ipcImage = AppData::MapNames.count() > 0 ? AppData::MapNames.first() : " -- 无 -- ";
         ipcX = 5;
         ipcY = 5;
         userName = "admin";
@@ -291,8 +306,8 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     model->setData(model->index(count, 6), videoSource);
     model->setData(model->index(count, 7), rtspMain);
     model->setData(model->index(count, 8), rtspSub);
-    model->setData(model->index(count, 9), ipcPosition);
-    model->setData(model->index(count, 10), ipcImage);
+    model->setData(model->index(count, 9), mainResolution);
+    model->setData(model->index(count, 10), subResolution);
     model->setData(model->index(count, 11), ipcX);
     model->setData(model->index(count, 12), ipcY);
     model->setData(model->index(count, 13), userName);

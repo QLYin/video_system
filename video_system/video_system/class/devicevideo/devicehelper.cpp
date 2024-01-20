@@ -390,10 +390,10 @@ void DeviceHelper::initDeviceMapCurrent(QLabel *label, const QString &imgName)
     label->setPixmap(DeviceMap::Instance()->getMapPix(imgName));
 
     //当前图片对应的设备按钮可见
-    QList<DeviceButton *> btns = label->findChildren<DeviceButton *>();
-    foreach (DeviceButton *btn, btns) {
-        btn->setVisible(btn->property("ipcImage").toString() == imgName);
-    }
+    //QList<DeviceButton *> btns = label->findChildren<DeviceButton *>();
+    //foreach (DeviceButton *btn, btns) {
+    //    btn->setVisible(btn->property("ipcImage").toString() == imgName);
+    //}
 }
 
 void DeviceHelper::initDeviceButton()
@@ -413,9 +413,9 @@ void DeviceHelper::initDeviceButton(QLabel *label)
 
     for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
         //地图为空的不需要
-        if (DbData::IpcInfo_IpcImage.at(i).contains("无")) {
+       /* if (DbData::IpcInfo_SubResolutionRatio.at(i).contains("无")) {
             continue;
-        }
+        }*/
 
         DeviceButton *btn = new DeviceButton(label);
         QObject::connect(btn, SIGNAL(doubleClicked()), AppEvent::Instance(), SLOT(slot_doubleClicked()));
@@ -434,7 +434,7 @@ void DeviceHelper::initDeviceButton(QLabel *label)
         btn->setProperty("ipcID", DbData::IpcInfo_IpcID.at(i));
         btn->setProperty("rtspMain", DbData::IpcInfo_RtspMain.at(i));
         btn->setProperty("rtspSub", DbData::IpcInfo_RtspSub.at(i));
-        btn->setProperty("ipcImage", DbData::IpcInfo_IpcImage.at(i));
+        //btn->setProperty("ipcImage", DbData::IpcInfo_SubResolutionRatio.at(i));
 
         //设置位置
         int x = DbData::IpcInfo_IpcX.at(i);
@@ -590,10 +590,10 @@ void DeviceHelper::getDeviceInfo(QStringList &names, QStringList &addrs, QString
     //从数据库加载
     names = DbData::IpcInfo_IpcName;
     //纠正经纬度坐标,在数据库中 可能是 | 分隔符,方便导出数据
-    foreach (QString ipcPosition, DbData::IpcInfo_IpcPosition) {
+   /* foreach (QString ipcPosition, DbData::IpcInfo_MainResolutionRatio) {
         addrs << "摄像机默认位置";
         points << ipcPosition.replace("|", ",");
-    }
+    }*/
 #endif
 }
 

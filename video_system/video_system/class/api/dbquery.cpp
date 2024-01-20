@@ -149,8 +149,8 @@ void DbQuery::loadIpcInfo()
     DbData::IpcInfo_VideoSource.clear();
     DbData::IpcInfo_RtspMain.clear();
     DbData::IpcInfo_RtspSub.clear();
-    DbData::IpcInfo_IpcPosition.clear();
-    DbData::IpcInfo_IpcImage.clear();
+    DbData::IpcInfo_MainResolutionRatio.clear();
+    DbData::IpcInfo_SubResolutionRatio.clear();
     DbData::IpcInfo_IpcX.clear();
     DbData::IpcInfo_IpcY.clear();
     DbData::IpcInfo_UserName.clear();
@@ -160,7 +160,7 @@ void DbQuery::loadIpcInfo()
 
     QString column1 = "IpcID,IpcName,NvrName,IpcType";
     QString column2 = "OnvifAddr,ProfileToken,VideoSource,RtspMain,RtspSub";
-    QString column3 = "IpcPosition,IpcImage,IpcX,IpcY,UserName,UserPwd,IpcEnable";
+    QString column3 = "MainResolutionRatio,SubResolutionRatio,IpcX,IpcY,UserName,UserPwd,IpcEnable";
     QString sql = QString("select %1,%2,%3 from IpcInfo order by IpcID asc").arg(column1).arg(column2).arg(column3);
     QSqlQuery query;
     if (!query.exec(sql)) {
@@ -178,8 +178,8 @@ void DbQuery::loadIpcInfo()
         QString videoSource = query.value(6).toString();
         QString rtspMain = query.value(7).toString();
         QString rtspSub = query.value(8).toString();
-        QString ipcPosition = query.value(9).toString();
-        QString ipcImage = query.value(10).toString();
+        QString mainResolution = query.value(9).toString();
+        QString subResolution = query.value(10).toString();
         int ipcX = query.value(11).toInt();
         int ipcY = query.value(12).toInt();
         QString userName = query.value(13).toString();
@@ -190,9 +190,9 @@ void DbQuery::loadIpcInfo()
         }
 
         //如果经纬度坐标为空则默认一个
-        if (ipcPosition.isEmpty()) {
+      /*  if (ipcPosition.isEmpty()) {
             ipcPosition = AppConfig::MapCenter;
-        }
+        }*/
 
         DbData::IpcInfo_Count++;
         DbData::IpcInfo_IpcID << ipcID;
@@ -204,8 +204,8 @@ void DbQuery::loadIpcInfo()
         DbData::IpcInfo_VideoSource << videoSource;
         DbData::IpcInfo_RtspMain << rtspMain;
         DbData::IpcInfo_RtspSub << rtspSub;
-        DbData::IpcInfo_IpcPosition << ipcPosition;
-        DbData::IpcInfo_IpcImage << ipcImage;
+        DbData::IpcInfo_MainResolutionRatio << mainResolution;
+        DbData::IpcInfo_SubResolutionRatio << subResolution;
         DbData::IpcInfo_IpcX << ipcX;
         DbData::IpcInfo_IpcY << ipcY;
         DbData::IpcInfo_UserName << userName;
@@ -215,20 +215,20 @@ void DbQuery::loadIpcInfo()
     }
 
     //取第一个有背景地图的设备的图片作为默认图片
-    if (DbData::IpcInfo_Count > 0) {
+  /*  if (DbData::IpcInfo_Count > 0) {
         for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
-            QString imageName = DbData::IpcInfo_IpcImage.at(i);
+            QString imageName = DbData::IpcInfo_SubResolutionRatio.at(i);
             if (!imageName.contains("无")) {
                 AppData::CurrentImage = imageName;
                 break;
             }
         }
-    }
+    }*/
 
     //可能默认图片不存在则取图片列表中的第一张
-    if (AppData::MapNames.count() > 0 && !AppData::MapNames.contains(AppData::CurrentImage)) {
+   /* if (AppData::MapNames.count() > 0 && !AppData::MapNames.contains(AppData::CurrentImage)) {
         AppData::CurrentImage = AppData::MapNames.at(0);
-    }    
+    }    */
 }
 
 void DbQuery::clearIpcInfo()
@@ -251,23 +251,23 @@ void DbQuery::deleteIpcInfos(const QString &ids)
 
 void DbQuery::getIpcInfo(int ipcID, QString &ipcPosition)
 {
-    for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
+   /* for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
         if (DbData::IpcInfo_IpcID.at(i) == ipcID) {
-            ipcPosition = DbData::IpcInfo_IpcPosition.at(i);
+            ipcPosition = DbData::IpcInfo_MainResolutionRatio.at(i);
             break;
         }
-    }
+    }*/
 }
 
 void DbQuery::getIpcInfo(const QString &rtsp, QString &ipcPosition)
 {
     //可能是主码流或者子码流
-    for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
+   /* for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
         if (DbData::IpcInfo_RtspMain.at(i) == rtsp || DbData::IpcInfo_RtspSub.at(i) == rtsp) {
-            ipcPosition = DbData::IpcInfo_IpcPosition.at(i);
+            ipcPosition = DbData::IpcInfo_MainResolutionRatio.at(i);
             break;
         }
-    }
+    }*/
 }
 
 int DbQuery::getIpcInfo(double lng, double lat)
@@ -277,7 +277,7 @@ int DbQuery::getIpcInfo(double lng, double lat)
     double max = 40076 * 1000;
     //double max = std::numeric_limits<double>::max();
     for (int i = 0; i < DbData::IpcInfo_Count; ++i) {
-        QString ipcPosition = DbData::IpcInfo_IpcPosition.at(i);
+        QString ipcPosition = DbData::IpcInfo_MainResolutionRatio.at(i);
         QStringList list = ipcPosition.split("|");
         double lng2 = list.at(0).toDouble();
         double lat2 = list.at(1).toDouble();

@@ -33,8 +33,8 @@ public:
     static QList<QString> IpcInfo_VideoSource;
     static QList<QString> IpcInfo_RtspMain;
     static QList<QString> IpcInfo_RtspSub;
-    static QList<QString> IpcInfo_IpcPosition;
-    static QList<QString> IpcInfo_IpcImage;
+    static QList<QString> IpcInfo_MainResolutionRatio;
+    static QList<QString> IpcInfo_SubResolutionRatio;
     static QList<int> IpcInfo_IpcX;
     static QList<int> IpcInfo_IpcY;
     static QList<QString> IpcInfo_UserName;

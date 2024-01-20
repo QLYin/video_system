@@ -2,7 +2,7 @@
 #include "qthelper.h"
 
 namespace {
-    QHostAddress kServerAddress(QString("113.118.202.36"));
+    QHostAddress kServerAddress(QString("113.118.203.185"));
     quint16 kServerPort = QString("61111").toUShort();
 };
 

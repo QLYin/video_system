@@ -31,7 +31,8 @@ private:
 
     //自定义委托集合
     DbDelegate *d_cbox_nvrName;
-    DbDelegate *d_cbox_ipcImage;
+    DbDelegate *d_cbox_mainResolution;
+    DbDelegate *d_cbox_subResolution;
 
 private slots:
     //初始化窗体数据
@@ -43,7 +44,8 @@ private slots:
 
     //录像机名称改变和摄像机图片改变后需要重新更新委托数据
     void nvrNameChanged();
-    void ipcImageChanged();
+    void mainResolutionChanged();
+    void subResolutionChanged();
 
     //添加单个设备和批量添加设备
     void addDevice(const QStringList &deviceInfo);

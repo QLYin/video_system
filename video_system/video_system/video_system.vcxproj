@@ -77,11 +77,11 @@
       <AdditionalOptions>-Zc:rvalueCast -Zc:inline -Zc:strictStrings -Zc:throwingNew -Zc:referenceBinding -Zc:__cplusplus %(AdditionalOptions)</AdditionalOptions>
       <AssemblerListingLocation>temp\obj\</AssemblerListingLocation>
       <BrowseInformation>false</BrowseInformation>
-      <DebugInformationFormat>None</DebugInformationFormat>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>Sync</ExceptionHandling>
       <ForcedIncludeFiles>head.h;%(ForcedIncludeFiles)</ForcedIncludeFiles>
       <ObjectFileName>temp\obj\</ObjectFileName>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>head.h</PrecompiledHeaderFile>
       <PrecompiledHeaderOutputFile>$(IntDir)\video_system.pch</PrecompiledHeaderOutputFile>
@@ -100,7 +100,7 @@
       <AdditionalLibraryDirectories>D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32;C:\opensslx86\lib;C:\Utils\my_sql\mysql-5.7.25-win32\lib;C:\Utils\postgresqlx86\pgsql\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>"/MANIFESTDEPENDENCY:type='win32' name='Microsoft.Windows.Common-Controls' version='6.0.0.0' publicKeyToken='6595b64144ccf1df' language='*' processorArchitecture='*'" %(AdditionalOptions)</AdditionalOptions>
       <DataExecutionPrevention>true</DataExecutionPrevention>
-      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreImportLibrary>true</IgnoreImportLibrary>
       <LinkIncremental>false</LinkIncremental>
       <OptimizeReferences>true</OptimizeReferences>
@@ -325,6 +325,7 @@
     <ClCompile Include="ui\frmtvwall\frmscreen.cpp" />
     <ClCompile Include="ui\frmtvwall\frmtvwall.cpp" />
     <ClCompile Include="ui\frmtvwall\frmtvwallwidget.cpp" />
+    <ClCompile Include="ui\frmtvwall\frmwallsetdialog.cpp" />
     <ClCompile Include="ui\frmvideo\frmvideo.cpp" />
     <ClCompile Include="ui\frmvideo\frmvideopanel.cpp" />
     <ClCompile Include="ui\frmvideo\frmvideopaneltool.cpp" />
@@ -411,6 +412,7 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ui\frmtvwall\frmwallsetdialog.h" />
     <QtMoc Include="ui\frmtvwall\frmtvwallwidget.h" />
     <QtMoc Include="ui\frmtvwall\frmtvwall.h" />
     <QtMoc Include="ui\frmtvwall\frmscreen.h" />

@@ -725,6 +725,9 @@
     <ClCompile Include="class\deviceconnect\tcpclienthelper.cpp">
       <Filter>Source Files\main\class\deviceconnect</Filter>
     </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmwallsetdialog.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\core_videobase\abstractsavethread.h">
@@ -1392,6 +1395,9 @@
     </QtMoc>
     <QtMoc Include="class\deviceconnect\tcpclient.h">
       <Filter>Source Files\main\class\deviceconnect</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmwallsetdialog.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
