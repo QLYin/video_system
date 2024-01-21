@@ -102,6 +102,9 @@
     <Filter Include="Source Files\main\class\deviceconnect">
       <UniqueIdentifier>{efe7d806-df75-495a-8d4e-c862036ceea0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\main\ui\frmconfig\frmconfigcard">
+      <UniqueIdentifier>{be09fd98-8c9d-4816-8aa8-3968a15439b4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\core_videobase\abstractsavethread.cpp">
@@ -730,6 +733,18 @@
     </ClCompile>
     <ClCompile Include="ui\frmtvwall\frmcell.cpp">
       <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmconfigcard.cpp">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmsearchcard.cpp">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmscreencharset.cpp">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmresolutionset.cpp">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1405,6 +1420,18 @@
     <QtMoc Include="ui\frmtvwall\frmcell.h">
       <Filter>Source Files\main\ui\frmtvwall</Filter>
     </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmconfigcard.h">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmsearchcard.h">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmscreencharset.h">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmresolutionset.h">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="head.h.cpp">
@@ -1650,6 +1677,18 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="..\core_qthelper\form\qttipbox.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmconfigcard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmsearchcard.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmscreencharset.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmresolutionset.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>

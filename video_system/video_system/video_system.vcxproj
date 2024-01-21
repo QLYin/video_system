@@ -266,6 +266,10 @@
     <ClCompile Include="..\core_common\framelesswidget2.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfig.cpp" />
     <ClCompile Include="..\core_form\frmconfigdb.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmconfigcard.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmresolutionset.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmscreencharset.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmsearchcard.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigipc.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigipcsearch.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfignvr.cpp" />
@@ -413,6 +417,10 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmresolutionset.h" />
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmscreencharset.h" />
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmsearchcard.h" />
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmconfigcard.h" />
     <QtMoc Include="ui\frmtvwall\frmcell.h" />
     <QtMoc Include="ui\frmtvwall\frmwallsetdialog.h" />
     <QtMoc Include="ui\frmtvwall\frmtvwallwidget.h" />
@@ -730,6 +738,10 @@ echo #include "head.h"&gt;&gt;head.h.cpp</Command>
   <ItemGroup>
     <QtUic Include="ui\frmconfig\frmconfig.ui" />
     <QtUic Include="..\core_form\frmconfigdb.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmconfigcard.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmresolutionset.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmscreencharset.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmsearchcard.ui" />
     <QtUic Include="ui\frmconfig\frmconfigipc.ui" />
     <QtUic Include="ui\frmconfig\frmconfigipcsearch.ui" />
     <QtUic Include="ui\frmconfig\frmconfignvr.ui" />
