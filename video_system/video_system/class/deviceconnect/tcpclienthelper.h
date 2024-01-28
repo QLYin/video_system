@@ -11,20 +11,23 @@
 class TcpClientHelper
 {
 public:
-   
+    // 解码卡
+    static void sendDevCmd(const QString& cmd, const QVariantMap& param);
+
+    // ipc
+    static void sendIPCCmd(const QString& cmd, const QVariantMap& param);
+
+    // 幕墙
+    static void sendWallCmd(const QString& cmd, const QVariantMap& param);
+
     // 解锁设备
-    // cmd : UnlockDevice
     static void sendUnlockDevice();
 
-    // 同步ipc信息1 幕墙4
-    // cmd : DataSync
+    // 数据同步
     static void sendDataSync(int type);
 
     // 同步场景信息
     static void sendSceneInfo();
-
-    // 设置幕墙
-    static void sendWallSet();
 
 };
 

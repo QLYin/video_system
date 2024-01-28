@@ -94,6 +94,7 @@
       <TreatWChar_tAsBuiltInType>true</TreatWChar_tAsBuiltInType>
       <WarningLevel>TurnOffAllWarnings</WarningLevel>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <LanguageStandard>stdcpp17</LanguageStandard>
     </ClCompile>
     <Link>
       <AdditionalDependencies>kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;opengl32.lib;GLU32.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\avformat.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\avfilter.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\avcodec.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\swresample.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\swscale.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\avutil.lib;D:\video_system\video_system\core_videoffmpeg\ffmpeg4\libwin32\avdevice.lib;mfuuid.lib;strmiids.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5WebKitWidgets.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5WebKit.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Multimedia.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5PrintSupport.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Widgets.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Gui.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Xml.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Sql.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Network.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\Qt5Core.lib;C:\Qt\Qt5.14.1\5.14.1\msvc2017\lib\qtmain.lib</AdditionalDependencies>
@@ -216,8 +217,10 @@
     <ClCompile Include="..\core_audio\audioplayer.cpp" />
     <ClCompile Include="..\core_audio\audiorecorder.cpp" />
     <ClCompile Include="..\core_videobase\bannerwidget.cpp" />
+    <ClCompile Include="class\deviceconnect\cmdhandlermgr.cpp" />
     <ClCompile Include="class\deviceconnect\tcpclient.cpp" />
     <ClCompile Include="class\deviceconnect\tcpclienthelper.cpp" />
+    <ClCompile Include="class\deviceconnect\tcpcmddef.cpp" />
     <ClCompile Include="class\usercontrol\barvolume.cpp" />
     <ClCompile Include="..\core_common\base64helper.cpp" />
     <ClCompile Include="..\core_control\bottomwidget.cpp" />
@@ -445,7 +448,9 @@
     <ClInclude Include="..\core_common\base64helper.h" />
     <QtMoc Include="..\core_control\bottomwidget.h" />
     <QtMoc Include="class\deviceconnect\tcpclient.h" />
+    <QtMoc Include="class\deviceconnect\cmdhandlermgr.h" />
     <ClInclude Include="class\deviceconnect\tcpclienthelper.h" />
+    <ClInclude Include="class\deviceconnect\tcpcmddef.h" />
     <ClInclude Include="class\usercontrol\cityhelper.h" />
     <QtMoc Include="..\core_control\colorcombobox.h" />
     <QtMoc Include="..\core_common\commonkey.h" />

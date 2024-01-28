@@ -746,6 +746,12 @@
     <ClCompile Include="ui\frmconfig\frmconfigcard\frmresolutionset.cpp">
       <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
     </ClCompile>
+    <ClCompile Include="class\deviceconnect\tcpcmddef.cpp">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
+    </ClCompile>
+    <ClCompile Include="class\deviceconnect\cmdhandlermgr.cpp">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\core_videobase\abstractsavethread.h">
@@ -1431,6 +1437,9 @@
     </QtMoc>
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmresolutionset.h">
       <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
+    <QtMoc Include="class\deviceconnect\cmdhandlermgr.h">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>
@@ -3445,6 +3454,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="class\deviceconnect\tcpclienthelper.h">
+      <Filter>Source Files\main\class\deviceconnect</Filter>
+    </ClInclude>
+    <ClInclude Include="class\deviceconnect\tcpcmddef.h">
       <Filter>Source Files\main\class\deviceconnect</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,8 +1,10 @@
 ﻿#include "tcpclient.h"
 #include "qthelper.h"
+#include "tcpcmddef.h"
+#include "cmdhandlermgr.h"
 
 namespace {
-    QHostAddress kServerAddress(AppConfig::DeviceIP);
+    QHostAddress kServerAddress("58.60.57.203");
     quint16 kServerPort = QString("61111").toUShort();
 };
 
@@ -32,6 +34,7 @@ void TcpClient::connectServer()
 {
     if (m_socket)
     {
+        qDebug() << __FUNCTION__ << " device ip: " <<kServerAddress;
         m_socket->connectToHost(kServerAddress, kServerPort);
     }
 }
@@ -82,21 +85,28 @@ void TcpClient::readData()
 
     for (auto& cmd : result)
     {
-        QStringList lines = cmd.split("\r\n");
-        QVariantMap data;
-        for (auto& line : lines)
+        if (!cmd.isEmpty())
         {
-            qDebug() << "[TcpClient]read line: " << line;
-            if (!line.isEmpty() && line.contains(":"))
+            CmdHandlerMgr::Instance()->handle(cmd);
+            QVariantMap data;
+            QStringList lines = cmd.split("\r\n");
+            if (!lines.isEmpty() && lines.at(0).contains("cmd :"))
             {
-                auto key = line.split(":").at(0).trimmed();
-                auto value = line.split(":").at(1).trimmed();
-                data.insert(key, value);
+                data["cmd"] = lines.at(0).split(":").at(1).trimmed();
+                QString cmdData;
+                auto firstIndex = cmd.indexOf("\r\n") + 2;
+                if (cmd.size() > firstIndex)
+                {
+                    cmdData = cmd.mid(firstIndex, cmd.length() - firstIndex);
+                }
+                data["cmdData"] = cmdData;
             }
-        }
-        if (!data.isEmpty())
-        {
-            emit socketData(data);
+
+            if (!data.isEmpty())
+            {
+                emit socketData(data);
+            }
+
         }
     }
 

@@ -51,7 +51,7 @@
         <item row="1" column="0" colspan="2">
          <widget class="QPushButton" name="btnRemove">
           <property name="text">
-           <string>移除 》》</string>
+           <string>移除 &gt;&gt;</string>
           </property>
          </widget>
         </item>
