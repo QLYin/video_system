@@ -2,14 +2,13 @@
 #define FRMCONFIGCARD_H
 
 #include <QWidget>
-#include "class/deviceconnect/cmdhandlermgr.h"
 #include "class/deviceconnect/tcpcmddef.h"
 
 namespace Ui {
 class frmConfigCard;
 }
 
-class frmConfigCard : public QWidget, public IHandler
+class frmConfigCard : public QWidget
 {
     Q_OBJECT
 
@@ -17,15 +16,18 @@ public:
     explicit frmConfigCard(QWidget *parent = 0);
     ~frmConfigCard();
 
-    void handle(const QVariantMap& data);
-    const QVector<DevInfo>& devListInfo();
+    void updateTableWidget(const QVector<DevInfo>& deviceInfo);
+
+signals:
+    void cardAppendsig(const QVector<DevInfo>& deviceInfo);
+    void cardRemoveSig(const QVector<int> devIds);
+    void cardUpdateSig(const QVector<DevInfo>& deviceInfo);
 
 protected:
     void showEvent(QShowEvent *);
 
 private:
     Ui::frmConfigCard*ui;
-    QVector<DevInfo> m_devList;
 
 private slots:
     //初始化窗体数据
@@ -34,9 +36,6 @@ private slots:
     void initIcon();
     //初始化数据
     void initData();
-
-    void updateTableWidget();
-private slots:
     void onBtnSearchClicked();
     void onBtnScreenCharClicked();
     void onBtnResolutionClicked();

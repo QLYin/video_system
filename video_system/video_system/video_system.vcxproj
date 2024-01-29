@@ -207,6 +207,7 @@
     <ClCompile Include="..\core_videobase\abstractvideosurface.cpp" />
     <ClCompile Include="..\core_videobase\abstractvideothread.cpp" />
     <ClCompile Include="..\core_videobase\abstractvideowidget.cpp" />
+    <ClCompile Include="class\appmisc\appmisc.cpp" />
     <ClCompile Include="class\app\appconfig.cpp" />
     <ClCompile Include="class\app\appdata.cpp" />
     <ClCompile Include="class\app\appevent.cpp" />
@@ -221,6 +222,8 @@
     <ClCompile Include="class\deviceconnect\tcpclient.cpp" />
     <ClCompile Include="class\deviceconnect\tcpclienthelper.cpp" />
     <ClCompile Include="class\deviceconnect\tcpcmddef.cpp" />
+    <ClCompile Include="class\devicemanager\devmanager.cpp" />
+    <ClCompile Include="class\devicemanager\ipcmanager.cpp" />
     <ClCompile Include="class\usercontrol\barvolume.cpp" />
     <ClCompile Include="..\core_common\base64helper.cpp" />
     <ClCompile Include="..\core_control\bottomwidget.cpp" />
@@ -433,6 +436,7 @@
     <QtMoc Include="..\core_videobase\abstractvideosurface.h" />
     <QtMoc Include="..\core_videobase\abstractvideothread.h" />
     <QtMoc Include="..\core_videobase\abstractvideowidget.h" />
+    <QtMoc Include="class\appmisc\appmisc.h" />
     <ClInclude Include="class\app\appconfig.h" />
     <ClInclude Include="class\app\appdata.h" />
     <QtMoc Include="class\app\appevent.h" />
@@ -451,6 +455,8 @@
     <QtMoc Include="class\deviceconnect\cmdhandlermgr.h" />
     <ClInclude Include="class\deviceconnect\tcpclienthelper.h" />
     <ClInclude Include="class\deviceconnect\tcpcmddef.h" />
+    <QtMoc Include="class\devicemanager\devmanager.h" />
+    <QtMoc Include="class\devicemanager\ipcmanager.h" />
     <ClInclude Include="class\usercontrol\cityhelper.h" />
     <QtMoc Include="..\core_control\colorcombobox.h" />
     <QtMoc Include="..\core_common\commonkey.h" />

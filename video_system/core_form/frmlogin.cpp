@@ -3,6 +3,8 @@
 #include "qthelper.h"
 #include "dbquery.h"
 #include "frmmain.h"
+#include "class/appmisc/appmisc.h"
+#include "../deviceconnect/tcpclienthelper.h"
 
 frmLogin::frmLogin(QWidget *parent) : QDialog(parent), ui(new Ui::frmLogin)
 {
@@ -16,6 +18,7 @@ frmLogin::frmLogin(QWidget *parent) : QDialog(parent), ui(new Ui::frmLogin)
 
 frmLogin::~frmLogin()
 {
+    TcpClient::Instance()->uninit();
     delete ui;
 }
 
@@ -117,7 +120,8 @@ void frmLogin::on_btnLogin_clicked()
 
         //隐藏当前界面弹出主界面
         this->hide();
-        frmMain *form = new frmMain;
+        this->initDeviceConnect();
+        frmMain *form = AppMisc::Instance()->mainWnd();
         form->show();
         form->activateWindow();
     } else {
@@ -139,4 +143,24 @@ void frmLogin::on_cboxUserName_activated(int)
 {
     ui->txtUserPwd->clear();
     ui->txtUserPwd->setFocus();
+}
+
+void frmLogin::initDeviceConnect()
+{
+    TcpClient::Instance()->init();
+    connect(TcpClient::Instance(), &TcpClient::socketConnected, this, []()
+        {
+            AppEvent::Instance()->slot_tcpConnected();
+            TcpClientHelper::sendUnlockDevice();
+            TcpClientHelper::sendDataSync(1);
+            TcpClientHelper::sendDataSync(4);
+            TcpClientHelper::sendSceneInfo();
+            //TcpClientHelper::sendWallSet();
+        });
+
+    connect(TcpClient::Instance(), &TcpClient::socketData, this, [](const QVariantMap data)
+        {
+            AppEvent::Instance()->slot_tcpSockectData(data);
+            qDebug() << ">>>>>>>>>> data: " << data;
+        });
 }

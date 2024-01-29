@@ -4,7 +4,6 @@
 #include "weather.h"
 #include "devicehelper.h"
 #include "framelesswidget2.h"
-#include "..\deviceconnect\tcpclienthelper.h"
 #ifdef Q_OS_WIN
 #include "windows.h"
 #endif
@@ -31,13 +30,12 @@ frmMain::frmMain(QWidget *parent) : QWidget(parent), ui(new Ui::frmMain)
     this->initLocation();
     this->initLogo();
     this->initTitleInfo();
-    this->initDeviceConnect();
+    //this->initDeviceConnect();
     this->configChanged(AppConfig::WeatherCity, AppConfig::WeatherInterval, AppConfig::WeatherStyle);
 }
 
 frmMain::~frmMain()
 {
-    TcpClient::Instance()->uninit();
     delete ui;
 }
 
@@ -344,26 +342,6 @@ void frmMain::initTitleInfo()
     ui->labTitleCn->setText(titleCn);
     ui->labTitleEn->setText(AppConfig::TitleEn);
     this->setWindowTitle(ui->labTitleCn->text());
-}
-
-void frmMain::initDeviceConnect()
-{
-    TcpClient::Instance()->init();
-    connect(TcpClient::Instance(), &TcpClient::socketConnected, this, []()
-        {
-            AppEvent::Instance()->slot_tcpConnected();
-            TcpClientHelper::sendUnlockDevice();
-            TcpClientHelper::sendDataSync(1);
-            TcpClientHelper::sendDataSync(4);
-            TcpClientHelper::sendSceneInfo();
-            //TcpClientHelper::sendWallSet();
-        });
-
-    connect(TcpClient::Instance(), &TcpClient::socketData, this, [](const QVariantMap data)
-        {
-            AppEvent::Instance()->slot_tcpSockectData(data);
-            qDebug() << ">>>>>>>>>> data: " << data;
-        });
 }
 
 void frmMain::fullScreen(bool full)

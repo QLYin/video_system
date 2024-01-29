@@ -1,6 +1,7 @@
 ﻿#include "frmdemo.h"
 #include "frmmain.h"
 #include "frmlogin.h"
+#include "class/appmisc/appmisc.h"
 
 #include "qthelper.h"
 #include "dbquery.h"
@@ -26,7 +27,7 @@ int main(int argc, char *argv[])
         w->setWindowTitle("监控系统组件示例 (QQ: 517216493  WX: feiyangqingyun)");
     } else {
         //开启了自动登录则直接启动主窗体/否则启动登录界面
-        AppConfig::AutoLogin ? (w = new frmMain) : (w = new frmLogin);
+        AppConfig::AutoLogin ? (w = AppMisc::Instance()->mainWnd()) : (w = AppMisc::Instance()->loginWnd());
     }
 
     w->show();

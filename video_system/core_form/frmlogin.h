@@ -32,6 +32,8 @@ private slots:
     //初始化按钮图标
     void initIcon();
 
+    void initDeviceConnect();
+
 private slots:
     void on_btnLogin_clicked();
     void on_cboxUserName_activated(int);

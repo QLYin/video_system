@@ -3,11 +3,6 @@
 #include "tcpcmddef.h"
 #include "cmdhandlermgr.h"
 
-namespace {
-    QHostAddress kServerAddress("58.60.57.203");
-    quint16 kServerPort = QString("61111").toUShort();
-};
-
 SINGLETON_IMPL(TcpClient)
 TcpClient::TcpClient(QObject *parent) : QObject(parent)
 {
@@ -32,6 +27,8 @@ bool TcpClient::init()
 
 void TcpClient::connectServer()
 {
+    QHostAddress kServerAddress(AppConfig::DeviceIP);
+    quint16 kServerPort = QString("61111").toUShort();
     if (m_socket)
     {
         qDebug() << __FUNCTION__ << " device ip: " <<kServerAddress;

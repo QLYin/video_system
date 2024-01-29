@@ -2,6 +2,7 @@
 #include "ui_frmconfig.h"
 #include "qthelper.h"
 #include "devicehelper.h"
+#include "class/devicemanager/devmanager.h"
 
 #include "frmconfigsystem.h"
 #include "frmconfigcard/frmconfigcard.h"
@@ -35,7 +36,8 @@ void frmConfig::initForm()
 void frmConfig::initWidget()
 {
     ui->stackedWidget->addWidget(new frmConfigSystem);
-    ui->stackedWidget->addWidget(new frmConfigCard);
+    frmConfigCard* configCard = new frmConfigCard;
+    ui->stackedWidget->addWidget(configCard);
 
     //录像机管理+摄像机管理 单独new出来是为了方便这里绑定信号槽
     frmConfigNvr *configNvr = new frmConfigNvr;
@@ -52,6 +54,7 @@ void frmConfig::initWidget()
     //关联样式改变信号自动重新设置图标
     connect(AppEvent::Instance(), SIGNAL(changeStyle()), this, SLOT(initIcon()));
     connect(configNvr, SIGNAL(nvrNameChanged()), configIpc, SLOT(nvrNameChanged()));
+    DevManager::Instance()->initConfigCard(configCard);
 }
 
 void frmConfig::initNav()
