@@ -111,6 +111,9 @@
     <Filter Include="Source Files\main\class\appmisc">
       <UniqueIdentifier>{016bb823-8f29-464e-868b-5f25d1745463}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\main\ui\frmbase">
+      <UniqueIdentifier>{1c8e2f75-27c8-4b5b-861e-6c978c0c5c6d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\core_videobase\abstractsavethread.cpp">
@@ -766,6 +769,12 @@
     </ClCompile>
     <ClCompile Include="class\appmisc\appmisc.cpp">
       <Filter>Source Files\main\class\appmisc</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmbase\Indicator.cpp">
+      <Filter>Source Files\main\ui\frmbase</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmautonetset.cpp">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -1465,6 +1474,9 @@
     <QtMoc Include="class\appmisc\appmisc.h">
       <Filter>Source Files\main\class\appmisc</Filter>
     </QtMoc>
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmautonetset.h">
+      <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="head.h.cpp">
@@ -1722,6 +1734,9 @@
       <Filter>Form Files</Filter>
     </QtUic>
     <QtUic Include="ui\frmconfig\frmconfigcard\frmresolutionset.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmautonetset.ui">
       <Filter>Form Files</Filter>
     </QtUic>
   </ItemGroup>
@@ -3482,6 +3497,9 @@
     </ClInclude>
     <ClInclude Include="class\deviceconnect\tcpcmddef.h">
       <Filter>Source Files\main\class\deviceconnect</Filter>
+    </ClInclude>
+    <ClInclude Include="ui\frmbase\Indicator.h">
+      <Filter>Source Files\main\ui\frmbase</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

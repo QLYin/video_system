@@ -41,6 +41,9 @@ struct DevInfo {
 	int fresh_freq;
 	QString ipaddr;
 	QString softwareversion;
+	QString gateway;
+	QString netmask;
+	QString mac;
 	QVector<int> ipc_indexs;
 
 	DevInfo() {
@@ -53,6 +56,9 @@ struct DevInfo {
 		fresh_freq = -1;
 		ipaddr = "";
 		softwareversion = "";
+		gateway = "";
+		netmask = "";
+		mac = "";
 	}
 };
 

@@ -10,7 +10,8 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
 {
     kCmd2SplitStr = {
         {CommandNS::kCmdSyncIpcInfoR, "init_flag"},
-        {CommandNS::kCmdSyncDevInfoR, "dev_id"}
+        {CommandNS::kCmdSyncDevInfoR, "dev_id"},
+        {CommandNS::kCmdDevSearch, "dev_id"}
     };
 }
 

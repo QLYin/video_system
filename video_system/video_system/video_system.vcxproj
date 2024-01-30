@@ -270,8 +270,10 @@
     <ClCompile Include="..\core_videobase\filterhelper.cpp" />
     <ClCompile Include="..\core_form\formhelper.cpp" />
     <ClCompile Include="..\core_common\framelesswidget2.cpp" />
+    <ClCompile Include="ui\frmbase\Indicator.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfig.cpp" />
     <ClCompile Include="..\core_form\frmconfigdb.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigcard\frmautonetset.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigcard\frmconfigcard.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigcard\frmresolutionset.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigcard\frmscreencharset.cpp" />
@@ -423,6 +425,8 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ui\frmbase\Indicator.h" />
+    <QtMoc Include="ui\frmconfig\frmconfigcard\frmautonetset.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmresolutionset.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmscreencharset.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmsearchcard.h" />
@@ -749,6 +753,7 @@ echo #include "head.h"&gt;&gt;head.h.cpp</Command>
   <ItemGroup>
     <QtUic Include="ui\frmconfig\frmconfig.ui" />
     <QtUic Include="..\core_form\frmconfigdb.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigcard\frmautonetset.ui" />
     <QtUic Include="ui\frmconfig\frmconfigcard\frmconfigcard.ui" />
     <QtUic Include="ui\frmconfig\frmconfigcard\frmresolutionset.ui" />
     <QtUic Include="ui\frmconfig\frmconfigcard\frmscreencharset.ui" />

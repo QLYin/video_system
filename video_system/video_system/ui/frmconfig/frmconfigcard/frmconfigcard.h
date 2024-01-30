@@ -8,6 +8,7 @@ namespace Ui {
 class frmConfigCard;
 }
 
+class frmSearchCard;
 class frmConfigCard : public QWidget
 {
     Q_OBJECT
@@ -17,6 +18,7 @@ public:
     ~frmConfigCard();
 
     void updateTableWidget(const QVector<DevInfo>& deviceInfo);
+    frmSearchCard* searchCardDialog();
 
 signals:
     void cardAppendsig(const QVector<DevInfo>& deviceInfo);
@@ -28,6 +30,7 @@ protected:
 
 private:
     Ui::frmConfigCard*ui;
+    frmSearchCard* m_searchCardDialog = nullptr;
 
 private slots:
     //初始化窗体数据

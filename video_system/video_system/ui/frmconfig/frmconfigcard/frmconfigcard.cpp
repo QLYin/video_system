@@ -4,6 +4,8 @@
 #include "frmconfigcard/frmsearchcard.h"
 #include "frmconfigcard/frmscreencharset.h"
 #include "frmconfigcard/frmresolutionset.h"
+#include "class/deviceconnect/tcpcmddef.h"
+#include "class/deviceconnect/tcpclienthelper.h"
 
 frmConfigCard::frmConfigCard(QWidget *parent) : QWidget(parent), ui(new Ui::frmConfigCard)
 {
@@ -12,11 +14,19 @@ frmConfigCard::frmConfigCard(QWidget *parent) : QWidget(parent), ui(new Ui::frmC
     this->initForm();
     this->initData();
     this->initIcon();
+    m_searchCardDialog = new frmSearchCard;
+    m_searchCardDialog->hide();
+
 }
 
 frmConfigCard::~frmConfigCard()
 {
     delete ui;
+}
+
+frmSearchCard* frmConfigCard::searchCardDialog()
+{
+    return m_searchCardDialog;
 }
 
 void frmConfigCard::showEvent(QShowEvent *)
@@ -102,8 +112,9 @@ void frmConfigCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
 
 void frmConfigCard::onBtnSearchClicked()
 {
-    auto dialog = new frmSearchCard;
-    dialog->show();
+    m_searchCardDialog->show();
+    QVariantMap param;
+    TcpClientHelper::sendDevCmd(CommandNS::kCmdDevSearch, param);
 }
 
 void frmConfigCard::onBtnScreenCharClicked()

@@ -2,6 +2,7 @@
 #define FRMLOGIN_H
 
 #include <QDialog>
+#include "class/deviceconnect/tcpcmddef.h"
 
 namespace Ui {
 class frmSearchCard;
@@ -15,6 +16,7 @@ public:
     explicit frmSearchCard(QWidget *parent = 0);
     ~frmSearchCard();
 
+    void updateTableWidget(const QVector<DevInfo>& deviceInfo);
 private:
     Ui::frmSearchCard*ui;
 
@@ -33,6 +35,7 @@ private slots:
     void initIcon();
 
 private slots:
+    void onAutoNetWorkClicked();
 };
 
 #endif // FRMLOGIN_H
