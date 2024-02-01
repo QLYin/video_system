@@ -37,6 +37,7 @@ void frmConfigCard::initForm()
 {
     ui->frameRight->setFixedWidth(AppData::RightWidth);
     connect(ui->btnSearch, SIGNAL(clicked()), this, SLOT(onBtnSearchClicked()));
+    connect(ui->btnRemove, SIGNAL(clicked()), this, SLOT(onBtnRemoveClicked()));
     connect(ui->btnScreenChar, SIGNAL(clicked()), this, SLOT(onBtnScreenCharClicked()));
     connect(ui->btnResolution, SIGNAL(clicked()), this, SLOT(onBtnResolutionClicked()));
 }
@@ -84,6 +85,19 @@ void frmConfigCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
         return;
     }
 
+    //while (ui->tableCard->rowCount() > 0) {
+    //    int lastRow = ui->tableCard->rowCount() - 1;
+    //    for (int column = 0; column < ui->tableCard->columnCount(); ++column) {
+    //        if (QTableWidgetItem* item = ui->tableCard->takeItem(lastRow, column))
+    //        {
+    //            delete item;
+    //        }
+    //    }
+    //    //ui->tableCard->removeRow(lastRow);
+    //}
+
+    ui->tableCard->clearContents();
+
     auto devCount = deviceInfo.size();
     for (int i = 0; i < devCount; ++i)
     {
@@ -115,6 +129,23 @@ void frmConfigCard::onBtnSearchClicked()
     m_searchCardDialog->show();
     QVariantMap param;
     TcpClientHelper::sendDevCmd(CommandNS::kCmdDevSearch, param);
+}
+
+void frmConfigCard::onBtnRemoveClicked()
+{
+    auto rows = ui->tableCard->rowCount();
+    QVector<int> ids;
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableCard->cellWidget(row, 0);
+        if (itemCk && itemCk->isChecked()) {
+            ids.push_back(ui->tableCard->item(row, 2)->text().toInt());
+        }
+    }
+
+    if (!ids.isEmpty())
+    {
+        emit cardRemoveSig(ids);
+    }
 }
 
 void frmConfigCard::onBtnScreenCharClicked()

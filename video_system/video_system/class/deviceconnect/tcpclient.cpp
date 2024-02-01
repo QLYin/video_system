@@ -51,14 +51,20 @@ bool TcpClient::uninit()
 
 void TcpClient::readData()
 {
+    qDebug() << "[TcpClient]enter read data: ";
     if (!m_socket || !m_socket->isValid())
+    {
+        qDebug() << "[TcpClient]Invaild ";
         return;
+
+    }
 
     QString fullData;
     while (m_socket->bytesAvailable())
     {
         fullData += m_socket->readAll();
     }
+    qDebug() << "[TcpClient]read data: " << fullData;
 
     QStringList result;
     QString currentSubString;
@@ -78,7 +84,6 @@ void TcpClient::readData()
     if (!currentSubString.isEmpty()) {
         result.append(currentSubString);
     }
-    qDebug() << "[TcpClient]read result: " << result;
 
     for (auto& cmd : result)
     {

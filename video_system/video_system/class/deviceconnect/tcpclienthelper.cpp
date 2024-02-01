@@ -19,6 +19,24 @@ void TcpClientHelper::sendDevCmd(const QString& cmd, const QVariantMap& param)
 			data += param["dev_id"].toInt();
 			data += kSplitStr;
 		}
+		else if (cmd == CommandNS::kCmdDevNetSet)
+		{
+			data += "dev_id : ";
+			data += param["dev_id"].toInt();
+			data += kSplitStr;
+			data += "ipaddr : ";
+			data += param["ipaddr"].toString();
+			data += kSplitStr;
+			data += "netmask : ";
+			data += param["netmask"].toString();
+			data += kSplitStr;
+			data += "gateway : ";
+			data += param["gateway"].toString();
+			data += kSplitStr;
+			data += "mac : ";
+			data += param["mac"].toString();
+			data += kSplitStr;
+		}
 		else
 		{
 
@@ -101,14 +119,6 @@ void TcpClientHelper::sendWallCmd(const QString& cmd, const QVariantMap& param)
 	TcpClient::Instance()->sendData(data);
 }
 
-void TcpClientHelper::sendUnlockDevice()
-{
-	QString data = kCmdStr + "UnlockDevice";
-	data += kSplitStr;
-
-	TcpClient::Instance()->sendData(data);
-}
-
 void TcpClientHelper::sendDataSync(int type)
 {
 	QString data = kCmdStr + "DataSync";
@@ -120,10 +130,54 @@ void TcpClientHelper::sendDataSync(int type)
 	TcpClient::Instance()->sendData(data);
 }
 
-void TcpClientHelper::sendSceneInfo()
+void TcpClientHelper::sendCmd(const QString& cmd, QVariantMap param)
 {
-	QString data = kCmdStr + "SceneInfo";
-	data += kSplitStr;
+	if (cmd.isEmpty())
+	{
+		return;
+	}
 
-	TcpClient::Instance()->sendData(data);
+	if (param.isEmpty())
+	{
+		QString data;
+		data = kCmdStr + cmd;
+		data += kSplitStr;
+		TcpClient::Instance()->sendData(data);
+	}
+	else
+	{
+		if (cmd == CommandNS::kCmdDataSync)
+		{
+			int type = param["type"].toInt();
+			sendDataSync(type);
+
+		} else if (cmd == CommandNS::kCmdDevSearch ||
+				 cmd == CommandNS::kCmdDevAdd ||
+				 cmd == CommandNS::kCmdDevDel ||
+				 cmd == CommandNS::kCmdDevModify ||
+			     cmd == CommandNS::kCmdDevNetSet ||
+				 cmd == CommandNS::kCmdDevNumSet) //解码卡相关命令
+		{
+			sendDevCmd(cmd, param);
+
+		} else if (cmd == CommandNS::kCmdIPCSearch ||
+				 cmd == CommandNS::kCmdIPCDefaultUserPwd ||
+				 cmd == CommandNS::kCmdIPCAdd ||
+				 cmd == CommandNS::kCmdIPCAutoAdd ||
+				 cmd == CommandNS::kCmdDIPCModify ||
+				 cmd == CommandNS::kCmdDIPCClear ||
+				 cmd == CommandNS::kCmdIPCDel) // ip相关命令
+		{
+			sendIPCCmd(cmd, param);
+
+		} else if (cmd == CommandNS::kCmdDWallCutScreen ||
+			cmd == CommandNS::kCmdDWallCallVideo ||
+			cmd == CommandNS::kCmdDWallCloseVideo ||
+			cmd == CommandNS::kCmdDWallJoint ||
+			cmd == CommandNS::kCmdDWallJointSet ||
+			cmd == CommandNS::kCmdDWallJointExit) //电视墙相关命令
+		{
+			sendWallCmd(cmd, param);
+		}
+	}
 }

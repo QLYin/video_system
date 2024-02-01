@@ -18,8 +18,12 @@ public:
 
     void initConfigCard(frmConfigCard* cardWidget);
 
+private:
+    bool hasCard(DevInfo info);
+    DevInfo& getCardbyId(int devId);
+    int getIndexById(int devId);
+
 private slots:
-    void onCardAppend(const QVector<DevInfo>& devListInfo);
     void onCardRemove(const QVector<int> devIds);
     void onCardUpdate(const QVector<DevInfo>& devListInfo);
 

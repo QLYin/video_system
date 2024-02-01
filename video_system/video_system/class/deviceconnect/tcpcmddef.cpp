@@ -7,6 +7,7 @@ namespace CommandNS {
 	const QString kCmdDevDel = "SysSetDelDev"; // 删除解码卡
 	const QString kCmdDevModify = "SysSetModifyDev"; // 修改解码卡参数
 	const QString kCmdDevNumSet = "SysSetModifyDevNum"; //设置从卡个数
+	const QString kCmdDevNetSet = "NetSet"; //设置ip
 
 	// ipc
 	const QString kCmdIPCSearch = "SearchIpc"; // 搜索IPC

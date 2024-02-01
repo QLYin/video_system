@@ -36,6 +36,7 @@ void frmSearchCard::initStyle()
     //关联关闭按钮退出
     connect(ui->btnMenu_Close, SIGNAL(clicked()), this, SLOT(hide()));
     connect(ui->btnCancel, SIGNAL(clicked()), this, SLOT(hide()));
+    connect(ui->btnMin, SIGNAL(clicked()), this, SLOT(minimumSize()));
 }
 
 void frmSearchCard::initTitle()
@@ -65,6 +66,13 @@ void frmSearchCard::initForm()
     QtHelper::initTableView(ui->tableWidget, AppData::RowHeight, true, false);
 
     connect(ui->btnAutoNetworking, SIGNAL(clicked()), this, SLOT(onAutoNetWorkClicked()));
+    connect(ui->btnAdd, SIGNAL(clicked()), this, SLOT(onBtnAddClicked()));
+    connect(ui->btnSelectAll, SIGNAL(clicked()), this, SLOT(onBtnAddClicked()));
+    connect(ui->btnSelectAll, SIGNAL(clicked()), this, SLOT(onBtnSelectAllClicked()));
+    connect(ui->btnSelectNone, SIGNAL(clicked()), this, SLOT(onBtnSelectNoneClicked()));
+    connect(ui->btnAutoNetworking, SIGNAL(clicked()), this, SLOT(onBtnAutoNetClicked()));
+    connect(ui->btnDetectConfilct, SIGNAL(clicked()), this, SLOT(onBtnDetectConfilctClicked()));
+    connect(ui->btnSet, SIGNAL(clicked()), this, SLOT(onBtnSetClicked()));
 }
 
 void frmSearchCard::initIcon()
@@ -87,6 +95,7 @@ void frmSearchCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
         return;
     }
 
+    m_searchCards = deviceInfo;
     auto devCount = deviceInfo.size();
     for (int i = 0; i < devCount; ++i)
     {
@@ -115,7 +124,7 @@ void frmSearchCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
         item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget->setItem(i, 4, item);
         //版本
-        itemValue = deviceInfo.at(i).mac;
+        itemValue = deviceInfo.at(i).softwareversion;
         item = new QTableWidgetItem(itemValue);
         item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget->setItem(i, 5, item);
@@ -124,5 +133,68 @@ void frmSearchCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
         item = new QTableWidgetItem(itemValue);
         item->setTextAlignment(Qt::AlignCenter);
         ui->tableWidget->setItem(i, 6, item);
+    }
+}
+
+void frmSearchCard::onBtnAddClicked()
+{
+    auto rows = ui->tableWidget->rowCount();
+    QVector<DevInfo> cards;
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk && itemCk->isChecked()) {
+            cards.push_back(m_searchCards.at(row));
+        }
+    }
+
+    if (!cards.isEmpty())
+    {
+        emit cardUpdateSig(cards);
+    }
+
+}
+
+void frmSearchCard::onBtnSelectAllClicked()
+{
+    auto rows = ui->tableWidget->rowCount();
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk) {
+            itemCk->setChecked(true);
+        }
+    }
+}
+
+void frmSearchCard::onBtnSelectNoneClicked()
+{
+    auto rows = ui->tableWidget->rowCount();
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk) {
+            itemCk->setChecked(false);
+        }
+    }
+}
+
+void frmSearchCard::onBtnAutoNetClicked()
+{
+
+}
+
+void frmSearchCard::onBtnDetectConfilctClicked()
+{
+
+}
+
+void frmSearchCard::onBtnSetClicked()
+{
+    auto rows = ui->tableWidget->rowCount();
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk && itemCk->isChecked()) {
+            m_searchCards[row].ipaddr =  ui->tableWidget->item(row, 1)->text();
+            m_searchCards[row].netmask = ui->tableWidget->item(row, 2)->text();
+            m_searchCards[row].gateway = ui->tableWidget->item(row, 3)->text();
+        }
     }
 }

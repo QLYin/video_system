@@ -20,14 +20,10 @@ public:
     // 幕墙
     static void sendWallCmd(const QString& cmd, const QVariantMap& param);
 
-    // 解锁设备
-    static void sendUnlockDevice();
-
     // 数据同步
     static void sendDataSync(int type);
 
-    // 同步场景信息
-    static void sendSceneInfo();
+    static void sendCmd(const QString& cmd, QVariantMap param = QVariantMap());
 
 };
 

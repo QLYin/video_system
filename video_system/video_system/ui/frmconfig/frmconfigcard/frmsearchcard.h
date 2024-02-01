@@ -19,6 +19,7 @@ public:
     void updateTableWidget(const QVector<DevInfo>& deviceInfo);
 private:
     Ui::frmSearchCard*ui;
+    QVector<DevInfo> m_searchCards;
 
 public:
     //设置顶部横幅背景图片
@@ -36,6 +37,15 @@ private slots:
 
 private slots:
     void onAutoNetWorkClicked();
+    void onBtnAddClicked();
+    void onBtnSelectAllClicked();
+    void onBtnSelectNoneClicked();
+    void onBtnAutoNetClicked();
+    void onBtnDetectConfilctClicked();
+    void onBtnSetClicked();
+
+public:
+    Q_SIGNAL void cardUpdateSig(QVector<DevInfo> cards);
 };
 
 #endif // FRMLOGIN_H

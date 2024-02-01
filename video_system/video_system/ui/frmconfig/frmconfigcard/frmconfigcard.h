@@ -21,7 +21,6 @@ public:
     frmSearchCard* searchCardDialog();
 
 signals:
-    void cardAppendsig(const QVector<DevInfo>& deviceInfo);
     void cardRemoveSig(const QVector<int> devIds);
     void cardUpdateSig(const QVector<DevInfo>& deviceInfo);
 
@@ -40,6 +39,7 @@ private slots:
     //初始化数据
     void initData();
     void onBtnSearchClicked();
+    void onBtnRemoveClicked();
     void onBtnScreenCharClicked();
     void onBtnResolutionClicked();
 };

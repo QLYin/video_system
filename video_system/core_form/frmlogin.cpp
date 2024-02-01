@@ -4,7 +4,8 @@
 #include "dbquery.h"
 #include "frmmain.h"
 #include "class/appmisc/appmisc.h"
-#include "../deviceconnect/tcpclienthelper.h"
+#include "../deviceconnect/tcpclient.h"
+#include "../deviceconnect/cmdhandlermgr.h"
 
 frmLogin::frmLogin(QWidget *parent) : QDialog(parent), ui(new Ui::frmLogin)
 {
@@ -151,16 +152,20 @@ void frmLogin::initDeviceConnect()
     connect(TcpClient::Instance(), &TcpClient::socketConnected, this, []()
         {
             AppEvent::Instance()->slot_tcpConnected();
-            TcpClientHelper::sendUnlockDevice();
-            TcpClientHelper::sendDataSync(1);
-            TcpClientHelper::sendDataSync(4);
-            TcpClientHelper::sendSceneInfo();
-            //TcpClientHelper::sendWallSet();
+            //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
+            QVariantMap param;
+            
+            param["type"] = 4;
+            CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+            CmdHandlerMgr::Instance()->sendCmd("nop");
+            param["type"] = 1;
+            CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+            CmdHandlerMgr::Instance()->sendCmd("nop");
+            //TcpClientHelper::sendSceneInfo();
         });
 
-    connect(TcpClient::Instance(), &TcpClient::socketData, this, [](const QVariantMap data)
-        {
-            AppEvent::Instance()->slot_tcpSockectData(data);
-            qDebug() << ">>>>>>>>>> data: " << data;
-        });
+    //connect(TcpClient::Instance(), &TcpClient::socketData, this, [](const QVariantMap data)
+    //    {
+    //        AppEvent::Instance()->slot_tcpSockectData(data);
+    //    });
 }

@@ -1,9 +1,14 @@
 ﻿#include "cmdhandlermgr.h"
-#include "tcpcmddef.h"
+
 #include <QMap>
+#include <QTimer>
+#include "tcpclienthelper.h"
 
 namespace {
-    static QMap<QString, QString> kCmd2SplitStr; 
+    static QMap<QString, QString> kCmd2SplitStr;
+    static QSet<QString> kOnewayCmdList;
+    static QMap<QString, QString> kResponseCmd2RequestCmd;
+    static int cmdId = 0;
 }
 SINGLETON_IMPL(CmdHandlerMgr)
 CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
@@ -13,6 +18,19 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
         {CommandNS::kCmdSyncDevInfoR, "dev_id"},
         {CommandNS::kCmdDevSearch, "dev_id"}
     };
+
+    kOnewayCmdList = {
+        "SetScrCharPs",
+        "MoveSenseGet",
+        "HeartBeatGet",
+        "nop",
+        "NetSet",
+        "SysSetAddDev",
+        "SysSetDelDev",
+        "SysSetModifyDevNum"
+    };
+
+    cmdId = 0;
 }
 
 bool CmdHandlerMgr::registHandler(IHandler* handler)
@@ -46,9 +64,6 @@ void CmdHandlerMgr::handle(const QString& message)
     if (!lines.isEmpty() && lines.at(0).contains("cmd :"))
     {
         cmd = lines.at(0).split(":").at(1).trimmed();
-        qDebug() << __FUNCTION__ << cmd;
-        qDebug() << __FUNCTION__ << message;
-        qDebug() << __FUNCTION__ << message.indexOf("\r\n");
         auto firstIndex = message.indexOf("\r\n") + 2;
         if (message.size() > firstIndex)
         {
@@ -61,6 +76,18 @@ void CmdHandlerMgr::handle(const QString& message)
         return;
     }
 
+    // 判断命令 处理下一条
+    // SyncFinsh这条指令必须要新发一条数据才能收到 所以命令判断无意义了 直接出队发送下一条 nop指令要配合syncdata使用
+    if (!m_cmdQue.isEmpty())
+    {
+        m_cmdQue.dequeue();
+    }
+    if (!m_cmdQue.isEmpty())
+    {
+        sendCmdImp();
+    }
+
+    // 处理cmd数据
     QVariantMap data;
     QString splitStr = kCmd2SplitStr[cmd];
     if (!splitStr.isEmpty() && !cmdData.isEmpty()) // 存在定义的分隔符则说明特殊命令 cmdData里面存在重复key
@@ -98,7 +125,6 @@ void CmdHandlerMgr::handle(const QString& message)
     {
         for (auto& line : lines)
         {
-            qDebug() << "[TcpClient]read line: " << line;
             if (!line.isEmpty() && line.contains(":"))
             {
                 auto key = line.split(":").at(0).trimmed();
@@ -115,4 +141,69 @@ void CmdHandlerMgr::handle(const QString& message)
             handler->handle(data);
         }
     }
+}
+
+void CmdHandlerMgr::sendCmd(const QString& cmd,  QVariantMap param)
+{
+    cmdId++;
+    RequestCmdInfo obj = { cmdId, cmd ,param };
+    m_cmdQue.enqueue(obj);
+
+    if (m_cmdQue.size() == 1)
+    {
+        sendCmdImp();
+    }
+}
+
+void CmdHandlerMgr::sendCmdImp()
+{
+    if (m_cmdQue.isEmpty())
+    {
+        return;
+    }
+    auto obj = m_cmdQue.head();
+    int id = obj.id;
+    QString cmd = obj.cmd;
+    TcpClientHelper::sendCmd(cmd, obj.param);
+    m_currentId = id;
+    
+    if (isOnewayCmd(cmd)) // 单向的命令 无返回
+    {
+        // 1s后发送下一条指令
+        QTimer::singleShot(1000, this, [&]()
+            {
+                if (!m_cmdQue.isEmpty())
+                {
+                    m_cmdQue.dequeue();
+                }
+                if (!m_cmdQue.isEmpty())
+                {
+                    sendCmdImp();
+                }
+            });
+    }
+    else 
+    {
+        QTimer::singleShot(5000, this, [=]()
+            {
+                if (id == m_currentId) // 5s后还未收到回包
+                {
+                    if (!m_cmdQue.isEmpty())
+                    {
+                        m_cmdQue.dequeue();
+                    }
+                    if (!m_cmdQue.isEmpty())
+                    {
+                        sendCmdImp();
+                    }
+                    emit timeout(cmd);
+                }
+            });
+    }
+}
+
+
+bool CmdHandlerMgr::isOnewayCmd(const QString& cmd)
+{
+    return  kOnewayCmdList.contains(cmd);
 }

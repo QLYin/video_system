@@ -85,6 +85,7 @@ namespace CommandNS {
 	extern const QString kCmdDevDel;
 	extern const QString kCmdDevModify;
 	extern const QString kCmdDevNumSet;
+	extern const QString kCmdDevNetSet;
 
 	// ipc
 	extern const QString kCmdIPCSearch;
