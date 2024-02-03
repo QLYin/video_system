@@ -6,6 +6,7 @@
 #include "../deviceconnect/cmdhandlermgr.h"
 #include "../deviceconnect/tcpcmddef.h"
 
+class frmConfigIpc;
 class IPCManager : public QObject, public IHandler
 {
     Q_OBJECT SINGLETON_DECL(IPCManager)
@@ -15,9 +16,16 @@ public:
 
     void handle(const QVariantMap& data) override;
 
-public:
+    void initConfigIpc(frmConfigIpc* ipcWidget);
+
+private slots:
+    void onIpcDel(QStringList ids, QStringList addrs);
+    void onIpcAdd(const QList<IpcInfo>& ipcList);
+    void onIpcEdit(const QList<IpcInfo>& ipcList);
 
 private:
+    frmConfigIpc* m_configIpc = nullptr;
+    QList<IpcInfo> m_ipcList;
 };
 
 #endif // IPCMANAGER_H

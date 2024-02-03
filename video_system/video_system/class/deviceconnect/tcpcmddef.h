@@ -1,5 +1,6 @@
 ﻿#pragma once
 #include <QString>
+#include <QMetaType>
 
 struct IpcInfo {
 	int init_flag;
@@ -9,7 +10,7 @@ struct IpcInfo {
 	int resolution0;
 	int resolution1;
 	QString name;
-	QString admin;
+	QString user;
 	QString passwd;
 	QString ipaddr;
 	QString rtsp_url0;
@@ -23,7 +24,7 @@ struct IpcInfo {
 		resolution0 = -1;
 		resolution1 = -1;
 		name = "";
-		admin = "";
+		user = "";
 		passwd = "";
 		ipaddr = "";
 		rtsp_url0 = "";
@@ -116,3 +117,6 @@ namespace CommandNS {
 	extern const QString kCmdUnlockDevice;
 
 };
+
+Q_DECLARE_METATYPE(IpcInfo)
+Q_DECLARE_METATYPE(DevInfo)

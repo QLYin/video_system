@@ -3,6 +3,7 @@
 #include "qthelper.h"
 #include "devicehelper.h"
 #include "class/devicemanager/devmanager.h"
+#include "class/devicemanager/ipcmanager.h"
 
 #include "frmconfigsystem.h"
 #include "frmconfigcard/frmconfigcard.h"
@@ -55,6 +56,7 @@ void frmConfig::initWidget()
     connect(AppEvent::Instance(), SIGNAL(changeStyle()), this, SLOT(initIcon()));
     connect(configNvr, SIGNAL(nvrNameChanged()), configIpc, SLOT(nvrNameChanged()));
     DevManager::Instance()->initConfigCard(configCard);
+    IPCManager::Instance()->initConfigIpc(configIpc);
 }
 
 void frmConfig::initNav()

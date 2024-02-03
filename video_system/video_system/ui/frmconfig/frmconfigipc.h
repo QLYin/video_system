@@ -2,6 +2,7 @@
 #define FRMCONFIGIPC_H
 
 #include <QWidget>
+#include "class/deviceconnect/tcpcmddef.h"
 
 class QSqlTableModel;
 class DbDelegate;
@@ -18,6 +19,7 @@ public:
     explicit frmConfigIpc(QWidget *parent = 0);
     ~frmConfigIpc();
 
+    QSqlTableModel* sqlModel();
 protected:
     void showEvent(QShowEvent *);
 
@@ -33,6 +35,7 @@ private:
     DbDelegate *d_cbox_nvrName;
     DbDelegate *d_cbox_mainResolution;
     DbDelegate *d_cbox_subResolution;
+    QSet<int> m_appendIpcids;
 
 private slots:
     //初始化窗体数据
@@ -69,6 +72,11 @@ private slots:
 
     void on_btnPlus_clicked();
     void on_btnSearch_clicked();
+
+public:
+    Q_SIGNAL void ipcDelSig(QStringList ids, QStringList addrs);
+    Q_SIGNAL void ipcAddSig(QList<IpcInfo> ipcList);
+    Q_SIGNAL void ipcEditSig(QList<IpcInfo> ipcList);
 };
 
 #endif // FRMCONFIGIPC_H

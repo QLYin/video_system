@@ -27,7 +27,10 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
         "NetSet",
         "SysSetAddDev",
         "SysSetDelDev",
-        "SysSetModifyDevNum"
+        "SysSetModifyDevNum",
+        "DelIpc",
+        "AutoAddIpc2",
+        "EditIpc"
     };
 
     cmdId = 0;
@@ -82,6 +85,7 @@ void CmdHandlerMgr::handle(const QString& message)
     {
         m_cmdQue.dequeue();
     }
+
     if (!m_cmdQue.isEmpty())
     {
         sendCmdImp();
@@ -106,8 +110,9 @@ void CmdHandlerMgr::handle(const QString& message)
                 {
                     if (!line.isEmpty() && line.contains(":"))
                     {
-                        auto key = line.split(":").at(0).trimmed();
-                        auto value = line.split(":").at(1).trimmed();
+                        int colonIndex = line.indexOf(":"); // 查找冒号的位置
+                        auto key = line.left(colonIndex).trimmed();
+                        auto value = line.mid(colonIndex + 1).trimmed();
                         itemData.insert(key, value);
                     }
                 }

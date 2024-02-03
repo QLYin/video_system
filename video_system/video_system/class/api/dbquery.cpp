@@ -443,7 +443,7 @@ bool DbQuery::checkDb()
     //如果表中的NVR在NVR信息表中不存在则弹出提示
     foreach (QString nvrName, DbData::IpcInfo_NvrName) {
         if (!DbData::NvrInfo_NvrName.contains(nvrName)) {
-            QtHelper::showMessageBoxError("摄像机表中的录像机信息不存在, 请重新检查!");
+            //QtHelper::showMessageBoxError("摄像机表中的录像机信息不存在, 请重新检查!");
             return false;
         }
     }

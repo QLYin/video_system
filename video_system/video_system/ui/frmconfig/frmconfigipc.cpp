@@ -98,11 +98,13 @@ void frmConfigIpc::initData()
     }
 
     //设置隐藏列
-    ui->tableView->setColumnHidden(4, true);
+    ui->tableView->setColumnHidden(2, true);
+    ui->tableView->setColumnHidden(3, true);
     ui->tableView->setColumnHidden(5, true);
     ui->tableView->setColumnHidden(6, true);
     ui->tableView->setColumnHidden(11, true);
     ui->tableView->setColumnHidden(12, true);
+    ui->tableView->setColumnHidden(16, true);
 
     //录像机委托
     d_cbox_nvrName = new DbDelegate(this);
@@ -141,6 +143,11 @@ void frmConfigIpc::initData()
     d_ckbox_ipcEnable->setDelegateType("QCheckBox");
     d_ckbox_ipcEnable->setCheckBoxText("启用", "禁用");
     ui->tableView->setItemDelegateForColumn(15, d_ckbox_ipcEnable);
+}
+
+QSqlTableModel* frmConfigIpc::sqlModel()
+{
+    return model;
 }
 
 void frmConfigIpc::nvrNameChanged()
@@ -313,6 +320,8 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     model->setData(model->index(count, 13), userName);
     model->setData(model->index(count, 14), userPwd);
     model->setData(model->index(count, 15), ipcEnable);
+
+    m_appendIpcids.insert(ipcID);
 }
 
 void frmConfigIpc::addDevices(const QList<QStringList> &deviceInfos)
@@ -437,6 +446,36 @@ void frmConfigIpc::on_btnSave_clicked()
     if (model->submitAll()) {
         model->database().commit();
         AppEvent::Instance()->slot_saveIpcInfo(true);
+        
+        QList<IpcInfo> ipcList;
+        for (auto& value : m_appendIpcids)
+        {
+            QString key = QString::number(value); // 要查找的键值
+            int column = 0; // 假设你要在第一列中查找
+            QModelIndexList matches = model->match(model->index(0, column), Qt::DisplayRole, key, -1, Qt::MatchExactly);
+            if (!matches.isEmpty()) {
+                QModelIndex firstMatchIndex = matches.first();
+                int row = firstMatchIndex.row();
+                IpcInfo ipcItem;
+                ipcItem.init_flag = 255;
+                ipcItem.id = model->index(row, 0).data().toInt();
+                ipcItem.name = model->index(row, 1).data().toString();
+                ipcItem.user = model->index(row, 13).data().toString();
+                ipcItem.passwd = model->index(row, 14).data().toString();
+                ipcItem.ipaddr = model->index(row, 4).data().toString();
+                ipcItem.ptz_enable = 0;
+                ipcItem.vda_enable = 0;
+                ipcItem.rtsp_url0 = model->index(row, 7).data().toString();
+                ipcItem.rtsp_url1 = model->index(row, 8).data().toString();
+                ipcItem.resolution0 = model->index(row, 9).data().toInt();
+                ipcItem.resolution1 = model->index(row, 10).data().toInt();
+                ipcList.append(ipcItem);
+            }
+        }
+        if (!ipcList.isEmpty())
+        {
+            emit ipcAddSig(ipcList);
+        }
     } else {
         //提交失败则回滚事务并打印错误信息
         model->database().rollback();
@@ -458,7 +497,7 @@ void frmConfigIpc::on_btnDelete_clicked()
 
     if (QtHelper::showMessageBoxQuestion("确定要删除选中的摄像机吗?\n摄像机对应的轮询信息都会被删除!") == QMessageBox::Yes) {
         //获取选中行的内容
-        QStringList ids, addrs;
+        QStringList ids, ips, addrs;
         QItemSelectionModel *selections = ui->tableView->selectionModel();
         QModelIndexList selected = selections->selectedIndexes();
         foreach (QModelIndex index, selected) {
@@ -469,12 +508,17 @@ void frmConfigIpc::on_btnDelete_clicked()
             } else if (column == 7) {
                 addrs << text;
             }
+            else if (column == 4)
+            {
+                ips << text;
+            }
         }
 
         DbQuery::deleteIpcInfos(ids.join(","));
         DbQuery::deletePollInfos(addrs.join(","));
         AppEvent::Instance()->slot_saveIpcInfo(true);
         model->select();
+        emit ipcDelSig(ids, ips);
         ui->tableView->setCurrentIndex(model->index(model->rowCount() - 1, 0));
     }
 }

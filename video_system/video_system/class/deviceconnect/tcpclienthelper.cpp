@@ -82,13 +82,83 @@ void TcpClientHelper::sendIPCCmd(const QString& cmd, const QVariantMap& param)
 		data += param["dev_id"].toInt();
 		data += kSplitStr;
 	}
-	else if (cmd == CommandNS::kCmdIPCAutoAdd || cmd == CommandNS::kCmdDIPCModify)
+	else if (cmd == CommandNS::kCmdIPCAutoAdd)
 	{
+		data += "num : ";
+		data += param["num"].toInt();
+		data += kSplitStr;
+
+		QList<IpcInfo> ipcList;
+		QVariant variant = param["ipcList"];
+		ipcList = variant.value<QList<IpcInfo>>();
+
+		for (auto& ipc : ipcList)
+		{
+			data += "id : ";
+			data += QString::number(ipc.id);
+			data += kSplitStr;
+
+			data += "ipaddr : ";
+			data += ipc.ipaddr;
+			data += kSplitStr;
+
+			data += "user : ";
+			data += ipc.user;
+			data += kSplitStr;
+
+			data += "passwd : ";
+			data += ipc.passwd;
+			data += kSplitStr;
+
+			data += "name : ";
+			data += ipc.name;
+			data += kSplitStr;
+
+			data += "url0 : ";
+			data += ipc.rtsp_url0;
+			data += kSplitStr;
+
+			data += "resolution0 : ";
+			data += QString::number(ipc.resolution0);;
+			data += kSplitStr;
+
+			data += "url1 : ";
+			data += ipc.rtsp_url1;
+			data += kSplitStr;
+
+			data += "resolution1 : ";
+			data += QString::number(ipc.resolution1);;
+			data += kSplitStr;
+
+			data += "ptzState : ";
+			data += "0";
+			data += kSplitStr;
+
+			data += "ptzAddr : ";
+			data += "";
+			data += kSplitStr;
+
+			data += "profiletoken : ";
+			data += "";
+			data += kSplitStr;
+
+			data += "netxaddr : ";
+			data += "";
+			data += kSplitStr;
+		}
 	}
-	else if (cmd == CommandNS::kCmdIPCAdd || cmd == CommandNS::kCmdIPCDel)
+	else if (cmd == CommandNS::kCmdIPCDel)
 	{
+		auto keys = param.keys();
+		for (auto& key : keys)
+		{
+			data += key;
+			data += " : ";
+			data += param[key].toString();
+			data += kSplitStr;
+		}
 	}
-	else if (cmd == CommandNS::kCmdIPCAdd || cmd == CommandNS::kCmdIPCDel)
+	else if (cmd == CommandNS::kCmdDIPCModify )
 	{
 	}
 
