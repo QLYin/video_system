@@ -64,8 +64,10 @@ void IPCManager::handle(const QVariantMap& data)
                     model->setData(model->index(count, 6), "");
                     model->setData(model->index(count, 7), ipcItem.rtsp_url0);
                     model->setData(model->index(count, 8), ipcItem.rtsp_url1);
-                    model->setData(model->index(count, 9), ipcItem.resolution0);
-                    model->setData(model->index(count, 10), ipcItem.resolution1);
+                    auto resolution0 = IPC::index2Name(ipcItem.resolution0);
+                    model->setData(model->index(count, 9), resolution0.isEmpty() ? "自动" : resolution0);
+                    auto resolution1 = IPC::index2Name(ipcItem.resolution1);
+                    model->setData(model->index(count, 10), resolution1.isEmpty() ? "自动" : resolution1);
                     model->setData(model->index(count, 11), 0);
                     model->setData(model->index(count, 12), 0);
                     model->setData(model->index(count, 13), ipcItem.user);

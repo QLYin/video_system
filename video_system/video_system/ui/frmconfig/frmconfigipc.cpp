@@ -165,7 +165,7 @@ void frmConfigIpc::nvrNameChanged()
 void frmConfigIpc::mainResolutionChanged()
 {
     QStringList resolutions;
-    resolutions << "1200W" << "800W" << "600W" << "500W" << "400W" << "300W" << "1080P" << "960P" << "720P" << "D1" << "CIF";
+    resolutions << "自动" <<"1200W" << "800W" << "600W" << "500W" << "400W" << "300W" << "1080P" << "960P" << "720P" << "D1" << "CIF";
     d_cbox_mainResolution->setDelegateValue(resolutions);
 }
 
@@ -261,6 +261,8 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         videoSource = deviceInfo.at(5);
         rtspMain = deviceInfo.at(6);
         rtspSub = deviceInfo.at(7);
+        mainResolution = deviceInfo.at(8);
+        subResolution = deviceInfo.at(9);
 
         //重新定义搜索的摄像机设备命名规则,按照摄像机#ip地址末尾数字的方式
         QString ip = UrlHelper::getUrlIP(onvifAddr);
@@ -308,7 +310,8 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     model->setData(model->index(count, 1), ipcName);
     model->setData(model->index(count, 2), nvrName);
     model->setData(model->index(count, 3), ipcType);
-    model->setData(model->index(count, 4), onvifAddr);
+    QString ipAddress = onvifAddr.startsWith("http") ? UrlHelper::getUrlIP(onvifAddr) : onvifAddr;
+    model->setData(model->index(count, 4), ipAddress);
     model->setData(model->index(count, 5), profileToken);
     model->setData(model->index(count, 6), videoSource);
     model->setData(model->index(count, 7), rtspMain);

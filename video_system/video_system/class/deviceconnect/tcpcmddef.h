@@ -118,5 +118,13 @@ namespace CommandNS {
 
 };
 
+namespace IPC {
+	QString index2Name(int index);
+	int Name2Index(QString resolution);
+	int index2Pixel(int index);
+	int pixel2Index(int pixel);
+	int findNearIndex(int pixels);
+};
+
 Q_DECLARE_METATYPE(IpcInfo)
 Q_DECLARE_METATYPE(DevInfo)

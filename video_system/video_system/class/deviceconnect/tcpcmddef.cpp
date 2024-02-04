@@ -36,3 +36,50 @@ namespace CommandNS {
 	const QString kCmdDataSyncFinish = "SyncFinsh";  // 数据同步完成
 	const QString kCmdUnlockDevice = "UnlockDevice"; // 解锁设备
 };
+
+
+namespace IPC {
+	//"1200W" << "800W" << "600W" << "500W" << "400W" << "300W" << "1080P" << "960P" << "720P" << "D1" << "CIF";
+	QVector<int> kResolutionPixels = {
+		1200*10000, 800*10000, 600*10000, 500*10000, 400*10000, 300 * 10000,1920*1080,1280*960,1280*720,720*480,352*288
+	};
+	QVector<QString> kResolutionNames = {
+		"1200W", "800W","600W","500W", "400W","300W", "1080P", "960P","720P","D1" ,"CIF"
+	};
+
+	QString index2Name(int index)
+	{
+		return kResolutionNames.at(index);
+	}
+
+	int Name2Index(QString resolution)
+	{
+		return kResolutionNames.indexOf(resolution);
+	}
+
+	int index2Pixel(int index)
+	{
+		return kResolutionPixels.at(index);
+	}
+
+	int pixel2Index(int pixel)
+	{
+		return kResolutionPixels.indexOf(pixel);
+	}
+
+	int findNearIndex(int pixels)
+	{
+		int minDifference = std::abs(pixels - kResolutionPixels[0]);
+		int nearestIndex = 0;
+
+		for (int i = 1; i < kResolutionPixels.size(); i++) {
+			int difference = std::abs(pixels - kResolutionPixels[i]);
+			if (difference < minDifference) {
+				minDifference = difference;
+				nearestIndex = i;
+			}
+		}
+
+		return nearestIndex;
+	}
+};

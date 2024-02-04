@@ -2,6 +2,7 @@
 #include "ui_frmconfigipcsearch.h"
 #include "qthelper.h"
 #include "onvifhead.h"
+#include "../class/deviceconnect/tcpcmddef.h"
 
 frmConfigIpcSearch::frmConfigIpcSearch(QWidget *parent) : QWidget(parent), ui(new Ui::frmConfigIpcSearch)
 {
@@ -42,9 +43,9 @@ void frmConfigIpcSearch::initForm()
 void frmConfigIpcSearch::initData()
 {
     QList<QString> columnNames;
-    columnNames << "" << "地址" << "用户名称" << "用户密码" << "厂家" << "设备地址" << "配置文件" << "视频文件" << "主码流" << "子码流";
+    columnNames << "" << "地址" << "用户名称" << "用户密码" << "厂家" << "设备地址" << "配置文件" << "视频文件" << "主码流" << "子码流" << "主分辨率" << "子分辨率";
     QList<int> columnWidths;
-    columnWidths << 30 << 100 << 80 << 80 << 80 << 350 << 150 << 150 << 350 << 350;
+    columnWidths << 30 << 100 << 80 << 80 << 80 << 350 << 150 << 150 << 350 << 350 << 80 << 80;
     ui->tableWidget->setStyleSheet("QCheckBox{padding:0px 0px 0px 7px;}");
 
     //设置列数和列宽
@@ -63,6 +64,9 @@ void frmConfigIpcSearch::initData()
     ui->tableWidget->setColumnHidden(1, true);
     ui->tableWidget->setColumnHidden(2, true);
     ui->tableWidget->setColumnHidden(3, true);
+    ui->tableWidget->setColumnHidden(4, true);
+    ui->tableWidget->setColumnHidden(6, true);
+    ui->tableWidget->setColumnHidden(7, true);
 
     //增加一个全选按钮
     ckAll = new QCheckBox(this);
@@ -216,6 +220,8 @@ void frmConfigIpcSearch::receiveDevice(const OnvifDeviceInfo &deviceInfo)
     ui->tableWidget->setItem(row, 7, new QTableWidgetItem);
     ui->tableWidget->setItem(row, 8, new QTableWidgetItem);
     ui->tableWidget->setItem(row, 9, new QTableWidgetItem);
+    ui->tableWidget->setItem(row, 10, new QTableWidgetItem);
+    ui->tableWidget->setItem(row, 11, new QTableWidgetItem);
 
     //重新排序
     ui->tableWidget->sortByColumn(1, Qt::AscendingOrder);
@@ -330,7 +336,7 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
         return;
     }
 
-    QString profileToken, rtspMain, rtspSub;
+    QString profileToken, rtspMain, rtspSub, resolutionMain, resolutionSub;
     //如果有第二个则为子码流
     if (countProfile > 1) {
         profileToken = profiles.at(1).token;
@@ -348,6 +354,15 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     //获取视频文件
     QList<OnvifVideoSource> videoSources = device->getVideoSources();
     QString videoSource = videoSources.first().token;
+    int w = videoSources.first().width;
+    int h = videoSources.first().height;
+    resolutionMain = IPC::index2Name(IPC::findNearIndex(w*h));
+    if (videoSources.size() > 1)
+    {
+        w = videoSources.at(1).width;
+        h = videoSources.at(1).height;
+        resolutionSub = IPC::index2Name(IPC::findNearIndex(w * h));
+    }
 
 #if 1
     //如果有多个视频源则一般是NVR(也有部分相机同时带两路视频流)
@@ -424,6 +439,8 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     QTableWidgetItem *itemVideoSource = new QTableWidgetItem(videoSource);
     QTableWidgetItem *itemRtspMain = new QTableWidgetItem(rtspMain);
     QTableWidgetItem *itemRtspSub = new QTableWidgetItem(rtspSub);
+    QTableWidgetItem* itemResolutionMain = new QTableWidgetItem(resolutionMain);
+    QTableWidgetItem* itemResolutionSub = new QTableWidgetItem(resolutionSub);
 
     ui->tableWidget->setItem(row, 2, itemUserName);
     ui->tableWidget->setItem(row, 3, itemUserPwd);
@@ -431,6 +448,8 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     ui->tableWidget->setItem(row, 7, itemVideoSource);
     ui->tableWidget->setItem(row, 8, itemRtspMain);
     ui->tableWidget->setItem(row, 9, itemRtspSub);
+    ui->tableWidget->setItem(row, 10, itemResolutionMain);
+    ui->tableWidget->setItem(row, 11, itemResolutionSub);
 
     //判断已经添加过的禁用行
     disableRow(device->getOnvifAddr(), row);
@@ -532,6 +551,8 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
     QString profileToken = ui->tableWidget->item(row, 6)->text();
     QString videoSource = ui->tableWidget->item(row, 7)->text();
     QString rtspSub = ui->tableWidget->item(row, 9)->text();
+    QString resolutonMain = ui->tableWidget->item(row, 10)->text();
+    QString resolutonSub = ui->tableWidget->item(row, 11)->text();
 
     //如果有多个则分别插入
     QStringList listProfileToken = profileToken.split("|");
@@ -552,7 +573,7 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
 
         deviceInfo << onvifAddr;
         deviceInfo << listProfileToken.at(i) << listVideoSource.at(i);
-        deviceInfo << listRtspMain.at(i) << listRtspSub.at(i);
+        deviceInfo << listRtspMain.at(i) << listRtspSub.at(i) << resolutonMain << resolutonSub;
         deviceInfos << deviceInfo;
     }
 }
