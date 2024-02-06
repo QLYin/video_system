@@ -41,28 +41,28 @@ void TcpClientHelper::sendDevCmd(const QString& cmd, const QVariantMap& param)
 		{
 
 			data += "dev_id : ";
-			data += param["dev_id"].toInt();
+			data += param["dev_id"].toString();
 			data += kSplitStr;
 			data += "ipaddr : ";
 			data += param["ipaddr"].toString();
 			data += kSplitStr;
 			data += "chn_cnt : ";
-			data += param["chn_cnt"].toInt();
+			data += param["chn_cnt"].toString();
 			data += kSplitStr;
 			data += "floor : ";
-			data += param["floor"].toInt();
+			data += param["floor"].toString();
 			data += kSplitStr;
 			data += "upper : ";
-			data += param["upper"].toInt();
+			data += param["upper"].toString();
 			data += kSplitStr;
 			data += "width : ";
-			data += param["width"].toInt();
+			data += param["width"].toString();
 			data += kSplitStr;
 			data += "heigth : ";
-			data += param["heigth"].toInt();
+			data += param["heigth"].toString();
 			data += kSplitStr;
 			data += "fresh_freq : ";
-			data += param["fresh_freq"].toInt();
+			data += param["fresh_freq"].toString();
 			data += kSplitStr;
 			data += "separate : ";
 			data += kSplitStr;
@@ -79,13 +79,13 @@ void TcpClientHelper::sendIPCCmd(const QString& cmd, const QVariantMap& param)
 	if (cmd == CommandNS::kCmdDevNumSet)
 	{
 		data += "dev_id : ";
-		data += param["dev_id"].toInt();
+		data += param["dev_id"].toString();
 		data += kSplitStr;
 	}
 	else if (cmd == CommandNS::kCmdIPCAutoAdd)
 	{
 		data += "num : ";
-		data += param["num"].toInt();
+		data += param["num"].toString();
 		data += kSplitStr;
 
 		QList<IpcInfo> ipcList;
@@ -170,19 +170,37 @@ void TcpClientHelper::sendWallCmd(const QString& cmd, const QVariantMap& param)
 {
 	QString data = kCmdStr + cmd;
 	data += kSplitStr;
-	if (cmd == CommandNS::kCmdDWallJoint)
+	if (cmd == CommandNS::kCmdWallJointSet)
 	{
 		data += "row : ";
-		data += param["row"].toInt();
+		data += param["row"].toString();
 		data += kSplitStr;
 		data += "col : ";
-		data += param["col"].toInt();
+		data += param["col"].toString();
 		data += kSplitStr;
 		data += "sig_src : ";
-		data += param["sig_src"].toInt();
+		data += param["sig_src"].toString();
 		data += kSplitStr;
 		data += "protocol : ";
-		data += param["protocol"].toInt();
+		data += param["protocol"].toString();
+		data += kSplitStr;
+	}
+	else if (cmd == CommandNS::kCmdWallJoint || cmd == CommandNS::kCmdWallJointExit)
+	{
+		data += "plan_mode : ";
+		data += param["plan_mode"].toString();
+		data += kSplitStr;
+		data += "src_dev : ";
+		data += param["src_dev"].toString();
+		data += kSplitStr;
+	}
+	else if (cmd == CommandNS::kCmdWallCutScreen)
+	{
+		data += "split_num : ";
+		data += param["split_num"].toInt();
+		data += kSplitStr;
+		data += "device_id : ";
+		data += param["device_id"].toInt();
 		data += kSplitStr;
 	}
 
@@ -240,12 +258,13 @@ void TcpClientHelper::sendCmd(const QString& cmd, QVariantMap param)
 		{
 			sendIPCCmd(cmd, param);
 
-		} else if (cmd == CommandNS::kCmdDWallCutScreen ||
-			cmd == CommandNS::kCmdDWallCallVideo ||
-			cmd == CommandNS::kCmdDWallCloseVideo ||
-			cmd == CommandNS::kCmdDWallJoint ||
-			cmd == CommandNS::kCmdDWallJointSet ||
-			cmd == CommandNS::kCmdDWallJointExit) //电视墙相关命令
+		} else if (cmd == CommandNS::kCmdWallCutScreen ||
+			cmd == CommandNS::kCmdWallCallVideo ||
+			cmd == CommandNS::kCmdWallCloseVideo ||
+			cmd == CommandNS::kCmdWallJoint ||
+			cmd == CommandNS::kCmdWallJointSet ||
+			cmd == CommandNS::kCmdWallJointExit ||
+			cmd == CommandNS::kCmdWallSet) //电视墙相关命令
 		{
 			sendWallCmd(cmd, param);
 		}

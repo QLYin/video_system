@@ -17,6 +17,8 @@ public:
     void handle(const QVariantMap& data) override;
 
     void initConfigIpc(frmConfigIpc* ipcWidget);
+    QList<IpcInfo>& ipcList();
+    QString findIp(int id);
 
 private slots:
     void onIpcDel(QStringList ids, QStringList addrs);

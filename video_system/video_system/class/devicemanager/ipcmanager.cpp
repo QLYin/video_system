@@ -57,7 +57,7 @@ void IPCManager::handle(const QVariantMap& data)
                     model->insertRows(count,1);
                     model->setData(model->index(count, 0), ipcItem.id);
                     model->setData(model->index(count, 1), ipcItem.name);
-                    model->setData(model->index(count, 2), ipcItem.name);
+                    model->setData(model->index(count, 2), "网络视频");
                     model->setData(model->index(count, 3), "");
                     model->setData(model->index(count, 4), ipcItem.ipaddr);
                     model->setData(model->index(count, 5), "");
@@ -131,4 +131,24 @@ void IPCManager::onIpcAdd(const QList<IpcInfo>& ipcList)
 
 void IPCManager::onIpcEdit(const QList<IpcInfo>& ipcList)
 {
+}
+
+QList<IpcInfo>& IPCManager::ipcList()
+{
+    return m_ipcList;
+}
+
+
+QString IPCManager::findIp(int id)
+{
+    QString ip;
+    for (auto& ipc : m_ipcList)
+    {
+        if (ipc.id == id)
+        {
+            ip = ipc.ipaddr;
+            break;
+        }
+    }
+    return ip;
 }

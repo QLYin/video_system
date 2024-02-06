@@ -10,6 +10,7 @@
 #include "frmtvwallwidget.h"
 #include "frmdevicetree.h"
 #include "frmwallsetdialog.h"
+#include "class/devicemanager/tvwallmanager.h"
 
 struct Camera {
     int id;
@@ -89,6 +90,8 @@ void frmTVWall::initForm()
     mainLayout->addWidget(widgetTop);
     mainLayout->addSpacing(2);
     mainLayout->addLayout(hLayout);
+
+    TVWallManager::Instance()->initWallWidget(m_tvWallWidget);
 }
 
 void frmTVWall::on_btnRereshClicked()
@@ -103,6 +106,7 @@ void frmTVWall::on_btnCreateWallClicked()
         int row = userData["rows"].toInt();
         int col = userData["cols"].toInt();
         m_tvWallWidget->createTVWall(row, col);
+        TVWallManager::Instance()->sendWallSet(row, col);
     }
 }
 

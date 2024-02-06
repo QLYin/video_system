@@ -30,7 +30,10 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
         "SysSetModifyDevNum",
         "DelIpc",
         "AutoAddIpc2",
-        "EditIpc"
+        "EditIpc",
+        "JointSet",
+        "Joint",
+        "JointExit"
     };
 
     cmdId = 0;

@@ -15,7 +15,11 @@ public:
 	frmTVWallWidget(QWidget* parent = nullptr);
 	void createTVWall(int row = 3, int col = 3);
 	void updateIndex(int firstX, int firstY, int index);
+	void updateScreenIpc(int index, QString ip);
 
+signals:
+	void wallSetSig();
+	void wallScreenJoinSig(QVector<int> indexs, bool join);
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void mouseMoveEvent(QMouseEvent* event)  override;

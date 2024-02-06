@@ -98,12 +98,13 @@ namespace CommandNS {
 	extern const QString kCmdDIPCClear;
 
 	// 电视墙
-	extern const QString kCmdDWallCutScreen;
-	extern const QString kCmdDWallCallVideo;
-	extern const QString kCmdDWallCloseVideo;
-	extern const QString kCmdDWallJoint;
-	extern const QString kCmdDWallJointExit;
-	extern const QString kCmdDWallJointSet;
+	extern const QString kCmdWallCutScreen;
+	extern const QString kCmdWallCallVideo;
+	extern const QString kCmdWallCloseVideo;
+	extern const QString kCmdWallJoint;
+	extern const QString kCmdWallJointExit;
+	extern const QString kCmdWallJointSet;
+	extern const QString kCmdWallSet;
 
 	// 场景
 	extern const QString kCmdSceneInfo;

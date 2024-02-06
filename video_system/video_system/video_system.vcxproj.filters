@@ -776,6 +776,9 @@
     <ClCompile Include="ui\frmconfig\frmconfigcard\frmautonetset.cpp">
       <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
     </ClCompile>
+    <ClCompile Include="class\devicemanager\tvwallmanager.cpp">
+      <Filter>Source Files\main\class\devicemanager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\core_videobase\abstractsavethread.h">
@@ -1476,6 +1479,9 @@
     </QtMoc>
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmautonetset.h">
       <Filter>Source Files\main\ui\frmconfig\frmconfigcard</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicemanager\tvwallmanager.h">
+      <Filter>Source Files\main\class\devicemanager</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

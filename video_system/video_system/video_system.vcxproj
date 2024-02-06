@@ -224,6 +224,7 @@
     <ClCompile Include="class\deviceconnect\tcpcmddef.cpp" />
     <ClCompile Include="class\devicemanager\devmanager.cpp" />
     <ClCompile Include="class\devicemanager\ipcmanager.cpp" />
+    <ClCompile Include="class\devicemanager\tvwallmanager.cpp" />
     <ClCompile Include="class\usercontrol\barvolume.cpp" />
     <ClCompile Include="..\core_common\base64helper.cpp" />
     <ClCompile Include="..\core_control\bottomwidget.cpp" />
@@ -425,6 +426,7 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="class\devicemanager\tvwallmanager.h" />
     <ClInclude Include="ui\frmbase\Indicator.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmautonetset.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmresolutionset.h" />

@@ -187,19 +187,37 @@ void frmScreen::appendScreenInfo(int x, int y, int row, int col)
 
 void frmScreen::dragEnterEvent(QDragEnterEvent* event)
 {
-	if (event->mimeData()->hasText()) {
-		event->acceptProposedAction();
+	if (event->mimeData()->hasFormat("application/x-qabstractitemmodeldatalist")) {
+		event->setDropAction(Qt::CopyAction);
+		event->accept();
+	}
+	else if (event->mimeData()->hasFormat("text/uri-list")) {
+		event->setDropAction(Qt::LinkAction);
+		event->accept();
+	}
+	else {
+		event->ignore();
 	}
 }
 
 void frmScreen::dropEvent(QDropEvent* event)
 {
-	if (event->mimeData()->hasText()) {
-		QString text = event->mimeData()->text();
-		setText(text);
-		QFont font("Arial", 30);
-		setFont(font);
-		event->acceptProposedAction();
+	QString text;
+	if (event->mimeData()->hasUrls()) {
+		text = event->mimeData()->urls().first().toLocalFile();
+	}
+	else if (event->mimeData()->hasFormat("application/x-qabstractitemmodeldatalist")) {
+		QTreeWidget* treeWidget = (QTreeWidget*)event->source();
+		if (treeWidget) {
+			//过滤父节点(那个一般是NVR)
+			QTreeWidgetItem* item = treeWidget->currentItem();
+			if (item->parent()) {
+				text = item->text(0);
+				setText(text);
+				QFont font("Arial", 8);
+				setFont(font);
+			}
+		}
 	}
 }
 

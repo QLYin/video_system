@@ -153,14 +153,14 @@ void frmLogin::initDeviceConnect()
         {
             AppEvent::Instance()->slot_tcpConnected();
             //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
-            QVariantMap param;
-            
+            QVariantMap param;          
             param["type"] = 4;
             CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
             CmdHandlerMgr::Instance()->sendCmd("nop");
             param["type"] = 1;
             CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
             CmdHandlerMgr::Instance()->sendCmd("nop");
+            CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
             //TcpClientHelper::sendSceneInfo();
         });
 

@@ -19,12 +19,13 @@ namespace CommandNS {
 	const QString kCmdDIPCClear = "ClearIpc"; // 清空ipc
 
 	// 电视墙
-	const QString kCmdDWallCutScreen = "CutScreen";  //切屏
-	const QString kCmdDWallCallVideo = "CallVedio";  //调入视频
-	const QString kCmdDWallCloseVideo = "CloseVedio"; // 关闭视频
-	const QString kCmdDWallJoint = "Joint";    // 拼接
-	const QString kCmdDWallJointExit = "JointExit"; //退出拼接
-	const QString kCmdDWallJointSet = "JointSet"; // 设置幕墙
+	const QString kCmdWallCutScreen = "CutScreen";  //切屏
+	const QString kCmdWallCallVideo = "CallVedio";  //调入视频
+	const QString kCmdWallCloseVideo = "CloseVedio"; // 关闭视频
+	const QString kCmdWallJoint = "Joint";    // 拼接
+	const QString kCmdWallJointExit = "JointExit"; //退出拼接
+	const QString kCmdWallJointSet = "JointSet"; // 设置幕墙
+	const QString kCmdWallSet = "WallSet"; // 初始化幕墙
 
 	// 场景
     const QString kCmdSceneInfo = "SceneInfo"; // 获取场景信息
