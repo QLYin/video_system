@@ -15,6 +15,8 @@ public:
 
 	void setIndex(int index);
 	int index();
+signals:
+	void dropInfo(QString text);
 
 protected:
 	void dragEnterEvent(QDragEnterEvent* event);

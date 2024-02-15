@@ -19,6 +19,7 @@ public:
     void initConfigIpc(frmConfigIpc* ipcWidget);
     QList<IpcInfo>& ipcList();
     QString findIp(int id);
+    int findId(QString ip);
 
 private slots:
     void onIpcDel(QStringList ids, QStringList addrs);

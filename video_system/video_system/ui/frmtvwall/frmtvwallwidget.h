@@ -16,10 +16,15 @@ public:
 	void createTVWall(int row = 3, int col = 3);
 	void updateIndex(int firstX, int firstY, int index);
 	void updateScreenIpc(int index, QString ip);
-
+	int rows();
+	int cols();
+	frmScreen* findScreen(int row, int col);
 signals:
 	void wallSetSig();
 	void wallScreenJoinSig(QVector<int> indexs, bool join);
+	void wallScreenCutSig(int r, int c, int splitNum);
+	void wallCallVideoSig(int chnIndex, QString ip);
+
 protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void mouseMoveEvent(QMouseEvent* event)  override;

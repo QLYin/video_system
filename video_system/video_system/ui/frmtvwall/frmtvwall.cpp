@@ -106,7 +106,7 @@ void frmTVWall::on_btnCreateWallClicked()
         int row = userData["rows"].toInt();
         int col = userData["cols"].toInt();
         m_tvWallWidget->createTVWall(row, col);
-        TVWallManager::Instance()->sendWallSet(row, col);
+        TVWallManager::Instance()->sendWallJoint(row, col);
     }
 }
 

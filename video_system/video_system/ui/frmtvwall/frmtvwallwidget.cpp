@@ -54,7 +54,6 @@ void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 	}
 }
 
-
 void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 {
 	if (!m_gridLayout) return;
@@ -94,7 +93,6 @@ void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 	}
 }
 
-
 void frmTVWallWidget::createTVWall(int row, int col)
 {
 	m_rows = row;
@@ -133,6 +131,11 @@ void frmTVWallWidget::createTVWall(int row, int col)
 		{
 			frmScreen* childWidget = new frmScreen(this);
 			connect(childWidget, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
+			connect(childWidget, &frmScreen::screenCut, this, [i, j, this](int splitNum) 
+				{
+					emit wallScreenCutSig(i, j, splitNum);
+				});
+			connect(childWidget, &frmScreen::dropInfo, this, &frmTVWallWidget::wallCallVideoSig);
 			childWidget->setIndex(i * m_cols + j + 1);
 			childWidget->appendScreenInfo(i, j, -1, -1);
 			m_gridLayout->addWidget(childWidget, i , j);
@@ -223,7 +226,11 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 	mergeScreen->setChildScreenInfos(infos);
 	connect(mergeScreen, &frmScreen::screenMergeRestore, this, &frmTVWallWidget::restorScreens);
 	connect(mergeScreen, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
-
+	connect(mergeScreen, &frmScreen::screenCut, this, [mergeScreen, this](int splitNum)
+		{
+			emit wallScreenCutSig(mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, splitNum);
+		});
+	connect(mergeScreen, &frmScreen::dropInfo, this, &frmTVWallWidget::wallCallVideoSig);
 	int rowSpan = -1, colSpan = -1;
 	calculateSpan(infos, rowSpan, colSpan);
 	m_gridLayout->addWidget(mergeScreen, mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, rowSpan, colSpan);
@@ -286,4 +293,26 @@ void frmTVWallWidget::updateScreenIpc(int index, QString ip)
 
 		}
 	}
+}
+
+int frmTVWallWidget::rows()
+{
+	return m_rows;
+}
+
+int frmTVWallWidget::cols()
+{
+	return m_cols;
+}
+
+frmScreen* frmTVWallWidget::findScreen(int row, int col)
+{
+	frmScreen* screen = nullptr;
+	auto item = m_gridLayout->itemAtPosition(row, col);
+	if (item)
+	{
+		screen =  qobject_cast<frmScreen*>(item->widget());
+	}
+	
+	return screen;
 }

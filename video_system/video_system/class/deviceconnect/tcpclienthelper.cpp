@@ -197,10 +197,19 @@ void TcpClientHelper::sendWallCmd(const QString& cmd, const QVariantMap& param)
 	else if (cmd == CommandNS::kCmdWallCutScreen)
 	{
 		data += "split_num : ";
-		data += param["split_num"].toInt();
+		data += param["split_num"].toString();
 		data += kSplitStr;
 		data += "device_id : ";
-		data += param["device_id"].toInt();
+		data += param["device_id"].toString();
+		data += kSplitStr;
+	}
+	else if (cmd == CommandNS::kCmdWallCallVideo)
+	{
+		data += "chn : ";
+		data += param["chn"].toString();
+		data += kSplitStr;
+		data += "id : ";
+		data += param["id"].toString();
 		data += kSplitStr;
 	}
 

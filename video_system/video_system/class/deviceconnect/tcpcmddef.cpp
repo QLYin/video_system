@@ -26,6 +26,7 @@ namespace CommandNS {
 	const QString kCmdWallJointExit = "JointExit"; //退出拼接
 	const QString kCmdWallJointSet = "JointSet"; // 设置幕墙
 	const QString kCmdWallSet = "WallSet"; // 初始化幕墙
+	const QString kCmdSuccessR = "Success"; // 切屏后返回
 
 	// 场景
     const QString kCmdSceneInfo = "SceneInfo"; // 获取场景信息

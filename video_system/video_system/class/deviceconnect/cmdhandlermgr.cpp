@@ -33,7 +33,8 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
         "EditIpc",
         "JointSet",
         "Joint",
-        "JointExit"
+        "JointExit",
+        "CallVedio"
     };
 
     cmdId = 0;

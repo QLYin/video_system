@@ -22,7 +22,8 @@ public:
 	frmScreen(QWidget* parent = nullptr);
 	~frmScreen();
 
-	void cutScreen(int row, int col, bool needUpdate = true);
+	void cutScreen(int cnt, bool needUpdateIndex, bool notify);
+	void cutScreen(int row, int col, bool needUpdate = true, bool notify = true);
 	void revert(bool needUpdate = true);
 	
 	void setIndex(int index);
@@ -37,10 +38,12 @@ public:
 	bool hasCut();
 	int cutRow();
 	int cutCol();
-
+	void setCellText(int index, QString text);
 signals:
 	void indexUpdate(int x, int y, int nextIndex);
 	void screenMergeRestore(frmScreen* item);
+	void screenCut(int spiltNum);
+	void dropInfo(int chnIndex, QString text);
 
 private slots:
 	void showContextMenu(const QPoint& pos);

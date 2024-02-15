@@ -152,3 +152,17 @@ QString IPCManager::findIp(int id)
     }
     return ip;
 }
+
+int IPCManager::findId(QString ip)
+{
+    int id;
+    for (auto& ipc : m_ipcList)
+    {
+        if (ipc.ipaddr == ip)
+        {
+            id = ipc.id;
+            break;
+        }
+    }
+    return id;
+}
