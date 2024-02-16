@@ -5,6 +5,7 @@
 
 class frmMain;
 class frmLogin;
+class frmTVWallWidget;
 class AppMisc : public QObject
 {
     Q_OBJECT SINGLETON_DECL(AppMisc)
@@ -14,10 +15,15 @@ public:
 public:
     frmMain* mainWnd();
     frmLogin* loginWnd();
+    frmTVWallWidget* tvwallWidget();
+    void setTVWallWidget(frmTVWallWidget* widget);
+
+    bool hasMergeScreen();
 
 private:
     frmMain* m_mainWnd = nullptr;
     frmLogin* m_loginWnd = nullptr;
+    frmTVWallWidget* m_tvwallWidget = nullptr;
 };
 
 #if defined(theMainWnd)

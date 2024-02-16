@@ -51,7 +51,7 @@ void Indicator::showTopTip(const QString& text, QWidget* widget)
 		widget = qobject_cast<QWidget*>(AppMisc::Instance()->mainWnd());
 	}
 	QLabel* tipLabel = new QLabel(text);
-	tipLabel->setStyleSheet("background-color : #FFFFFF; padding: 10px; border-radius: 5px");
+	tipLabel->setStyleSheet("background-color : #FFFFFF; color : red; padding: 10px; border-radius: 5px");
 	QVBoxLayout* layout = new QVBoxLayout;
 	layout->addWidget(tipLabel);
 

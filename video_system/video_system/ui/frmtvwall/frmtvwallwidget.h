@@ -5,8 +5,8 @@
 #include <QMouseEvent>
 #include <QList>
 #include <QPoint>
+#include "frmscreen.h"
 
-class frmScreen;
 class QGridLayout;
 class frmTVWallWidget : public QWidget
 {
@@ -19,11 +19,12 @@ public:
 	int rows();
 	int cols();
 	frmScreen* findScreen(int row, int col);
+	bool hasMergeScreen();
 signals:
 	void wallSetSig();
-	void wallScreenJoinSig(QVector<int> indexs, bool join);
+	void wallScreenJoinSig(QVector<ScreenInfo> infos, QVector<int> indexs, bool join);
 	void wallScreenCutSig(int r, int c, int splitNum);
-	void wallCallVideoSig(int chnIndex, QString ip);
+	void wallCallVideoSig(int r, int c, int chnIndex, QString ip);
 
 protected:
 	void mousePressEvent(QMouseEvent* event) override;

@@ -87,7 +87,7 @@ void DevManager::handle(const QVariantMap& data)
     }
 }
 
-const QVector<DevInfo>& DevManager::devListInfo()
+QVector<DevInfo>& DevManager::devListInfo()
 {
     return m_devList;
 }

@@ -50,6 +50,13 @@ void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton) {
 		isPressed = false;
+
+		auto customCompare = [](const QWidget* widget1, const QWidget* widget2)
+		{
+			return widget1->pos().x() * widget1->pos().y() < widget2->pos().x() * widget2->pos().y();
+		};
+
+		std::sort(selectedWidgets.begin(), selectedWidgets.end(), customCompare);
 		showMergeDialog();
 	}
 }
@@ -84,12 +91,12 @@ void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 				childWidgets.append(screenItem);
 			}
 		}
+
+		mergeScreen->setParent(nullptr);
 		mergeScreen->deleteLater();
-		emit wallScreenJoinSig(indexs, false);
-		if (needUpdate)
-		{
-			updateIndex(firstX, firstY, currentIndex);
-		}
+		
+		emit wallScreenJoinSig(infos, indexs, false);
+		updateIndex(firstX, firstY, currentIndex);
 	}
 }
 
@@ -105,14 +112,6 @@ void frmTVWallWidget::createTVWall(int row, int col)
 	}
 	else
 	{
-		/*QLayoutItem* child;
-		while ((child = m_gridLayout->takeAt(0)) != 0) {
-			if (child->widget()) {
-				child->widget()->setParent(NULL);
-				m_gridLayout->removeWidget(child->widget());
-				delete child;
-			}
-		}*/
 		if (childWidgets.size() > 0)
 		{
 			for (auto& widget : childWidgets)
@@ -135,7 +134,10 @@ void frmTVWallWidget::createTVWall(int row, int col)
 				{
 					emit wallScreenCutSig(i, j, splitNum);
 				});
-			connect(childWidget, &frmScreen::dropInfo, this, &frmTVWallWidget::wallCallVideoSig);
+			connect(childWidget, &frmScreen::dropInfo, this, [i, j, this](int index, QString ip)
+				{
+					emit wallCallVideoSig(i, j, index, ip);
+				});
 			childWidget->setIndex(i * m_cols + j + 1);
 			childWidget->appendScreenInfo(i, j, -1, -1);
 			m_gridLayout->addWidget(childWidget, i , j);
@@ -181,7 +183,6 @@ void frmTVWallWidget::showMergeDialog()
 	}
 }
 
-
 void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 {
 	if (!m_gridLayout) return;
@@ -200,7 +201,8 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 		indexs.push_back(screenItem->index());
 		boundingRect = boundingRect.united(screenItem->geometry());
 		childWidgets.removeOne(screenItem);
-		screenItem->deleteLater();
+		delete screenItem;
+		screenItem = nullptr;
 	}
 
 	auto calculateSpan = [](QVector<ScreenInfo> cords, int& rowSpan, int& colSpan)
@@ -230,12 +232,15 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 		{
 			emit wallScreenCutSig(mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, splitNum);
 		});
-	connect(mergeScreen, &frmScreen::dropInfo, this, &frmTVWallWidget::wallCallVideoSig);
+	connect(mergeScreen, &frmScreen::dropInfo, this, [mergeScreen, this](int index, QString ip)
+		{
+			emit wallCallVideoSig(mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, index, ip);
+		});
 	int rowSpan = -1, colSpan = -1;
 	calculateSpan(infos, rowSpan, colSpan);
 	m_gridLayout->addWidget(mergeScreen, mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, rowSpan, colSpan);
 	childWidgets.append(mergeScreen);
-	emit wallScreenJoinSig(indexs, true);
+	emit wallScreenJoinSig(infos, indexs, true);
 }
 
 void frmTVWallWidget::updateIndex(int firstX, int firstY, int index)
@@ -315,4 +320,19 @@ frmScreen* frmTVWallWidget::findScreen(int row, int col)
 	}
 	
 	return screen;
+}
+
+bool frmTVWallWidget::hasMergeScreen()
+{
+	bool has = false;
+	for (auto& widget : childWidgets)
+	{
+		auto screenItem = qobject_cast<frmScreen*>(widget);
+		if (screenItem->childScreenInfos().size() > 1)
+		{
+			has = true;
+			break;
+		}
+	}
+	return has;
 }

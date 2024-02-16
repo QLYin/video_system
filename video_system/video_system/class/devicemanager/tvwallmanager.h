@@ -5,8 +5,8 @@
 
 #include "../deviceconnect/cmdhandlermgr.h"
 #include "../deviceconnect/tcpcmddef.h"
+#include "../frmtvwall/frmscreen.h"
 
-class frmScreen;
 class frmTVWallWidget;
 class TVWallManager : public QObject, public IHandler
 {
@@ -17,6 +17,7 @@ public:
     void initWallWidget(frmTVWallWidget* widget);
     void handle(const QVariantMap& data) override;
 
+    bool hasMergeScreen();
     void sendWallJoint(int row, int col);
 private:
     int calculatePlanMode(const QVector<int>& arr);
@@ -24,9 +25,9 @@ private:
 
 private slots:
     void onWallSet();
-    void onWallScreenJoin(QVector<int> indexs, bool join);
+    void onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> indexs, bool join);
     void onWallScreenCut(int row, int col, int splitNum);
-    void onWallCallVideo(int index, QString ip);
+    void onWallCallVideo(int row, int col, int index, QString ip);
 private:
     frmTVWallWidget* m_wallWidget = nullptr;
 };

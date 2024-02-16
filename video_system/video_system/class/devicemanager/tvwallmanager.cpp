@@ -5,7 +5,6 @@
 #include"devmanager.h"
 #include "ipcmanager.h"
 #include "../frmtvwall/frmtvwallwidget.h"
-#include "../frmtvwall/frmscreen.h"
 
 SINGLETON_IMPL(TVWallManager)
 TVWallManager::TVWallManager(QObject *parent) : QObject(parent)
@@ -33,18 +32,35 @@ void TVWallManager::handle(const QVariantMap& data)
 		auto screen = findScreen(id);
 		if (screen)
 		{
-			for (int i = 0; i < 16; ++i)
+			if (screen->hasCut())
 			{
-				auto key = QString("chn_%1").arg(i);
-				auto ipcId = data[key].toInt();
+				for (int i = 0; i < 16; ++i)
+				{
+					auto key = QString("chn_%1").arg(i);
+					auto ipcId = data[key].toInt();
+					QString ip = IPCManager::Instance()->findIp(ipcId);
+					if (!ip.isEmpty())
+					{
+						screen->setCellText(i, ip);
+					}
+				}
+			}
+			else {
+				auto ipcId = data["chn_0"].toInt();
 				QString ip = IPCManager::Instance()->findIp(ipcId);
 				if (!ip.isEmpty())
 				{
-					screen->setCellText(i, ip);
+					screen->setText(ip);
 				}
 			}
+		
 		}
 	}
+}
+
+bool TVWallManager::hasMergeScreen()
+{
+	return m_wallWidget->hasMergeScreen();
 }
 
 void TVWallManager::initWallWidget(frmTVWallWidget* widget)
@@ -83,7 +99,7 @@ void TVWallManager::onWallSet()
 				int chnCnt = devInfo.at(i).chn_cnt;
 				if (chnCnt > 1)
 				{
-					screen->cutScreen(chnCnt, true, false);
+					screen->cutScreen(chnCnt, true, false);  // 6分屏要单独处理
 					auto ipcIndexs = devInfo.at(i).ipc_indexs;
 					for (int j = 0; j < 16; ++j)
 					{
@@ -118,7 +134,7 @@ int TVWallManager::calculatePlanMode(const QVector<int>& arr)
 	return result;
 }
 
-void TVWallManager::onWallScreenJoin(QVector<int> indexs, bool join)
+void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> indexs, bool join)
 {
 	if (indexs.isEmpty()) return;
 	int firstId = indexs.at(0) - 1;
@@ -128,6 +144,63 @@ void TVWallManager::onWallScreenJoin(QVector<int> indexs, bool join)
 	param["plan_mode"] = planMode;
 	param["src_dev"] = firstId;
 	CmdHandlerMgr::Instance()->sendCmd(join ? CommandNS::kCmdWallJoint : CommandNS::kCmdWallJointExit, param);
+
+	auto devInfo = DevManager::Instance()->devListInfo();
+	if (join) 
+	{
+		int firstX = infos.at(0).x;
+		int firstY = infos.at(0).y;
+		int devIndex = firstX * m_wallWidget->cols() + firstY;
+		QString ip = IPCManager::Instance()->findIp(devInfo.at(devIndex).ipc_indexs.at(0));
+		auto screen = m_wallWidget->findScreen(firstX, firstY);
+		qDebug() << "find screen: " << screen;
+		if (screen && !ip.isEmpty())
+		{
+			screen->setText(ip);
+			QFont font("Arial", 8);
+			screen->setFont(font);
+		}
+	}
+	else
+	{
+		for (auto& info : infos)
+		{
+			int x = info.x;
+			int y = info.y;
+			int row = info.row;
+			int col = info.col;
+			int devIndex = x * m_wallWidget->cols() + y;
+
+			auto screen = m_wallWidget->findScreen(x, y);
+
+			if (row > 1 || col > 1)
+			{
+				screen->cutScreen(row * col, true, false); // 6分屏要单独处理
+				auto ipcIndexs = devInfo.at(devIndex).ipc_indexs;
+				for (int j = 0; j < 16; ++j)
+				{
+					auto id = ipcIndexs.at(j);
+					QString ip = IPCManager::Instance()->findIp(id);
+					if (!ip.isEmpty())
+					{
+						screen->setCellText(j, ip);
+					}
+				}
+			}
+			else 
+			{
+				QString ip = IPCManager::Instance()->findIp(devInfo.at(devIndex).ipc_indexs.at(0));
+				if (screen && !ip.isEmpty())
+				{
+					screen->setText(ip);
+					QFont font("Arial", 8);
+					screen->setFont(font);
+				}
+
+			}
+		}
+
+	}
 }
 
 void TVWallManager::onWallScreenCut(int row, int col, int splitNum)
@@ -159,10 +232,29 @@ frmScreen* TVWallManager::findScreen(int devId)
 	return nullptr;
 }
 
-void TVWallManager::onWallCallVideo(int index, QString ip)
+void TVWallManager::onWallCallVideo(int row, int col, int chn_index, QString ip)
 {
 	QVariantMap param;
-	param["chn"] = index;
+	param["chn"] = chn_index;
 	param["id"] = IPCManager::Instance()->findId(ip);
 	CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallCallVideo, param);
+	// 要更新devinfo
+	int devIndex = row * m_wallWidget->cols() + col;
+	auto& devInfo = DevManager::Instance()->devListInfo();
+	QVector<int>& ipcIndexs = devInfo[devIndex].ipc_indexs;
+	auto screen = m_wallWidget->findScreen(row, col);
+	if (screen->index() == chn_index)
+	{
+		ipcIndexs[0] = IPCManager::Instance()->findId(ip);
+	}
+	else 
+	{
+		auto index = chn_index - screen->index();
+		if (index > 0)
+		{
+			ipcIndexs[index] = IPCManager::Instance()->findId(ip);
+		}
+	}
+
+
 }

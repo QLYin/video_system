@@ -5,6 +5,8 @@
 #include <QDebug>
 
 #include "frmcell.h"
+#include "ui/frmbase/Indicator.h"
+#include "class/devicemanager/tvwallmanager.h"
 
 namespace {
 	QVector<int> kSplitNum = {2, 4, 6, 9, 16};
@@ -59,13 +61,20 @@ void frmScreen::showContextMenu(const QPoint& pos)
 	splitAction->setMenu(&splitMenu);
 	connect(undoAction, &QAction::triggered, this, [this]()
 		{
-			revert(true);
+			cutScreen(1, 1);
 		});
 	contextMenu.exec(mapToGlobal(pos));
 }
 
 void frmScreen::cutScreen(int row, int col, bool needUpdate, bool notify)
 {
+
+	if (TVWallManager::Instance()->hasMergeScreen())
+	{
+		Indicator::showTopTip(QString::fromLocal8Bit("当前存在合并视频, 不能分屏"), nullptr);
+		return;
+	}
+
 	if (row <= 0 && col <= 0) 
 	{
 		return;
@@ -98,18 +107,22 @@ void frmScreen::cutScreen(int row, int col, bool needUpdate, bool notify)
 		//m_gridLayout = nullptr;
 	}
 
-	for (int i = 0; i < m_cutRow; ++i)
+	if (m_cutRow > 1 || m_cutCol > 1)
 	{
-		for (int j = 0; j < m_cutCol; ++j)
+		for (int i = 0; i < m_cutRow; ++i)
 		{
-			frmCell* cell = new frmCell(this);
-			connect(cell, &frmCell::dropInfo, this, [=](QString text) 
-				{
-					emit dropInfo(m_index + i * m_cutCol + j, text);
-				});
-			//cell->setIndex(m_index + i * row + col);
-			m_gridLayout->addWidget(cell, i, j);
+			for (int j = 0; j < m_cutCol; ++j)
+			{
+				frmCell* cell = new frmCell(this);
+				connect(cell, &frmCell::dropInfo, this, [=](QString text)
+					{
+						emit dropInfo(m_index + i * m_cutCol + j, text);
+					});
+				//cell->setIndex(m_index + i * row + col);
+				m_gridLayout->addWidget(cell, i, j);
+			}
 		}
+
 	}
 
 	if (needUpdate)
@@ -130,7 +143,11 @@ void frmScreen::cutScreen(int cnt, bool needUpdateIndex, bool notify)
 		return;
 	}
 
-	if (cnt == 2)
+	if (cnt == 1)
+	{
+		cutScreen(1, 1, true, false);
+	}
+	else if (cnt == 2)
 	{
 		cutScreen(1, 2, true, false);
 	}

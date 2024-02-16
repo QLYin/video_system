@@ -8,8 +8,8 @@
 class Indicator
 {
 public:
-	void showLoading(bool loading, QWidget* wdiget);
-	void showTopTip(const QString& text, QWidget* widget);
+	static void showLoading(bool loading, QWidget* wdiget);
+	static void showTopTip(const QString& text, QWidget* widget);
 
 };
 

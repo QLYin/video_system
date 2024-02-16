@@ -14,7 +14,7 @@ class DevManager : public QObject, public IHandler
 public:
     explicit DevManager(QObject *parent = 0);
     void handle(const QVariantMap& data) override;
-    const QVector<DevInfo>& devListInfo();
+    QVector<DevInfo>& devListInfo();
 
     void initConfigCard(frmConfigCard* cardWidget);
 
