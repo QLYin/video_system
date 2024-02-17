@@ -19,15 +19,16 @@ void Indicator::showLoading(bool loading, QWidget* widget)
 	{
 		loadingWidget = new QWidget(widget);
 		loadingWidget->setObjectName("loading_widget");
-		loadingWidget->setStyleSheet("background-color : #A5A5A5");
+		loadingWidget->setStyleSheet("background-color : #80000000");
 		QVBoxLayout* layout = new QVBoxLayout(loadingWidget);
+		layout->setAlignment(Qt::AlignCenter);
 		layout->setMargin(0);
 		layout->setSpacing(0);
 
 		QLabel* label = new QLabel(loadingWidget);
 		layout->addWidget(label);
 
-		QMovie* movie = new QMovie(":/res/loading.gif");
+		QMovie* movie = new QMovie(":/image/loading.gif");
 		label->setMovie(movie);
 		movie->start();
 	}

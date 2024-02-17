@@ -135,9 +135,7 @@ void TcpClient::displayError(QAbstractSocket::SocketError err)
 
 bool TcpClient::isConnnected()
 {
-    if (!m_socket)
-        return false;
-    return m_socket->state() == QAbstractSocket::ConnectingState || m_socket->state() == QAbstractSocket::ConnectedState;
+    return m_socket && m_socket->state() == QAbstractSocket::ConnectedState;
 }
 
 void TcpClient::onConnected()

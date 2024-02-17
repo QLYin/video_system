@@ -6,6 +6,7 @@
 #include "class/appmisc/appmisc.h"
 #include "../deviceconnect/tcpclient.h"
 #include "../deviceconnect/cmdhandlermgr.h"
+#include "ui/frmbase/Indicator.h"
 
 frmLogin::frmLogin(QWidget *parent) : QDialog(parent), ui(new Ui::frmLogin)
 {
@@ -120,11 +121,16 @@ void frmLogin::on_btnLogin_clicked()
         }
 
         //隐藏当前界面弹出主界面
-        this->hide();
         this->initDeviceConnect();
-        frmMain *form = AppMisc::Instance()->mainWnd();
-        form->show();
-        form->activateWindow();
+        Indicator::showLoading(true, this);
+        QTimer::singleShot(5000, this, [=]() 
+            {
+                if (!TcpClient::Instance()->isConnnected())
+                {
+                    Indicator::showLoading(false, this);
+                    Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
+                }
+            });
     } else {
         //密码错误计数
         static int errorCount = 0;
@@ -149,7 +155,7 @@ void frmLogin::on_cboxUserName_activated(int)
 void frmLogin::initDeviceConnect()
 {
     TcpClient::Instance()->init();
-    connect(TcpClient::Instance(), &TcpClient::socketConnected, this, []()
+    connect(TcpClient::Instance(), &TcpClient::socketConnected, this, [this]()
         {
             AppEvent::Instance()->slot_tcpConnected();
             //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
@@ -162,10 +168,17 @@ void frmLogin::initDeviceConnect()
             CmdHandlerMgr::Instance()->sendCmd("nop");
             CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
             //TcpClientHelper::sendSceneInfo();
+
+            Indicator::showLoading(false, this);
+            this->hide();
+            frmMain* form = AppMisc::Instance()->mainWnd();
+            form->show();
+            form->activateWindow();
         });
 
-    //connect(TcpClient::Instance(), &TcpClient::socketData, this, [](const QVariantMap data)
-    //    {
-    //        AppEvent::Instance()->slot_tcpSockectData(data);
-    //    });
+    connect(TcpClient::Instance(), &TcpClient::socketError, this, [this](QAbstractSocket::SocketError err)
+        {
+            Indicator::showLoading(false, this);
+            Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
+        });
 }
