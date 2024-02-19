@@ -88,40 +88,55 @@ void TVWallManager::onWallSet()
 	int devSize = devInfo.size();
 	if (devSize > 0)
 	{
-		for (int i = 0; i < devSize; ++i)
+		int wallWidgetRow = m_wallWidget->rows();
+		int wallWidgetCol = m_wallWidget->cols();
+		for (int r = 0; r < wallWidgetRow; ++r)
 		{
-			// 先分屏
-			int r = i / m_wallWidget->cols();
-			int c = i % m_wallWidget->cols();
-			auto screen = m_wallWidget->findScreen(r, c);
-			if (screen)
+			for (int c = 0; c < wallWidgetCol; ++c)
 			{
-				int chnCnt = devInfo.at(i).chn_cnt;
-				if (chnCnt > 1)
+				int devIndex = r * wallWidgetCol + c;
+				if (devIndex < devSize)
 				{
-					screen->cutScreen(chnCnt, true, false);  // 6分屏要单独处理
-					auto ipcIndexs = devInfo.at(i).ipc_indexs;
-					for (int j = 0; j < 16; ++j)
+					auto screen = m_wallWidget->findScreen(r, c);
+					if (screen)
 					{
-						auto id = ipcIndexs.at(j);
-						QString ip = IPCManager::Instance()->findIp(id);
-						if (!ip.isEmpty())
+						screen->setEnableDrop(true);
+						int chnCnt = devInfo.at(devIndex).chn_cnt;
+						if (chnCnt > 1)
 						{
-							screen->setCellText(j, ip);
+							screen->cutScreen(chnCnt, true, false);  // 6分屏要单独处理
+							auto ipcIndexs = devInfo.at(devIndex).ipc_indexs;
+							for (int j = 0; j < 16; ++j)
+							{
+								auto id = ipcIndexs.at(j);
+								QString ip = IPCManager::Instance()->findIp(id);
+								if (!ip.isEmpty())
+								{
+									screen->setCellText(j, ip);
+								}
+							}
+						}
+						else
+						{
+							QString ip = IPCManager::Instance()->findIp(devInfo.at(devIndex).ipc_indexs.at(0));
+							screen->setText(ip);
+							QFont font("Arial", 8);
+							screen->setFont(font);
 						}
 					}
 				}
 				else
 				{
-					QString ip = IPCManager::Instance()->findIp(devInfo.at(i).ipc_indexs.at(0));
-					screen->setText(ip);
-					QFont font("Arial", 8);
-					screen->setFont(font);
+					auto screen = m_wallWidget->findScreen(r, c);
+					if (screen)
+					{
+						screen->setEnableDrop(false);
+						screen->setText("未检测到解码卡");
+					}
+
 				}
 			}
-
 		}
-
 	}
 }
 

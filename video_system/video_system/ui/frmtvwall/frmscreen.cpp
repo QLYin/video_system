@@ -32,6 +32,7 @@ frmScreen::~frmScreen()
 
 void frmScreen::showContextMenu(const QPoint& pos)
 {
+	if (!m_enableDrop) return;
 	QMenu contextMenu(this);
 	QAction* splitAction = contextMenu.addAction(QString::fromLocal8Bit("切割画面"));
 	QAction* undoAction = contextMenu.addAction(QString::fromLocal8Bit("撤销切割"));
@@ -260,6 +261,7 @@ void frmScreen::appendScreenInfo(int x, int y, int row, int col)
 
 void frmScreen::dragEnterEvent(QDragEnterEvent* event)
 {
+	if (!m_enableDrop) return;
 	if (event->mimeData()->hasFormat("application/x-qabstractitemmodeldatalist")) {
 		event->setDropAction(Qt::CopyAction);
 		event->accept();
@@ -275,6 +277,7 @@ void frmScreen::dragEnterEvent(QDragEnterEvent* event)
 
 void frmScreen::dropEvent(QDropEvent* event)
 {
+	if (!m_enableDrop) return;
 	QString text;
 	if (event->mimeData()->hasUrls()) {
 		text = event->mimeData()->urls().first().toLocalFile();
@@ -321,4 +324,9 @@ int frmScreen::updateIndex(int index)
 		}
 	}
 	return index;
+}
+
+void frmScreen::setEnableDrop(bool enable)
+{
+	m_enableDrop = enable;
 }

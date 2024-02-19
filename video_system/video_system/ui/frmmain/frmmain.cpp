@@ -19,6 +19,8 @@
 #include "frmmap.h"
 #include "frmdata.h"
 #include "frmconfig.h"
+#include "../deviceconnect/tcpclient.h"
+#include "ui/frmbase/Indicator.h"
 
 frmMain::frmMain(QWidget *parent) : QWidget(parent), ui(new Ui::frmMain)
 {
@@ -30,8 +32,11 @@ frmMain::frmMain(QWidget *parent) : QWidget(parent), ui(new Ui::frmMain)
     this->initLocation();
     this->initLogo();
     this->initTitleInfo();
-    //this->initDeviceConnect();
     this->configChanged(AppConfig::WeatherCity, AppConfig::WeatherInterval, AppConfig::WeatherStyle);
+    connect(TcpClient::Instance(), &TcpClient::socketError, this, [this](QAbstractSocket::SocketError err)
+        {
+            QtHelper::showMessageBoxError("连接异常,请重启客户端或重新连接", 3, true);
+        });
 }
 
 frmMain::~frmMain()

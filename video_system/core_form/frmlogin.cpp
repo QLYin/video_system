@@ -178,7 +178,10 @@ void frmLogin::initDeviceConnect()
 
     connect(TcpClient::Instance(), &TcpClient::socketError, this, [this](QAbstractSocket::SocketError err)
         {
-            Indicator::showLoading(false, this);
-            Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
+            if (isVisible())
+            {
+                Indicator::showLoading(false, this);
+                Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
+            }
         });
 }

@@ -39,6 +39,7 @@ public:
 	int cutRow();
 	int cutCol();
 	void setCellText(int index, QString text);
+	void setEnableDrop(bool enable);
 signals:
 	void indexUpdate(int x, int y, int nextIndex);
 	void screenMergeRestore(frmScreen* item);
@@ -59,6 +60,7 @@ private:
 	QVector<ScreenInfo> m_ChildScreens;
 	QGridLayout* m_gridLayout = nullptr;
 	QLabel* m_topLabel = nullptr;
+	bool m_enableDrop = true;
 };
 
 #endif
