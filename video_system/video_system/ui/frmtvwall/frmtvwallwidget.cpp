@@ -189,6 +189,8 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 
 	QRect boundingRect = widgets.first()->geometry();
 	auto firstScreen = qobject_cast<frmScreen*>(widgets.at(0));
+	int firstX = firstScreen->screenInfo().x;
+	int firstY = firstScreen->screenInfo().y;
 	int index = firstScreen->index();
 	int w = firstScreen->width();
 	int h = firstScreen->height();
@@ -241,6 +243,7 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 	m_gridLayout->addWidget(mergeScreen, mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, rowSpan, colSpan);
 	childWidgets.append(mergeScreen);
 	emit wallScreenJoinSig(infos, indexs, true);
+	updateIndex(firstX, firstY, index);
 }
 
 void frmTVWallWidget::updateIndex(int firstX, int firstY, int index)

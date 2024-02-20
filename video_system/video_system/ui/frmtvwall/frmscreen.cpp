@@ -22,7 +22,7 @@ frmScreen::frmScreen(QWidget* parent)
 	setStyleSheet("background-color: rgb(68, 73, 79);");
 	m_topLabel = new QLabel(this);
 	m_topLabel->setAlignment(Qt::AlignLeft);
-	m_topLabel->setGeometry(0, 0, width(), 20);
+	m_topLabel->setGeometry(1, 1, width(), 20);
 }
 
 frmScreen::~frmScreen()
@@ -236,7 +236,10 @@ void frmScreen::setCellText(int index, QString text)
 
 ScreenInfo frmScreen::screenInfo()
 {
-	return m_ChildScreens.at(0);
+	auto screenInfo = m_ChildScreens.at(0);
+	screenInfo.row = m_cutRow;
+	screenInfo.col = m_cutCol;
+	return screenInfo;
 }
 
 QVector<ScreenInfo> frmScreen::childScreenInfos()

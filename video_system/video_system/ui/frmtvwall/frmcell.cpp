@@ -8,8 +8,9 @@ frmCell::frmCell(QWidget* parent)
 	setAlignment(Qt::AlignCenter);
 	setContextMenuPolicy(Qt::NoContextMenu);
 	m_indexLabel = new QLabel(this);
-	m_indexLabel->setGeometry(0, 0, 20, 20);
-	setStyleSheet("background : gray;");
+	m_indexLabel->setGeometry(1, 1, 20, 20);
+	m_indexLabel->setStyleSheet("border : none");
+	setStyleSheet("border: 1px solid white;");
 }
 
 frmCell::~frmCell()
