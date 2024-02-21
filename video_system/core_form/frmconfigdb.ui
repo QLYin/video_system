@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>frmConfigDb</class>
+ <widget class="QWidget" name="frmConfigDb">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>341</width>
+    <height>141</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <property name="leftMargin">
+    <number>6</number>
+   </property>
+   <property name="topMargin">
+    <number>10</number>
+   </property>
+   <property name="rightMargin">
+    <number>6</number>
+   </property>
+   <property name="bottomMargin">
+    <number>6</number>
+   </property>
+   <property name="spacing">
+    <number>6</number>
+   </property>
+   <item row="0" column="1">
+    <widget class="QComboBox" name="cboxConnMode"/>
+   </item>
+   <item row="1" column="3">
+    <widget class="QLineEdit" name="txtHostInfo"/>
+   </item>
+   <item row="0" column="3">
+    <widget class="QComboBox" name="cboxDbType"/>
+   </item>
+   <item row="0" column="2">
+    <widget class="QLabel" name="labDbType">
+     <property name="text">
+      <string>主机类型</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="2">
+    <widget class="QLabel" name="labHostInfo">
+     <property name="text">
+      <string>主机信息</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="3">
+    <widget class="XLineEdit" name="txtUserPwd">
+     <property name="echoMode">
+      <enum>QLineEdit::Password</enum>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="0">
+    <widget class="QLabel" name="labDbName">
+     <property name="text">
+      <string>数据库名</string>
+     </property>
+    </widget>
+   </item>
+   <item row="3" column="0" colspan="2">
+    <widget class="QPushButton" name="btnConnect">
+     <property name="text">
+      <string>连接测试</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QLabel" name="labUserPwd">
+     <property name="text">
+      <string>用户密码</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QLineEdit" name="txtUserName"/>
+   </item>
+   <item row="3" column="2" colspan="2">
+    <widget class="QPushButton" name="btnInit">
+     <property name="text">
+      <string>初始化数据</string>
+     </property>
+    </widget>
+   </item>
+   <item row="0" column="0">
+    <widget class="QLabel" name="labConnMode">
+     <property name="text">
+      <string>连接方式</string>
+     </property>
+    </widget>
+   </item>
+   <item row="1" column="1">
+    <widget class="QLineEdit" name="txtDbName"/>
+   </item>
+   <item row="2" column="0">
+    <widget class="QLabel" name="labUserName">
+     <property name="text">
+      <string>用户名称</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>XLineEdit</class>
+   <extends>QLineEdit</extends>
+   <header>xlineedit.h</header>
+  </customwidget>
+ </customwidgets>
+ <tabstops>
+  <tabstop>cboxConnMode</tabstop>
+  <tabstop>cboxDbType</tabstop>
+  <tabstop>txtDbName</tabstop>
+  <tabstop>txtHostInfo</tabstop>
+  <tabstop>txtUserName</tabstop>
+  <tabstop>txtUserPwd</tabstop>
+  <tabstop>btnConnect</tabstop>
+  <tabstop>btnInit</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

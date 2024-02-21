@@ -1,0 +1,21 @@
+<RCC>
+    <qresource prefix="/">
+        <file>logo.svg</file>
+        <file>main.ico</file>
+        <file>font/city.json</file>
+        <file>image/bg_banner.jpg</file>
+        <file>image/bg_splash.jpg</file>
+        <file>image/bg_splash1.jpg</file>
+        <file>image/demo0.jpg</file>
+        <file>image/demo1.jpg</file>
+        <file>image/demo2.jpg</file>
+        <file>image/demo3.jpg</file>
+        <file>image/liuyifei0.jpg</file>
+        <file>image/liuyifei1.jpg</file>
+        <file>image/liuyifei2.jpg</file>
+        <file>gps1.txt</file>
+        <file>gps2.txt</file>
+        <file>image/bg_novideo.png</file>
+		<file>image/loading.gif</file>
+    </qresource>
+</RCC>

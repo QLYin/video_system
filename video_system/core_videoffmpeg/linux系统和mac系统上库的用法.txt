@@ -1,0 +1,7 @@
+1. dll+lib 链接: https://pan.baidu.com/s/13LDRu6mXC6gaADtrGprNVA 提取码: ujm7。
+2. linux和mac上提供编译好的库默认是ffmpeg4版本。
+3. 解压出来后放到core_videoffmpeg/ffmpeg4目录下，和libwin32/libwin64同级目录，无需把liblinux64改成liblinux。
+4. 因为是动态库依赖，所以还必须在编译完成后将liblinux32/liblinux64/libmac64文件夹拷贝到可执行文件同一目录（core_videoffmpeg_include.pri中已经做了rpath关联）。
+5. 可执行文件在源码下的bin目录。
+6. mac系统下你看到的可执行文件是个压缩包，相当于目录，你需要鼠标右键显示包内容，然后再进去几层，才是真正的可执行文件。
+7. 如果是自己编译的ffmpeg，一定要注意版本，ffmpeg3系列的话，你需要在pro中增加定义DEFINES += ffmpeg3，如果是5对应是DEFINES += ffmpeg5。

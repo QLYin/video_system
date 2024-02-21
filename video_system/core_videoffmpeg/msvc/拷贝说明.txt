@@ -1,0 +1,1 @@
+如果使用msvc2010编译器编译期间提示inttype.h错误，需要将这两个文件复制到core_videoffmpeg目录下或者对应版本目录的include目录下即可，这样就编译的时候可以找得到。

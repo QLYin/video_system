@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+  %1
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <AbsoluteMove xmlns="http://www.onvif.org/ver20/ptz/wsdl">
+      <ProfileToken>%2</ProfileToken>
+      <Position>
+        <PanTilt x="%3" y="%4" space="http://www.onvif.org/ver10/tptz/PanTiltSpaces/PositionGenericSpace" xmlns="http://www.onvif.org/ver10/schema"/>
+        <Zoom x="%5" space="http://www.onvif.org/ver10/tptz/ZoomSpaces/PositionGenericSpace" xmlns="http://www.onvif.org/ver10/schema"/>
+      </Position>
+    </AbsoluteMove>
+  </s:Body>
+</s:Envelope>

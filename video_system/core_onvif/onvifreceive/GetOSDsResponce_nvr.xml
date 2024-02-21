@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<s:Envelope
+    xmlns:sc="http://www.w3.org/2003/05/soap-encoding"
+    xmlns:s="http://www.w3.org/2003/05/soap-envelope"
+    xmlns:trt="http://www.onvif.org/ver10/media/wsdl"
+    xmlns:tt="http://www.onvif.org/ver10/schema">
+    <s:Header/>
+    <s:Body>
+        <trt:GetOSDsResponse>
+            <trt:OSDs token="OSD00000">
+                <tt:VideoSourceConfigurationToken>00000</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="-1" y="1"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>DateAndTime</tt:Type>
+                    <tt:DateFormat>yyyy-MM-dd</tt:DateFormat>
+                    <tt:TimeFormat>HH:mm:ss</tt:TimeFormat>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00001">
+                <tt:VideoSourceConfigurationToken>00000</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="-0.70308876037597656" y="0.28335979580879211"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>Plain</tt:Type>
+                    <tt:PlainText>阿萨德11</tt:PlainText>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00002">
+                <tt:VideoSourceConfigurationToken>00000</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="0.028445854783058167" y="0.055548772215843201"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>Plain</tt:Type>
+                    <tt:PlainText>阿萨德</tt:PlainText>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00101">
+                <tt:VideoSourceConfigurationToken>00100</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="-1" y="1"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>Plain</tt:Type>
+                    <tt:PlainText>通道2</tt:PlainText>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00200">
+                <tt:VideoSourceConfigurationToken>00200</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="0.29849836230278015" y="0.91429615020751953"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>DateAndTime</tt:Type>
+                    <tt:DateFormat>yyyy-MM-dd</tt:DateFormat>
+                    <tt:TimeFormat>HH:mm:ss</tt:TimeFormat>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00201">
+                <tt:VideoSourceConfigurationToken>00200</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="-0.96410691738128662" y="-0.83347576856613159"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>Plain</tt:Type>
+                    <tt:PlainText></tt:PlainText>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00300">
+                <tt:VideoSourceConfigurationToken>00300</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="0.29874253273010254" y="0.91405200958251953"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>DateAndTime</tt:Type>
+                    <tt:DateFormat>yyyy-MM-dd</tt:DateFormat>
+                    <tt:TimeFormat>HH:mm:ss</tt:TimeFormat>
+                </tt:TextString>
+            </trt:OSDs>
+            <trt:OSDs token="OSD00301">
+                <tt:VideoSourceConfigurationToken>00300</tt:VideoSourceConfigurationToken>
+                <tt:Type>Text</tt:Type>
+                <tt:Position>
+                    <tt:Type>Custom</tt:Type>
+                    <tt:Pos x="-0.96386277675628662" y="-0.83396410942077637"/>
+                </tt:Position>
+                <tt:TextString>
+                    <tt:Type>Plain</tt:Type>
+                    <tt:PlainText>IPC</tt:PlainText>
+                </tt:TextString>
+            </trt:OSDs>
+        </trt:GetOSDsResponse>
+    </s:Body>
+</s:Envelope>
