@@ -333,3 +333,15 @@ void frmScreen::setEnableDrop(bool enable)
 {
 	m_enableDrop = enable;
 }
+
+void frmScreen::setSelected(bool selected)
+{
+	if (selected)
+	{
+		setStyleSheet("background-color: rgb(71, 140, 182);");
+	}
+	else
+	{
+		setStyleSheet("background-color: rgb(68, 73, 79);");
+	}
+}

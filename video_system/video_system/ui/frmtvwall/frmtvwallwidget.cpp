@@ -19,6 +19,7 @@ void frmTVWallWidget::mousePressEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton) {
 		isPressed = true;
+		isDrawing = true;
 		startPos = event->pos();
 		selectedWidgets.clear();
 	}
@@ -31,25 +32,28 @@ void frmTVWallWidget::mouseMoveEvent(QMouseEvent* event)
 		return;
 	}
 
-	QRect slectedRect = QRect(startPos, event->pos()).normalized();
-	for (QWidget* widget : childWidgets)
-	{
-		if (slectedRect.intersects(widget->geometry()))
-		{
-			if (!selectedWidgets.contains(widget))
-			{
-				selectedWidgets.append(widget);
-			}
-			widget->setStyleSheet("background-color: rgb(71, 140, 182);");
-		}
+	if (event->buttons() & Qt::LeftButton) {
+		endPos = event->pos();
+		update();
 	}
-	update();
 }
 
 void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 {
 	if (event->button() == Qt::LeftButton) {
 		isPressed = false;
+		isDrawing = false;
+		QRect slectedRect = QRect(startPos, event->pos()).normalized();
+		for (QWidget* widget : childWidgets)
+		{
+			if (slectedRect.intersects(widget->geometry()))
+			{
+				if (!selectedWidgets.contains(widget))
+				{
+					selectedWidgets.append(widget);
+				}
+			}
+		}
 
 		auto customCompare = [](const QWidget* widget1, const QWidget* widget2)
 		{
@@ -57,8 +61,39 @@ void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 		};
 
 		std::sort(selectedWidgets.begin(), selectedWidgets.end(), customCompare);
+		if (selectedWidgets.size() > 1)
+		{
+			for (auto& widget : selectedWidgets)
+			{
+				auto screenItem = qobject_cast<frmScreen*>(widget);
+				screenItem->setSelected(true);
+			}
+		}
 		showMergeDialog();
 	}
+}
+
+void frmTVWallWidget::paintEvent(QPaintEvent* e)
+{
+	if (isDrawing) {
+		if (!m_rectWidget)
+		{
+			m_rectWidget = new QWidget(this);
+		}
+		m_rectWidget->setGeometry(startPos.x(), startPos.y(), endPos.x() - startPos.x(), endPos.y() - startPos.y());
+		m_rectWidget->raise();
+		m_rectWidget->show();
+		m_rectWidget->setStyleSheet("background-color: gray");
+	}
+	else
+	{
+		if (m_rectWidget)
+		{
+			m_rectWidget->setVisible(false);
+		}
+	}
+
+	return QWidget::paintEvent(e);
 }
 
 void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
@@ -156,13 +191,17 @@ void frmTVWallWidget::showMergeDialog()
 	QDialog dialog(this);
 	QVBoxLayout* layout = new QVBoxLayout(&dialog);
 	dialog.setLayout(layout);
+	layout->setMargin(10);
+	layout->setSpacing(20);
 
-	QLabel* label = new QLabel("Selected Widgets:", &dialog);
+	QLabel* label = new QLabel(QString::fromLocal8Bit("请选择操作:"), &dialog);
 	layout->addWidget(label);
 
 	QHBoxLayout* buttonLayout = new QHBoxLayout;
-	QPushButton* mergeButton = new QPushButton("Merge Display", &dialog);
-	QPushButton* cancelButton = new QPushButton("Cancel", &dialog);
+	QPushButton* mergeButton = new QPushButton(QString::fromLocal8Bit("拼接显示"), &dialog);
+	QPushButton* cancelButton = new QPushButton(QString::fromLocal8Bit("取消操作"), &dialog);
+	mergeButton->setFixedSize(100,80);
+	cancelButton->setFixedSize(100, 80);
 
 	connect(mergeButton, &QPushButton::clicked, &dialog, &QDialog::accept);
 	connect(cancelButton, &QPushButton::clicked, &dialog, &QDialog::reject);
@@ -178,7 +217,8 @@ void frmTVWallWidget::showMergeDialog()
 	{
 		for (auto& widget : selectedWidgets)
 		{
-			widget->setStyleSheet(" background-color: rgb(68, 73, 79);");
+			auto screenItem = qobject_cast<frmScreen*>(widget);
+			screenItem->setSelected(false);
 		}
 	}
 }

@@ -30,6 +30,7 @@ protected:
 	void mousePressEvent(QMouseEvent* event) override;
 	void mouseMoveEvent(QMouseEvent* event)  override;
 	void mouseReleaseEvent(QMouseEvent* event) override;
+	void paintEvent(QPaintEvent* event) override;
 
 private slots:
 	void restorScreens(frmScreen*);
@@ -46,9 +47,10 @@ private:
 	QList<QWidget*> selectedWidgets;
 	QGridLayout* m_gridLayout = nullptr;
 	bool isPressed = false;
+	bool isDrawing = false;
 	int m_rows;
 	int m_cols;
-
+	QWidget* m_rectWidget = nullptr;
 };
 
 #endif // FRMTVWALLWIDGET_H

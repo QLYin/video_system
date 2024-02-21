@@ -40,6 +40,7 @@ public:
 	int cutCol();
 	void setCellText(int index, QString text);
 	void setEnableDrop(bool enable);
+	void setSelected(bool selected);
 signals:
 	void indexUpdate(int x, int y, int nextIndex);
 	void screenMergeRestore(frmScreen* item);
