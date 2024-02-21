@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://www.w3.org/2003/05/soap-envelope" xmlns:SOAP-ENC="http://www.w3.org/2003/05/soap-encoding" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xop="http://www.w3.org/2004/08/xop/include" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:tns="http://schemas.xmlsoap.org/ws/2005/04/discovery" xmlns:dn="http://www.onvif.org/ver10/network/wsdl" xmlns:wsa5="http://www.w3.org/2005/08/addressing">
+  <SOAP-ENV:Header>
+    <wsd-AppSequence MessageNumber="11899" InstanceId="1"/>
+    <wsa:MessageID>urn:uuid:00010010-0001-1020-8000-48ea631bae10</wsa:MessageID>
+    <wsa:RelatesTo>uuid:d7a7437c-8200-4d22-a118-82f8d3125ae9}</wsa:RelatesTo>
+    <wsa:To SOAP-ENV:mustUnderstand="true">urn:schemas-xmlsoap-org:ws:2005:04:discovery</wsa:To>
+    <wsa:Action SOAP-ENV:mustUnderstand="true">http://schemas.xmlsoap.org/ws/2005/04/discovery/ProbeMatches</wsa:Action>
+  </SOAP-ENV:Header>
+  <SOAP-ENV:Body>
+    <tns:ProbeMatches>
+      <tns:ProbeMatch>
+        <wsa:EndpointReference>
+          <wsa:Address>urn:uuid:00010010-0001-1020-8000-48ea631bae10</wsa:Address>
+        </wsa:EndpointReference>
+        <tns:Types>dn:NetworkVideoTransmitter</tns:Types>
+        <tns:Scopes>onvif://www.onvif.org/Profile/Streaming onvif://www.onvif.org/type/video_encoder onvif://www.onvif.org/type/ptz onvif://www.onvif.org/type/audio_encoder onvif://www.onvif.org/location/ onvif://www.onvif.org/name/IMCP onvif://www.onvif.org/macaddr/48ea631bae10 onvif://www.onvif.org/version/IPC_2401DE_2421DE_34X1DE_54X1DE_5421DH_24X1SCF-B5265P13 onvif://www.onvif.org/serial/210235C1MCA158001067 onvif://www.onvif.org/hardware/HIC5421S-C onvif://www.onvif.org/type/IPC onvif://www.onvif.org/register_status/offline onvif://www.onvif.org/register_server/0.0.0.0:5060 onvif://www.onvif.org/regist_id/1B-AE-10</tns:Scopes>
+        <tns:XAddrs>http://192.168.0.15:81/onvif/device_service</tns:XAddrs>
+        <tns:MetadataVersion>1</tns:MetadataVersion>
+      </tns:ProbeMatch>
+    </tns:ProbeMatches>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

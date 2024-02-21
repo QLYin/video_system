@@ -1,0 +1,37 @@
+<RCC>
+    <qresource prefix="/">
+        <file>onvifsend/CreatePullPointSubscription.xml</file>
+        <file>onvifsend/GetCapabilities.xml</file>
+        <file>onvifsend/GetImagingSettings.xml</file>
+        <file>onvifsend/GetOptions.xml</file>
+        <file>onvifsend/GetProfiles.xml</file>
+        <file>onvifsend/GetServices.xml</file>
+        <file>onvifsend/GetSnapshotUri.xml</file>
+        <file>onvifsend/GetStreamUri.xml</file>
+        <file>onvifsend/GetVideoSources.xml</file>
+        <file>onvifsend/PtzAbsoluteMove.xml</file>
+        <file>onvifsend/PtzContinuousMove.xml</file>
+        <file>onvifsend/PtzContinuousMoveZoom.xml</file>
+        <file>onvifsend/PtzGetPresets.xml</file>
+        <file>onvifsend/PtzGotoHomePosition.xml</file>
+        <file>onvifsend/PtzGotoPreset.xml</file>
+        <file>onvifsend/PtzRelativeMove.xml</file>
+        <file>onvifsend/PtzRelativeMoveZoom.xml</file>
+        <file>onvifsend/PtzRemovePreset.xml</file>
+        <file>onvifsend/PtzSetHomePosition.xml</file>
+        <file>onvifsend/PtzSetPreset.xml</file>
+        <file>onvifsend/PtzStop.xml</file>
+        <file>onvifsend/PullMessages.xml</file>
+        <file>onvifsend/SearchDevice1.xml</file>
+        <file>onvifsend/SearchDevice2.xml</file>
+        <file>onvifsend/SearchDevice3.xml</file>
+        <file>onvifsend/SearchDevice4.xml</file>
+        <file>onvifsend/PtzSetPreset2.xml</file>
+        <file>onvifsend/PtzGetStatus.xml</file>
+        <file>onvifsend/GetCurrentPreset.xml</file>
+        <file>onvifsend/OsdGetOSDs.xml</file>
+        <file>onvifsend/OsdGetOSD.xml</file>
+        <file>onvifsend/OsdDeleteOSD.xml</file>
+        <file>onvifsend/PtzGetPresetTours.xml</file>
+    </qresource>
+</RCC>

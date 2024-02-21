@@ -1,0 +1,5 @@
+1,IsMotion,有人在移动,移动结束
+1,IsInside,有人在闯入,入侵结束
+1,LogicalState,开关量报警,报警结束
+1,State,开关量联动,联动结束
+1,IsTamper,遮挡报警,遮挡结束

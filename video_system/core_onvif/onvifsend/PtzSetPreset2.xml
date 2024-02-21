@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope">
+  %1
+  <s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <SetPreset xmlns="http://www.onvif.org/ver20/ptz/wsdl">
+      <ProfileToken>%2</ProfileToken>
+      <PresetToken>%3</PresetToken>
+      <PresetName>%4</PresetName>
+    </SetPreset>
+  </s:Body>
+</s:Envelope>

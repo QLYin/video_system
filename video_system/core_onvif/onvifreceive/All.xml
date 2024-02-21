@@ -1,0 +1,541 @@
+device management
+
+1  device info
+send:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 878
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">ECA3wPlnHygszOu7Cgo28UFEXxo=</wsse:Password><wsse:Nonce>io2HvgriQrU1cZ2al0FX6A==</wsse:Nonce><wsu:Created>2019-06-14T05:50:11Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetDeviceInformation xmlns="http://www.onvif.org/ver10/device/wsdl"/></s:Body></s:Envelope>
+
+
+recv:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 624
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:GetDeviceInformationResponse><tds:Manufacturer>Dahua</tds:Manufacturer><tds:Model>DH-SD2904-GN</tds:Model><tds:FirmwareVersion>2.640.0000000.2.R, Build Date 2018-09-28</tds:FirmwareVersion><tds:SerialNumber>4M00BD6PAJ8BED0</tds:SerialNumber><tds:HardwareId>1.00</tds:HardwareId></tds:GetDeviceInformationResponse></s:Body></s:Envelope>
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema">
+  <s:Header/>
+  <s:Body>
+    <tds:GetDeviceInformationResponse>
+      <tds:Manufacturer>Dahua</tds:Manufacturer>
+      <tds:Model>DH-SD2904-GN</tds:Model>
+      <tds:FirmwareVersion>2.640.0000000.2.R, Build Date 2018-09-28</tds:FirmwareVersion>
+      <tds:SerialNumber>4M00BD6PAJ8BED0</tds:SerialNumber>
+      <tds:HardwareId>1.00</tds:HardwareId>
+    </tds:GetDeviceInformationResponse>
+  </s:Body>
+</s:Envelope>
+
+
+
+2 get capabilities
+send:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 914
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">2H/lzXzQAcz/SkZscO9MxrOoyXA=</wsse:Password><wsse:Nonce>3njMw0iMy7z88Nx4vL5aog==</wsse:Nonce><wsu:Created>2019-06-14T05:50:16Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetCapabilities xmlns="http://www.onvif.org/ver10/device/wsdl"><Category>All</Category></GetCapabilities></s:Body></s:Envelope>
+
+recv:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 4427
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:GetCapabilitiesResponse><tds:Capabilities><tt:Analytics><tt:XAddr>http://10.0.0.160/onvif/analytics_service</tt:XAddr><tt:RuleSupport>true</tt:RuleSupport><tt:AnalyticsModuleSupport>true</tt:AnalyticsModuleSupport></tt:Analytics><tt:Device><tt:XAddr>http://10.0.0.160/onvif/device_service</tt:XAddr><tt:Network><tt:IPFilter>false</tt:IPFilter><tt:ZeroConfiguration>false</tt:ZeroConfiguration><tt:IPVersion6>false</tt:IPVersion6><tt:DynDNS>false</tt:DynDNS><tt:Extension><tt:Dot11Configuration>false</tt:Dot11Configuration></tt:Extension></tt:Network><tt:System><tt:DiscoveryResolve>false</tt:DiscoveryResolve><tt:DiscoveryBye>true</tt:DiscoveryBye><tt:RemoteDiscovery>false</tt:RemoteDiscovery><tt:SystemBackup>false</tt:SystemBackup><tt:SystemLogging>true</tt:SystemLogging><tt:FirmwareUpgrade>true</tt:FirmwareUpgrade><tt:SupportedVersions><tt:Major>2</tt:Major><tt:Minor>0</tt:Minor></tt:SupportedVersions><tt:SupportedVersions><tt:Major>2</tt:Major><tt:Minor>10</tt:Minor></tt:SupportedVersions><tt:SupportedVersions><tt:Major>2</tt:Major><tt:Minor>20</tt:Minor></tt:SupportedVersions><tt:SupportedVersions><tt:Major>2</tt:Major><tt:Minor>30</tt:Minor></tt:SupportedVersions><tt:SupportedVersions><tt:Major>2</tt:Major><tt:Minor>40</tt:Minor></tt:SupportedVersions><tt:SupportedVersions><tt:Major>2</tt:Major><tt:Minor>42</tt:Minor></tt:SupportedVersions><tt:SupportedVersions><tt:Major>16</tt:Major><tt:Minor>12</tt:Minor></tt:SupportedVersions><tt:Extension><tt:HttpFirmwareUpgrade>true</tt:HttpFirmwareUpgrade><tt:HttpSystemBackup>false</tt:HttpSystemBackup><tt:HttpSystemLogging>false</tt:HttpSystemLogging><tt:HttpSupportInformation>false</tt:HttpSupportInformation></tt:Extension></tt:System><tt:IO><tt:InputConnectors>0</tt:InputConnectors><tt:RelayOutputs>0</tt:RelayOutputs><tt:Extension><tt:Auxiliary>false</tt:Auxiliary><tt:AuxiliaryCommands></tt:AuxiliaryCommands><tt:Extension></tt:Extension></tt:Extension></tt:IO><tt:Security><tt:TLS1.1>false</tt:TLS1.1><tt:TLS1.2>false</tt:TLS1.2><tt:OnboardKeyGeneration>false</tt:OnboardKeyGeneration><tt:AccessPolicyConfig>false</tt:AccessPolicyConfig><tt:X.509Token>false</tt:X.509Token><tt:SAMLToken>false</tt:SAMLToken><tt:KerberosToken>false</tt:KerberosToken><tt:RELToken>false</tt:RELToken><tt:Extension><tt:TLS1.0>false</tt:TLS1.0><tt:Extension><tt:Dot1X>false</tt:Dot1X><tt:SupportedEAPMethod>0</tt:SupportedEAPMethod><tt:RemoteUserHandling>false</tt:RemoteUserHandling></tt:Extension></tt:Extension></tt:Security></tt:Device><tt:Events><tt:XAddr>http://10.0.0.160/onvif/event_service</tt:XAddr><tt:WSSubscriptionPolicySupport>true</tt:WSSubscriptionPolicySupport><tt:WSPullPointSupport>true</tt:WSPullPointSupport><tt:WSPausableSubscriptionManagerInterfaceSupport>false</tt:WSPausableSubscriptionManagerInterfaceSupport></tt:Events><tt:Imaging><tt:XAddr>http://10.0.0.160/onvif/imaging_service</tt:XAddr></tt:Imaging><tt:Media><tt:XAddr>http://10.0.0.160/onvif/media_service</tt:XAddr><tt:StreamingCapabilities><tt:RTPMulticast>true</tt:RTPMulticast><tt:RTP_TCP>true</tt:RTP_TCP><tt:RTP_RTSP_TCP>true</tt:RTP_RTSP_TCP></tt:StreamingCapabilities><tt:Extension><tt:ProfileCapabilities><tt:MaximumNumberOfProfiles>9</tt:MaximumNumberOfProfiles></tt:ProfileCapabilities></tt:Extension></tt:Media><tt:PTZ><tt:XAddr>http://10.0.0.160/onvif/ptz_service</tt:XAddr></tt:PTZ><tt:Extension><tt:DeviceIO><tt:XAddr>http://10.0.0.160/onvif/deviceIO_service</tt:XAddr><tt:VideoSources>1</tt:VideoSources><tt:VideoOutputs>0</tt:VideoOutputs><tt:AudioSources>1</tt:AudioSources><tt:AudioOutputs>0</tt:AudioOutputs><tt:RelayOutputs>0</tt:RelayOutputs></tt:DeviceIO><tt:Extensions><tt:TelexCapabilities><tt:XAddr>http://10.0.0.160/onvif/telecom_service</tt:XAddr><tt:TimeOSDSupport>true</tt:TimeOSDSupport><tt:TitleOSDSupport>true</tt:TitleOSDSupport><tt:PTZ3DZoomSupport>true</tt:PTZ3DZoomSupport><tt:PTZAuxSwitchSupport>true</tt:PTZAuxSwitchSupport><tt:MotionDetectorSupport>true</tt:MotionDetectorSupport><tt:TamperDetectorSupport>true</tt:TamperDetectorSupport></tt:TelexCapabilities></tt:Extensions></tt:Extension></tds:Capabilities></tds:GetCapabilitiesResponse></s:Body></s:Envelope>
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema">
+  <s:Header/>
+  <s:Body>
+    <tds:GetCapabilitiesResponse>
+      <tds:Capabilities>
+        <tt:Analytics>
+          <tt:XAddr>http://10.0.0.160/onvif/analytics_service</tt:XAddr>
+          <tt:RuleSupport>true</tt:RuleSupport>
+          <tt:AnalyticsModuleSupport>true</tt:AnalyticsModuleSupport>
+        </tt:Analytics>
+        <tt:Device>
+          <tt:XAddr>http://10.0.0.160/onvif/device_service</tt:XAddr>
+          <tt:Network>
+            <tt:IPFilter>false</tt:IPFilter>
+            <tt:ZeroConfiguration>false</tt:ZeroConfiguration>
+            <tt:IPVersion6>false</tt:IPVersion6>
+            <tt:DynDNS>false</tt:DynDNS>
+            <tt:Extension>
+              <tt:Dot11Configuration>false</tt:Dot11Configuration>
+            </tt:Extension>
+          </tt:Network>
+          <tt:System>
+            <tt:DiscoveryResolve>false</tt:DiscoveryResolve>
+            <tt:DiscoveryBye>true</tt:DiscoveryBye>
+            <tt:RemoteDiscovery>false</tt:RemoteDiscovery>
+            <tt:SystemBackup>false</tt:SystemBackup>
+            <tt:SystemLogging>true</tt:SystemLogging>
+            <tt:FirmwareUpgrade>true</tt:FirmwareUpgrade>
+            <tt:SupportedVersions>
+              <tt:Major>2</tt:Major>
+              <tt:Minor>0</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:SupportedVersions>
+              <tt:Major>2</tt:Major>
+              <tt:Minor>10</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:SupportedVersions>
+              <tt:Major>2</tt:Major>
+              <tt:Minor>20</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:SupportedVersions>
+              <tt:Major>2</tt:Major>
+              <tt:Minor>30</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:SupportedVersions>
+              <tt:Major>2</tt:Major>
+              <tt:Minor>40</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:SupportedVersions>
+              <tt:Major>2</tt:Major>
+              <tt:Minor>42</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:SupportedVersions>
+              <tt:Major>16</tt:Major>
+              <tt:Minor>12</tt:Minor>
+            </tt:SupportedVersions>
+            <tt:Extension>
+              <tt:HttpFirmwareUpgrade>true</tt:HttpFirmwareUpgrade>
+              <tt:HttpSystemBackup>false</tt:HttpSystemBackup>
+              <tt:HttpSystemLogging>false</tt:HttpSystemLogging>
+              <tt:HttpSupportInformation>false</tt:HttpSupportInformation>
+            </tt:Extension>
+          </tt:System>
+          <tt:IO>
+            <tt:InputConnectors>0</tt:InputConnectors>
+            <tt:RelayOutputs>0</tt:RelayOutputs>
+            <tt:Extension>
+              <tt:Auxiliary>false</tt:Auxiliary>
+              <tt:AuxiliaryCommands/>
+              <tt:Extension/>
+            </tt:Extension>
+          </tt:IO>
+          <tt:Security>
+            <tt:TLS1.1>false</tt:TLS1.1>
+            <tt:TLS1.2>false</tt:TLS1.2>
+            <tt:OnboardKeyGeneration>false</tt:OnboardKeyGeneration>
+            <tt:AccessPolicyConfig>false</tt:AccessPolicyConfig>
+            <tt:X.509Token>false</tt:X.509Token>
+            <tt:SAMLToken>false</tt:SAMLToken>
+            <tt:KerberosToken>false</tt:KerberosToken>
+            <tt:RELToken>false</tt:RELToken>
+            <tt:Extension>
+              <tt:TLS1.0>false</tt:TLS1.0>
+              <tt:Extension>
+                <tt:Dot1X>false</tt:Dot1X>
+                <tt:SupportedEAPMethod>0</tt:SupportedEAPMethod>
+                <tt:RemoteUserHandling>false</tt:RemoteUserHandling>
+              </tt:Extension>
+            </tt:Extension>
+          </tt:Security>
+        </tt:Device>
+        <tt:Events>
+          <tt:XAddr>http://10.0.0.160/onvif/event_service</tt:XAddr>
+          <tt:WSSubscriptionPolicySupport>true</tt:WSSubscriptionPolicySupport>
+          <tt:WSPullPointSupport>true</tt:WSPullPointSupport>
+          <tt:WSPausableSubscriptionManagerInterfaceSupport>false</tt:WSPausableSubscriptionManagerInterfaceSupport>
+        </tt:Events>
+        <tt:Imaging>
+          <tt:XAddr>http://10.0.0.160/onvif/imaging_service</tt:XAddr>
+        </tt:Imaging>
+        <tt:Media>
+          <tt:XAddr>http://10.0.0.160/onvif/media_service</tt:XAddr>
+          <tt:StreamingCapabilities>
+            <tt:RTPMulticast>true</tt:RTPMulticast>
+            <tt:RTP_TCP>true</tt:RTP_TCP>
+            <tt:RTP_RTSP_TCP>true</tt:RTP_RTSP_TCP>
+          </tt:StreamingCapabilities>
+          <tt:Extension>
+            <tt:ProfileCapabilities>
+              <tt:MaximumNumberOfProfiles>9</tt:MaximumNumberOfProfiles>
+            </tt:ProfileCapabilities>
+          </tt:Extension>
+        </tt:Media>
+        <tt:PTZ>
+          <tt:XAddr>http://10.0.0.160/onvif/ptz_service</tt:XAddr>
+        </tt:PTZ>
+        <tt:Extension>
+          <tt:DeviceIO>
+            <tt:XAddr>http://10.0.0.160/onvif/deviceIO_service</tt:XAddr>
+            <tt:VideoSources>1</tt:VideoSources>
+            <tt:VideoOutputs>0</tt:VideoOutputs>
+            <tt:AudioSources>1</tt:AudioSources>
+            <tt:AudioOutputs>0</tt:AudioOutputs>
+            <tt:RelayOutputs>0</tt:RelayOutputs>
+          </tt:DeviceIO>
+          <tt:Extensions>
+            <tt:TelexCapabilities>
+              <tt:XAddr>http://10.0.0.160/onvif/telecom_service</tt:XAddr>
+              <tt:TimeOSDSupport>true</tt:TimeOSDSupport>
+              <tt:TitleOSDSupport>true</tt:TitleOSDSupport>
+              <tt:PTZ3DZoomSupport>true</tt:PTZ3DZoomSupport>
+              <tt:PTZAuxSwitchSupport>true</tt:PTZAuxSwitchSupport>
+              <tt:MotionDetectorSupport>true</tt:MotionDetectorSupport>
+              <tt:TamperDetectorSupport>true</tt:TamperDetectorSupport>
+            </tt:TelexCapabilities>
+          </tt:Extensions>
+        </tt:Extension>
+      </tds:Capabilities>
+    </tds:GetCapabilitiesResponse>
+  </s:Body>
+</s:Envelope>
+
+
+3  get services
+send:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 925
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">R7sy46wg7cl15lBgJFnA0/7DuNo=</wsse:Password><wsse:Nonce>w6lgNnr9EPLPrTEm6r+wvw==</wsse:Nonce><wsu:Created>2019-06-14T05:50:21Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetServices xmlns="http://www.onvif.org/ver10/device/wsdl"><IncludeCapability>true</IncludeCapability></GetServices></s:Body></s:Envelope>
+
+recv:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 5344
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema" xmlns:tan="http://www.onvif.org/ver20/analytics/wsdl" xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl" xmlns:trt="http://www.onvif.org/ver10/media/wsdl" xmlns:tr2="http://www.onvif.org/ver20/media/wsdl" xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl" xmlns:tev="http://www.onvif.org/ver10/events/wsdl" xmlns:tmd="http://www.onvif.org/ver10/deviceIO/wsdl"><s:Header/><s:Body><tds:GetServicesResponse><tds:Service><tds:Namespace>http://www.onvif.org/ver10/device/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/device_service</tds:XAddr><tds:Capabilities><tds:Capabilities><tds:Network IPFilter="false" ZeroConfiguration="false" IPVersion6="false" DynDNS="false" Dot11Configuration="false" Dot1XConfigurations="0" HostnameFromDHCP="false" NTP="1" DHCPv6="false"/><tds:Security TLS1.0="false" TLS1.1 ="false" TLS1.2="false" OnboardKeyGeneration="false" AccessPolicyConfig="false" DefaultAccessPolicy="true" Dot1X="false" RemoteUserHandling="false" X.509Token="false" SAMLToken="false" KerberosToken="false" UsernameToken="true" HttpDigest="true" RELToken="false" SupportedEAPMethods="0" MaxUsers="20" MaxUserNameLength="6" MaxPasswordLength="32"/><tds:System DiscoveryResolve="false" DiscoveryBye="true" RemoteDiscovery="false" SystemBackup="false" SystemLogging="true" FirmwareUpgrade="true" HttpFirmwareUpgrade="true" HttpSystemBackup="false" HTTPSystemLogging="false" HTTPSupportInformation="false" StorageConfiguration="false" MaxStorageConfigurations="0" GeoLocationEntries="0"/></tds:Capabilities></tds:Capabilities><tds:Version><tt:Major>1</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver20/analytics/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/analytics_service</tds:XAddr><tds:Capabilities><tan:Capabilities RuleSupport="true" AnalyticsModuleSupport="true" CellBasedSceneDescriptionSupported="false" RuleOptionsSupported="true" AnalyticsModuleOptionsSupported="false"/></tds:Capabilities><tds:Version><tt:Major>2</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver20/imaging/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/imaging_service</tds:XAddr><tds:Capabilities><timg:Capabilities ImageStabilization="false" Presets="false"/></tds:Capabilities><tds:Version><tt:Major>2</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver10/media/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/media_service</tds:XAddr><tds:Capabilities><trt:Capabilities SnapshotUri="true" Rotation="false" VideoSourceMode="false" OSD="true" TemporaryOSDText="false" EXICompression="false"><trt:ProfileCapabilities MaximumNumberOfProfiles="9"/><trt:StreamingCapabilities RTPMulticast="true" RTP_TCP="true" RTP_RTSP_TCP="true" NonAggregateControl="false" NoRTSPStreaming="false"/></trt:Capabilities></tds:Capabilities><tds:Version><tt:Major>1</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver20/media/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/media2_service</tds:XAddr><tds:Capabilities><tr2:Capabilities SnapshotUri="true" Rotation="false" VideoSourceMode="false" OSD="true" TemporaryOSDText="false" Mask="false" SourceMask="true"><tr2:ProfileCapabilities MaximumNumberOfProfiles="9" ConfigurationsSupported="VideoSource VideoEncoder AudioSource AudioEncoder Metadata Analytics PTZ"/><tr2:StreamingCapabilities RTSPStreaming="true" RTPMulticast="true" RTP_RTSP_TCP="true" NonAggregateControl="false" AutoStartMulticast="false"/></tr2:Capabilities></tds:Capabilities><tds:Version><tt:Major>2</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver20/ptz/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/ptz_service</tds:XAddr><tds:Capabilities><tptz:Capabilities EFlip="false" Reverse="false" GetCompatibleConfigurations="true" MoveStatus="true" StatusPosition="true"/></tds:Capabilities><tds:Version><tt:Major>2</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver10/events/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/event_service</tds:XAddr><tds:Capabilities><tev:Capabilities WSSubscriptionPolicySupport="true" WSPullPointSupport="true" WSPausableSubscriptionManagerInterfaceSupport="false" MaxNotificationProducers="10" MaxPullPoints="5" PersistenNotificationStorage="false"/></tds:Capabilities><tds:Version><tt:Major>1</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service><tds:Service><tds:Namespace>http://www.onvif.org/ver10/deviceIO/wsdl</tds:Namespace><tds:XAddr>http://10.0.0.160/onvif/deviceIO_service</tds:XAddr><tds:Capabilities><tmd:Capabilities VideoSources="1" VideoOutputs="0" AudioSources="1" AudioOutputs="0" RelayOutputs="0" SerialPorts="1" DigitalInputs="0" DigitalInputOptions="false"/></tds:Capabilities><tds:Version><tt:Major>1</tt:Major><tt:Minor>0</tt:Minor></tds:Version></tds:Service></tds:GetServicesResponse></s:Body></s:Envelope>
+
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema" xmlns:tan="http://www.onvif.org/ver20/analytics/wsdl" xmlns:timg="http://www.onvif.org/ver20/imaging/wsdl" xmlns:trt="http://www.onvif.org/ver10/media/wsdl" xmlns:tr2="http://www.onvif.org/ver20/media/wsdl" xmlns:tptz="http://www.onvif.org/ver20/ptz/wsdl" xmlns:tev="http://www.onvif.org/ver10/events/wsdl" xmlns:tmd="http://www.onvif.org/ver10/deviceIO/wsdl">
+  <s:Header/>
+  <s:Body>
+    <tds:GetServicesResponse>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver10/device/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/device_service</tds:XAddr>
+        <tds:Capabilities>
+          <tds:Capabilities>
+            <tds:Network IPFilter="false" ZeroConfiguration="false" IPVersion6="false" DynDNS="false" Dot11Configuration="false" Dot1XConfigurations="0" HostnameFromDHCP="false" NTP="1" DHCPv6="false"/>
+            <tds:Security TLS1.0="false" TLS1.1="false" TLS1.2="false" OnboardKeyGeneration="false" AccessPolicyConfig="false" DefaultAccessPolicy="true" Dot1X="false" RemoteUserHandling="false" X.509Token="false" SAMLToken="false" KerberosToken="false" UsernameToken="true" HttpDigest="true" RELToken="false" SupportedEAPMethods="0" MaxUsers="20" MaxUserNameLength="6" MaxPasswordLength="32"/>
+            <tds:System DiscoveryResolve="false" DiscoveryBye="true" RemoteDiscovery="false" SystemBackup="false" SystemLogging="true" FirmwareUpgrade="true" HttpFirmwareUpgrade="true" HttpSystemBackup="false" HTTPSystemLogging="false" HTTPSupportInformation="false" StorageConfiguration="false" MaxStorageConfigurations="0" GeoLocationEntries="0"/>
+          </tds:Capabilities>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>1</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver20/analytics/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/analytics_service</tds:XAddr>
+        <tds:Capabilities>
+          <tan:Capabilities RuleSupport="true" AnalyticsModuleSupport="true" CellBasedSceneDescriptionSupported="false" RuleOptionsSupported="true" AnalyticsModuleOptionsSupported="false"/>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>2</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver20/imaging/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/imaging_service</tds:XAddr>
+        <tds:Capabilities>
+          <timg:Capabilities ImageStabilization="false" Presets="false"/>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>2</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver10/media/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/media_service</tds:XAddr>
+        <tds:Capabilities>
+          <trt:Capabilities SnapshotUri="true" Rotation="false" VideoSourceMode="false" OSD="true" TemporaryOSDText="false" EXICompression="false">
+            <trt:ProfileCapabilities MaximumNumberOfProfiles="9"/>
+            <trt:StreamingCapabilities RTPMulticast="true" RTP_TCP="true" RTP_RTSP_TCP="true" NonAggregateControl="false" NoRTSPStreaming="false"/>
+          </trt:Capabilities>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>1</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver20/media/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/media2_service</tds:XAddr>
+        <tds:Capabilities>
+          <tr2:Capabilities SnapshotUri="true" Rotation="false" VideoSourceMode="false" OSD="true" TemporaryOSDText="false" Mask="false" SourceMask="true">
+            <tr2:ProfileCapabilities MaximumNumberOfProfiles="9" ConfigurationsSupported="VideoSource VideoEncoder AudioSource AudioEncoder Metadata Analytics PTZ"/>
+            <tr2:StreamingCapabilities RTSPStreaming="true" RTPMulticast="true" RTP_RTSP_TCP="true" NonAggregateControl="false" AutoStartMulticast="false"/>
+          </tr2:Capabilities>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>2</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver20/ptz/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/ptz_service</tds:XAddr>
+        <tds:Capabilities>
+          <tptz:Capabilities EFlip="false" Reverse="false" GetCompatibleConfigurations="true" MoveStatus="true" StatusPosition="true"/>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>2</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver10/events/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/event_service</tds:XAddr>
+        <tds:Capabilities>
+          <tev:Capabilities WSSubscriptionPolicySupport="true" WSPullPointSupport="true" WSPausableSubscriptionManagerInterfaceSupport="false" MaxNotificationProducers="10" MaxPullPoints="5" PersistenNotificationStorage="false"/>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>1</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+      <tds:Service>
+        <tds:Namespace>http://www.onvif.org/ver10/deviceIO/wsdl</tds:Namespace>
+        <tds:XAddr>http://10.0.0.160/onvif/deviceIO_service</tds:XAddr>
+        <tds:Capabilities>
+          <tmd:Capabilities VideoSources="1" VideoOutputs="0" AudioSources="1" AudioOutputs="0" RelayOutputs="0" SerialPorts="1" DigitalInputs="0" DigitalInputOptions="false"/>
+        </tds:Capabilities>
+        <tds:Version>
+          <tt:Major>1</tt:Major>
+          <tt:Minor>0</tt:Minor>
+        </tds:Version>
+      </tds:Service>
+    </tds:GetServicesResponse>
+  </s:Body>
+</s:Envelope>
+
+
+4 get scopes
+send:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 867
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">CqtzRVm+htMLEIrHz1pZ6cN/w64=</wsse:Password><wsse:Nonce>f0goAW0fzsIrL/a+BvlBBQ==</wsse:Nonce><wsu:Created>2019-06-14T06:04:41Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetScopes xmlns="http://www.onvif.org/ver10/device/wsdl"/></s:Body></s:Envelope>
+
+recv:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 1130
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:GetScopesResponse><tds:Scopes><tt:ScopeDef>Fixed</tt:ScopeDef><tt:ScopeItem>onvif://www.onvif.org/location/country/china</tt:ScopeItem></tds:Scopes><tds:Scopes><tt:ScopeDef>Fixed</tt:ScopeDef><tt:ScopeItem>onvif://www.onvif.org/name/Dahua</tt:ScopeItem></tds:Scopes><tds:Scopes><tt:ScopeDef>Fixed</tt:ScopeDef><tt:ScopeItem>onvif://www.onvif.org/hardware/DH-SD2904-GN</tt:ScopeItem></tds:Scopes><tds:Scopes><tt:ScopeDef>Fixed</tt:ScopeDef><tt:ScopeItem>onvif://www.onvif.org/Profile/Streaming</tt:ScopeItem></tds:Scopes><tds:Scopes><tt:ScopeDef>Fixed</tt:ScopeDef><tt:ScopeItem>onvif://www.onvif.org/type/Network_Video_Transmitter</tt:ScopeItem></tds:Scopes><tds:Scopes><tt:ScopeDef>Fixed</tt:ScopeDef><tt:ScopeItem>onvif://www.onvif.org/extension/unique_identifier/0</tt:ScopeItem></tds:Scopes></tds:GetScopesResponse></s:Body></s:Envelope>
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema">
+  <s:Header/>
+  <s:Body>
+    <tds:GetScopesResponse>
+      <tds:Scopes>
+        <tt:ScopeDef>Fixed</tt:ScopeDef>
+        <tt:ScopeItem>onvif://www.onvif.org/location/country/china</tt:ScopeItem>
+      </tds:Scopes>
+      <tds:Scopes>
+        <tt:ScopeDef>Fixed</tt:ScopeDef>
+        <tt:ScopeItem>onvif://www.onvif.org/name/Dahua</tt:ScopeItem>
+      </tds:Scopes>
+      <tds:Scopes>
+        <tt:ScopeDef>Fixed</tt:ScopeDef>
+        <tt:ScopeItem>onvif://www.onvif.org/hardware/DH-SD2904-GN</tt:ScopeItem>
+      </tds:Scopes>
+      <tds:Scopes>
+        <tt:ScopeDef>Fixed</tt:ScopeDef>
+        <tt:ScopeItem>onvif://www.onvif.org/Profile/Streaming</tt:ScopeItem>
+      </tds:Scopes>
+      <tds:Scopes>
+        <tt:ScopeDef>Fixed</tt:ScopeDef>
+        <tt:ScopeItem>onvif://www.onvif.org/type/Network_Video_Transmitter</tt:ScopeItem>
+      </tds:Scopes>
+      <tds:Scopes>
+        <tt:ScopeDef>Fixed</tt:ScopeDef>
+        <tt:ScopeItem>onvif://www.onvif.org/extension/unique_identifier/0</tt:ScopeItem>
+      </tds:Scopes>
+    </tds:GetScopesResponse>
+  </s:Body>
+</s:Envelope>
+
+
+5 get hostname
+send:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 869
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">OX1kgr9rwiX2RGSw5iOjIi6zaHw=</wsse:Password><wsse:Nonce>e6COBFNQ8qlwn4v0aQlUFQ==</wsse:Nonce><wsu:Created>2019-06-14T06:04:47Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetHostname xmlns="http://www.onvif.org/ver10/device/wsdl"/></s:Body></s:Envelope>
+
+recv:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 465
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:GetHostnameResponse><tds:HostnameInformation><tt:FromDHCP>false</tt:FromDHCP><tt:Name>IPDome</tt:Name></tds:HostnameInformation></tds:GetHostnameResponse></s:Body></s:Envelope>
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema">
+  <s:Header/>
+  <s:Body>
+    <tds:GetHostnameResponse>
+      <tds:HostnameInformation>
+        <tt:FromDHCP>false</tt:FromDHCP>
+        <tt:Name>IPDome</tt:Name>
+      </tds:HostnameInformation>
+    </tds:GetHostnameResponse>
+  </s:Body>
+</s:Envelope>
+
+
+6 get interfaces
+send:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 878
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">WohbCUuYs5acbeZT4YbCWqclV0E=</wsse:Password><wsse:Nonce>mmBZpU/bIJGRlH6TM0cxSQ==</wsse:Nonce><wsu:Created>2019-06-14T06:04:50Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetNetworkInterfaces xmlns="http://www.onvif.org/ver10/device/wsdl"/></s:Body></s:Envelope>
+
+recv:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 2017
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:GetNetworkInterfacesResponse><tds:NetworkInterfaces token="eth0"><tt:Enabled>true</tt:Enabled><tt:Info><tt:Name>eth0</tt:Name><tt:HwAddress>9c:14:63:4e:a2:53</tt:HwAddress><tt:MTU>1500</tt:MTU></tt:Info><tt:Link><tt:AdminSettings><tt:AutoNegotiation>false</tt:AutoNegotiation><tt:Speed>10</tt:Speed><tt:Duplex>Full</tt:Duplex></tt:AdminSettings><tt:OperSettings><tt:AutoNegotiation>false</tt:AutoNegotiation><tt:Speed>10</tt:Speed><tt:Duplex>Full</tt:Duplex></tt:OperSettings><tt:InterfaceType>6</tt:InterfaceType></tt:Link><tt:IPv4><tt:Enabled>true</tt:Enabled><tt:Config><tt:FromDHCP><tt:Address>10.0.0.160</tt:Address><tt:PrefixLength>8</tt:PrefixLength></tt:FromDHCP><tt:DHCP>true</tt:DHCP></tt:Config></tt:IPv4><tt:IPv6><tt:Enabled>true</tt:Enabled><tt:Config><tt:AcceptRouterAdvert>false</tt:AcceptRouterAdvert><tt:DHCP>Off</tt:DHCP><tt:Manual><tt:Address></tt:Address><tt:PrefixLength>0</tt:PrefixLength></tt:Manual><tt:LinkLocal><tt:Address>fe80::9e14:63ff:fe4e:a253</tt:Address><tt:PrefixLength>64</tt:PrefixLength></tt:LinkLocal><tt:FromRA><tt:Address>2001:250:3000:3ca0:215:f2ff:fe5d:2301</tt:Address><tt:PrefixLength>64</tt:PrefixLength></tt:FromRA></tt:Config></tt:IPv6></tds:NetworkInterfaces><tds:NetworkInterfaces token="eth2"><tt:Enabled>false</tt:Enabled><tt:Info><tt:Name>eth2</tt:Name><tt:HwAddress>9c:14:63:4e:a3:4d</tt:HwAddress><tt:MTU>1500</tt:MTU></tt:Info><tt:IPv4><tt:Enabled>false</tt:Enabled><tt:Config><tt:FromDHCP><tt:Address>192.168.1.109</tt:Address><tt:PrefixLength>24</tt:PrefixLength></tt:FromDHCP><tt:DHCP>true</tt:DHCP></tt:Config></tt:IPv4><tt:Extension><tt:InterfaceType>71</tt:InterfaceType></tt:Extension></tds:NetworkInterfaces></tds:GetNetworkInterfacesResponse></s:Body></s:Envelope>
+
+<?xml version="1.0" encoding="utf-8"?>
+
+<s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema">
+  <s:Header/>
+  <s:Body>
+    <tds:GetNetworkInterfacesResponse>
+      <tds:NetworkInterfaces token="eth0">
+        <tt:Enabled>true</tt:Enabled>
+        <tt:Info>
+          <tt:Name>eth0</tt:Name>
+          <tt:HwAddress>9c:14:63:4e:a2:53</tt:HwAddress>
+          <tt:MTU>1500</tt:MTU>
+        </tt:Info>
+        <tt:Link>
+          <tt:AdminSettings>
+            <tt:AutoNegotiation>false</tt:AutoNegotiation>
+            <tt:Speed>10</tt:Speed>
+            <tt:Duplex>Full</tt:Duplex>
+          </tt:AdminSettings>
+          <tt:OperSettings>
+            <tt:AutoNegotiation>false</tt:AutoNegotiation>
+            <tt:Speed>10</tt:Speed>
+            <tt:Duplex>Full</tt:Duplex>
+          </tt:OperSettings>
+          <tt:InterfaceType>6</tt:InterfaceType>
+        </tt:Link>
+        <tt:IPv4>
+          <tt:Enabled>true</tt:Enabled>
+          <tt:Config>
+            <tt:FromDHCP>
+              <tt:Address>10.0.0.160</tt:Address>
+              <tt:PrefixLength>8</tt:PrefixLength>
+            </tt:FromDHCP>
+            <tt:DHCP>true</tt:DHCP>
+          </tt:Config>
+        </tt:IPv4>
+        <tt:IPv6>
+          <tt:Enabled>true</tt:Enabled>
+          <tt:Config>
+            <tt:AcceptRouterAdvert>false</tt:AcceptRouterAdvert>
+            <tt:DHCP>Off</tt:DHCP>
+            <tt:Manual>
+              <tt:Address/>
+              <tt:PrefixLength>0</tt:PrefixLength>
+            </tt:Manual>
+            <tt:LinkLocal>
+              <tt:Address>fe80::9e14:63ff:fe4e:a253</tt:Address>
+              <tt:PrefixLength>64</tt:PrefixLength>
+            </tt:LinkLocal>
+            <tt:FromRA>
+              <tt:Address>2001:250:3000:3ca0:215:f2ff:fe5d:2301</tt:Address>
+              <tt:PrefixLength>64</tt:PrefixLength>
+            </tt:FromRA>
+          </tt:Config>
+        </tt:IPv6>
+      </tds:NetworkInterfaces>
+      <tds:NetworkInterfaces token="eth2">
+        <tt:Enabled>false</tt:Enabled>
+        <tt:Info>
+          <tt:Name>eth2</tt:Name>
+          <tt:HwAddress>9c:14:63:4e:a3:4d</tt:HwAddress>
+          <tt:MTU>1500</tt:MTU>
+        </tt:Info>
+        <tt:IPv4>
+          <tt:Enabled>false</tt:Enabled>
+          <tt:Config>
+            <tt:FromDHCP>
+              <tt:Address>192.168.1.109</tt:Address>
+              <tt:PrefixLength>24</tt:PrefixLength>
+            </tt:FromDHCP>
+            <tt:DHCP>true</tt:DHCP>
+          </tt:Config>
+        </tt:IPv4>
+        <tt:Extension>
+          <tt:InterfaceType>71</tt:InterfaceType>
+        </tt:Extension>
+      </tds:NetworkInterfaces>
+    </tds:GetNetworkInterfacesResponse>
+  </s:Body>
+</s:Envelope>
+
+
+7 sync time
+send 1:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 878
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">cF9hmLhl841TxFIgaJfVT1mFD6o=</wsse:Password><wsse:Nonce>xW0xGCBwx/J4CQb4Gy2eTw==</wsse:Nonce><wsu:Created>2019-06-14T06:06:29Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><GetSystemDateAndTime xmlns="http://www.onvif.org/ver10/device/wsdl"/></s:Body></s:Envelope>
+
+recv 1:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 973
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:GetSystemDateAndTimeResponse><tds:SystemDateAndTime><tt:DateTimeType>Manual</tt:DateTimeType><tt:DaylightSavings>false</tt:DaylightSavings><tt:TimeZone><tt:TZ>GMT+08:00</tt:TZ></tt:TimeZone><tt:UTCDateTime><tt:Time><tt:Hour>6</tt:Hour><tt:Minute>6</tt:Minute><tt:Second>29</tt:Second></tt:Time><tt:Date><tt:Year>2019</tt:Year><tt:Month>6</tt:Month><tt:Day>14</tt:Day></tt:Date></tt:UTCDateTime><tt:LocalDateTime><tt:Time><tt:Hour>14</tt:Hour><tt:Minute>6</tt:Minute><tt:Second>29</tt:Second></tt:Time><tt:Date><tt:Year>2019</tt:Year><tt:Month>6</tt:Month><tt:Day>14</tt:Day></tt:Date></tt:LocalDateTime></tds:SystemDateAndTime></tds:GetSystemDateAndTimeResponse></s:Body></s:Envelope>
+
+send 2:
+POST /onvif/device_service HTTP/1.1
+Host: 10.0.0.160
+Content-Type: application/soap+xml; charset=utf-8
+Content-Length: 1209
+
+<?xml version="1.0" encoding="utf-8"?><s:Envelope xmlns:s="http://www.w3.org/2003/05/soap-envelope"><s:Header><wsse:Security xmlns:wsse="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-secext-1.0.xsd" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"><wsse:UsernameToken><wsse:Username>admin</wsse:Username><wsse:Password Type="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-username-token-profile-1.0#PasswordDigest">R3k0Til/tpfFm9laT2IdA+RFRZc=</wsse:Password><wsse:Nonce>zBPj7YQznOuxvfoUwzPWiw==</wsse:Nonce><wsu:Created>2019-06-14T06:06:29Z</wsu:Created></wsse:UsernameToken></wsse:Security></s:Header><s:Body xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema"><SetSystemDateAndTime xmlns="http://www.onvif.org/ver10/device/wsdl"><DateTimeType>Manual</DateTimeType><DaylightSavings>false</DaylightSavings><UTCDateTime><Time xmlns="http://www.onvif.org/ver10/schema"><Hour>6</Hour><Minute>6</Minute><Second>29</Second></Time><Date xmlns="http://www.onvif.org/ver10/schema"><Year>2019</Year><Month>6</Month><Day>14</Day></Date></UTCDateTime></SetSystemDateAndTime></s:Body></s:Envelope>
+
+recv 2:
+HTTP/1.1 200 OK
+Content-Type: application/soap+xml; charset=utf-8
+Connection: close
+Content-Length: 341
+
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?><s:Envelope xmlns:sc="http://www.w3.org/2003/05/soap-encoding" xmlns:s="http://www.w3.org/2003/05/soap-envelope" xmlns:tds="http://www.onvif.org/ver10/device/wsdl" xmlns:tt="http://www.onvif.org/ver10/schema"><s:Header/><s:Body><tds:SetSystemDateAndTimeResponse/></s:Body></s:Envelope>
