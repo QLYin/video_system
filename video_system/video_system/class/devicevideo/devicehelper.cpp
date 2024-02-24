@@ -258,7 +258,7 @@ void DeviceHelper::initVideoIcon(QTreeWidget* treeWidget)
     QString color = AppConfig::CheckOffline ? AppConfig::ColorIconAlarm : GlobalConfig::TextColor;
     QPixmap iconIpc = IconHelper::getPixmap(color, 0xea07, size, width, height);
     QPixmap iconSub = IconHelper::getPixmap(color, 0xe9ff, size, width, height);
-    if (treeWidgit != NULL)
+    if (treeWidget != NULL)
     {
         QTreeWidgetItemIterator it(treeWidget);
         while (*it) {

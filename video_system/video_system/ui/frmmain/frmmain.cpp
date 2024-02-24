@@ -33,10 +33,6 @@ frmMain::frmMain(QWidget *parent) : QWidget(parent), ui(new Ui::frmMain)
     this->initLogo();
     this->initTitleInfo();
     this->configChanged(AppConfig::WeatherCity, AppConfig::WeatherInterval, AppConfig::WeatherStyle);
-    connect(TcpClient::Instance(), &TcpClient::socketError, this, [this](QAbstractSocket::SocketError err)
-        {
-            QtHelper::showMessageBoxError("连接异常,请重启客户端或重新连接", 3, true);
-        });
 }
 
 frmMain::~frmMain()

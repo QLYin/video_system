@@ -123,7 +123,7 @@ void frmLogin::on_btnLogin_clicked()
         //隐藏当前界面弹出主界面
         this->initDeviceConnect();
         Indicator::showLoading(true, this);
-        QTimer::singleShot(5000, this, [=]() 
+        QTimer::singleShot(60000, this, [=]() 
             {
                 if (!TcpClient::Instance()->isConnnected())
                 {
