@@ -130,7 +130,7 @@ void DevManager::onCardRemove(const QVector<int> devIds)
     if (count > 0)
     {
         QVariantMap param;
-        param["dev_num"] = count;
+        param["dev_num"] = m_devList.size() -1;
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDevNumSet, param);
     }
 
@@ -186,6 +186,10 @@ void DevManager::onCardUpdate(const QVector<DevInfo>& devListInfo)
             CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDevAdd, param);
         }
     }
+
+    QVariantMap param;
+    param["dev_num"] = m_devList.size() - 1;
+    CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDevNumSet, param);
 
     if (m_cardWidget && !m_devList.isEmpty())
     {

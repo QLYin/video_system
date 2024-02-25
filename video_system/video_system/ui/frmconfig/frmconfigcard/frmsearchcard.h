@@ -16,7 +16,7 @@ public:
     explicit frmSearchCard(QWidget *parent = 0);
     ~frmSearchCard();
 
-    void updateTableWidget(const QVector<DevInfo>& deviceInfo);
+    void updateTableWidget(QVector<DevInfo>& deviceInfo);
 private:
     Ui::frmSearchCard*ui;
     QVector<DevInfo> m_searchCards;

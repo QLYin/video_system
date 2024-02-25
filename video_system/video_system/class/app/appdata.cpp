@@ -30,7 +30,7 @@ int AppData::SwitchBtnWidth = 63;
 int AppData::SwitchBtnHeight = 25;
 
 int AppData::IconMain1 = 0xe6a9;
-QString AppData::TitleMain1 = QString::fromUtf8("备用模块");
+QString AppData::TitleMain1 = QString::fromUtf8("电视墙管理");
 
 QString AppData::DeviceIconFile = "./device/device_red.png";
 QString AppData::DeviceIconFile2 = "./device/device_blue.png";

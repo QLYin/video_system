@@ -88,12 +88,20 @@ void frmSearchCard::onAutoNetWorkClicked()
     dialog->show();
 }
 
-void frmSearchCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
+void frmSearchCard::updateTableWidget(QVector<DevInfo>& deviceInfo)
 {
     if (deviceInfo.isEmpty())
     {
         return;
     }
+
+    auto customCompare = [](DevInfo& dev1, DevInfo& dev2)
+    {
+        return dev1.dev_id < dev2.dev_id;
+    };
+
+    std::sort(deviceInfo.begin(), deviceInfo.end(), customCompare);
+
 
     m_searchCards = deviceInfo;
     auto devCount = deviceInfo.size();
@@ -101,6 +109,7 @@ void frmSearchCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
     {
         QCheckBox* itemCk = new QCheckBox(this);
         itemCk->setChecked(false);
+        itemCk->setText(QString::number(deviceInfo.at(i).dev_id));
         ui->tableWidget->setCellWidget(i, 0, itemCk);
         ui->tableWidget->setItem(i, 0, new QTableWidgetItem);
         //ip

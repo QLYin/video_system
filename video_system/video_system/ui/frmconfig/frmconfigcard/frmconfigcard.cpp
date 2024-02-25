@@ -78,12 +78,19 @@ void frmConfigCard::initData()
     ui->tableCard->verticalHeader()->setVisible(false);
 }
 
-void frmConfigCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
+void frmConfigCard::updateTableWidget(QVector<DevInfo>& deviceInfo)
 {
     if (deviceInfo.isEmpty())
     {
         return;
     }
+
+    auto customCompare = [](DevInfo& dev1, DevInfo& dev2)
+    {
+        return dev1.dev_id < dev2.dev_id;
+    };
+
+    std::sort(deviceInfo.begin(), deviceInfo.end(), customCompare);
 
     //while (ui->tableCard->rowCount() > 0) {
     //    int lastRow = ui->tableCard->rowCount() - 1;
@@ -109,7 +116,7 @@ void frmConfigCard::updateTableWidget(const QVector<DevInfo>& deviceInfo)
         auto item = new QTableWidgetItem(itemValue);
         item->setTextAlignment(Qt::AlignCenter);
         ui->tableCard->setItem(i, 1, item);
-        itemValue = QString::number(i);
+        itemValue = QString::number(deviceInfo.at(i).dev_id);
         item = new QTableWidgetItem(itemValue);
         item->setTextAlignment(Qt::AlignCenter);
         ui->tableCard->setItem(i, 2, item);

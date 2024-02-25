@@ -17,7 +17,7 @@ public:
     explicit frmConfigCard(QWidget *parent = 0);
     ~frmConfigCard();
 
-    void updateTableWidget(const QVector<DevInfo>& deviceInfo);
+    void updateTableWidget(QVector<DevInfo>& deviceInfo);
     frmSearchCard* searchCardDialog();
 
 signals:

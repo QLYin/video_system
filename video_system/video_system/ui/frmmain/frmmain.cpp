@@ -193,6 +193,10 @@ void frmMain::initWidget()
     connect(AppEvent::Instance(), SIGNAL(fullScreen(bool)), this, SLOT(fullScreen(bool)));
     connect(AppEvent::Instance(), SIGNAL(mouseButtonRelease()), this, SLOT(mouseButtonRelease()));
 
+    //备用模块
+    frmMain1* main1 = new frmMain1;
+    ui->stackedWidget->addWidget(main1);
+
     //中间视频监控通道及悬停模块
     frmModule *module = new frmModule;
     ui->stackedWidget->addWidget(module);
@@ -215,10 +219,6 @@ void frmMain::initWidget()
     frmMap *map = new frmMap;
     ui->stackedWidget->addWidget(map);
 
-    //备用模块
-    frmMain1 *main1 = new frmMain1;
-    ui->stackedWidget->addWidget(main1);
-
     //日志记录
     frmData *data = new frmData;
     ui->stackedWidget->addWidget(data);
@@ -231,9 +231,9 @@ void frmMain::initWidget()
 void frmMain::initNav()
 {
     QList<QString> names, texts;
-    names << "btnView" << "btnVideo" << "btnMap" << "btnMain1" << "btnData" << "btnConfig";
-    texts << "视频监控" << "视频回放" << "电子地图" << AppData::TitleMain1 << "日志查询" << "系统设置";
-    icons << 0xe68c << 0xe68d << 0xe695 << AppData::IconMain1 << 0xe699 << 0xe706;
+    names << "btnMain1" << "btnView" << "btnVideo" << "btnMap"  << "btnData" << "btnConfig";
+    texts << AppData::TitleMain1 << "视频监控" << "视频回放" << "电子地图"  << "日志查询" << "系统设置";
+    icons << AppData::IconMain1 << 0xe68c << 0xe68d << 0xe695  << 0xe699 << 0xe706;
 
     if (AppConfig::WorkMode == 3) {
         texts.clear();
@@ -256,12 +256,13 @@ void frmMain::initNav()
 
     //强制改成默认视频界面
     //btns.at(0)->click();
-    btns.at(3)->setVisible(AppConfig::EnableMain1);
+    btns.at(0)->setVisible(AppConfig::EnableMain1);
 
     //互动课堂不需要电子地图模块
-    if (AppConfig::WorkMode == 3) {
-        btns.at(2)->setVisible(false);
-    }
+    //直接屏蔽电子地图模块 20240225 by yql
+    //if (AppConfig::WorkMode == 3) {
+        btns.at(3)->setVisible(false);
+    //}
 }
 
 void frmMain::initIcon()
