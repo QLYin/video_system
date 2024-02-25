@@ -59,7 +59,8 @@ void IPCManager::handle(const QVariantMap& data)
                     model->setData(model->index(count, 1), ipcItem.name);
                     model->setData(model->index(count, 2), "网络视频");
                     model->setData(model->index(count, 3), "");
-                    model->setData(model->index(count, 4), ipcItem.ipaddr);
+                    QString onvifAddr = QString("http://%1/onvif/device_service").arg(ipcItem.ipaddr);
+                    model->setData(model->index(count, 4), onvifAddr);
                     model->setData(model->index(count, 5), "");
                     model->setData(model->index(count, 6), "");
                     model->setData(model->index(count, 7), ipcItem.rtsp_url0);

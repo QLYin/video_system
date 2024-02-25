@@ -205,7 +205,7 @@ void DeviceHelper::initDeviceTree(QTreeWidget *treeWidget)
 
                 //添加摄像机节点
                 QTreeWidgetItem *itemIpc = new QTreeWidgetItem(itemNvr);
-                itemIpc->setText(0, ip);
+                itemIpc->setText(0, ipcName.isEmpty() ? UrlHelper::getUrlIP(ip) : ipcName);
                 itemIpc->setData(0, Qt::UserRole, rtspAddr);
 
                 //主码流子码流节点

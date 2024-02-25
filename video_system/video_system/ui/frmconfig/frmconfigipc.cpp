@@ -310,8 +310,7 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     model->setData(model->index(count, 1), ipcName);
     model->setData(model->index(count, 2), nvrName);
     model->setData(model->index(count, 3), ipcType);
-    QString ipAddress = onvifAddr.startsWith("http") ? UrlHelper::getUrlIP(onvifAddr) : onvifAddr;
-    model->setData(model->index(count, 4), ipAddress);
+    model->setData(model->index(count, 4), onvifAddr);
     model->setData(model->index(count, 5), profileToken);
     model->setData(model->index(count, 6), videoSource);
     model->setData(model->index(count, 7), rtspMain);
@@ -465,7 +464,7 @@ void frmConfigIpc::on_btnSave_clicked()
                 ipcItem.name = model->index(row, 1).data().toString();
                 ipcItem.user = model->index(row, 13).data().toString();
                 ipcItem.passwd = model->index(row, 14).data().toString();
-                ipcItem.ipaddr = model->index(row, 4).data().toString();
+                ipcItem.ipaddr = UrlHelper::getUrlIP(model->index(row, 4).data().toString());
                 ipcItem.ptz_enable = 0;
                 ipcItem.vda_enable = 0;
                 ipcItem.rtsp_url0 = model->index(row, 7).data().toString();
@@ -513,7 +512,7 @@ void frmConfigIpc::on_btnDelete_clicked()
             }
             else if (column == 4)
             {
-                ips << text;
+                ips << UrlHelper::getUrlIP(text);
             }
         }
 
