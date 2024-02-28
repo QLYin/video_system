@@ -19,7 +19,7 @@ public:
     void initConfigCard(frmConfigCard* cardWidget);
 
 private:
-    bool hasCard(DevInfo info);
+    bool hasCard(int  id);
     DevInfo& getCardbyId(int devId);
     int getIndexById(int devId);
 

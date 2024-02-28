@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <algorithm>
 #include "frmscreen.h"
+#include "ui/frmbase/Indicator.h"
 
 frmTVWallWidget::frmTVWallWidget(QWidget* parent)
 {
@@ -12,7 +13,6 @@ frmTVWallWidget::frmTVWallWidget(QWidget* parent)
 	createTVWall(3, 3);
 
 	setContextMenuPolicy(Qt::NoContextMenu);
-	setStyleSheet("border: 1px, solid, red");
 }
 
 void frmTVWallWidget::mousePressEvent(QMouseEvent* event)
@@ -63,13 +63,31 @@ void frmTVWallWidget::mouseReleaseEvent(QMouseEvent* event)
 		std::sort(selectedWidgets.begin(), selectedWidgets.end(), customCompare);
 		if (selectedWidgets.size() > 1)
 		{
+			bool hasInvalidScreen = false;
 			for (auto& widget : selectedWidgets)
 			{
 				auto screenItem = qobject_cast<frmScreen*>(widget);
 				screenItem->setSelected(true);
+				if (screenItem->text() == "未检测到解码卡")
+				{
+					hasInvalidScreen = true;
+				}
+			}
+
+			if (hasInvalidScreen)
+			{
+				for (auto& widget : selectedWidgets)
+				{
+					auto screenItem = qobject_cast<frmScreen*>(widget);
+					screenItem->setSelected(false);
+				}
+				Indicator::showTopTip(QString::fromLocal8Bit("请检测屏幕是否绑定解码卡"), this);
+			}
+			else
+			{
+				showMergeDialog();
 			}
 		}
-		showMergeDialog();
 	}
 }
 

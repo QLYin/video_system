@@ -2,7 +2,6 @@
 #include "ui_frmconfigipc.h"
 #include "qthelper.h"
 #include "devicehelper.h"
-#include "urlhelper.h"
 #include "dbquery.h"
 #include "dbdelegate.h"
 #include "commonkey.h"
@@ -60,7 +59,7 @@ void frmConfigIpc::initIcon()
 void frmConfigIpc::initData()
 {
     //实例化数据库表模型
-    model = new QSqlTableModel(this);
+    model = new CustomSqlTableModel(this);
     //绑定数据库表到数据模型
     DbHelper::bindTable(AppConfig::LocalDbType, model, "IpcInfo");
     //设置过滤条件

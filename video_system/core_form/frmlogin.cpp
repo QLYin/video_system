@@ -100,7 +100,7 @@ void frmLogin::on_btnLogin_clicked()
 
     //密码正确或者是超级密码则表示成功
     int index = ui->cboxUserName->currentIndex();
-    if ((userPwd == UserHelper::UserInfo_UserPwd.at(index).toUpper()) || userPwd == "A") {
+    if ((userPwd == UserHelper::UserInfo_UserPwd.at(index).toUpper()) || userPwd == "888888") {
         UserHelper::CurrentUserName = ui->cboxUserName->currentText();
         UserHelper::getUserInfo();
         DbQuery::addUserLog("用户登录");
@@ -113,7 +113,7 @@ void frmLogin::on_btnLogin_clicked()
         AppConfig::writeConfig();
 
         //如果是密码A则为超级管理员默认所有权限都有
-        if (userPwd == "A") {
+        if (userPwd == "888888") {
             int count = UserHelper::UserPermission.count();
             for (int i = 0; i < count; ++i) {
                 UserHelper::UserPermission[i] = true;
@@ -157,6 +157,10 @@ void frmLogin::initDeviceConnect()
     TcpClient::Instance()->init();
     connect(TcpClient::Instance(), &TcpClient::socketConnected, this, [this]()
         {
+            if (AppMisc::Instance()->mainWnd()->isVisible())
+            {
+                return;
+            }
             AppEvent::Instance()->slot_tcpConnected();
             //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
             QVariantMap param;          

@@ -2,6 +2,7 @@
 #define FRMCONFIGIPC_H
 
 #include <QWidget>
+#include "urlhelper.h"
 #include "class/deviceconnect/tcpcmddef.h"
 
 class QSqlTableModel;
@@ -10,6 +11,25 @@ class DbDelegate;
 namespace Ui {
 class frmConfigIpc;
 }
+
+class CustomSqlTableModel : public QSqlTableModel
+{
+public:
+    using QSqlTableModel::QSqlTableModel;
+
+    QVariant data(const QModelIndex& index, int role) const override
+    {
+        // 检查需要自定义的列和角色
+        if (index.column() == 4 && role == Qt::DisplayRole) {
+            auto originalData = QSqlTableModel::data(index, role).toString();
+            auto customData =  UrlHelper::getUrlIP(originalData);
+            return customData;
+        }
+
+        // 对于其他列和角色，保持默认的数据展示
+        return QSqlTableModel::data(index, role);
+    }
+};
 
 class frmConfigIpc : public QWidget
 {
@@ -27,7 +47,7 @@ private:
     Ui::frmConfigIpc *ui;
 
     //数据库表模型+列名+列宽
-    QSqlTableModel *model;
+    CustomSqlTableModel *model;
     QList<QString> columnNames;
     QList<int> columnWidths;
 

@@ -19,7 +19,7 @@ frmScreen::frmScreen(QWidget* parent)
 	setContextMenuPolicy(Qt::CustomContextMenu);
 	connect(this, &frmScreen::customContextMenuRequested,
 		this, &frmScreen::showContextMenu);
-	setStyleSheet("background-color: rgb(68, 73, 79);");
+	setStyleSheet("background-color : rgb(14, 26, 50);");
 	m_topLabel = new QLabel(this);
 	m_topLabel->setAlignment(Qt::AlignLeft);
 	m_topLabel->setGeometry(1, 1, width(), 20);
@@ -342,6 +342,6 @@ void frmScreen::setSelected(bool selected)
 	}
 	else
 	{
-		setStyleSheet("background-color: rgb(68, 73, 79);");
+		setStyleSheet("background-color : rgb(14, 26, 50);");
 	}
 }

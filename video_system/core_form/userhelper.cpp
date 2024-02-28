@@ -2,7 +2,7 @@
 #include "qthelper.h"
 
 QString UserHelper::CurrentUserName = "admin";
-QString UserHelper::CurrentUserPwd = "admin";
+QString UserHelper::CurrentUserPwd = "888888";
 QString UserHelper::CurrentUserType = QString::fromUtf8("管理员");
 QList<bool> UserHelper::UserPermission = QList<bool>() << true << true << true << true << true << true << true;
 QStringList UserHelper::PermissionName = QStringList() << QString::fromUtf8("系统设置|删除记录|模块A|模块B|模块C|模块D|模块E").split("|");

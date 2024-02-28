@@ -51,7 +51,6 @@ bool TcpClient::uninit()
 
 void TcpClient::readData()
 {
-    qDebug() << "[TcpClient]enter read data: ";
     if (!m_socket || !m_socket->isValid())
     {
         qDebug() << "[TcpClient]Invaild ";

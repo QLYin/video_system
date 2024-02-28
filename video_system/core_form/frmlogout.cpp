@@ -25,6 +25,7 @@ void frmLogout::showEvent(QShowEvent *)
     ui->txtUserPwd->clear();
     ui->txtUserPwd->setFocus();
     //可能标题又改过所以需要重新设置
+    ui->txtUserPwd->setText("888888");
     this->initTitle();
 }
 
@@ -88,7 +89,7 @@ void frmLogout::on_btnLogout_clicked()
     }
 
     //密码正确或者是超级密码则表示成功
-    if ((userPwd == UserHelper::CurrentUserPwd.toUpper()) || userPwd == "A") {
+    if ((userPwd == UserHelper::CurrentUserPwd.toUpper()) || userPwd == "888888") {
         DbQuery::addUserLog("用户退出");
         //发出全局退出事件信号通知退出
         AppEvent::Instance()->slot_exitAll();

@@ -45,7 +45,10 @@ void DevManager::handle(const QVariantMap& data)
                     }
                 }
 
-                m_devList.append(devItem);
+                if (!hasCard(devItem.dev_id))
+                {
+                    m_devList.append(devItem);
+                }
             }
         }
         if (m_cardWidget && !m_devList.isEmpty())
@@ -149,7 +152,7 @@ void DevManager::onCardUpdate(const QVector<DevInfo>& devListInfo)
     // 遍历 devListInfo 添加或更新数据到m_devList; 并发送对应指令 且修改UI
     for (auto& info : devListInfo)
     {
-        if (hasCard(info)) // 存在
+        if (hasCard(info.dev_id)) // 存在
         {
             // 对比ip, mac, gateway是否有变化
             auto card = getCardbyId(info.dev_id);
@@ -197,7 +200,7 @@ void DevManager::onCardUpdate(const QVector<DevInfo>& devListInfo)
     }
 }
 
-bool DevManager::hasCard(DevInfo info)
+bool DevManager::hasCard(int id)
 {
     QSet<int> vecIds;
     for (auto& card : m_devList)
@@ -205,7 +208,7 @@ bool DevManager::hasCard(DevInfo info)
         vecIds.insert(card.dev_id);
     }
 
-    return !vecIds.isEmpty() && vecIds.contains(info.dev_id);
+    return !vecIds.isEmpty() && vecIds.contains(id);
 }
 
 DevInfo& DevManager::getCardbyId(int devId)
