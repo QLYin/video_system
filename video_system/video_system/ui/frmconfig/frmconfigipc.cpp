@@ -329,6 +329,7 @@ void frmConfigIpc::addDevices(const QList<QStringList> &deviceInfos)
 {
     //校验是否超过秘钥的数量限制
     //总数量=当前行数+将要添加的设备数量
+    m_appendIpcids.clear();
     int count = model->rowCount() + deviceInfos.count() - 1;
     if (!CommonKey::checkCount(count)) {
         return;
@@ -345,7 +346,7 @@ void frmConfigIpc::addDevices(const QList<QStringList> &deviceInfos)
         for (int j = 0; j < DbData::IpcInfo_Count; ++j) {
             QString addr = DbData::IpcInfo_OnvifAddr.at(j);
             QString rtsp = DbData::IpcInfo_RtspMain.at(j);
-            if (addr == onvifAddr && rtsp == rtspMain) {
+            if (UrlHelper::getUrlIP(addr) == UrlHelper::getUrlIP(onvifAddr) && rtsp == rtspMain) {
                 exist = true;
                 break;
             }
@@ -477,6 +478,7 @@ void frmConfigIpc::on_btnSave_clicked()
         {
             emit ipcAddSig(ipcList);
         }
+        m_appendIpcids.clear();
     } else {
         //提交失败则回滚事务并打印错误信息
         model->database().rollback();
