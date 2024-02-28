@@ -226,6 +226,32 @@ void TVWallManager::onWallScreenCut(int row, int col, int splitNum)
 	param["split_num"] = splitNum;
 	param["device_id"] = devInfo.at(index).dev_id;
 	CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallCutScreen, param);
+
+	auto screen = m_wallWidget->findScreen(row, col);
+	if (screen)
+	{
+		if (screen->cutRow() > 1 || screen->cutCol() > 1)
+		{
+			auto ipcIndexs = devInfo.at(index).ipc_indexs;
+			for (int j = 0; j < 16; ++j)
+			{
+				auto id = ipcIndexs.at(j);
+				QString ip = IPCManager::Instance()->findIp(id);
+				if (!ip.isEmpty())
+				{
+					screen->setCellText(j, ip);
+				}
+			}
+		}
+		else
+		{
+			QString ip = IPCManager::Instance()->findIp(devInfo.at(index).ipc_indexs.at(0));
+			screen->setText(ip);
+			QFont font("Arial", 8);
+			screen->setFont(font);
+		}
+		
+	}
 }
 
 frmScreen* TVWallManager::findScreen(int devId)

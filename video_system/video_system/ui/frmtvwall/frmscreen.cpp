@@ -23,6 +23,8 @@ frmScreen::frmScreen(QWidget* parent)
 	m_topLabel = new QLabel(this);
 	m_topLabel->setAlignment(Qt::AlignLeft);
 	m_topLabel->setGeometry(1, 1, width(), 20);
+	m_cutRow = 1;
+	m_cutCol = 1;
 }
 
 frmScreen::~frmScreen()
@@ -34,36 +36,47 @@ void frmScreen::showContextMenu(const QPoint& pos)
 {
 	if (!m_enableDrop) return;
 	QMenu contextMenu(this);
-	QAction* splitAction = contextMenu.addAction(QString::fromLocal8Bit("切割画面"));
-	QAction* undoAction = contextMenu.addAction(QString::fromLocal8Bit("撤销切割"));
-	undoAction->setEnabled(m_cutRow > 1 || m_cutCol > 1);
+	QAction* splitAction = contextMenu.addAction(QString::fromLocal8Bit("多画面显示"));
 	if (m_ChildScreens.size() > 1) {
 		contextMenu.addSeparator();
-		QAction* restoreAction = contextMenu.addAction(QString::fromLocal8Bit("恢复"));
+		QAction* restoreAction = contextMenu.addAction(QString::fromLocal8Bit("退出拼接"));
 		connect(restoreAction, &QAction::triggered, [this]()
 			{
 				emit screenMergeRestore(this);
 			});
 	}
 	QMenu splitMenu(this);
-	splitMenu.addAction("2x2", [this]()
+	auto action = splitMenu.addAction("1分屏", [this]()
+	{
+		cutScreen(1, 1);
+	});
+	action->setEnabled(!(m_cutRow == 1 && m_cutCol == 1));
+
+	action = splitMenu.addAction("2分屏", [this]()
+	{
+		cutScreen(1, 2);
+	});
+	action->setEnabled(!(m_cutRow == 1 && m_cutCol == 2));
+
+	action = splitMenu.addAction("4分屏", [this]()
 	{
 		cutScreen(2, 2);
 	});
-	splitMenu.addAction("3x3", [this]()
+	action->setEnabled(!(m_cutRow == 2 && m_cutCol == 2));
+
+	action = splitMenu.addAction("9分屏", [this]()
 	{
 		cutScreen(3, 3);
 	});
-	splitMenu.addAction("4x4", [this]()
+	action->setEnabled(!(m_cutRow == 3 && m_cutCol == 3));
+
+	action = splitMenu.addAction("16分屏", [this]()
 	{
 		cutScreen(4, 4);
 	});
+	action->setEnabled(!(m_cutRow == 4 && m_cutCol == 4));
 
 	splitAction->setMenu(&splitMenu);
-	connect(undoAction, &QAction::triggered, this, [this]()
-		{
-			cutScreen(1, 1);
-		});
 	contextMenu.exec(mapToGlobal(pos));
 }
 
@@ -299,6 +312,15 @@ void frmScreen::dropEvent(QDropEvent* event)
 			}
 		}
 	}
+}
+
+void frmScreen::mouseDoubleClickEvent(QMouseEvent* event)
+{
+	if (event->button() == Qt::LeftButton) {
+		cutScreen(1, 1);
+	}
+
+	QWidget::mouseDoubleClickEvent(event);
 }
 
 int frmScreen::updateIndex(int index)

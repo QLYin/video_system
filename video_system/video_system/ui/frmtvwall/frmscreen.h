@@ -53,6 +53,7 @@ private slots:
 protected:
 	void dragEnterEvent(QDragEnterEvent* event);
 	void dropEvent(QDropEvent* event);
+	void mouseDoubleClickEvent(QMouseEvent* event);
 
 private:
 	int m_cutRow = -1;
