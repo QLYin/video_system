@@ -31,6 +31,7 @@ public:
 
 private:
     QTcpSocket* m_socket = nullptr;
+    QString m_buffer;
 
 };
 

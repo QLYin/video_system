@@ -63,6 +63,24 @@ void TcpClient::readData()
     {
         fullData += m_socket->readAll();
     }
+
+    if (!fullData.endsWith("\r\n"))
+    {
+        m_buffer += fullData;
+        return;
+    }
+    else
+    {
+        if (!m_buffer.isEmpty())
+        {
+            m_buffer += m_buffer;
+        }
+    }
+
+    if (!m_buffer.isEmpty())
+    {
+        fullData = m_buffer;
+    }
     qDebug() << "[TcpClient]read data: " << fullData;
 
     QStringList result;
@@ -111,6 +129,7 @@ void TcpClient::readData()
         }
     }
 
+    m_buffer.clear();
     return;
 }
 
