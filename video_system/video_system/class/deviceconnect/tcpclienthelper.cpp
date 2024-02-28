@@ -143,6 +143,10 @@ void TcpClientHelper::sendIPCCmd(const QString& cmd, const QVariantMap& param)
 			data += kSplitStr;
 
 			data += "netxaddr : ";
+			data += QString("http://%1:80/onvif/device_service").arg(ipc.ipaddr);
+			data += kSplitStr;
+
+			data += "separate : ";
 			data += "";
 			data += kSplitStr;
 		}
