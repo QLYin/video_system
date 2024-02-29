@@ -73,7 +73,7 @@ void TcpClient::readData()
     {
         if (!m_buffer.isEmpty())
         {
-            m_buffer += m_buffer;
+            m_buffer += fullData;
         }
     }
 
