@@ -25,6 +25,7 @@ signals:
 	void wallScreenJoinSig(QVector<ScreenInfo> infos, QVector<int> indexs, bool join);
 	void wallScreenCutSig(int r, int c, int splitNum);
 	void wallCallVideoSig(int r, int c, int chnIndex, QString ip);
+	void closeVideoSig(int chnIndex);
 
 protected:
 	void mousePressEvent(QMouseEvent* event) override;

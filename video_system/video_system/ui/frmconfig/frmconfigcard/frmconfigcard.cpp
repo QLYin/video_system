@@ -6,6 +6,7 @@
 #include "frmconfigcard/frmresolutionset.h"
 #include "class/deviceconnect/tcpcmddef.h"
 #include "class/deviceconnect/tcpclienthelper.h"
+#include "ui/frmbase/Indicator.h"
 
 frmConfigCard::frmConfigCard(QWidget *parent) : QWidget(parent), ui(new Ui::frmConfigCard)
 {
@@ -134,6 +135,7 @@ void frmConfigCard::updateTableWidget(QVector<DevInfo>& deviceInfo)
 void frmConfigCard::onBtnSearchClicked()
 {
     m_searchCardDialog->show();
+    Indicator::showLoading(true, m_searchCardDialog);
     QVariantMap param;
     TcpClientHelper::sendDevCmd(CommandNS::kCmdDevSearch, param);
 }

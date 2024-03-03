@@ -46,6 +46,7 @@ signals:
 	void screenMergeRestore(frmScreen* item);
 	void screenCut(int spiltNum);
 	void dropInfo(int chnIndex, QString text);
+	void closeVideo(int chnIndex);
 
 private slots:
 	void showContextMenu(const QPoint& pos);
@@ -54,6 +55,9 @@ protected:
 	void dragEnterEvent(QDragEnterEvent* event);
 	void dropEvent(QDropEvent* event);
 	void mouseDoubleClickEvent(QMouseEvent* event);
+
+private:
+	int findChnIndexByPos(const QPoint& pos, bool clear = true);
 
 private:
 	int m_cutRow = -1;

@@ -70,6 +70,7 @@ void TVWallManager::initWallWidget(frmTVWallWidget* widget)
 	connect(m_wallWidget, &frmTVWallWidget::wallScreenJoinSig, this, &TVWallManager::onWallScreenJoin);
 	connect(m_wallWidget, &frmTVWallWidget::wallScreenCutSig, this, &TVWallManager::onWallScreenCut);
 	connect(m_wallWidget, &frmTVWallWidget::wallCallVideoSig, this, &TVWallManager::onWallCallVideo);
+	connect(m_wallWidget, &frmTVWallWidget::closeVideoSig, this, &TVWallManager::onWallCloseVideo);
 }
 
 void TVWallManager::sendWallJoint(int row, int col)
@@ -296,6 +297,11 @@ void TVWallManager::onWallCallVideo(int row, int col, int chn_index, QString ip)
 			ipcIndexs[index] = IPCManager::Instance()->findId(ip);
 		}
 	}
+}
 
-
+void TVWallManager::onWallCloseVideo(int chnIndx)
+{
+	QVariantMap param;
+	param["chn"] = chnIndx;
+	CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallCloseVideo, param);
 }

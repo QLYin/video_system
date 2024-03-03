@@ -183,6 +183,7 @@ void frmTVWallWidget::createTVWall(int row, int col)
 		{
 			frmScreen* childWidget = new frmScreen(this);
 			connect(childWidget, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
+			connect(childWidget, &frmScreen::closeVideo, this, &frmTVWallWidget::closeVideoSig);
 			connect(childWidget, &frmScreen::screenCut, this, [i, j, this](int splitNum) 
 				{
 					emit wallScreenCutSig(i, j, splitNum);
@@ -288,6 +289,7 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 	mergeScreen->setChildScreenInfos(infos);
 	connect(mergeScreen, &frmScreen::screenMergeRestore, this, &frmTVWallWidget::restorScreens);
 	connect(mergeScreen, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
+	connect(mergeScreen, &frmScreen::closeVideo, this, &frmTVWallWidget::closeVideoSig);
 	connect(mergeScreen, &frmScreen::screenCut, this, [mergeScreen, this](int splitNum)
 		{
 			emit wallScreenCutSig(mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, splitNum);

@@ -6,6 +6,7 @@
 #include "frmautonetset.h"
 #include "class/deviceconnect/tcpcmddef.h"
 #include "class/deviceconnect/tcpclienthelper.h"
+#include "ui/frmbase/Indicator.h"
 
 frmSearchCard::frmSearchCard(QWidget *parent) : QDialog(parent), ui(new Ui::frmSearchCard)
 {
@@ -90,6 +91,7 @@ void frmSearchCard::onAutoNetWorkClicked()
 
 void frmSearchCard::updateTableWidget(QVector<DevInfo>& deviceInfo)
 {
+    Indicator::showLoading(false, this);
     if (deviceInfo.isEmpty())
     {
         return;

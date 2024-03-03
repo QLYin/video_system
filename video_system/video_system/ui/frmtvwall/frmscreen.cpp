@@ -36,15 +36,9 @@ void frmScreen::showContextMenu(const QPoint& pos)
 {
 	if (!m_enableDrop) return;
 	QMenu contextMenu(this);
+
+	// 多画面
 	QAction* splitAction = contextMenu.addAction(QString::fromLocal8Bit("多画面显示"));
-	if (m_ChildScreens.size() > 1) {
-		contextMenu.addSeparator();
-		QAction* restoreAction = contextMenu.addAction(QString::fromLocal8Bit("退出拼接"));
-		connect(restoreAction, &QAction::triggered, [this]()
-			{
-				emit screenMergeRestore(this);
-			});
-	}
 	QMenu splitMenu(this);
 	auto action = splitMenu.addAction("1分屏", [this]()
 	{
@@ -77,6 +71,29 @@ void frmScreen::showContextMenu(const QPoint& pos)
 	action->setEnabled(!(m_cutRow == 4 && m_cutCol == 4));
 
 	splitAction->setMenu(&splitMenu);
+
+	// 退出拼接
+	if (m_ChildScreens.size() > 1) {
+		contextMenu.addSeparator();
+		QAction* restoreAction = contextMenu.addAction(QString::fromLocal8Bit("退出拼接"));
+		connect(restoreAction, &QAction::triggered, [this]()
+			{
+				emit screenMergeRestore(this);
+			});
+	}
+
+	// 关闭视频 + 关闭声音
+	QAction* closeVideoAction = contextMenu.addAction(QString::fromLocal8Bit("关闭视频"));
+	//int chnIndex = findChnIndexByPos(pos);
+	//qDebug() << " pos: " << pos << ", chn index: " << chnIndex;
+	connect(closeVideoAction, &QAction::triggered, [this,pos]()
+		{
+			int chnIndex = findChnIndexByPos(pos);
+			qDebug() << " pos: " << pos << ", chn index: " << chnIndex;
+			emit closeVideo(chnIndex);
+		});
+
+
 	contextMenu.exec(mapToGlobal(pos));
 }
 
@@ -366,4 +383,31 @@ void frmScreen::setSelected(bool selected)
 	{
 		setStyleSheet("background-color : rgb(14, 26, 50);");
 	}
+}
+
+int frmScreen::findChnIndexByPos(const QPoint& pos, bool clear)
+{
+	if (hasCut())
+	{
+		QPoint layoutPos = pos;
+		int cellWidth = width() / m_cutCol;
+		int cellHeight = height() / m_cutRow;
+		int layoutX = layoutPos.x() / cellWidth;
+		int layoutY = layoutPos.y() / cellHeight;
+		QLayoutItem* item = m_gridLayout->itemAtPosition(layoutY, layoutX);
+		if (item != nullptr) {
+			auto cell = qobject_cast<frmCell*>(item->widget());
+			if (clear)
+			{
+				cell->setText("");
+			}
+			return cell->index();
+		}
+	}
+
+	if (clear)
+	{
+		setText("");
+	}
+	return index();
 }

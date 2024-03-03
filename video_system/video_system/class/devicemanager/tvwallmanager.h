@@ -28,6 +28,7 @@ private slots:
     void onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> indexs, bool join);
     void onWallScreenCut(int row, int col, int splitNum);
     void onWallCallVideo(int row, int col, int index, QString ip);
+    void onWallCloseVideo(int chnIndx);
 private:
     frmTVWallWidget* m_wallWidget = nullptr;
 };
