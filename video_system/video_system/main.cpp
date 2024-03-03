@@ -7,6 +7,82 @@
 #include "dbquery.h"
 #include "appinit.h"
 
+QString appDataFolder(void)
+{
+    static QString s_appFolder;
+
+    if (s_appFolder.isEmpty())
+    {
+        QString appName("video_system");
+        if (appName.isEmpty())
+        {
+            appName = qApp->applicationName();
+        }
+
+        QDir dir(QStandardPaths::writableLocation(QStandardPaths::AppDataLocation));
+        dir.cdUp();
+
+        s_appFolder = dir.absolutePath() + QDir::separator() + appName;
+        dir.mkpath(s_appFolder);
+    }
+
+    return s_appFolder;
+}
+
+QString initLoggerFile()
+{
+    static QString s_loggerFile;
+    if (s_loggerFile.isEmpty())
+    {
+        // 获取当前日期和时间
+        QString timestamp = QDateTime::currentDateTime().toString("yyyy-MM-dd_hh-mm-ss");
+        // 构建日志文件名
+        QString logFileName = QString("log_%1.txt").arg(timestamp);
+
+        // 定义日志文件路径
+        QString logFileDir = appDataFolder() + QDir::separator() + QStringLiteral("logs");
+        QDir directory(logFileDir);
+        if (!directory.exists()) {
+            directory.mkpath(logFileDir);
+        }
+        s_loggerFile = logFileDir + QDir::separator() + logFileName;
+    }
+
+    return s_loggerFile;
+}
+
+void customMessageHandler(QtMsgType type, const QMessageLogContext& context, const QString& msg)
+{
+    // 打开日志文件
+    QFile logFile(initLoggerFile());
+    if (logFile.open(QIODevice::WriteOnly | QIODevice::Append | QIODevice::Text)) {
+        // 创建文本流
+        QTextStream textStream(&logFile);
+
+        // 获取当前时间
+        QString timestamp = QDateTime::currentDateTime().toString("yyyy-MM-dd hh:mm:ss");
+
+        // 根据消息类型写入日志文件
+        switch (type) {
+        case QtDebugMsg:
+            textStream << "[" << timestamp << "] [Debug] " << msg << endl;
+            break;
+        case QtInfoMsg:
+            textStream << "[" << timestamp << "] [Info] " << msg << endl;
+            break;
+        case QtWarningMsg:
+            textStream << "[" << timestamp << "] [Warning] " << msg << endl;
+            break;
+        case QtCriticalMsg:
+            textStream << "[" << timestamp << "] [Critical] " << msg << endl;
+            break;
+        case QtFatalMsg:
+            textStream << "[" << timestamp << "] [Fatal] " << msg << endl;
+            break;
+        }
+    }
+}
+
 int main(int argc, char *argv[])
 {
     int openGLType = QtHelper::getIniValue(argv, "OpenGLType", "config/").toInt();
@@ -15,6 +91,12 @@ int main(int argc, char *argv[])
     QtHelper::initMain(false, false);
     QApplication a(argc, argv);
     a.setWindowIcon(QIcon(":/main.ico"));
+
+    if (!a.applicationFilePath().contains("release")) // 外发的理论上不带release目录
+    {
+        // 安装自定义消息处理程序
+        qInstallMessageHandler(customMessageHandler);
+    }
 
     //强制指定启动窗体方便测试
     AppConfig::IndexStart = 0;
