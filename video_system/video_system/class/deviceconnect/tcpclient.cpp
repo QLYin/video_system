@@ -20,12 +20,12 @@ bool TcpClient::init()
     connect(m_socket, &QTcpSocket::readyRead, this, &TcpClient::readData, Qt::QueuedConnection);
     connect(m_socket,static_cast<void (QAbstractSocket::*)(QAbstractSocket::SocketError)>(&QAbstractSocket::error), this, &TcpClient::displayError);
 
-    connectServer();
+    bool ret = connectServer();
 
-    return true;
+    return ret;
 }
 
-void TcpClient::connectServer()
+bool TcpClient::connectServer()
 {
     QHostAddress kServerAddress(AppConfig::DeviceIP);
     quint16 kServerPort = QString("61111").toUShort();
@@ -33,6 +33,17 @@ void TcpClient::connectServer()
     {
         qDebug() << __FUNCTION__ << " device ip: " <<kServerAddress;
         m_socket->connectToHost(kServerAddress, kServerPort);
+        int connectTimeout = 5000;
+        if (!m_socket->waitForConnected(connectTimeout)) {
+            qDebug() << "Connection timeout";
+            // 连接超时处理逻辑
+            return false;
+        }
+        else {
+            qDebug() << "Connected successfully";
+            // 连接成功后的逻辑
+            return true;
+        }
     }
 }
 

@@ -121,7 +121,13 @@ void frmLogin::on_btnLogin_clicked()
         }
 
         //隐藏当前界面弹出主界面
-        this->initDeviceConnect();
+        bool ret =this->initDeviceConnect();
+        if (ret == false)
+        {
+            QtHelper::showMessageBoxError("设备无法连接，检测IP是否正确!", 3, true);
+            ui->txtUserPwd->setFocus();
+            return;
+        }
         Indicator::showLoading(true, this);
         QTimer::singleShot(60000, this, [=]() 
             {
@@ -152,40 +158,41 @@ void frmLogin::on_cboxUserName_activated(int)
     ui->txtUserPwd->setFocus();
 }
 
-void frmLogin::initDeviceConnect()
+bool frmLogin::initDeviceConnect()
 {
-    TcpClient::Instance()->init();
-    connect(TcpClient::Instance(), &TcpClient::socketConnected, this, [this]()
+    int ret = TcpClient::Instance()->init();
+    if (ret == false)
+    {
+        qDebug() << "initDeviceConnect()";
+        Indicator::showLoading(false, this);
+        Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
+        return ret;
+    }
+    else
+    {
+        if (AppMisc::Instance()->mainWnd()->isVisible())
         {
-            if (AppMisc::Instance()->mainWnd()->isVisible())
-            {
-                return;
-            }
-            AppEvent::Instance()->slot_tcpConnected();
-            //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
-            QVariantMap param;          
-            param["type"] = 4;
-            CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-            CmdHandlerMgr::Instance()->sendCmd("nop");
-            param["type"] = 1;
-            CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-            CmdHandlerMgr::Instance()->sendCmd("nop");
-            CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
-            //TcpClientHelper::sendSceneInfo();
+            return true;
+        }
+        AppEvent::Instance()->slot_tcpConnected();
+        //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
+        QVariantMap param;
 
-            Indicator::showLoading(false, this);
-            this->hide();
-            frmMain* form = AppMisc::Instance()->mainWnd();
-            form->show();
-            form->activateWindow();
-        });
+        param["type"] = 4;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        CmdHandlerMgr::Instance()->sendCmd("nop");
+        param["type"] = 1;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        CmdHandlerMgr::Instance()->sendCmd("nop");
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
+        //TcpClientHelper::sendSceneInfo();
 
-    connect(TcpClient::Instance(), &TcpClient::socketError, this, [this](QAbstractSocket::SocketError err)
-        {
-            if (isVisible())
-            {
-                Indicator::showLoading(false, this);
-                Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
-            }
-        });
+        Indicator::showLoading(false, this);
+        this->hide();
+        frmMain* form = AppMisc::Instance()->mainWnd();
+        form->show();
+        form->activateWindow();
+        return true;
+    }
+
 }

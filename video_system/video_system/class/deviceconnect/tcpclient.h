@@ -15,7 +15,7 @@ public:
 public:
     bool init();
     bool uninit();
-    void connectServer();
+    bool connectServer();
 
 public:
     void readData();
