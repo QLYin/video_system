@@ -145,7 +145,7 @@ int TVWallManager::calculatePlanMode(const QVector<int>& arr)
 {
 	int result = 0;
 	for (int num : arr) {
-		result |= (1 << num);
+		result |= (1 << (num -1));
 	}
 	return result;
 }
@@ -154,6 +154,7 @@ void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> ind
 {
 	if (indexs.isEmpty()) return;
 	int firstId = indexs.at(0) - 1;
+	//qDebug() << QString(join ? "join " : "joinExit ") << "indexs : " << indexs;
 	int planMode = calculatePlanMode(indexs);
 
 	QVariantMap param;

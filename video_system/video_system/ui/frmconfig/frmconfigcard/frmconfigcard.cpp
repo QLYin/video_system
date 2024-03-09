@@ -41,6 +41,8 @@ void frmConfigCard::initForm()
     connect(ui->btnRemove, SIGNAL(clicked()), this, SLOT(onBtnRemoveClicked()));
     connect(ui->btnScreenChar, SIGNAL(clicked()), this, SLOT(onBtnScreenCharClicked()));
     connect(ui->btnResolution, SIGNAL(clicked()), this, SLOT(onBtnResolutionClicked()));
+    connect(ui->btnSelectAll, SIGNAL(clicked()), this, SLOT(onBtnSelectAllClicked()));
+    connect(ui->btnSelectNone, SIGNAL(clicked()), this, SLOT(onBtnSelectNoneClicked()));
 }
 
 void frmConfigCard::initIcon()
@@ -167,4 +169,26 @@ void frmConfigCard::onBtnResolutionClicked()
 {
     auto dialog = new  frmResolutionSet;
     dialog->show();
+}
+
+void frmConfigCard::onBtnSelectAllClicked()
+{
+    auto rows = ui->tableCard->rowCount();
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableCard->cellWidget(row, 0);
+        if (itemCk && !itemCk->isChecked()) {
+            itemCk->setChecked(true);
+        }
+    }
+}
+
+void frmConfigCard::onBtnSelectNoneClicked()
+{
+    auto rows = ui->tableCard->rowCount();
+    for (int row = 0; row < rows; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableCard->cellWidget(row, 0);
+        if (itemCk && itemCk->isChecked()) {
+            itemCk->setChecked(false);
+        }
+    }
 }

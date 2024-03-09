@@ -42,6 +42,8 @@ private slots:
     void onBtnRemoveClicked();
     void onBtnScreenCharClicked();
     void onBtnResolutionClicked();
+    void onBtnSelectAllClicked();
+    void onBtnSelectNoneClicked();
 };
 
 #endif // FRMCONFIGIPC_H

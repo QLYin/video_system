@@ -70,6 +70,18 @@ void frmScreen::showContextMenu(const QPoint& pos)
 	});
 	action->setEnabled(!(m_cutRow == 4 && m_cutCol == 4));
 
+	action = splitMenu.addAction("25分屏", [this]()
+		{
+			cutScreen(5, 5);
+		});
+	action->setEnabled(!(m_cutRow == 5 && m_cutCol == 5));
+
+	action = splitMenu.addAction("36分屏", [this]()
+		{
+			cutScreen(6, 6);
+		});
+	action->setEnabled(!(m_cutRow == 6 && m_cutCol == 6));
+
 	splitAction->setMenu(&splitMenu);
 
 	// 退出拼接

@@ -15,8 +15,8 @@ void TcpClientHelper::sendDevCmd(const QString& cmd, const QVariantMap& param)
 	{
 		if (cmd == CommandNS::kCmdDevNumSet)
 		{
-			data += "dev_id : ";
-			data += param["dev_id"].toInt();
+			data += "dev_num : ";
+			data += param["dev_num"].toString();
 			data += kSplitStr;
 		}
 		else if (cmd == CommandNS::kCmdDevNetSet)
