@@ -208,15 +208,18 @@ void DeviceHelper::initDeviceTree(QTreeWidget *treeWidget)
                 itemIpc->setText(0, ipcName.isEmpty() ? UrlHelper::getUrlIP(ip) : ipcName);
                 itemIpc->setData(0, Qt::UserRole, rtspAddr);
 
-                //主码流子码流节点
-                if (AppConfig::TreeRtsp) {
-                    QTreeWidgetItem *itemRtspMain = new QTreeWidgetItem(itemIpc);
-                    itemRtspMain->setText(0, "主码流");
-                    itemRtspMain->setData(0, Qt::UserRole, rtspMain);
+                if (treeWidget == deviceTree)
+                {
+                    //主码流子码流节点
+                    if (AppConfig::TreeRtsp) {
+                        QTreeWidgetItem* itemRtspMain = new QTreeWidgetItem(itemIpc);
+                        itemRtspMain->setText(0, "主码流");
+                        itemRtspMain->setData(0, Qt::UserRole, rtspMain);
 
-                    QTreeWidgetItem *itemRtspSub = new QTreeWidgetItem(itemIpc);
-                    itemRtspSub->setText(0, "子码流");
-                    itemRtspSub->setData(0, Qt::UserRole, rtspSub);
+                        QTreeWidgetItem* itemRtspSub = new QTreeWidgetItem(itemIpc);
+                        itemRtspSub->setText(0, "子码流");
+                        itemRtspSub->setData(0, Qt::UserRole, rtspSub);
+                    }
                 }
             }
         }
