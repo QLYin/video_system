@@ -69,13 +69,13 @@ void frmTVWall::initForm()
     QWidget* pGroup1 = new QWidget;
     auto treeWidget = new frmDeviceTree(pGroup1, "tvwall");
     QVBoxLayout* pLayout1 = new QVBoxLayout(pGroup1);
-    pLayout1->setMargin(10);
+    pLayout1->setMargin(0);
     pLayout1->setAlignment(Qt::AlignmentFlag::AlignLeft);
     pLayout1->addWidget(treeWidget);
 
     QWidget* pGroup2 = new QWidget;
     QTabWidget* pTab = new QTabWidget(this);
-    pTab->setFixedWidth(180);
+    pTab->setFixedWidth(205);
     pTab->addTab(pGroup1, "ipc");
     pTab->addTab(pGroup2, "telephone");
     m_tvWallWidget = new frmTVWallWidget(this);
@@ -85,8 +85,8 @@ void frmTVWall::initForm()
     hLayout->addWidget(m_tvWallWidget);
 
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
-    mainLayout->setMargin(2);
-    mainLayout->setSpacing(5);
+    mainLayout->setMargin(0);
+    mainLayout->setSpacing(2);
     mainLayout->addWidget(widgetTop);
     mainLayout->addSpacing(2);
     mainLayout->addLayout(hLayout);
