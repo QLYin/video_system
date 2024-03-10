@@ -137,9 +137,16 @@ void frmConfigCard::updateTableWidget(QVector<DevInfo>& deviceInfo)
 void frmConfigCard::onBtnSearchClicked()
 {
     m_searchCardDialog->show();
-    Indicator::showLoading(true, m_searchCardDialog);
-    QVariantMap param;
-    TcpClientHelper::sendDevCmd(CommandNS::kCmdDevSearch, param);
+    if (!TcpClientHelper::isConnected())
+    {
+        QtHelper::showMessageBoxError("连接异常, 请重启客户端或重新连接", 3, true);
+    }
+    else
+    {
+        Indicator::showLoading(true, m_searchCardDialog);
+        QVariantMap param;
+        TcpClientHelper::sendDevCmd(CommandNS::kCmdDevSearch, param);
+    }
 }
 
 void frmConfigCard::onBtnRemoveClicked()

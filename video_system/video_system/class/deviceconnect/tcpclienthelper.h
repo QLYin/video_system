@@ -25,6 +25,8 @@ public:
 
     static void sendCmd(const QString& cmd, QVariantMap param = QVariantMap());
 
+    static bool isConnected();
+
 };
 
 #endif // TCPCLIENTHELPER_H

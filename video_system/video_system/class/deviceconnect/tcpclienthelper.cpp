@@ -283,3 +283,8 @@ void TcpClientHelper::sendCmd(const QString& cmd, QVariantMap param)
 		}
 	}
 }
+
+bool TcpClientHelper::isConnected()
+{
+	return TcpClient::Instance()->isConnnected();
+}
