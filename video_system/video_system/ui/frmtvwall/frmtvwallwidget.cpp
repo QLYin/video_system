@@ -131,6 +131,16 @@ void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 			for (auto& info : infos)
 			{
 				auto screenItem = new frmScreen(this);
+				connect(screenItem, &frmScreen::indexUpdate, this, &frmTVWallWidget::updateIndex);
+				connect(screenItem, &frmScreen::closeVideo, this, &frmTVWallWidget::closeVideoSig);
+				connect(screenItem, &frmScreen::screenCut, this, [info, this](int splitNum)
+					{
+						emit wallScreenCutSig(info.x, info.y, splitNum);
+					});
+				connect(screenItem, &frmScreen::dropInfo, this, [info, this](int index, QString ip)
+					{
+						emit wallCallVideoSig(info.x, info.y, index, ip);
+					});
 				screenItem->setIndex(info.x * m_cols + info.y + 1);
 				indexs.push_back(info.x * m_cols + info.y + 1);
 				screenItem->appendScreenInfo(info.x, info.y, info.row, info.col);

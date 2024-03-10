@@ -123,6 +123,11 @@ void frmScreen::cutScreen(int row, int col, bool needUpdate, bool notify)
 		return;
 	}
 
+	if (m_cutRow == row && m_cutCol == col)
+	{
+		return;
+	}
+
 	setText("");
 	m_cutRow = row;
 	m_cutCol = col;
@@ -349,7 +354,7 @@ void frmScreen::mouseDoubleClickEvent(QMouseEvent* event)
 		cutScreen(1, 1);
 	}
 
-	QWidget::mouseDoubleClickEvent(event);
+	//QWidget::mouseDoubleClickEvent(event);
 }
 
 int frmScreen::updateIndex(int index)
