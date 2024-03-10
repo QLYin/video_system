@@ -56,11 +56,12 @@ void frmCell::dropEvent(QDropEvent* event)
 			//过滤父节点(那个一般是NVR)
 			QTreeWidgetItem* item = treeWidget->currentItem();
 			if (item->parent()) {
-				text = item->text(0);
+				text = item->data(0, Qt::UserRole + 2).toString();
+				int id = item->data(0, Qt::UserRole + 1).toInt();
 				setText(text);
 				QFont font("Arial", 8);
 				setFont(font);
-				emit dropInfo(text);
+				emit dropInfo(id, text);
 			}
 		}
 	}

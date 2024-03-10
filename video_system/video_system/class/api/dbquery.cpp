@@ -144,6 +144,7 @@ void DbQuery::loadIpcInfo()
     DbData::IpcInfo_IpcName.clear();
     DbData::IpcInfo_NvrName.clear();
     DbData::IpcInfo_IpcType.clear();
+    DbData::IpcInfo_IpAddr.clear();
     DbData::IpcInfo_OnvifAddr.clear();
     DbData::IpcInfo_ProfileToken.clear();
     DbData::IpcInfo_VideoSource.clear();
@@ -159,7 +160,7 @@ void DbQuery::loadIpcInfo()
     DbData::IpcInfo_IpcOnline.clear();
 
     QString column1 = "IpcID,IpcName,NvrName,IpcType";
-    QString column2 = "OnvifAddr,ProfileToken,VideoSource,RtspMain,RtspSub";
+    QString column2 = "IpAddr,OnvifAddr,ProfileToken,VideoSource,RtspMain,RtspSub";
     QString column3 = "MainResolutionRatio,SubResolutionRatio,IpcX,IpcY,UserName,UserPwd,IpcEnable";
     QString sql = QString("select %1,%2,%3 from IpcInfo order by IpcID asc").arg(column1).arg(column2).arg(column3);
     QSqlQuery query;
@@ -173,18 +174,19 @@ void DbQuery::loadIpcInfo()
         QString ipcName = query.value(1).toString();
         QString nvrName = query.value(2).toString();
         QString ipcType = query.value(3).toString();
-        QString onvifAddr = query.value(4).toString();
-        QString profileToken = query.value(5).toString();
-        QString videoSource = query.value(6).toString();
-        QString rtspMain = query.value(7).toString();
-        QString rtspSub = query.value(8).toString();
-        QString mainResolution = query.value(9).toString();
-        QString subResolution = query.value(10).toString();
-        int ipcX = query.value(11).toInt();
-        int ipcY = query.value(12).toInt();
-        QString userName = query.value(13).toString();
-        QString userPwd = query.value(14).toString();
-        QString ipcEnable = query.value(15).toString();
+        QString ipAddr = query.value(4).toString();
+        QString onvifAddr = query.value(5).toString();
+        QString profileToken = query.value(6).toString();
+        QString videoSource = query.value(7).toString();
+        QString rtspMain = query.value(8).toString();
+        QString rtspSub = query.value(9).toString();
+        QString mainResolution = query.value(10).toString();
+        QString subResolution = query.value(11).toString();
+        int ipcX = query.value(12).toInt();
+        int ipcY = query.value(13).toInt();
+        QString userName = query.value(14).toString();
+        QString userPwd = query.value(15).toString();
+        QString ipcEnable = query.value(16).toString();
         if (ipcEnable != "启用") {
             continue;
         }
@@ -199,6 +201,7 @@ void DbQuery::loadIpcInfo()
         DbData::IpcInfo_IpcName << ipcName;
         DbData::IpcInfo_NvrName << nvrName;
         DbData::IpcInfo_IpcType << ipcType;
+        DbData::IpcInfo_IpAddr << ipAddr;
         DbData::IpcInfo_OnvifAddr << onvifAddr;
         DbData::IpcInfo_ProfileToken << profileToken;
         DbData::IpcInfo_VideoSource << videoSource;

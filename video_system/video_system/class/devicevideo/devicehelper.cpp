@@ -197,16 +197,19 @@ void DeviceHelper::initDeviceTree(QTreeWidget *treeWidget)
         //循环添加录像机下的摄像机节点
         for (int j = 0; j < DbData::IpcInfo_Count; j++) {
             if (DbData::IpcInfo_NvrName.at(j) == nvrName) {
+                int id = DbData::IpcInfo_IpcID.at(j);
                 QString ipcName = DbData::IpcInfo_IpcName.at(j);
-                QString ip = DbData::IpcInfo_OnvifAddr.at(j);
+                QString ip = DbData::IpcInfo_IpAddr.at(j);
                 QString rtspMain = DbData::IpcInfo_RtspMain.at(j);
                 QString rtspSub = DbData::IpcInfo_RtspSub.at(j);
                 QString rtspAddr = DbData::getRtspAddr(j);
 
                 //添加摄像机节点
                 QTreeWidgetItem *itemIpc = new QTreeWidgetItem(itemNvr);
-                itemIpc->setText(0, ipcName.isEmpty() ? UrlHelper::getUrlIP(ip) : ipcName);
+                itemIpc->setText(0, ipcName.isEmpty() ? ip : ipcName);
                 itemIpc->setData(0, Qt::UserRole, rtspAddr);
+                itemIpc->setData(0, Qt::UserRole + 1, id);
+                itemIpc->setData(0, Qt::UserRole + 2, ip);
 
                 if (treeWidget == deviceTree)
                 {

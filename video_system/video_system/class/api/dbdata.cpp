@@ -19,6 +19,7 @@ QList<int> DbData::IpcInfo_IpcID = QList<int>();
 QList<QString> DbData::IpcInfo_IpcName = QList<QString>();
 QList<QString> DbData::IpcInfo_NvrName = QList<QString>();
 QList<QString> DbData::IpcInfo_IpcType = QList<QString>();
+QList<QString> DbData::IpcInfo_IpAddr = QList<QString>();
 QList<QString> DbData::IpcInfo_OnvifAddr = QList<QString>();
 QList<QString> DbData::IpcInfo_ProfileToken = QList<QString>();
 QList<QString> DbData::IpcInfo_VideoSource = QList<QString>();

@@ -275,11 +275,11 @@ frmScreen* TVWallManager::findScreen(int devId)
 	return nullptr;
 }
 
-void TVWallManager::onWallCallVideo(int row, int col, int chn_index, QString ip)
+void TVWallManager::onWallCallVideo(int row, int col, int chn_index, int id, QString ip)
 {
 	QVariantMap param;
 	param["chn"] = chn_index;
-	param["id"] = IPCManager::Instance()->findId(ip);
+	param["id"] = QString::number(id);
 	CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallCallVideo, param);
 	// 要更新devinfo
 	int devIndex = row * m_wallWidget->cols() + col;

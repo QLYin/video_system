@@ -45,7 +45,7 @@ signals:
 	void indexUpdate(int x, int y, int nextIndex);
 	void screenMergeRestore(frmScreen* item);
 	void screenCut(int spiltNum);
-	void dropInfo(int chnIndex, QString text);
+	void dropInfo(int chnIndex, int ipcId, QString text);
 	void closeVideo(int chnIndex);
 
 private slots:

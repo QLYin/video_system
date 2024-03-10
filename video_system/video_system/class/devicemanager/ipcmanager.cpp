@@ -59,22 +59,23 @@ void IPCManager::handle(const QVariantMap& data)
                     model->setData(model->index(count, 1), ipcItem.name);
                     model->setData(model->index(count, 2), "网络视频");
                     model->setData(model->index(count, 3), "");
+                    model->setData(model->index(count, 4), ipcItem.ipaddr);
                     QString onvifAddr = QString("http://%1/onvif/device_service").arg(ipcItem.ipaddr);
-                    model->setData(model->index(count, 4), onvifAddr);
-                    model->setData(model->index(count, 5), "");
+                    model->setData(model->index(count, 5), onvifAddr);
                     model->setData(model->index(count, 6), "");
-                    model->setData(model->index(count, 7), ipcItem.rtsp_url0);
-                    model->setData(model->index(count, 8), ipcItem.rtsp_url1);
+                    model->setData(model->index(count, 7), "");
+                    model->setData(model->index(count, 8), ipcItem.rtsp_url0);
+                    model->setData(model->index(count, 9), ipcItem.rtsp_url1);
                     auto resolution0 = IPC::index2Name(ipcItem.resolution0);
-                    model->setData(model->index(count, 9), resolution0.isEmpty() ? "自动" : resolution0);
+                    model->setData(model->index(count, 10), resolution0.isEmpty() ? "自动" : resolution0);
                     auto resolution1 = IPC::index2Name(ipcItem.resolution1);
-                    model->setData(model->index(count, 10), resolution1.isEmpty() ? "自动" : resolution1);
-                    model->setData(model->index(count, 11), 0);
+                    model->setData(model->index(count, 11), resolution1.isEmpty() ? "自动" : resolution1);
                     model->setData(model->index(count, 12), 0);
-                    model->setData(model->index(count, 13), ipcItem.user);
-                    model->setData(model->index(count, 14), ipcItem.passwd);
-                    model->setData(model->index(count, 15), "启用");
-                    model->setData(model->index(count, 16), QString("%1_%2").arg(ipcItem.ptz_enable).arg(ipcItem.vda_enable));
+                    model->setData(model->index(count, 13), 0);
+                    model->setData(model->index(count, 14), ipcItem.user);
+                    model->setData(model->index(count, 15), ipcItem.passwd);
+                    model->setData(model->index(count, 16), "启用");
+                    model->setData(model->index(count, 17), QString("%1_%2").arg(ipcItem.ptz_enable).arg(ipcItem.vda_enable));
                 }             
             }
         }

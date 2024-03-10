@@ -162,9 +162,9 @@ void frmScreen::cutScreen(int row, int col, bool needUpdate, bool notify)
 			for (int j = 0; j < m_cutCol; ++j)
 			{
 				frmCell* cell = new frmCell(this);
-				connect(cell, &frmCell::dropInfo, this, [=](QString text)
+				connect(cell, &frmCell::dropInfo, this, [=](int id, QString text)
 					{
-						emit dropInfo(m_index + i * m_cutCol + j, text);
+						emit dropInfo(m_index + i * m_cutCol + j, id, text);
 					});
 				//cell->setIndex(m_index + i * row + col);
 				m_gridLayout->addWidget(cell, i, j);
@@ -338,11 +338,12 @@ void frmScreen::dropEvent(QDropEvent* event)
 			//过滤父节点(那个一般是NVR)
 			QTreeWidgetItem* item = treeWidget->currentItem();
 			if (item->parent()) {
-				text = item->text(0);
+				text = item->data(0, Qt::UserRole + 2).toString();
+				int id = item->data(0, Qt::UserRole + 1).toInt();
 				setText(text);
 				QFont font("Arial", 8);
 				setFont(font);
-				emit dropInfo(m_index, text);
+				emit dropInfo(m_index, id, text);
 			}
 		}
 	}

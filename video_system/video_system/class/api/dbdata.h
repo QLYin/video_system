@@ -28,6 +28,7 @@ public:
     static QList<QString> IpcInfo_IpcName;
     static QList<QString> IpcInfo_NvrName;
     static QList<QString> IpcInfo_IpcType;
+    static QList<QString> IpcInfo_IpAddr;
     static QList<QString> IpcInfo_OnvifAddr;
     static QList<QString> IpcInfo_ProfileToken;
     static QList<QString> IpcInfo_VideoSource;

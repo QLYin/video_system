@@ -74,9 +74,9 @@ void frmConfigIpc::initData()
     ui->tableView->setModel(model);
 
     //初始化列名和列宽
-    columnNames << "编号" << "名称" << "录像机" << "厂家" << "设备地址" << "配置文件" << "视频文件" << "主码流地址" << "子码流地址"
+    columnNames << "编号" << "名称" << "录像机" << "厂家" << "IP地址" << "设备地址" << "配置文件" << "视频文件" << "主码流地址" << "子码流地址"
                 << "主码流分辨率" << "子码流分辨率" << "X坐标" << "Y坐标" << "用户姓名" << "用户密码" << "启用" << "备注";
-    columnWidths << 40 << 90 << 90 << 80 << 250 << 100 << 100 << 130 << 130
+    columnWidths << 40 << 90 << 90 << 80 << 80 << 250 << 100 << 100 << 130 << 130
                  << 150 << 90 << 45 << 45 << 80 << 80 << 40 << 60;
 
     //特殊分辨率重新设置列宽
@@ -86,8 +86,8 @@ void frmConfigIpc::initData()
             columnWidths[i] += 30;
         }
 
-        columnWidths[7] = 350;
         columnWidths[8] = 350;
+        columnWidths[9] = 350;
     }
 
     //挨个设置列名和列宽
@@ -101,9 +101,10 @@ void frmConfigIpc::initData()
     ui->tableView->setColumnHidden(3, true);
     ui->tableView->setColumnHidden(5, true);
     ui->tableView->setColumnHidden(6, true);
-    ui->tableView->setColumnHidden(11, true);
+    ui->tableView->setColumnHidden(7, true);
     ui->tableView->setColumnHidden(12, true);
-    ui->tableView->setColumnHidden(16, true);
+    ui->tableView->setColumnHidden(13, true);
+    ui->tableView->setColumnHidden(17, true);
 
     //录像机委托
     d_cbox_nvrName = new DbDelegate(this);
@@ -187,18 +188,19 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     QString ipcName = model->index(row, 1).data().toString();
     QString nvrName = model->index(row, 2).data().toString();
     QString ipcType = model->index(row, 3).data().toString();
-    QString onvifAddr = model->index(row, 4).data().toString();
-    QString profileToken = model->index(row, 5).data().toString();
-    QString videoSource = model->index(row, 6).data().toString();
-    QString rtspMain = model->index(row, 7).data().toString();
-    QString rtspSub = model->index(row, 8).data().toString();
-    QString mainResolution = model->index(row, 9).data().toString();
-    QString subResolution = model->index(row, 10).data().toString();
-    int ipcX = model->index(row, 11).data().toInt();
-    int ipcY = model->index(row, 12).data().toInt();
-    QString userName = model->index(row, 13).data().toString();
-    QString userPwd = model->index(row, 14).data().toString();
-    QString ipcEnable = model->index(row, 15).data().toString();
+    QString ipAddr = model->index(row, 4).data().toString();
+    QString onvifAddr = model->index(row, 5).data().toString();
+    QString profileToken = model->index(row, 6).data().toString();
+    QString videoSource = model->index(row, 7).data().toString();
+    QString rtspMain = model->index(row, 8).data().toString();
+    QString rtspSub = model->index(row, 9).data().toString();
+    QString mainResolution = model->index(row, 10).data().toString();
+    QString subResolution = model->index(row, 11).data().toString();
+    int ipcX = model->index(row, 12).data().toInt();
+    int ipcY = model->index(row, 13).data().toInt();
+    QString userName = model->index(row, 14).data().toString();
+    QString userPwd = model->index(row, 15).data().toString();
+    QString ipcEnable = model->index(row, 16).data().toString();
 
     //设备名称自定义递增规则 #后面紧跟序号
     int index = ipcName.indexOf("#");
@@ -232,6 +234,7 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         nvrName = DbData::NvrInfo_NvrName.first();
         nvrName = nvrName.isEmpty() ? AppConfig::DefaultNvrName : nvrName;
         ipcType = "other";
+        ipAddr = "";
 
         rtspMain = "rtsp://192.168.1.128:554/0";
         rtspSub = "rtsp://192.168.1.128:554/1";
@@ -255,7 +258,8 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         userName = deviceInfo.at(0);
         userPwd = deviceInfo.at(1);
         ipcType = deviceInfo.at(2);
-        onvifAddr = deviceInfo.at(3);
+        ipAddr = deviceInfo.at(3);
+        onvifAddr = deviceInfo.at(4);
         profileToken = deviceInfo.at(4);
         videoSource = deviceInfo.at(5);
         rtspMain = deviceInfo.at(6);
@@ -309,18 +313,19 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     model->setData(model->index(count, 1), ipcName);
     model->setData(model->index(count, 2), nvrName);
     model->setData(model->index(count, 3), ipcType);
-    model->setData(model->index(count, 4), onvifAddr);
-    model->setData(model->index(count, 5), profileToken);
-    model->setData(model->index(count, 6), videoSource);
-    model->setData(model->index(count, 7), rtspMain);
-    model->setData(model->index(count, 8), rtspSub);
-    model->setData(model->index(count, 9), mainResolution);
-    model->setData(model->index(count, 10), subResolution);
-    model->setData(model->index(count, 11), ipcX);
-    model->setData(model->index(count, 12), ipcY);
-    model->setData(model->index(count, 13), userName);
-    model->setData(model->index(count, 14), userPwd);
-    model->setData(model->index(count, 15), ipcEnable);
+    model->setData(model->index(count, 4), ipAddr);
+    model->setData(model->index(count, 5), onvifAddr);
+    model->setData(model->index(count, 6), profileToken);
+    model->setData(model->index(count, 7), videoSource);
+    model->setData(model->index(count, 8), rtspMain);
+    model->setData(model->index(count, 9), rtspSub);
+    model->setData(model->index(count, 10), mainResolution);
+    model->setData(model->index(count, 11), subResolution);
+    model->setData(model->index(count, 12), ipcX);
+    model->setData(model->index(count, 13), ipcY);
+    model->setData(model->index(count, 14), userName);
+    model->setData(model->index(count, 15), userPwd);
+    model->setData(model->index(count, 16), ipcEnable);
 
     m_appendIpcids.insert(ipcID);
 }
@@ -338,8 +343,8 @@ void frmConfigIpc::addDevices(const QList<QStringList> &deviceInfos)
     count = deviceInfos.count();
     for (int i = 0; i < count; ++i) {
         QStringList deviceInfo = deviceInfos.at(i);
-        QString onvifAddr = deviceInfo.at(3);
-        QString rtspMain = deviceInfo.at(6);
+        QString onvifAddr = deviceInfo.at(4);
+        QString rtspMain = deviceInfo.at(7);
 
         //过滤已经添加过的设备
         bool exist = false;
@@ -416,7 +421,7 @@ void frmConfigIpc::addPlus(const QStringList &rtspMains, const QStringList &rtsp
         }
 
         QStringList deviceInfo;
-        deviceInfo << userName << userPwd << ipcType << onvifAddr << profileToken << videoSource << rtspMain << rtspSub;
+        deviceInfo << userName << userPwd << ipcType << ip << onvifAddr << profileToken << videoSource << rtspMain << rtspSub;
         addDevice(deviceInfo);
     }
 
@@ -462,15 +467,15 @@ void frmConfigIpc::on_btnSave_clicked()
                 ipcItem.init_flag = 255;
                 ipcItem.id = model->index(row, 0).data().toInt();
                 ipcItem.name = model->index(row, 1).data().toString();
-                ipcItem.user = model->index(row, 13).data().toString();
-                ipcItem.passwd = model->index(row, 14).data().toString();
-                ipcItem.ipaddr = UrlHelper::getUrlIP(model->index(row, 4).data().toString());
+                ipcItem.user = model->index(row, 14).data().toString();
+                ipcItem.passwd = model->index(row, 15).data().toString();
+                ipcItem.ipaddr = model->index(row, 4).data().toString();
                 ipcItem.ptz_enable = 0;
                 ipcItem.vda_enable = 0;
-                ipcItem.rtsp_url0 = model->index(row, 7).data().toString();
-                ipcItem.rtsp_url1 = model->index(row, 8).data().toString();
-                ipcItem.resolution0 = model->index(row, 9).data().toInt();
-                ipcItem.resolution1 = model->index(row, 10).data().toInt();
+                ipcItem.rtsp_url0 = model->index(row, 8).data().toString();
+                ipcItem.rtsp_url1 = model->index(row, 9).data().toString();
+                ipcItem.resolution0 = model->index(row, 10).data().toInt();
+                ipcItem.resolution1 = model->index(row, 11).data().toInt();
                 ipcList.append(ipcItem);
             }
         }
@@ -508,12 +513,12 @@ void frmConfigIpc::on_btnDelete_clicked()
             QString text = index.data().toString();
             if (column == 0) {
                 ids << text;
-            } else if (column == 7) {
+            } else if (column == 8) {
                 addrs << text;
             }
             else if (column == 4)
             {
-                ips << UrlHelper::getUrlIP(text);
+                ips << text;
             }
         }
 

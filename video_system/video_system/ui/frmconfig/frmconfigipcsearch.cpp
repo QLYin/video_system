@@ -553,6 +553,7 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
     QString rtspSub = ui->tableWidget->item(row, 9)->text();
     QString resolutonMain = ui->tableWidget->item(row, 10)->text();
     QString resolutonSub = ui->tableWidget->item(row, 11)->text();
+    QString ipAddr = QtHelper::getIP(onvifAddr);
 
     //如果有多个则分别插入
     QStringList listProfileToken = profileToken.split("|");
@@ -571,6 +572,7 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
             deviceInfo << ipcType;
         }
 
+        deviceInfo << ipAddr;
         deviceInfo << onvifAddr;
         deviceInfo << listProfileToken.at(i) << listVideoSource.at(i);
         deviceInfo << listRtspMain.at(i) << listRtspSub.at(i) << resolutonMain << resolutonSub;
