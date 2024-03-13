@@ -163,6 +163,11 @@ void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> ind
 	CmdHandlerMgr::Instance()->sendCmd(join ? CommandNS::kCmdWallJoint : CommandNS::kCmdWallJointExit, param);
 
 	auto devInfo = DevManager::Instance()->devListInfo();
+	if (devInfo.isEmpty())
+	{
+		return;
+	}
+
 	if (join) 
 	{
 		int firstX = infos.at(0).x;
@@ -224,6 +229,10 @@ void TVWallManager::onWallScreenCut(int row, int col, int splitNum)
 {
 	int index = row * m_wallWidget->cols() + col;
 	auto devInfo = DevManager::Instance()->devListInfo();
+	if (devInfo.isEmpty())
+	{
+		return;
+	}
 	QVariantMap param;
 	param["split_num"] = splitNum;
 	param["device_id"] = devInfo.at(index).dev_id;
@@ -284,6 +293,10 @@ void TVWallManager::onWallCallVideo(int row, int col, int chn_index, int id, QSt
 	// 要更新devinfo
 	int devIndex = row * m_wallWidget->cols() + col;
 	auto& devInfo = DevManager::Instance()->devListInfo();
+	if (devInfo.isEmpty())
+	{
+		return;
+	}
 	QVector<int>& ipcIndexs = devInfo[devIndex].ipc_indexs;
 	auto screen = m_wallWidget->findScreen(row, col);
 	if (screen->index() == chn_index)

@@ -7,7 +7,7 @@
 frmWallSetDialog::frmWallSetDialog(QWidget* parent)
 {
 	QStringList values;
-	for (int i = 1; i < 20; ++i) {
+	for (int i = 1; i <= 32; ++i) {
 		values << QString::number(i);
 	}
 	m_rowCombox= new QComboBox(this);
