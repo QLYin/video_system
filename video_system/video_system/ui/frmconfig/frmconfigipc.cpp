@@ -121,13 +121,13 @@ void frmConfigIpc::initData()
     // 主码流分辨率委托
     d_cbox_mainResolution = new DbDelegate(this);
     d_cbox_mainResolution->setDelegateType("QComboBox");
-    ui->tableView->setItemDelegateForColumn(9, d_cbox_mainResolution);
+    ui->tableView->setItemDelegateForColumn(10, d_cbox_mainResolution);
     mainResolutionChanged();
 
     // 子码流分辨率委托
     d_cbox_subResolution = new DbDelegate(this);
     d_cbox_subResolution->setDelegateType("QComboBox");
-    ui->tableView->setItemDelegateForColumn(10, d_cbox_subResolution);
+    ui->tableView->setItemDelegateForColumn(11, d_cbox_subResolution);
     subResolutionChanged();
 
     //用户密码委托
@@ -135,14 +135,14 @@ void frmConfigIpc::initData()
     d_txt_userPwd->setDelegateType("QLineEdit");
     d_txt_userPwd->setDelegatePwd(true);
     d_txt_userPwd->setDelegateColumn(14);
-    ui->tableView->setItemDelegateForColumn(14, d_txt_userPwd);
+    ui->tableView->setItemDelegateForColumn(15, d_txt_userPwd);
 
     //启用禁用委托
     DbDelegate *d_ckbox_ipcEnable = new DbDelegate(this);
-    d_ckbox_ipcEnable->setDelegateColumn(15);
+    d_ckbox_ipcEnable->setDelegateColumn(16);
     d_ckbox_ipcEnable->setDelegateType("QCheckBox");
     d_ckbox_ipcEnable->setCheckBoxText("启用", "禁用");
-    ui->tableView->setItemDelegateForColumn(15, d_ckbox_ipcEnable);
+    ui->tableView->setItemDelegateForColumn(16, d_ckbox_ipcEnable);
 }
 
 QSqlTableModel* frmConfigIpc::sqlModel()
@@ -260,12 +260,12 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         ipcType = deviceInfo.at(2);
         ipAddr = deviceInfo.at(3);
         onvifAddr = deviceInfo.at(4);
-        profileToken = deviceInfo.at(4);
-        videoSource = deviceInfo.at(5);
-        rtspMain = deviceInfo.at(6);
-        rtspSub = deviceInfo.at(7);
-        mainResolution = deviceInfo.at(8);
-        subResolution = deviceInfo.at(9);
+        profileToken = deviceInfo.at(5);
+        videoSource = deviceInfo.at(6);
+        rtspMain = deviceInfo.at(7);
+        rtspSub = deviceInfo.at(8);
+        mainResolution = deviceInfo.at(9);
+        subResolution = deviceInfo.at(10);
 
         //重新定义搜索的摄像机设备命名规则,按照摄像机#ip地址末尾数字的方式
         QString ip = UrlHelper::getUrlIP(onvifAddr);
