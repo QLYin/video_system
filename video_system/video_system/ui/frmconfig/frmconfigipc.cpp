@@ -271,10 +271,11 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         QString ip = UrlHelper::getUrlIP(onvifAddr);
         QStringList ips = ip.split(".");
         QString flag = ips.last();
-        ipcName = QString("摄像机#%1").arg(flag);
+       /* ipcName = QString("摄像机#%1").arg(flag);
         if (flag.isEmpty()) {
             ipcName = QString("视频文件#%1").arg(ipcID);
-        }
+        }*/
+        ipcName = "";
 
         //NVR过来的再区分对应的通道 NVR_Ch1_Dahua
         if (ipcType.startsWith("NVR_Ch")) {

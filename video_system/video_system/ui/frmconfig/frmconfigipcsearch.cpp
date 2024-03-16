@@ -27,6 +27,15 @@ void frmConfigIpcSearch::showEvent(QShowEvent *)
 
 void frmConfigIpcSearch::initForm()
 {
+    {
+        ui->btnSearchAll->setText(QString::fromLocal8Bit("搜索"));
+        ui->btnSearchOne->hide();
+        ui->btnMediaAll->setText(QString::fromLocal8Bit("全选"));
+        ui->btnMediaOne->setText(QString::fromLocal8Bit("反选"));
+        ui->btnAddAll->setText(QString::fromLocal8Bit("添加"));
+        ui->btnAddOne->hide();
+    }
+
     ui->frameRight->setFixedWidth(AppData::RightWidth);
 
     //实例化onvif搜索并绑定信号槽
@@ -71,7 +80,7 @@ void frmConfigIpcSearch::initData()
     //增加一个全选按钮
     ckAll = new QCheckBox(this);
     connect(ckAll, SIGNAL(stateChanged(int)), this, SLOT(stateChanged(int)));
-    ckAll->setChecked(true);
+    ckAll->setChecked(false);
 }
 
 void frmConfigIpcSearch::initConfig()
@@ -184,6 +193,16 @@ void frmConfigIpcSearch::receiveError(const QString &data)
 
 void frmConfigIpcSearch::receiveDevice(const OnvifDeviceInfo &deviceInfo)
 {
+    // 过滤db已有的
+    for (int j = 0; j < DbData::IpcInfo_Count; ++j) {
+        QString addr = DbData::IpcInfo_IpAddr.at(j);
+        if (addr == deviceInfo.deviceIp)
+        {
+            return;
+        }
+       
+    }
+
     //如果已经存在则不添加
     foreach (OnvifDevice *device, devices) {
         if (device->getOnvifAddr() == deviceInfo.onvifAddr) {
@@ -223,9 +242,6 @@ void frmConfigIpcSearch::receiveDevice(const OnvifDeviceInfo &deviceInfo)
     ui->tableWidget->setItem(row, 10, new QTableWidgetItem);
     ui->tableWidget->setItem(row, 11, new QTableWidgetItem);
 
-    //重新排序
-    ui->tableWidget->sortByColumn(1, Qt::AscendingOrder);
-
     //实例化设备对象添加到设备队列
     OnvifDevice *device = new OnvifDevice(this);
     //设置onvif地址
@@ -234,8 +250,13 @@ void frmConfigIpcSearch::receiveDevice(const OnvifDeviceInfo &deviceInfo)
     device->setDeviceInfo(deviceInfo);
     devices << device;
 
+    getMedia(row, device);
+
     //测试下来发现很多设备的时候后面还有陆陆续续回来的
     ui->labCount->setText(QString("共搜索到 %1 个设备").arg(devices.count()));
+
+    //重新排序
+    ui->tableWidget->sortByColumn(1, Qt::AscendingOrder);
 }
 
 void frmConfigIpcSearch::searchFinsh()
@@ -457,64 +478,81 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
 
 void frmConfigIpcSearch::on_btnMediaAll_clicked()
 {
-    //清空队列
-    qDeleteAll(listDevice);
-    listRow.clear();
-    listDevice.clear();
+    ////清空队列
+    //qDeleteAll(listDevice);
+    //listRow.clear();
+    //listDevice.clear();
 
-    int count = devices.count();
-    foreach (OnvifDevice *device, devices) {
-        //找到当前设备所在行
-        QString url = device->getOnvifAddr();
-        int row = -1;
-        for (int i = 0; i < count; ++i) {
-            QString addr = ui->tableWidget->item(i, 5)->text();
-            if (url == addr) {
-                row = i;
-                break;
-            }
+    //int count = devices.count();
+    //foreach (OnvifDevice *device, devices) {
+    //    //找到当前设备所在行
+    //    QString url = device->getOnvifAddr();
+    //    int row = -1;
+    //    for (int i = 0; i < count; ++i) {
+    //        QString addr = ui->tableWidget->item(i, 5)->text();
+    //        if (url == addr) {
+    //            row = i;
+    //            break;
+    //        }
+    //    }
+
+    //    if (row < 0) {
+    //        continue;
+    //    }
+
+    //    //如果当前行已经存在码流地址则不需要继续,加快下一次获取所有的速度,跳过已经获取过的
+    //    QString rtspAddr = ui->tableWidget->item(row, 8)->text();
+    //    if (!rtspAddr.isEmpty()) {
+    //        continue;
+    //    }
+
+    //    //qDebug() << TIMEMS << row << url;
+    //    //getMedia(row, device);
+    //    //存入队列排队处理,在很多设备的时候全部这里执行并发量太大Qt限制了并发请求5个
+    //    listRow << row;
+    //    listDevice << device;
+    //}
+
+    //ui->frameRight->setEnabled(false);
+    //timer->start();
+
+    // 按钮改成全选逻辑
+
+    for (int row = 0; row < devices.count(); row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk) {
+            itemCk->setChecked(true);
         }
-
-        if (row < 0) {
-            continue;
-        }
-
-        //如果当前行已经存在码流地址则不需要继续,加快下一次获取所有的速度,跳过已经获取过的
-        QString rtspAddr = ui->tableWidget->item(row, 8)->text();
-        if (!rtspAddr.isEmpty()) {
-            continue;
-        }
-
-        //qDebug() << TIMEMS << row << url;
-        //getMedia(row, device);
-        //存入队列排队处理,在很多设备的时候全部这里执行并发量太大Qt限制了并发请求5个
-        listRow << row;
-        listDevice << device;
     }
-
-    ui->frameRight->setEnabled(false);
-    timer->start();
 }
 
 void frmConfigIpcSearch::on_btnMediaOne_clicked()
 {
-    int row = ui->tableWidget->currentRow();
-    if (row < 0) {
-        QtHelper::showMessageBoxError("请先选中设备!", 3);
-        return;
-    }
+    //int row = ui->tableWidget->currentRow();
+    //if (row < 0) {
+    //    QtHelper::showMessageBoxError("请先选中设备!", 3);
+    //    return;
+    //}
 
-    QCheckBox *itemCk = (QCheckBox *)ui->tableWidget->cellWidget(row, 0);
-    if (!itemCk) {
-        QtHelper::showMessageBoxError("设备地址不能为空!", 3);
-        return;
-    }
+    //QCheckBox *itemCk = (QCheckBox *)ui->tableWidget->cellWidget(row, 0);
+    //if (!itemCk) {
+    //    QtHelper::showMessageBoxError("设备地址不能为空!", 3);
+    //    return;
+    //}
 
-    QString addr = ui->tableWidget->item(row, 5)->text();
-    foreach (OnvifDevice *device, devices) {
-        if (device->getOnvifAddr() == addr) {
-            getMedia(row, device);
-            break;
+    //QString addr = ui->tableWidget->item(row, 5)->text();
+    //foreach (OnvifDevice *device, devices) {
+    //    if (device->getOnvifAddr() == addr) {
+    //        getMedia(row, device);
+    //        break;
+    //    }
+    //}
+    
+    // 按钮改成反选逻辑
+    for (int row = 0; row < devices.count(); row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk) {
+            itemCk->setChecked(false);
         }
     }
 }
@@ -580,17 +618,36 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
     }
 }
 
+// 勾选添加
 void frmConfigIpcSearch::on_btnAddAll_clicked()
 {
     deviceInfos.clear();
     int count = devices.count();
-    for (int row = 0; row < count; ++row) {
+   /* for (int row = 0; row < count; ++row) {
         addDevice(row, false);
+    }*/
+    int addCount = 0;
+    for (int row = 0; row < count; row++) {
+        QCheckBox* itemCk = (QCheckBox*)ui->tableWidget->cellWidget(row, 0);
+        if (itemCk && itemCk->isChecked()) {
+            addDevice(row, false);
+            addCount++;
+        }
     }
 
-    emit addDevices(deviceInfos);
+    if (addCount == 0)
+    {
+        QtHelper::showMessageBoxError("请先勾选要添加的摄像机", 3, true);
+    }
+    else
+    {
+        emit addDevices(deviceInfos);
+        QtHelper::showMessageBoxError(QString("添加了%1个摄像机").arg(addCount), 3, true);
+    }
+
 }
 
+// 已废弃
 void frmConfigIpcSearch::on_btnAddOne_clicked()
 {
     int row = ui->tableWidget->currentRow();
