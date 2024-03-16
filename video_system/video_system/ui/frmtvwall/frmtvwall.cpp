@@ -7,10 +7,14 @@
 #include <QDrag>
 #include <QMimeData>
 
+#include "qthelper.h"
 #include "frmtvwallwidget.h"
 #include "frmdevicetree.h"
 #include "frmwallsetdialog.h"
+#include "class/appmisc/appmisc.h"
 #include "class/devicemanager/tvwallmanager.h"
+#include "ui/frmbase/Indicator.h"
+#include "../deviceconnect/tcpclient.h"
 
 struct Camera {
     int id;
@@ -92,10 +96,42 @@ void frmTVWall::initForm()
     mainLayout->addLayout(hLayout);
 
     TVWallManager::Instance()->initWallWidget(m_tvWallWidget);
+    connect(TcpClient::Instance(), &TcpClient::socketDisconnect, this, [this]()
+        {
+            if (QtHelper::showMessageBoxQuestion("设备连接异常,是否重新连接") == QMessageBox::Yes)
+            {
+                on_btnConnectClicked();
+                Indicator::showLoading(true, nullptr);
+                QTimer::singleShot(20000, this, [=]()
+                    {
+                        if (!TcpClient::Instance()->isConnnected())
+                        {
+                            Indicator::showLoading(false, nullptr);
+                            Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
+                        }
+                    });
+            }
+        });
 }
 
 void frmTVWall::on_btnRereshClicked()
-{}
+{
+    QVariantMap param;
+    param["type"] = 4;
+    CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+    CmdHandlerMgr::Instance()->sendCmd("nop");
+    param["type"] = 1;
+    CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+    CmdHandlerMgr::Instance()->sendCmd("nop");
+    Indicator::showLoading(true, nullptr);
+    QTimer::singleShot(3000, this, [=]()
+        {
+            Indicator::showLoading(false, nullptr);
+
+        });
+    Indicator::showTopTip(QString::fromLocal8Bit("正在刷新，请稍后.."), nullptr);
+
+}
 
 void frmTVWall::on_btnCreateWallClicked()
 {
@@ -111,7 +147,48 @@ void frmTVWall::on_btnCreateWallClicked()
 }
 
 void frmTVWall::on_btnCallAllClicked()
-{}
+{
+    if (QtHelper::showMessageBoxQuestion("确定要全部调入") == QMessageBox::Yes)
+    {
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdCallAllVideo);
+        Indicator::showLoading(true, nullptr);
+        QTimer::singleShot(3000, this, [=]()
+            {
+                Indicator::showLoading(false, nullptr);
+
+            });
+        Indicator::showTopTip(QString::fromLocal8Bit("正在调入，请稍后手动刷新"), nullptr);
+
+    }
+}
 
 void frmTVWall::on_btnConnectClicked()
-{}
+{
+    TcpClient::Instance()->uninit();
+    if (!TcpClient::Instance()->init())
+    {
+        Indicator::showLoading(false, nullptr);
+        Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), nullptr);
+        return;
+    }
+    else
+    {
+        Indicator::showTopTip(QString::fromLocal8Bit("连接成功,正在刷新请稍后..."), nullptr);
+        AppEvent::Instance()->slot_tcpConnected();
+        //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
+        QVariantMap param;
+
+        param["type"] = 4;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        CmdHandlerMgr::Instance()->sendCmd("nop");
+        param["type"] = 1;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        CmdHandlerMgr::Instance()->sendCmd("nop");
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
+        //TcpClientHelper::sendSceneInfo();
+        Indicator::showLoading(false, this);
+
+        return;
+    }
+}
+

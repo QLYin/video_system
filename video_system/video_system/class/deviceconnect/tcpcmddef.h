@@ -106,6 +106,7 @@ namespace CommandNS {
 	extern const QString kCmdWallJointSet;
 	extern const QString kCmdWallSet;
 	extern const QString kCmdSuccessR;
+	extern const QString kCmdCallAllVideo;
 
 	// 场景
 	extern const QString kCmdSceneInfo;

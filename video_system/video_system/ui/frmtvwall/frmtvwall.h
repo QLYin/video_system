@@ -13,6 +13,8 @@ public:
     explicit frmTVWall(QWidget* parent = 0);
     ~frmTVWall();
 
+private:
+    bool reconnect();
 
 private slots:
     void initForm();

@@ -16,7 +16,11 @@ bool TcpClient::init()
     }
 
     connect(m_socket, &QTcpSocket::connected, this, &TcpClient::onConnected);
-    connect(m_socket, &QTcpSocket::disconnected, this, &TcpClient::socketDisconnect);
+    connect(m_socket, &QTcpSocket::disconnected, this, [this]() 
+        {
+            qDebug() << __FUNCTION__ << "disconnected: ";
+            emit socketDisconnect();
+        });
     connect(m_socket, &QTcpSocket::readyRead, this, &TcpClient::readData, Qt::QueuedConnection);
     connect(m_socket,static_cast<void (QAbstractSocket::*)(QAbstractSocket::SocketError)>(&QAbstractSocket::error), this, &TcpClient::displayError);
 

@@ -34,7 +34,8 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
         "JointSet",
         "Joint",
         "JointExit",
-        "CallVedio"
+        "CallVedio",
+        "CallVideoAll"
     };
 
     cmdId = 0;
