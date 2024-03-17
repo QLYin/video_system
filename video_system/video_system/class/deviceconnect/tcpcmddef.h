@@ -15,6 +15,7 @@ struct IpcInfo {
 	QString ipaddr;
 	QString rtsp_url0;
 	QString rtsp_url1;
+	QString ptz_url;
 
 	IpcInfo() {
 		init_flag = -1;
@@ -29,6 +30,7 @@ struct IpcInfo {
 		ipaddr = "";
 		rtsp_url0 = "";
 		rtsp_url1 = "";
+		ptz_url = "";
 	}
 };
 

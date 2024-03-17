@@ -6,6 +6,8 @@
 #include "dbdelegate.h"
 #include "commonkey.h"
 #include "frmconfigplus.h"
+#include "frmconfigipc/frmipcadddialog.h"
+#include "frmconfigipc/frmipceditdialog.h"
 
 frmConfigIpc::frmConfigIpc(QWidget *parent) : QWidget(parent), ui(new Ui::frmConfigIpc)
 {
@@ -41,6 +43,12 @@ void frmConfigIpc::initForm()
         //双击进入编辑
         ui->tableView->setEditTriggers(QAbstractItemView::DoubleClicked);
     }
+    else
+    {
+        ui->tableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    }
+
+    QObject::connect(ui->tableView, &QTableView::doubleClicked, this, &frmConfigIpc::on_tableView_dbClicked);
 
     //显示面板以及关联对应的信号槽
     ui->widgetIpcSearch->setVisible(AppConfig::VisibleIpcSearch);
@@ -48,6 +56,14 @@ void frmConfigIpc::initForm()
 
     //关联批量添加窗体信号
     connect(frmConfigPlus::Instance(), SIGNAL(addPlus(QStringList, QStringList)), this, SLOT(addPlus(QStringList, QStringList)));
+  
+    m_addDialog = new frmIpcAddDialog(this);
+    m_addDialog->hide();
+    connect(m_addDialog, SIGNAL(addDevices(QList<QStringList>)), this, SLOT(addDevices(QList<QStringList>)));
+
+    m_editDialog = new frmIpcEditDialog(this);
+    m_editDialog->hide();
+    connect(m_editDialog, SIGNAL(editDevice(int, QStringList)), this, SLOT(editDevice(int, QStringList)));
 }
 
 void frmConfigIpc::initIcon()
@@ -76,8 +92,8 @@ void frmConfigIpc::initData()
     //初始化列名和列宽
     columnNames << "编号" << "名称" << "录像机" << "厂家" << "IP地址" << "设备地址" << "配置文件" << "视频文件" << "主码流地址" << "子码流地址"
                 << "主码流分辨率" << "子码流分辨率" << "X坐标" << "Y坐标" << "用户姓名" << "用户密码" << "启用" << "备注";
-    columnWidths << 40 << 90 << 90 << 80 << 80 << 250 << 100 << 100 << 130 << 130
-                 << 150 << 90 << 45 << 45 << 80 << 80 << 40 << 60;
+    columnWidths << 40 << 90 << 90 << 80 << 90 << 250 << 100 << 100 << 220 << 220
+                 << 80 << 80 << 45 << 45 << 60 << 60 << 30 << 60;
 
     //特殊分辨率重新设置列宽
     int count = columnNames.count();
@@ -331,6 +347,20 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     m_appendIpcids.insert(ipcID);
 }
 
+void frmConfigIpc::on_tableView_dbClicked(const QModelIndex& index)
+{
+    int row = index.row();
+    qDebug() << "Double clicked row:" << row;
+    m_editRow = row;
+    m_editDialog->show();
+    QStringList item; // todo 初始化编辑对话框
+    item << model->index(row, 0).data().toString() << model->index(row, 1).data().toString();
+    item << model->index(row, 4).data().toString() << model->index(row, 14).data().toString();
+    item << model->index(row, 15).data().toString();
+    item << model->index(row, 10).data().toString() << model->index(row, 11).data().toString();
+    m_editDialog->initData(item);
+}
+
 void frmConfigIpc::addDevices(const QList<QStringList> &deviceInfos)
 {
     //校验是否超过秘钥的数量限制
@@ -364,6 +394,41 @@ void frmConfigIpc::addDevices(const QList<QStringList> &deviceInfos)
     }
 
     //单击保存按钮
+    on_btnSave_clicked();
+}
+
+void frmConfigIpc::editDevice(int id, const QStringList& deviceInfo)
+{
+    IpcInfo ipcItem;
+    ipcItem.init_flag = 255;
+    ipcItem.id = deviceInfo.at(0).toInt();
+    ipcItem.name = deviceInfo.at(1);
+    ipcItem.ipaddr = deviceInfo.at(2);
+    ipcItem.user = deviceInfo.at(3);
+    ipcItem.passwd = deviceInfo.at(4);
+    ipcItem.ptz_enable = 0;
+    ipcItem.vda_enable = 0;
+    ipcItem.rtsp_url0 = model->index(m_editRow, 8).data().toString();
+    ipcItem.rtsp_url1 = model->index(m_editRow, 9).data().toString();
+    ipcItem.resolution0 = IPC::Name2Index(deviceInfo.at(5));
+    ipcItem.resolution1 = IPC::Name2Index(deviceInfo.at(6));
+    ipcItem.ptz_url = deviceInfo.at(7);
+    emit ipcEditSig(id, ipcItem);
+
+    model->setData(model->index(m_editRow, 0), ipcItem.id);
+    model->setData(model->index(m_editRow, 1), ipcItem.name);
+    model->setData(model->index(m_editRow, 2), "网络视频");
+    model->setData(model->index(m_editRow, 3), "");
+    model->setData(model->index(m_editRow, 4), ipcItem.ipaddr);
+    QString onvifAddr = QString("http://%1/onvif/device_service").arg(ipcItem.ipaddr);
+    model->setData(model->index(m_editRow, 5), onvifAddr);
+    auto resolution0 = IPC::index2Name(ipcItem.resolution0);
+    model->setData(model->index(m_editRow, 10), resolution0.isEmpty() ? "自动" : resolution0);
+    auto resolution1 = IPC::index2Name(ipcItem.resolution1);
+    model->setData(model->index(m_editRow, 11), resolution1.isEmpty() ? "自动" : resolution1);
+    model->setData(model->index(m_editRow, 14), ipcItem.user);
+    model->setData(model->index(m_editRow, 15), ipcItem.passwd);
+
     on_btnSave_clicked();
 }
 
@@ -432,16 +497,17 @@ void frmConfigIpc::addPlus(const QStringList &rtspMains, const QStringList &rtsp
 
 void frmConfigIpc::on_btnAdd_clicked()
 {
-    //校验是否超过秘钥的数量限制
-    int count = model->rowCount();
-    if (!CommonKey::checkCount(count)) {
-        return;
-    }
+    m_addDialog->show();
+    ////校验是否超过秘钥的数量限制
+    //int count = model->rowCount();
+    //if (!CommonKey::checkCount(count)) {
+    //    return;
+    //}
 
-    //调用批量添加设备
-    addDevice(QStringList());
-    //立即选中当前新增加的行
-    ui->tableView->setCurrentIndex(model->index(count, 0));
+    ////调用批量添加设备
+    //addDevice(QStringList());
+    ////立即选中当前新增加的行
+    //ui->tableView->setCurrentIndex(model->index(count, 0));
 }
 
 void frmConfigIpc::on_btnSave_clicked()
@@ -475,14 +541,15 @@ void frmConfigIpc::on_btnSave_clicked()
                 ipcItem.vda_enable = 0;
                 ipcItem.rtsp_url0 = model->index(row, 8).data().toString();
                 ipcItem.rtsp_url1 = model->index(row, 9).data().toString();
-                ipcItem.resolution0 = model->index(row, 10).data().toInt();
-                ipcItem.resolution1 = model->index(row, 11).data().toInt();
+                ipcItem.resolution0 = IPC::Name2Index(model->index(row, 10).data().toString());
+                ipcItem.resolution1 = IPC::Name2Index(model->index(row, 11).data().toString());
                 ipcList.append(ipcItem);
             }
         }
         if (!ipcList.isEmpty())
         {
             emit ipcAddSig(ipcList);
+            QtHelper::showMessageBoxError(QString("添加了%1个摄像机").arg(ipcList.size()), 3, true);
         }
         m_appendIpcids.clear();
     } else {

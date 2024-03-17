@@ -24,7 +24,7 @@ public:
 private slots:
     void onIpcDel(QStringList ids, QStringList addrs);
     void onIpcAdd(const QList<IpcInfo>& ipcList);
-    void onIpcEdit(const QList<IpcInfo>& ipcList);
+    void onIpcEdit(int id, const IpcInfo& ipc);
 
 private:
     frmConfigIpc* m_configIpc = nullptr;

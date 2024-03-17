@@ -131,8 +131,15 @@ void IPCManager::onIpcAdd(const QList<IpcInfo>& ipcList)
     CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdIPCAutoAdd, param);
 }
 
-void IPCManager::onIpcEdit(const QList<IpcInfo>& ipcList)
+void IPCManager::onIpcEdit(int id, const IpcInfo& ipc)
 {
+    QVariantMap param;
+    param["id"] = id;
+    QVariant variant;
+    variant.setValue(ipc);
+    param["ipcItem"] = variant;
+
+    CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDIPCModify, param);
 }
 
 QList<IpcInfo>& IPCManager::ipcList()

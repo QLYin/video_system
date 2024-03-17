@@ -7,6 +7,8 @@
 
 class QSqlTableModel;
 class DbDelegate;
+class frmIpcAddDialog;
+class frmIpcEditDialog;
 
 namespace Ui {
 class frmConfigIpc;
@@ -56,6 +58,9 @@ private:
     DbDelegate *d_cbox_mainResolution;
     DbDelegate *d_cbox_subResolution;
     QSet<int> m_appendIpcids;
+    frmIpcAddDialog* m_addDialog;
+    frmIpcEditDialog* m_editDialog;
+    int m_editRow = -1;
 
 private slots:
     //初始化窗体数据
@@ -76,6 +81,7 @@ private slots:
     //批量添加地址
     void addPlus(const QStringList &rtspMains, const QStringList &rtspSubs);
 
+    void editDevice(int id, const QStringList& deviceInfo);
 private slots:
     void on_btnAdd_clicked();
     void on_btnSave_clicked();
@@ -93,10 +99,12 @@ private slots:
     void on_btnPlus_clicked();
     void on_btnSearch_clicked();
 
+    void on_tableView_dbClicked(const QModelIndex& index);
+
 public:
     Q_SIGNAL void ipcDelSig(QStringList ids, QStringList addrs);
     Q_SIGNAL void ipcAddSig(QList<IpcInfo> ipcList);
-    Q_SIGNAL void ipcEditSig(QList<IpcInfo> ipcList);
+    Q_SIGNAL void ipcEditSig(int id, IpcInfo ipcList);
 };
 
 #endif // FRMCONFIGIPC_H
