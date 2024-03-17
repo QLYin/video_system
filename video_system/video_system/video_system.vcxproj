@@ -281,6 +281,8 @@
     <ClCompile Include="ui\frmconfig\frmconfigcard\frmsearchcard.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigipc.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigipcsearch.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigipc\frmipcadddialog.cpp" />
+    <ClCompile Include="ui\frmconfig\frmconfigipc\frmipceditdialog.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfignvr.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigother.cpp" />
     <ClCompile Include="ui\frmconfig\frmconfigplus.cpp" />
@@ -426,6 +428,8 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ui\frmconfig\frmconfigipc\frmipceditdialog.h" />
+    <QtMoc Include="ui\frmconfig\frmconfigipc\frmipcadddialog.h" />
     <QtMoc Include="class\devicemanager\tvwallmanager.h" />
     <ClInclude Include="ui\frmbase\Indicator.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmautonetset.h" />
@@ -762,6 +766,8 @@ echo #include "head.h"&gt;&gt;head.h.cpp</Command>
     <QtUic Include="ui\frmconfig\frmconfigcard\frmsearchcard.ui" />
     <QtUic Include="ui\frmconfig\frmconfigipc.ui" />
     <QtUic Include="ui\frmconfig\frmconfigipcsearch.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigipc\frmipcadddialog.ui" />
+    <QtUic Include="ui\frmconfig\frmconfigipc\frmipceditdialog.ui" />
     <QtUic Include="ui\frmconfig\frmconfignvr.ui" />
     <QtUic Include="ui\frmconfig\frmconfigother.ui" />
     <QtUic Include="ui\frmconfig\frmconfigplus.ui" />

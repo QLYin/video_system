@@ -164,6 +164,66 @@ void TcpClientHelper::sendIPCCmd(const QString& cmd, const QVariantMap& param)
 	}
 	else if (cmd == CommandNS::kCmdDIPCModify )
 	{
+		data += QString("ipc_%1 : ").arg(param["id"].toInt());
+
+		IpcInfo ipc;
+		QVariant variant = param["ipcItem"];
+		ipc = variant.value<IpcInfo>();
+
+		data += QString::number(ipc.id);
+		data += kSplitStr;
+
+		data += "ipaddr : ";
+		data += ipc.ipaddr;
+		data += kSplitStr;
+
+		data += "user : ";
+		data += ipc.user;
+		data += kSplitStr;
+
+		data += "passwd : ";
+		data += ipc.passwd;
+		data += kSplitStr;
+
+		data += "name : ";
+		data += ipc.name;
+		data += kSplitStr;
+
+		data += "ptz : ";
+		data += "0";
+		data += kSplitStr;
+
+		data += "vda_enable : ";
+		data += "0";
+		data += kSplitStr;
+
+		data += "payload : ";
+		data += "0";
+		data += kSplitStr;
+
+		data += "ptzAddr : ";
+		data += ipc.ptz_url;
+		data += kSplitStr;
+
+		data += "profiletoken : ";
+		data += "000";
+		data += kSplitStr;
+
+		data += "rtsp_url0 : ";
+		data += ipc.rtsp_url0;
+		data += kSplitStr;
+
+		data += "resolution0 : ";
+		data += QString::number(ipc.resolution0);;
+		data += kSplitStr;
+
+		data += "url1 : ";
+		data += ipc.rtsp_url1;
+		data += kSplitStr;
+
+		data += "rtsp_url1 : ";
+		data += QString::number(ipc.resolution1);;
+		data += kSplitStr;
 	}
 
 

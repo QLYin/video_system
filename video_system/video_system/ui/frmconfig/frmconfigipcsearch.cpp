@@ -642,7 +642,6 @@ void frmConfigIpcSearch::on_btnAddAll_clicked()
     else
     {
         emit addDevices(deviceInfos);
-        QtHelper::showMessageBoxError(QString("添加了%1个摄像机").arg(addCount), 3, true);
     }
 
 }
