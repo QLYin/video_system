@@ -9,7 +9,7 @@
 #include "class/devicemanager/tvwallmanager.h"
 
 namespace {
-	QVector<int> kSplitNum = {2, 4, 6, 9, 16};
+	QVector<int> kSplitNum = {2, 4, 6, 9, 16, 25, 36};
 };
 
 frmScreen::frmScreen(QWidget* parent)
@@ -210,6 +210,14 @@ void frmScreen::cutScreen(int cnt, bool needUpdateIndex, bool notify)
 	else if (cnt == 16)
 	{
 		cutScreen(4, 4, true, false);
+	}
+	else if (cnt == 25)
+	{
+		cutScreen(5, 5, true, false);
+	}
+	else if (cnt == 36)
+	{
+		cutScreen(6, 6, true, false);
 	}
 }
 

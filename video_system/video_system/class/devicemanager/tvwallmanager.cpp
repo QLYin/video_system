@@ -106,8 +106,9 @@ void TVWallManager::onWallSet()
 						if (chnCnt > 1)
 						{
 							screen->cutScreen(chnCnt, true, false);  // 6分屏要单独处理
+							int cnt = chnCnt > 16 ? chnCnt : 16;
 							auto ipcIndexs = devInfo.at(devIndex).ipc_indexs;
-							for (int j = 0; j < 16; ++j)
+							for (int j = 0; j < cnt; ++j)
 							{
 								auto id = ipcIndexs.at(j);
 								QString ip = IPCManager::Instance()->findIp(id);

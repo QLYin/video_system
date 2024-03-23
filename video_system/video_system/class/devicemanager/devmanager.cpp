@@ -22,6 +22,7 @@ void DevManager::handle(const QVariantMap& data)
         QVector<QVariantMap> vecData;
         QVariant variant = data["cmdDataArrary"];
         vecData = variant.value<QVector<QVariantMap>>();
+        m_devList.clear();
         for (auto& item : vecData)
         {
             if (!item.isEmpty())

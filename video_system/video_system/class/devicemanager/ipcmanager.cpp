@@ -33,6 +33,7 @@ void IPCManager::handle(const QVariantMap& data)
         QVector<QVariantMap> vecData;
         QVariant variant = data["cmdDataArrary"];
         vecData = variant.value<QVector<QVariantMap>>();
+        m_ipcList.clear();
         for (auto& item : vecData)
         {
             if (!item.isEmpty())
