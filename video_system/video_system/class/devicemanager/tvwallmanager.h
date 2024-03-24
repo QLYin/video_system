@@ -8,13 +8,14 @@
 #include "../frmtvwall/frmscreen.h"
 
 class frmTVWallWidget;
+class frmTVWall;
 class TVWallManager : public QObject, public IHandler
 {
     Q_OBJECT SINGLETON_DECL(TVWallManager)
 
 public:
     explicit TVWallManager(QObject *parent = 0);
-    void initWallWidget(frmTVWallWidget* widget);
+    void initWallWidget(frmTVWallWidget* widget, frmTVWall* wall);
     void handle(const QVariantMap& data) override;
 
     bool hasMergeScreen();
@@ -31,6 +32,7 @@ private slots:
     void onWallCloseVideo(int chnIndx);
 private:
     frmTVWallWidget* m_wallWidget = nullptr;
+    frmTVWall* m_wall = nullptr;
 };
 
 #endif // TVWALLMANAGER_H

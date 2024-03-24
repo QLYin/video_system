@@ -18,6 +18,9 @@ public:
 
     void initConfigCard(frmConfigCard* cardWidget);
 
+signals:
+    void synDevFinishSig();
+
 private:
     bool hasCard(int  id);
     DevInfo& getCardbyId(int devId);

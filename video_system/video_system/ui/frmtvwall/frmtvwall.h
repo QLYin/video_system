@@ -16,7 +16,7 @@ public:
 private:
     bool reconnect();
 
-private slots:
+public slots:
     void initForm();
     void on_btnRereshClicked();
     void on_btnCreateWallClicked();

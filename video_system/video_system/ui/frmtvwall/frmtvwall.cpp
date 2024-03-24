@@ -95,7 +95,7 @@ void frmTVWall::initForm()
     mainLayout->addSpacing(2);
     mainLayout->addLayout(hLayout);
 
-    TVWallManager::Instance()->initWallWidget(m_tvWallWidget);
+    TVWallManager::Instance()->initWallWidget(m_tvWallWidget, this);
     connect(TcpClient::Instance(), &TcpClient::socketDisconnect, this, [this]()
         {
             if (QtHelper::showMessageBoxQuestion("设备连接异常,是否重新连接") == QMessageBox::Yes)
@@ -158,7 +158,9 @@ void frmTVWall::on_btnCallAllClicked()
 
             });
         Indicator::showTopTip(QString::fromLocal8Bit("正在调入，请稍后手动刷新"), nullptr);
-
+        QTimer::singleShot(3000, [this] {
+            on_btnRereshClicked();
+            });
     }
 }
 

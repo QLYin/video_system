@@ -5,6 +5,7 @@
 #include"devmanager.h"
 #include "ipcmanager.h"
 #include "../frmtvwall/frmtvwallwidget.h"
+#include "../frmtvwall/frmtvwall.h"
 
 SINGLETON_IMPL(TVWallManager)
 TVWallManager::TVWallManager(QObject *parent) : QObject(parent)
@@ -63,14 +64,16 @@ bool TVWallManager::hasMergeScreen()
 	return m_wallWidget->hasMergeScreen();
 }
 
-void TVWallManager::initWallWidget(frmTVWallWidget* widget)
+void TVWallManager::initWallWidget(frmTVWallWidget* widget, frmTVWall* wall)
 {
 	m_wallWidget = widget;
+	m_wall = wall;
 	connect(m_wallWidget, &frmTVWallWidget::wallSetSig, this, &TVWallManager::onWallSet);
 	connect(m_wallWidget, &frmTVWallWidget::wallScreenJoinSig, this, &TVWallManager::onWallScreenJoin);
 	connect(m_wallWidget, &frmTVWallWidget::wallScreenCutSig, this, &TVWallManager::onWallScreenCut);
 	connect(m_wallWidget, &frmTVWallWidget::wallCallVideoSig, this, &TVWallManager::onWallCallVideo);
 	connect(m_wallWidget, &frmTVWallWidget::closeVideoSig, this, &TVWallManager::onWallCloseVideo);
+	connect(DevManager::Instance(),&DevManager::synDevFinishSig, this, &TVWallManager::onWallSet);
 }
 
 void TVWallManager::sendWallJoint(int row, int col)
@@ -223,6 +226,9 @@ void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> ind
 			}
 		}
 
+		QTimer::singleShot(3000, [this] {
+			m_wall->on_btnRereshClicked();
+			});
 	}
 }
 

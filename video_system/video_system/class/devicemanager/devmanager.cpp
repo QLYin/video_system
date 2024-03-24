@@ -56,6 +56,7 @@ void DevManager::handle(const QVariantMap& data)
         {
             m_cardWidget->updateTableWidget(m_devList);
         }
+        emit synDevFinishSig();
     }
     else if (cmd == CommandNS::kCmdDevSearch)
     {
