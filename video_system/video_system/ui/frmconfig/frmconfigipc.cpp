@@ -611,9 +611,22 @@ void frmConfigIpc::on_btnClear_clicked()
     }
 
     if (QtHelper::showMessageBoxQuestion("确定要清空所有信息吗? 清空后不能恢复!") == QMessageBox::Yes) {
+        QStringList ids, ips;
+        int rows = ui->tableView->model()->rowCount();
+        for (int r = 0; r < rows; r++)
+        {
+            QString id = ui->tableView->model()->index(r, 0).data().toString();
+            QString ip = ui->tableView->model()->index(r, 4).data().toString();
+            if (!id.isEmpty() && !ip.isEmpty())
+            {
+                ids << id;
+                ips << ip;
+            }
+        }
         DbQuery::clearIpcInfo();
         AppEvent::Instance()->slot_saveIpcInfo(true);
         model->select();
+        emit ipcDelSig(ids, ips);
     }
 }
 
