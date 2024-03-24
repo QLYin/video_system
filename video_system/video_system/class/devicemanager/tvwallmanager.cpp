@@ -34,7 +34,7 @@ void TVWallManager::handle(const QVariantMap& data)
 		{
 			if (screen->hasCut())
 			{
-				for (int i = 0; i < 16; ++i)
+				for (int i = 0; i < 36; ++i)
 				{
 					auto key = QString("chn_%1").arg(i);
 					auto ipcId = data[key].toInt();
@@ -200,7 +200,7 @@ void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> ind
 			{
 				screen->cutScreen(row * col, true, false); // 6分屏要单独处理
 				auto ipcIndexs = devInfo.at(devIndex).ipc_indexs;
-				for (int j = 0; j < 16; ++j)
+				for (int j = 0; j < 36; ++j)
 				{
 					auto id = ipcIndexs.at(j);
 					QString ip = IPCManager::Instance()->findIp(id);
@@ -245,7 +245,7 @@ void TVWallManager::onWallScreenCut(int row, int col, int splitNum)
 		if (screen->cutRow() > 1 || screen->cutCol() > 1)
 		{
 			auto ipcIndexs = devInfo.at(index).ipc_indexs;
-			for (int j = 0; j < 16; ++j)
+			for (int j = 0; j < 36; ++j)
 			{
 				auto id = ipcIndexs.at(j);
 				QString ip = IPCManager::Instance()->findIp(id);
