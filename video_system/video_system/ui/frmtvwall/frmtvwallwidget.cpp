@@ -340,7 +340,7 @@ void frmTVWallWidget::updateIndex(int firstX, int firstY, int index)
 				return;
 			}
 			auto screen = qobject_cast<frmScreen*>(child->widget());
-			if (screenList.contains(screen))
+			if (screenList.contains(screen) || (screen->childScreenInfos().size() > 1 && screen->index() < index))
 			{ 
 				currentIndex += 1;
 			}
