@@ -378,19 +378,11 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     int w = videoSources.first().width;
     int h = videoSources.first().height;
     resolutionMain = IPC::index2Name(IPC::findNearIndex(w*h));
-    if (resolutionMain.isEmpty())
-    {
-        resolutionMain = "1080P";
-    }
     if (videoSources.size() > 1)
     {
         w = videoSources.at(1).width;
         h = videoSources.at(1).height;
         resolutionSub = IPC::index2Name(IPC::findNearIndex(w * h));
-        if (resolutionSub.isEmpty())
-        {
-            resolutionSub = "D1";
-        }
     }
 
 #if 1
@@ -468,7 +460,15 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     QTableWidgetItem *itemVideoSource = new QTableWidgetItem(videoSource);
     QTableWidgetItem *itemRtspMain = new QTableWidgetItem(rtspMain);
     QTableWidgetItem *itemRtspSub = new QTableWidgetItem(rtspSub);
+    if (resolutionMain.isEmpty())
+    {
+        resolutionMain = "1080P";
+    }
     QTableWidgetItem* itemResolutionMain = new QTableWidgetItem(resolutionMain);
+    if (resolutionSub.isEmpty())
+    {
+        resolutionSub = "D1";
+    }
     QTableWidgetItem* itemResolutionSub = new QTableWidgetItem(resolutionSub);
 
     ui->tableWidget->setItem(row, 2, itemUserName);
