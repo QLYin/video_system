@@ -226,9 +226,10 @@ void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> ind
 			}
 		}
 
-		QTimer::singleShot(3000, [this] {
-			m_wall->on_btnRereshClicked();
-			});
+		QVariantMap param;
+		param["type"] = 4;
+		CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+		CmdHandlerMgr::Instance()->sendCmd("nop");
 	}
 }
 

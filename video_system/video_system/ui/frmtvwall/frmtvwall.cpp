@@ -157,10 +157,12 @@ void frmTVWall::on_btnCallAllClicked()
                 Indicator::showLoading(false, nullptr);
 
             });
-        Indicator::showTopTip(QString::fromLocal8Bit("正在调入，请稍后手动刷新"), nullptr);
-        QTimer::singleShot(3000, [this] {
-            on_btnRereshClicked();
-            });
+        Indicator::showTopTip(QString::fromLocal8Bit("正在调入，请稍后.."), nullptr);
+  
+        QVariantMap param;
+        param["type"] = 4;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        CmdHandlerMgr::Instance()->sendCmd("nop");
     }
 }
 
