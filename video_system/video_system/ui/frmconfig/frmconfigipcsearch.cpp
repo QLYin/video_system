@@ -599,7 +599,6 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
     QString rtspSub = ui->tableWidget->item(row, 9)->text();
     QString resolutonMain = ui->tableWidget->item(row, 10)->text();
     QString resolutonSub = ui->tableWidget->item(row, 11)->text();
-    if ()
     QString ipAddr = QtHelper::getIP(onvifAddr);
 
     //如果有多个则分别插入
