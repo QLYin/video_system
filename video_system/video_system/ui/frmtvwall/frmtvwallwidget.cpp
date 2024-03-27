@@ -269,7 +269,7 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 	for (QWidget* wdiget : widgets) {
 		auto screenItem = qobject_cast<frmScreen*>(wdiget);
 		infos.push_back(screenItem->screenInfo());
-		indexs.push_back(screenItem->index());
+		indexs.push_back(screenItem->screenInfo().x * m_cols + screenItem->screenInfo().y + 1);
 		boundingRect = boundingRect.united(screenItem->geometry());
 		childWidgets.removeOne(screenItem);
 		delete screenItem;

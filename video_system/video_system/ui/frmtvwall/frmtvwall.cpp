@@ -98,19 +98,7 @@ void frmTVWall::initForm()
     TVWallManager::Instance()->initWallWidget(m_tvWallWidget, this);
     connect(TcpClient::Instance(), &TcpClient::socketDisconnect, this, [this]()
         {
-            if (QtHelper::showMessageBoxQuestion("设备连接异常,是否重新连接") == QMessageBox::Yes)
-            {
-                on_btnConnectClicked();
-                Indicator::showLoading(true, nullptr);
-                QTimer::singleShot(20000, this, [=]()
-                    {
-                        if (!TcpClient::Instance()->isConnnected())
-                        {
-                            Indicator::showLoading(false, nullptr);
-                            Indicator::showTopTip(QString::fromLocal8Bit("连接失败，请检查IP并确认设备已上线"), this);
-                        }
-                    });
-            }
+            Indicator::showTopTip(QString::fromLocal8Bit("设备连接异常, 请重新连接"), nullptr);
         });
 }
 
@@ -168,6 +156,7 @@ void frmTVWall::on_btnCallAllClicked()
 
 void frmTVWall::on_btnConnectClicked()
 {
+    Indicator::showLoading(true, nullptr);
     TcpClient::Instance()->uninit();
     if (!TcpClient::Instance()->init())
     {
@@ -190,8 +179,7 @@ void frmTVWall::on_btnConnectClicked()
         CmdHandlerMgr::Instance()->sendCmd("nop");
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
         //TcpClientHelper::sendSceneInfo();
-        Indicator::showLoading(false, this);
-
+        Indicator::showLoading(false, nullptr);
         return;
     }
 }
