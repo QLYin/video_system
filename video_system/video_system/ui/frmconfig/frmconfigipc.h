@@ -49,7 +49,7 @@ private:
     Ui::frmConfigIpc *ui;
 
     //数据库表模型+列名+列宽
-    CustomSqlTableModel *model;
+    QSqlTableModel*model;
     QList<QString> columnNames;
     QList<int> columnWidths;
 

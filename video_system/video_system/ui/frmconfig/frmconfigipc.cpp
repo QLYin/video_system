@@ -75,7 +75,7 @@ void frmConfigIpc::initIcon()
 void frmConfigIpc::initData()
 {
     //实例化数据库表模型
-    model = new CustomSqlTableModel(this);
+    model = new QSqlTableModel(this);
     //绑定数据库表到数据模型
     DbHelper::bindTable(AppConfig::LocalDbType, model, "IpcInfo");
     //设置过滤条件
@@ -92,7 +92,7 @@ void frmConfigIpc::initData()
     //初始化列名和列宽
     columnNames << "编号" << "名称" << "录像机" << "厂家" << "IP地址" << "设备地址" << "配置文件" << "视频文件" << "主码流地址" << "子码流地址"
                 << "主码流分辨率" << "子码流分辨率" << "X坐标" << "Y坐标" << "用户姓名" << "用户密码" << "启用" << "备注";
-    columnWidths << 40 << 90 << 90 << 80 << 90 << 250 << 100 << 100 << 220 << 220
+    columnWidths << 40 << 90 << 90 << 80 << 110 << 250 << 100 << 100 << 250 << 250
                  << 80 << 80 << 45 << 45 << 60 << 60 << 30 << 60;
 
     //特殊分辨率重新设置列宽
