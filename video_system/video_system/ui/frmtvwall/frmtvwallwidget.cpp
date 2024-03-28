@@ -137,6 +137,10 @@ void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 					{
 						emit wallScreenCutSig(info.x, info.y, splitNum);
 					});
+				connect(screenItem, &frmScreen::screenTextUpdate, this, [info, this]()
+					{
+						emit wallScreenTextUpdate(info.x, info.y);
+					});
 				connect(screenItem, &frmScreen::dropInfo, this, [info, this](int index, int id, QString ip)
 					{
 						emit wallCallVideoSig(info.x, info.y, index, id, ip);
@@ -146,7 +150,7 @@ void frmTVWallWidget::restorScreens(frmScreen* mergeScreen)
 				screenItem->appendScreenInfo(info.x, info.y, info.row, info.col);
 				if (info.row > 1 || info.col > 1)
 				{
-					screenItem->cutScreen(info.row, info.col, false);
+					screenItem->cutScreen(info.row, info.col, false, false);
 					needUpdate = true;
 				}
 
@@ -197,6 +201,10 @@ void frmTVWallWidget::createTVWall(int row, int col)
 			connect(childWidget, &frmScreen::screenCut, this, [i, j, this](int splitNum) 
 				{
 					emit wallScreenCutSig(i, j, splitNum);
+				});
+			connect(childWidget, &frmScreen::screenTextUpdate, this, [i, j, this]()
+				{
+					emit wallScreenTextUpdate(i, j);
 				});
 			connect(childWidget, &frmScreen::dropInfo, this, [i, j, this](int index, int id, QString ip)
 				{
@@ -303,6 +311,10 @@ void frmTVWallWidget::mergeWidgets(const QList<QWidget*> widgets)
 	connect(mergeScreen, &frmScreen::screenCut, this, [mergeScreen, this](int splitNum)
 		{
 			emit wallScreenCutSig(mergeScreen->screenInfo().x, mergeScreen->screenInfo().y, splitNum);
+		});
+	connect(mergeScreen, &frmScreen::screenTextUpdate, this, [mergeScreen, this]()
+		{
+			emit wallScreenTextUpdate(mergeScreen->screenInfo().x, mergeScreen->screenInfo().y);
 		});
 	connect(mergeScreen, &frmScreen::dropInfo, this, [mergeScreen, this](int index, int id, QString ip)
 		{

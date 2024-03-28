@@ -24,6 +24,7 @@ signals:
 	void wallSetSig();
 	void wallScreenJoinSig(QVector<ScreenInfo> infos, QVector<int> indexs, bool join);
 	void wallScreenCutSig(int r, int c, int splitNum);
+	void wallScreenTextUpdate(int r, int c);
 	void wallCallVideoSig(int r, int c, int chnIndex, int id, QString ip);
 	void closeVideoSig(int chnIndex);
 

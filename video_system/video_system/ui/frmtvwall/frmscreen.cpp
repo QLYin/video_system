@@ -182,6 +182,8 @@ void frmScreen::cutScreen(int row, int col, bool needUpdate, bool notify)
 	{
 		emit screenCut(m_cutRow * m_cutCol);
 	}
+
+	emit screenTextUpdate();
 }
 
 void frmScreen::cutScreen(int cnt, bool needUpdateIndex, bool notify)

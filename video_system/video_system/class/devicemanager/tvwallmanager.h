@@ -30,6 +30,7 @@ private slots:
     void onWallScreenCut(int row, int col, int splitNum);
     void onWallCallVideo(int row, int col, int index, int id, QString ip);
     void onWallCloseVideo(int chnIndx);
+    void onWallScreenTextUpdate(int row, int col);
 private:
     frmTVWallWidget* m_wallWidget = nullptr;
     frmTVWall* m_wall = nullptr;

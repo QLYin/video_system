@@ -71,6 +71,7 @@ void TVWallManager::initWallWidget(frmTVWallWidget* widget, frmTVWall* wall)
 	connect(m_wallWidget, &frmTVWallWidget::wallSetSig, this, &TVWallManager::onWallSet);
 	connect(m_wallWidget, &frmTVWallWidget::wallScreenJoinSig, this, &TVWallManager::onWallScreenJoin);
 	connect(m_wallWidget, &frmTVWallWidget::wallScreenCutSig, this, &TVWallManager::onWallScreenCut);
+	connect(m_wallWidget, &frmTVWallWidget::wallScreenTextUpdate, this, &TVWallManager::onWallScreenTextUpdate);
 	connect(m_wallWidget, &frmTVWallWidget::wallCallVideoSig, this, &TVWallManager::onWallCallVideo);
 	connect(m_wallWidget, &frmTVWallWidget::closeVideoSig, this, &TVWallManager::onWallCloseVideo);
 	connect(DevManager::Instance(),&DevManager::synDevFinishSig, this, &TVWallManager::onWallSet);
@@ -245,7 +246,16 @@ void TVWallManager::onWallScreenCut(int row, int col, int splitNum)
 	param["split_num"] = splitNum;
 	param["device_id"] = devInfo.at(index).dev_id;
 	CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallCutScreen, param);
+}
 
+void TVWallManager::onWallScreenTextUpdate(int row, int col)
+{
+	int index = row * m_wallWidget->cols() + col;
+	auto devInfo = DevManager::Instance()->devListInfo();
+	if (devInfo.isEmpty())
+	{
+		return;
+	}
 	auto screen = m_wallWidget->findScreen(row, col);
 	if (screen)
 	{
@@ -269,7 +279,7 @@ void TVWallManager::onWallScreenCut(int row, int col, int splitNum)
 			QFont font("Arial", 8);
 			screen->setFont(font);
 		}
-		
+
 	}
 }
 

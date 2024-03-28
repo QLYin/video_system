@@ -47,6 +47,7 @@ signals:
 	void screenCut(int spiltNum);
 	void dropInfo(int chnIndex, int ipcId, QString text);
 	void closeVideo(int chnIndex);
+	void screenTextUpdate();
 
 private slots:
 	void showContextMenu(const QPoint& pos);
