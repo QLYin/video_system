@@ -7,6 +7,7 @@
 #include "frmcell.h"
 #include "ui/frmbase/Indicator.h"
 #include "class/devicemanager/tvwallmanager.h"
+#include "class/appmisc/appmisc.h"
 
 namespace {
 	QVector<int> kSplitNum = {2, 4, 6, 9, 16, 25, 36};
@@ -36,7 +37,7 @@ void frmScreen::showContextMenu(const QPoint& pos)
 {
 	if (!m_enableDrop) return;
 	QMenu contextMenu(this);
-
+	int mamSpiltNum = AppMisc::Instance()->get("max_split_num").toInt();
 	// 多画面
 	QAction* splitAction = contextMenu.addAction(QString::fromLocal8Bit("多画面显示"));
 	QMenu splitMenu(this);
@@ -50,37 +51,37 @@ void frmScreen::showContextMenu(const QPoint& pos)
 	{
 		cutScreen(1, 2);
 	});
-	action->setEnabled(!(m_cutRow == 1 && m_cutCol == 2));
+	action->setEnabled(!(m_cutRow == 1 && m_cutCol == 2) && mamSpiltNum >= 2);
 
 	action = splitMenu.addAction("4分屏", [this]()
 	{
 		cutScreen(2, 2);
 	});
-	action->setEnabled(!(m_cutRow == 2 && m_cutCol == 2));
+	action->setEnabled(!(m_cutRow == 2 && m_cutCol == 2) && mamSpiltNum >= 4);
 
 	action = splitMenu.addAction("9分屏", [this]()
 	{
 		cutScreen(3, 3);
 	});
-	action->setEnabled(!(m_cutRow == 3 && m_cutCol == 3));
+	action->setEnabled(!(m_cutRow == 3 && m_cutCol == 3) && mamSpiltNum >= 9);
 
 	action = splitMenu.addAction("16分屏", [this]()
 	{
 		cutScreen(4, 4);
 	});
-	action->setEnabled(!(m_cutRow == 4 && m_cutCol == 4));
+	action->setEnabled(!(m_cutRow == 4 && m_cutCol == 4) && mamSpiltNum >= 16);
 
 	action = splitMenu.addAction("25分屏", [this]()
 		{
 			cutScreen(5, 5);
 		});
-	action->setEnabled(!(m_cutRow == 5 && m_cutCol == 5));
+	action->setEnabled(!(m_cutRow == 5 && m_cutCol == 5) && mamSpiltNum >= 25);
 
 	action = splitMenu.addAction("36分屏", [this]()
 		{
 			cutScreen(6, 6);
 		});
-	action->setEnabled(!(m_cutRow == 6 && m_cutCol == 6));
+	action->setEnabled(!(m_cutRow == 6 && m_cutCol == 6) && mamSpiltNum >= 36);
 
 	splitAction->setMenu(&splitMenu);
 

@@ -6,6 +6,7 @@
 #include "ipcmanager.h"
 #include "../frmtvwall/frmtvwallwidget.h"
 #include "../frmtvwall/frmtvwall.h"
+#include "class/appmisc/appmisc.h"
 
 SINGLETON_IMPL(TVWallManager)
 TVWallManager::TVWallManager(QObject *parent) : QObject(parent)
@@ -56,6 +57,11 @@ void TVWallManager::handle(const QVariantMap& data)
 			}
 		
 		}
+	}
+	else if (cmd == CommandNS::kCmdGetBoardType)
+	{
+		int mamSpiltNum = data["max_split_num"].toInt();
+		AppMisc::Instance()->set("max_split_num", mamSpiltNum);
 	}
 }
 

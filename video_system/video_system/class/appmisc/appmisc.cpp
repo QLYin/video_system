@@ -39,3 +39,13 @@ bool AppMisc::hasMergeScreen()
 	}
 	return false;
 }
+
+QVariant AppMisc::get(const QString& key)
+{
+	return m_appmisMap[key];
+}
+
+void AppMisc::set(const QString& key, QVariant value)
+{
+	m_appmisMap[key] = value;
+}

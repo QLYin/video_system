@@ -120,6 +120,7 @@ namespace CommandNS {
 	extern const QString kCmdDataSyncFinish;
 	extern const QString kCmdSceneInfo;
 	extern const QString kCmdUnlockDevice;
+	extern const QString kCmdGetBoardType;
 
 };
 

@@ -341,6 +341,18 @@ void TcpClientHelper::sendCmd(const QString& cmd, QVariantMap param)
 		{
 			sendWallCmd(cmd, param);
 		}
+		else
+		{
+			QString data;
+			data = kCmdStr + cmd;
+			data += kSplitStr;
+			for (auto& key : param.keys())
+			{
+				data += key + " : " + param[key].toString();
+				data += kSplitStr;
+			}
+			TcpClient::Instance()->sendData(data);
+		}
 	}
 }
 

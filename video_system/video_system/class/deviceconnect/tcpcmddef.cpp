@@ -38,6 +38,7 @@ namespace CommandNS {
 	const QString kCmdSyncDevInfoR = "SyncDevInfo"; //  同步解码卡信息
 	const QString kCmdDataSyncFinish = "SyncFinsh";  // 数据同步完成
 	const QString kCmdUnlockDevice = "UnlockDevice"; // 解锁设备
+	const QString kCmdGetBoardType = "GetBoardType";
 };
 
 

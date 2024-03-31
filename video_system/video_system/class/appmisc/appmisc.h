@@ -2,6 +2,7 @@
 #define APPMISC_H
 
 #include "singleton.h"
+#include <QVariantMap>
 
 class frmMain;
 class frmLogin;
@@ -19,11 +20,14 @@ public:
     void setTVWallWidget(frmTVWallWidget* widget);
 
     bool hasMergeScreen();
+    QVariant get(const QString& key);
+    void set(const QString& key, QVariant value);
 
 private:
     frmMain* m_mainWnd = nullptr;
     frmLogin* m_loginWnd = nullptr;
     frmTVWallWidget* m_tvwallWidget = nullptr;
+    QVariantMap m_appmisMap;
 };
 
 #if defined(theMainWnd)

@@ -175,9 +175,19 @@ bool frmLogin::initDeviceConnect()
             return true;
         }
         AppEvent::Instance()->slot_tcpConnected();
-        //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
+        QDateTime current = QDateTime::currentDateTime();
+        qint64 timeStamp = current.toTime_t();
+        QString iniPath = qApp->applicationDirPath() + "/config/vesion.ini";
+        QSettings settings(iniPath, QSettings::IniFormat);
+        settings.beginGroup("Common");
+        QString value = settings.value("version").toString();
+        settings.endGroup();
         QVariantMap param;
-
+        param["date"] = timeStamp;
+        param["version"] = value;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdGetBoardType, param);
+        param.clear();
         param["type"] = 4;
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
         CmdHandlerMgr::Instance()->sendCmd("nop");
