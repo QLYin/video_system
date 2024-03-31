@@ -44,7 +44,7 @@ bool frmDeviceTree::eventFilter(QObject *watched, QEvent *event)
         } else if (event->type() == QEvent::MouseButtonDblClick) {
             //如果双击的是父节点则打开该父节点下的所有,要折叠起来用前面的+号即可
             QTreeWidgetItem *item = ui->treeWidget->itemAt(mouseEvent->pos());
-            if (item) {
+            if (item && m_flag.indexOf("tvwall") == -1) {
                 QString url = item->data(0, Qt::UserRole).toString();
                 AppEvent::Instance()->slot_itemDoubleClicked(url, item->text(0), item->parent() == 0);
                 return true;
