@@ -291,7 +291,7 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
         if (flag.isEmpty()) {
             ipcName = QString("视频文件#%1").arg(ipcID);
         }*/
-        ipcName = "";
+        ipcName = deviceInfo.at(11);
 
         //NVR过来的再区分对应的通道 NVR_Ch1_Dahua
         if (ipcType.startsWith("NVR_Ch")) {

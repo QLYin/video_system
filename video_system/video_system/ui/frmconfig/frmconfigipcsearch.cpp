@@ -377,12 +377,24 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     QString videoSource = videoSources.first().token;
     int w = videoSources.first().width;
     int h = videoSources.first().height;
-    resolutionMain = IPC::index2Name(IPC::findNearIndex(w*h));
+    resolutionMain = IPC::index2Name(IPC::findNearIndex(w * h));
     if (videoSources.size() > 1)
     {
         w = videoSources.at(1).width;
         h = videoSources.at(1).height;
         resolutionSub = IPC::index2Name(IPC::findNearIndex(w * h));
+    }
+
+    // 获取自定义的ipc 名字
+    QList<OnvifOsdInfo> osds = device->getOsds(videoSource, QSize(w, h));
+    QString ipcName;
+    for (auto& osd : osds)
+    {
+        if (!osd.text.isEmpty())
+        {
+            ipcName = osd.text;
+            break;
+        }
     }
 
 #if 1
@@ -479,6 +491,9 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
     ui->tableWidget->setItem(row, 9, itemRtspSub);
     ui->tableWidget->setItem(row, 10, itemResolutionMain);
     ui->tableWidget->setItem(row, 11, itemResolutionSub);
+
+    auto item = ui->tableWidget->item(row, 4);
+    item->setData(Qt::UserRole, ipcName);
 
     //判断已经添加过的禁用行
     disableRow(device->getOnvifAddr(), row);
@@ -593,6 +608,7 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
     QString userName = ui->tableWidget->item(row, 2)->text();
     QString userPwd = ui->tableWidget->item(row, 3)->text();
     QString ipcType = ui->tableWidget->item(row, 4)->text();
+    QString ipcName = ui->tableWidget->item(row, 4)->data(Qt::UserRole).toString();
     QString onvifAddr = ui->tableWidget->item(row, 5)->text();
     QString profileToken = ui->tableWidget->item(row, 6)->text();
     QString videoSource = ui->tableWidget->item(row, 7)->text();
@@ -621,7 +637,7 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
         deviceInfo << ipAddr;
         deviceInfo << onvifAddr;
         deviceInfo << listProfileToken.at(i) << listVideoSource.at(i);
-        deviceInfo << listRtspMain.at(i) << listRtspSub.at(i) << resolutonMain << resolutonSub;
+        deviceInfo << listRtspMain.at(i) << listRtspSub.at(i) << resolutonMain << resolutonSub << ipcName;
         deviceInfos << deviceInfo;
     }
 }
