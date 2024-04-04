@@ -153,7 +153,7 @@ void TcpClient::sendData(const QString& data)
     if (m_socket && m_socket->isOpen())
     {
         qDebug() << "[TcpClient]Sending data: " << data;
-        m_socket->write(data.toUtf8());
+        m_socket->write(QTextCodec::codecForName("GBK")->fromUnicode(data));
         m_socket->flush();
     }
     return;
