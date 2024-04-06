@@ -16,6 +16,7 @@ struct IpcInfo {
 	QString rtsp_url0;
 	QString rtsp_url1;
 	QString ptz_url;
+	QString profileToken;
 
 	IpcInfo() {
 		init_flag = -1;
@@ -31,6 +32,7 @@ struct IpcInfo {
 		rtsp_url0 = "";
 		rtsp_url1 = "";
 		ptz_url = "";
+		profileToken = "";
 	}
 };
 

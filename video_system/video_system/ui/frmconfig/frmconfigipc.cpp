@@ -217,6 +217,7 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     QString userName = model->index(row, 14).data().toString();
     QString userPwd = model->index(row, 15).data().toString();
     QString ipcEnable = model->index(row, 16).data().toString();
+    QString ptzUrl;
 
     //设备名称自定义递增规则 #后面紧跟序号
     int index = ipcName.indexOf("#");
@@ -292,6 +293,7 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
             ipcName = QString("视频文件#%1").arg(ipcID);
         }*/
         ipcName = deviceInfo.at(11);
+        ptzUrl = deviceInfo.at(12);
 
         //NVR过来的再区分对应的通道 NVR_Ch1_Dahua
         if (ipcType.startsWith("NVR_Ch")) {
@@ -343,6 +345,7 @@ void frmConfigIpc::addDevice(const QStringList &deviceInfo)
     model->setData(model->index(count, 14), userName);
     model->setData(model->index(count, 15), userPwd);
     model->setData(model->index(count, 16), ipcEnable);
+    model->setData(model->index(count, 16), ptzUrl , Qt::UserRole);
 
     m_appendIpcids.insert(ipcID);
 }
@@ -543,6 +546,8 @@ void frmConfigIpc::on_btnSave_clicked()
                 ipcItem.rtsp_url1 = model->index(row, 9).data().toString();
                 ipcItem.resolution0 = IPC::Name2Index(model->index(row, 10).data().toString());
                 ipcItem.resolution1 = IPC::Name2Index(model->index(row, 11).data().toString());
+                ipcItem.ptz_url = model->index(row, 16).data(Qt::UserRole).toString();
+                ipcItem.profileToken = model->index(row, 6).data().toString();
                 ipcList.append(ipcItem);
             }
         }

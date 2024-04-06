@@ -494,7 +494,8 @@ void frmConfigIpcSearch::getMedia(int row, OnvifDevice *device)
 
     auto item = ui->tableWidget->item(row, 4);
     item->setData(Qt::UserRole, ipcName);
-
+    item->setData(Qt::UserRole + 1, device->getPtzUrl());
+    qDebug() << __FUNCTION__ << " set ptzUrl: " << device->getPtzUrl();
     //判断已经添加过的禁用行
     disableRow(device->getOnvifAddr(), row);
 }
@@ -609,6 +610,8 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
     QString userPwd = ui->tableWidget->item(row, 3)->text();
     QString ipcType = ui->tableWidget->item(row, 4)->text();
     QString ipcName = ui->tableWidget->item(row, 4)->data(Qt::UserRole).toString();
+    QString ptzUrl = ui->tableWidget->item(row, 4)->data(Qt::UserRole + 1).toString();
+    qDebug() << __FUNCTION__ << " ptzUrl: " << ptzUrl;
     QString onvifAddr = ui->tableWidget->item(row, 5)->text();
     QString profileToken = ui->tableWidget->item(row, 6)->text();
     QString videoSource = ui->tableWidget->item(row, 7)->text();
@@ -637,7 +640,7 @@ void frmConfigIpcSearch::addDevice(int row, bool one)
         deviceInfo << ipAddr;
         deviceInfo << onvifAddr;
         deviceInfo << listProfileToken.at(i) << listVideoSource.at(i);
-        deviceInfo << listRtspMain.at(i) << listRtspSub.at(i) << resolutonMain << resolutonSub << ipcName;
+        deviceInfo << listRtspMain.at(i) << listRtspSub.at(i) << resolutonMain << resolutonSub << ipcName  << ptzUrl;
         deviceInfos << deviceInfo;
     }
 }

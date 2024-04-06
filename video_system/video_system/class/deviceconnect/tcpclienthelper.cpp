@@ -135,11 +135,11 @@ void TcpClientHelper::sendIPCCmd(const QString& cmd, const QVariantMap& param)
 			data += kSplitStr;
 
 			data += "ptzAddr : ";
-			data += "";
+			data += ipc.ptz_url;
 			data += kSplitStr;
 
 			data += "profiletoken : ";
-			data += "";
+			data += ipc.profileToken;
 			data += kSplitStr;
 
 			data += "netxaddr : ";
