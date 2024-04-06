@@ -28,6 +28,7 @@ namespace CommandNS {
 	const QString kCmdWallSet = "WallSet"; // 初始化幕墙
 	const QString kCmdSuccessR = "Success"; // 切屏后返回
 	const QString kCmdCallAllVideo = "CallVideoAll"; // 全部调入
+	const QString kCmdCloseAllVideo = "CloseVideoAll"; // 全部关闭
 
 	// 场景
     const QString kCmdSceneInfo = "SceneInfo"; // 获取场景信息

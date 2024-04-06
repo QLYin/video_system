@@ -22,11 +22,13 @@ public slots:
     void on_btnCreateWallClicked();
     void on_btnCallAllClicked();
     void on_btnConnectClicked();
+    void on_btnCloseAllClicked();
 
 private:
     QPushButton* btnReresh;
     QPushButton* btnCreateWall;
     QPushButton* btnCallAll;
+    QPushButton* btnCloseAll;
     QPushButton* btnConnect;
     frmTVWallWidget* m_tvWallWidget;
 };

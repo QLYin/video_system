@@ -56,11 +56,18 @@ void frmTVWall::initForm()
     connect(btnCreateWall, &QPushButton::clicked, this, &frmTVWall::on_btnCreateWallClicked);
 
     btnCallAll = new QPushButton(widgetTop);
-    btnCallAll->setObjectName(QString::fromUtf8("btnCreateWall"));
+    btnCallAll->setObjectName(QString::fromUtf8("btnCallAll"));
     btnCallAll->setText(QString::fromLocal8Bit("全部调入"));
     btnCallAll->setFixedWidth(70);
     topLayout->addWidget(btnCallAll);
     connect(btnCallAll, &QPushButton::clicked, this, &frmTVWall::on_btnCallAllClicked);
+
+    btnCloseAll = new QPushButton(widgetTop);
+    btnCloseAll->setObjectName(QString::fromUtf8("btnCloseAll"));
+    btnCloseAll->setText(QString::fromLocal8Bit("全部关闭"));
+    btnCloseAll->setFixedWidth(70);
+    topLayout->addWidget(btnCloseAll);
+    connect(btnCloseAll, &QPushButton::clicked, this, &frmTVWall::on_btnCloseAllClicked);
 
     btnConnect = new QPushButton(widgetTop);
     btnConnect->setObjectName(QString::fromUtf8("btnCreateWall"));
@@ -147,6 +154,26 @@ void frmTVWall::on_btnCallAllClicked()
             });
         Indicator::showTopTip(QString::fromLocal8Bit("正在调入，请稍后.."), nullptr);
   
+        QVariantMap param;
+        param["type"] = 4;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        CmdHandlerMgr::Instance()->sendCmd("nop");
+    }
+}
+
+void frmTVWall::on_btnCloseAllClicked()
+{
+    if (QtHelper::showMessageBoxQuestion("确定要全部关闭") == QMessageBox::Yes)
+    {
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdCloseAllVideo);
+        Indicator::showLoading(true, nullptr);
+        QTimer::singleShot(3000, this, [=]()
+            {
+                Indicator::showLoading(false, nullptr);
+
+            });
+        Indicator::showTopTip(QString::fromLocal8Bit("正在关闭，请稍后.."), nullptr);
+
         QVariantMap param;
         param["type"] = 4;
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
