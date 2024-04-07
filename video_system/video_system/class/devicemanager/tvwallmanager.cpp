@@ -126,6 +126,10 @@ void TVWallManager::onWallSet()
 								{
 									screen->setCellText(j, ip);
 								}
+								else
+								{
+									screen->setCellText(j, "");
+								}
 							}
 						}
 						else
