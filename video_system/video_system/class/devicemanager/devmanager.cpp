@@ -56,6 +56,10 @@ void DevManager::handle(const QVariantMap& data)
         {
             m_cardWidget->updateTableWidget(m_devList);
         }
+        for (auto& dev : m_devList)
+        {
+            qDebug() << __FUNCTION__ << ", id : " << dev.dev_id << ", chn cnt: " << dev.chn_cnt << ", chn info: " << dev.ipc_indexs;
+        }
         emit synDevFinishSig();
     }
     else if (cmd == CommandNS::kCmdDevSearch)

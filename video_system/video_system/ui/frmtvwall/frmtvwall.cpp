@@ -112,12 +112,13 @@ void frmTVWall::initForm()
 void frmTVWall::on_btnRereshClicked()
 {
     QVariantMap param;
-    param["type"] = 4;
-    CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-    CmdHandlerMgr::Instance()->sendCmd("nop");
     param["type"] = 1;
     CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-    CmdHandlerMgr::Instance()->sendCmd("nop");
+    //CmdHandlerMgr::Instance()->sendCmd("nop");
+    param["type"] = 4;
+    CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+    //CmdHandlerMgr::Instance()->sendCmd("nop");
+
     Indicator::showLoading(true, nullptr);
     QTimer::singleShot(3000, this, [=]()
         {
@@ -198,12 +199,12 @@ void frmTVWall::on_btnConnectClicked()
         //CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdUnlockDevice);
         QVariantMap param;
 
-        param["type"] = 4;
-        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-        CmdHandlerMgr::Instance()->sendCmd("nop");
         param["type"] = 1;
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-        CmdHandlerMgr::Instance()->sendCmd("nop");
+        //CmdHandlerMgr::Instance()->sendCmd("nop");
+        param["type"] = 4;
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
+        //CmdHandlerMgr::Instance()->sendCmd("nop");
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
         //TcpClientHelper::sendSceneInfo();
         Indicator::showLoading(false, nullptr);

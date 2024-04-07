@@ -79,23 +79,57 @@ void TcpClient::readData()
         fullData += m_socket->readAll();
     }
 
-    if (!fullData.endsWith("\r\n"))
+    if (!m_buffer.isEmpty()) // 说明是同步ipc或dev
     {
         m_buffer += fullData;
-        return;
+        if (m_buffer.indexOf("SyncFinsh") != -1) //收到synfinish
+        {
+            int index = m_buffer.indexOf("cmd : SyncFinsh\r\n");
+            fullData = m_buffer.mid(0, index);
+            m_buffer.clear();
+        }
+        else
+        {
+            //发nop指令继续要数据
+            sendData("cmd : nop\r\n");
+            return;
+        }
     }
     else
     {
-        if (!m_buffer.isEmpty())
+        //先判断收到的指令是否含 SyncIpcInfo 或 SyncDevInfo 如果是则赋值给m_buffer
+        if (fullData.contains("SyncIpcInfo") || fullData.contains("SyncDevInfo"))
         {
             m_buffer += fullData;
+            sendData("cmd : nop\r\n");
+            return;
         }
     }
 
-    if (!m_buffer.isEmpty())
-    {
-        fullData = m_buffer;
-    }
+
+    //QString fullData;
+    //while (m_socket->bytesAvailable())
+    //{
+    //    fullData += m_socket->readAll();
+    //}
+
+    //if (!fullData.endsWith("\r\n"))
+    //{
+    //    m_buffer += fullData;
+    //    return;
+    //}
+    //else
+    //{
+    //    if (!m_buffer.isEmpty())
+    //    {
+    //        m_buffer += fullData;
+    //    }
+    //}
+
+    //if (!m_buffer.isEmpty())
+    //{
+    //    fullData = m_buffer;
+    //}
     qDebug() << "[TcpClient]read data: " << fullData;
 
     QStringList result;

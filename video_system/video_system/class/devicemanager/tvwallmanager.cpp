@@ -96,6 +96,10 @@ void TVWallManager::sendWallJoint(int row, int col)
 void TVWallManager::onWallSet()
 {
 	auto devInfo = DevManager::Instance()->devListInfo();
+	for (auto& dev : devInfo)
+	{
+		qDebug() << __FUNCTION__ << ", id : " << dev.dev_id << ", chn cnt: " << dev.chn_cnt << ", chn info: " << dev.ipc_indexs;
+	}
 	int devSize = devInfo.size();
 	if (devSize > 0)
 	{
@@ -240,7 +244,7 @@ void TVWallManager::onWallScreenJoin(QVector<ScreenInfo> infos, QVector<int> ind
 		QVariantMap param;
 		param["type"] = 4;
 		CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
-		CmdHandlerMgr::Instance()->sendCmd("nop");
+		//CmdHandlerMgr::Instance()->sendCmd("nop");
 	}
 }
 
