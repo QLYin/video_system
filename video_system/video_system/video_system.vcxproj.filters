@@ -785,6 +785,15 @@
     <ClCompile Include="ui\frmconfig\frmconfigipc\frmipceditdialog.cpp">
       <Filter>Source Files\main\ui\frmconfig</Filter>
     </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmscene.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+    <ClCompile Include="ui\frmtvwall\frmscenewidget.cpp">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </ClCompile>
+    <ClCompile Include="class\devicemanager\scenemanager.cpp">
+      <Filter>Source Files\main\class\devicemanager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="..\core_videobase\abstractsavethread.h">
@@ -1494,6 +1503,15 @@
     </QtMoc>
     <QtMoc Include="ui\frmconfig\frmconfigipc\frmipceditdialog.h">
       <Filter>Source Files\main\ui\frmconfig</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmscene.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+    <QtMoc Include="ui\frmtvwall\frmscenewidget.h">
+      <Filter>Source Files\main\ui\frmtvwall</Filter>
+    </QtMoc>
+    <QtMoc Include="class\devicemanager\scenemanager.h">
+      <Filter>Source Files\main\class\devicemanager</Filter>
     </QtMoc>
   </ItemGroup>
   <ItemGroup>

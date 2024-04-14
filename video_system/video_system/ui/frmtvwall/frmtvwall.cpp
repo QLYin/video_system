@@ -9,10 +9,12 @@
 
 #include "qthelper.h"
 #include "frmtvwallwidget.h"
+#include "frmscenewidget.h"
 #include "frmdevicetree.h"
 #include "frmwallsetdialog.h"
 #include "class/appmisc/appmisc.h"
 #include "class/devicemanager/tvwallmanager.h"
+#include "class/devicemanager/scenemanager.h"
 #include "ui/frmbase/Indicator.h"
 #include "../deviceconnect/tcpclient.h"
 
@@ -75,6 +77,15 @@ void frmTVWall::initForm()
     btnConnect->setFixedWidth(70);
     topLayout->addWidget(btnConnect);
     connect(btnConnect, &QPushButton::clicked, this, &frmTVWall::on_btnConnectClicked);
+
+    btnScene = new QPushButton(widgetTop);
+    btnScene->setObjectName(QString::fromUtf8("btnScene"));
+    btnScene->setText(QString::fromLocal8Bit("场景轮询"));
+    btnScene->setCheckable(true);
+    btnScene->setChecked(false);
+    btnScene->setFixedWidth(70);
+    topLayout->addWidget(btnScene);
+    connect(btnScene, &QPushButton::clicked, this, &frmTVWall::on_btnSceneClicked);
     topLayout->addStretch();
 
     QWidget* pGroup1 = new QWidget;
@@ -89,11 +100,21 @@ void frmTVWall::initForm()
     pTab->setFixedWidth(205);
     pTab->addTab(pGroup1, "ipc");
     pTab->addTab(pGroup2, "telephone");
-    m_tvWallWidget = new frmTVWallWidget(this);
+
+    QWidget* rightContainer = new QWidget(this);
+    m_tvWallWidget = new frmTVWallWidget(rightContainer);
+    m_sceneWidget = new frmSceneWidget(rightContainer);
+    m_sceneWidget->setFixedHeight(72);
+    QVBoxLayout* rightLayout = new QVBoxLayout(rightContainer);
+    rightLayout->setSpacing(2);
+    rightLayout->setMargin(4);
+    rightLayout->addWidget(m_tvWallWidget);
+    rightLayout->addWidget(m_sceneWidget);
+    m_sceneWidget->setVisible(btnScene->isChecked());
 
     QHBoxLayout* hLayout = new QHBoxLayout;
     hLayout->addWidget(pTab);
-    hLayout->addWidget(m_tvWallWidget);
+    hLayout->addWidget(rightContainer);
 
     QVBoxLayout* mainLayout = new QVBoxLayout(this);
     mainLayout->setMargin(0);
@@ -103,6 +124,7 @@ void frmTVWall::initForm()
     mainLayout->addLayout(hLayout);
 
     TVWallManager::Instance()->initWallWidget(m_tvWallWidget, this);
+    SceneManager::Instance()->initSceneWidget(m_sceneWidget);
     connect(TcpClient::Instance(), &TcpClient::socketDisconnect, this, [this]()
         {
             Indicator::showTopTip(QString::fromLocal8Bit("设备连接异常, 请重新连接"), nullptr);
@@ -210,5 +232,10 @@ void frmTVWall::on_btnConnectClicked()
         Indicator::showLoading(false, nullptr);
         return;
     }
+}
+
+void frmTVWall::on_btnSceneClicked()
+{
+    m_sceneWidget->setVisible(btnScene->isChecked());
 }
 

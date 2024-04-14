@@ -32,6 +32,12 @@ namespace CommandNS {
 
 	// 场景
     const QString kCmdSceneInfo = "SceneInfo"; // 获取场景信息
+	const QString kCmdSceneLoop = "SceneLoop"; // 场景轮询
+	const QString kCmdSceneLoopStop = "SceneLoopStop"; // 停止轮询
+	const QString kCmdSceneRecord = "SceneRecord"; // 记录场景
+	const QString kCmdSceneDel = "SceneDel"; // 删除场景
+	const QString kCmdSceneCall = "SceneCall"; // 调入场景
+	const QString kCmdSceneBack = "SceneBack"; // 场景回退
 	 
 	// 其他
 	const QString kCmdDataSync = "DataSync";  // 数据同步

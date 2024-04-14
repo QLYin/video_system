@@ -115,13 +115,18 @@ namespace CommandNS {
 
 	// 场景
 	extern const QString kCmdSceneInfo;
+	extern const QString kCmdSceneLoop;
+	extern const QString kCmdSceneLoopStop;
+	extern const QString kCmdSceneRecord;
+	extern const QString kCmdSceneDel;
+	extern const QString kCmdSceneCall;
+	extern const QString kCmdSceneBack;
 
     //其他
 	extern const QString kCmdDataSync;
 	extern const QString kCmdSyncIpcInfoR;
 	extern const QString kCmdSyncDevInfoR;
 	extern const QString kCmdDataSyncFinish;
-	extern const QString kCmdSceneInfo;
 	extern const QString kCmdUnlockDevice;
 	extern const QString kCmdGetBoardType;
 

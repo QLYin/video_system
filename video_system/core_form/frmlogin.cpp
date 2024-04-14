@@ -195,7 +195,7 @@ bool frmLogin::initDeviceConnect()
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdDataSync, param);
         //CmdHandlerMgr::Instance()->sendCmd("nop");
         CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdWallSet);
-        //TcpClientHelper::sendSceneInfo();
+        CmdHandlerMgr::Instance()->sendCmd(CommandNS::kCmdSceneInfo);
 
         Indicator::showLoading(false, this);
         this->hide();

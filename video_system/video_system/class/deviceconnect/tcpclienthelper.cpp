@@ -280,6 +280,40 @@ void TcpClientHelper::sendWallCmd(const QString& cmd, const QVariantMap& param)
 	TcpClient::Instance()->sendData(data);
 }
 
+void TcpClientHelper::sendSceneCmd(const QString& cmd, const QVariantMap& param)
+{
+	QString data = kCmdStr + cmd;
+	data += kSplitStr;
+
+	if (cmd == CommandNS::kCmdSceneLoop)
+	{
+		data += "loop_scene : ";
+		data += param["loop_scene"].toString();
+		data += kSplitStr;
+		data += "time : ";
+		data += param["time"].toString();
+		data += kSplitStr;
+
+	}
+	else if (cmd == CommandNS::kCmdSceneRecord)
+	{
+		data += "scene_id : ";
+		data += param["scene_id"].toString();
+		data += kSplitStr;
+		data += "name : ";
+		data += param["name"].toString();
+		data += kSplitStr;
+	} 
+	else if (cmd == CommandNS::kCmdSceneCall || cmd == CommandNS::kCmdSceneDel)
+	{
+		data += "scene_id : ";
+		data += param["scene_id"].toString();
+		data += kSplitStr;
+	}
+
+	TcpClient::Instance()->sendData(data);
+}
+
 void TcpClientHelper::sendDataSync(int type)
 {
 	QString data = kCmdStr + "DataSync";
@@ -340,6 +374,16 @@ void TcpClientHelper::sendCmd(const QString& cmd, QVariantMap param)
 			cmd == CommandNS::kCmdWallSet) //电视墙相关命令
 		{
 			sendWallCmd(cmd, param);
+		}
+		else if (cmd == CommandNS::kCmdSceneInfo ||
+			cmd == CommandNS::kCmdSceneLoop ||
+			cmd == CommandNS::kCmdSceneLoopStop ||
+			cmd == CommandNS::kCmdSceneRecord ||
+			cmd == CommandNS::kCmdSceneDel ||
+			cmd == CommandNS::kCmdSceneCall ||
+			cmd == CommandNS::kCmdSceneBack) //场景相关指令
+		{
+			sendSceneCmd(cmd, param);
 		}
 		else
 		{

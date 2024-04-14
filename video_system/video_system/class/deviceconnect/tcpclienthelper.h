@@ -20,6 +20,9 @@ public:
     // 幕墙
     static void sendWallCmd(const QString& cmd, const QVariantMap& param);
 
+    // 场景
+    static void sendSceneCmd(const QString& cmd, const QVariantMap& param);
+
     // 数据同步
     static void sendDataSync(int type);
 

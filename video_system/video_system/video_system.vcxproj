@@ -224,6 +224,7 @@
     <ClCompile Include="class\deviceconnect\tcpcmddef.cpp" />
     <ClCompile Include="class\devicemanager\devmanager.cpp" />
     <ClCompile Include="class\devicemanager\ipcmanager.cpp" />
+    <ClCompile Include="class\devicemanager\scenemanager.cpp" />
     <ClCompile Include="class\devicemanager\tvwallmanager.cpp" />
     <ClCompile Include="class\usercontrol\barvolume.cpp" />
     <ClCompile Include="..\core_common\base64helper.cpp" />
@@ -338,6 +339,8 @@
     <ClCompile Include="ui\frmrobot\frmrobotlog.cpp" />
     <ClCompile Include="ui\frmmain\frmtimecpu.cpp" />
     <ClCompile Include="ui\frmtvwall\frmcell.cpp" />
+    <ClCompile Include="ui\frmtvwall\frmscene.cpp" />
+    <ClCompile Include="ui\frmtvwall\frmscenewidget.cpp" />
     <ClCompile Include="ui\frmtvwall\frmscreen.cpp" />
     <ClCompile Include="ui\frmtvwall\frmtvwall.cpp" />
     <ClCompile Include="ui\frmtvwall\frmtvwallwidget.cpp" />
@@ -428,9 +431,12 @@
     <ClCompile Include="..\core_videoopengl\yuvopenglwidget.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="ui\frmtvwall\frmscenewidget.h" />
+    <QtMoc Include="ui\frmtvwall\frmscene.h" />
     <QtMoc Include="ui\frmconfig\frmconfigipc\frmipceditdialog.h" />
     <QtMoc Include="ui\frmconfig\frmconfigipc\frmipcadddialog.h" />
     <QtMoc Include="class\devicemanager\tvwallmanager.h" />
+    <QtMoc Include="class\devicemanager\scenemanager.h" />
     <ClInclude Include="ui\frmbase\Indicator.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmautonetset.h" />
     <QtMoc Include="ui\frmconfig\frmconfigcard\frmresolutionset.h" />

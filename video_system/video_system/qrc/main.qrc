@@ -17,5 +17,11 @@
         <file>gps2.txt</file>
         <file>image/bg_novideo.png</file>
 		<file>image/loading.gif</file>
+		<file>image/close-8.png</file>
+		<file>image/scene-36.png</file>
+		<file>image/scene-36-checked.png</file>
+		<file>image/add-56.png</file>
+		<file>image/loop-56.png</file>
+		<file>image/loopnone-56.png</file>
     </qresource>
 </RCC>

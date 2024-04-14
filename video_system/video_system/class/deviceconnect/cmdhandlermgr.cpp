@@ -16,7 +16,8 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
     kCmd2SplitStr = {
         {CommandNS::kCmdSyncIpcInfoR, "init_flag"},
         {CommandNS::kCmdSyncDevInfoR, "dev_id"},
-        {CommandNS::kCmdDevSearch, "dev_id"}
+        {CommandNS::kCmdDevSearch, "dev_id"},
+        {CommandNS::kCmdSceneInfo, "scene_id"}
     };
 
     kOnewayCmdList = {
@@ -36,7 +37,13 @@ CmdHandlerMgr::CmdHandlerMgr(QObject *parent) : QObject(parent)
         "JointExit",
         "CallVedio",
         "CallVideoAll",
-        "CloseVideoAll"
+        "CloseVideoAll",
+        "SceneLoop",
+        "SceneLoopStop",
+        "SceneRecord",
+        "SceneDel",
+        "SceneCall",
+        "SceneBack"
     };
 
     cmdId = 0;

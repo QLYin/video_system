@@ -5,6 +5,7 @@
 #include <QPushButton>
 
 class frmTVWallWidget;
+class frmSceneWidget;
 class frmTVWall : public QWidget
 {
     Q_OBJECT
@@ -23,6 +24,7 @@ public slots:
     void on_btnCallAllClicked();
     void on_btnConnectClicked();
     void on_btnCloseAllClicked();
+    void on_btnSceneClicked();
 
 private:
     QPushButton* btnReresh;
@@ -30,7 +32,9 @@ private:
     QPushButton* btnCallAll;
     QPushButton* btnCloseAll;
     QPushButton* btnConnect;
+    QPushButton* btnScene;
     frmTVWallWidget* m_tvWallWidget;
+    frmSceneWidget* m_sceneWidget;
 };
 
 #endif // FRMTVWALL_H
