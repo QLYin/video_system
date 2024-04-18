@@ -29,7 +29,7 @@ void frmConfigIpcSearch::initForm()
 {
     {
         ui->btnSearchAll->setText(QString::fromLocal8Bit("搜索"));
-        ui->btnSearchOne->hide();
+        ui->btnSearchOne->setText(QString::fromLocal8Bit("单个搜索"));
         ui->btnMediaAll->setText(QString::fromLocal8Bit("全选"));
         ui->btnMediaOne->setText(QString::fromLocal8Bit("反选"));
         ui->btnAddAll->setText(QString::fromLocal8Bit("添加"));

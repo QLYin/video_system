@@ -4,6 +4,8 @@
 
 #include "dbquery.h"
 #include "frmconfigipc.h"
+#include "onvifthread.h"
+#include "deviceonvif.h"
 
 SINGLETON_IMPL(IPCManager)
 IPCManager::IPCManager(QObject *parent) : QObject(parent)
@@ -14,6 +16,47 @@ IPCManager::IPCManager(QObject *parent) : QObject(parent)
     qRegisterMetaType<IpcInfo>("IpcInfo&");
     qRegisterMetaType<QList<IpcInfo>>("QList<IpcInfo>");
     qRegisterMetaType<QList<IpcInfo>>("QList<IpcInfo>&");
+
+    m_timer = new QTimer(this);
+    connect(m_timer, &QTimer::timeout, this, &IPCManager::onTimeout);
+    m_timer->start(10000); // 启动定时器
+}
+
+IPCManager::~IPCManager()
+{
+    if (m_timer)
+    {
+        m_timer->stop();
+    }
+}
+
+void IPCManager::onTimeout() 
+{
+    if (!m_configIpc)
+    {
+        return;
+    }
+
+    QSqlTableModel* model = m_configIpc->sqlModel();
+    if (!model)
+    {
+        return;
+    }
+
+    int count = model->rowCount();
+    for (int i = 0; i < count; ++i)
+    {
+        auto rtspurl = model->index(i, 8).data().toString();
+        if (!rtspurl.isEmpty())
+        {
+            OnvifDeviceData deviceData;
+            if (DeviceOnvif::checkUrl(rtspurl, deviceData))
+            {
+                OnvifThread::Instance()->append(deviceData, "setDateTime");
+            }
+        }
+    }
+
 }
 
 void IPCManager::handle(const QVariantMap& data)
