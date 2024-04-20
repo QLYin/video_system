@@ -7,6 +7,7 @@ int AppConfig::OpenGLType = 0;
 int AppConfig::IndexStart = 0;
 int AppConfig::WorkMode = 0;
 int AppConfig::NavStyle = 3;
+int AppConfig::SynTimeInterval = 10;
 QString AppConfig::StyleName = ":/qss/blackvideo.css";
 QString AppConfig::LogoImage = ":/logo.svg";
 QString AppConfig::CompanyHttp = "https://qtchina.blog.csdn.net/";
@@ -28,6 +29,7 @@ int AppConfig::TipInterval = 3;
 bool AppConfig::AutoRun = false;
 bool AppConfig::AutoLogin = false;
 bool AppConfig::AutoPwd = false;
+bool AppConfig::SynTime = false;
 bool AppConfig::SaveLog = false;
 bool AppConfig::SaveRunTime = false;
 bool AppConfig::RightInfo = true;
@@ -247,6 +249,7 @@ void AppConfig::readConfig()
     Copyright = set.value("Copyright", Copyright).toString();
     TitleCn = set.value("TitleCn", TitleCn).toString();
     TitleEn = set.value("TitleEn", TitleEn).toString();
+    SynTimeInterval = set.value("SynTimeInterval", SynTimeInterval).toInt();
     set.endGroup();
 
     set.beginGroup("AppConfig2");
@@ -265,6 +268,7 @@ void AppConfig::readConfig()
     AutoRun = set.value("AutoRun", AutoRun).toBool();
     AutoLogin = set.value("AutoLogin", AutoLogin).toBool();
     AutoPwd = set.value("AutoPwd", AutoPwd).toBool();
+    SynTime = set.value("SynTime", SynTime).toBool();
     SaveLog = set.value("SaveLog", SaveLog).toBool();
     SaveRunTime = set.value("SaveRunTime", SaveRunTime).toBool();
     RightInfo = set.value("RightInfo", RightInfo).toBool();
@@ -567,6 +571,7 @@ void AppConfig::writeConfig()
     set.setValue("Copyright", Copyright);
     set.setValue("TitleCn", TitleCn);
     set.setValue("TitleEn", TitleEn);
+    set.setValue("SynTimeInterval", SynTimeInterval);
     set.endGroup();
 
     set.beginGroup("AppConfig2");
@@ -585,6 +590,7 @@ void AppConfig::writeConfig()
     set.setValue("AutoRun", AutoRun);
     set.setValue("AutoLogin", AutoLogin);
     set.setValue("AutoPwd", AutoPwd);
+    set.setValue("SynTime", SynTime);
     set.setValue("SaveLog", SaveLog);
     set.setValue("SaveRunTime", SaveRunTime);
     set.setValue("RightInfo", RightInfo);

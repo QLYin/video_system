@@ -13,6 +13,7 @@ public:
     static int IndexStart;          //启动窗体索引 0-主程序 1-演示示例
     static int WorkMode;            //软件工作模式 0-视频监控 1-机器人监控 2-无人机监控
     static int NavStyle;            //导航按钮样式 0-左侧+左侧 1-左侧+上侧 2-上侧+左侧 3-上侧+上侧
+    static int SynTimeInterval;     //同步时间间隔 大于0的数字
     static QString StyleName;       //样式名称
     static QString LogoImage;       //软件图标
     static QString CompanyHttp;     //公司网址
@@ -36,6 +37,7 @@ public:
     static bool AutoRun;            //自动登录
     static bool AutoLogin;          //自动登录
     static bool AutoPwd;            //记住密码
+    static bool SynTime;            //同步时间
     static bool SaveLog;            //日志输出
     static bool SaveRunTime;        //运行时间记录
     static bool RightInfo;          //右上角提示信息显示

@@ -17,9 +17,13 @@ IPCManager::IPCManager(QObject *parent) : QObject(parent)
     qRegisterMetaType<QList<IpcInfo>>("QList<IpcInfo>");
     qRegisterMetaType<QList<IpcInfo>>("QList<IpcInfo>&");
 
-    m_timer = new QTimer(this);
-    connect(m_timer, &QTimer::timeout, this, &IPCManager::onTimeout);
-    m_timer->start(10000); // 启动定时器
+    if (AppConfig::SynTime)
+    {
+        int interval = AppConfig::SynTimeInterval > 0 ? AppConfig::SynTimeInterval : 10;
+        m_timer = new QTimer(this);
+        connect(m_timer, &QTimer::timeout, this, &IPCManager::onTimeout);
+        m_timer->start(interval* 1000); // 启动定时器
+    }
 }
 
 IPCManager::~IPCManager()

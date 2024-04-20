@@ -47,120 +47,7 @@
          <string>常规设置 - 立即应用</string>
         </property>
         <layout class="QGridLayout" name="gridLayout">
-         <property name="leftMargin">
-          <number>6</number>
-         </property>
-         <property name="topMargin">
-          <number>10</number>
-         </property>
-         <property name="rightMargin">
-          <number>6</number>
-         </property>
-         <property name="bottomMargin">
-          <number>6</number>
-         </property>
-         <property name="spacing">
-          <number>6</number>
-         </property>
-         <item row="0" column="0">
-          <widget class="QLabel" name="labAutoRun">
-           <property name="text">
-            <string>开机运行</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="SwitchButton" name="btnAutoRun" native="true"/>
-         </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="labTitleC">
-           <property name="text">
-            <string>中文标题</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3" colspan="3">
-          <widget class="QLineEdit" name="txtTitleCn"/>
-         </item>
-         <item row="1" column="0">
-          <widget class="QLabel" name="labAutoLogin">
-           <property name="text">
-            <string>自动登录</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="1">
-          <widget class="SwitchButton" name="btnAutoLogin" native="true"/>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="labTitleE">
-           <property name="text">
-            <string>英文标题</string>
-           </property>
-          </widget>
-         </item>
-         <item row="1" column="3" colspan="3">
-          <widget class="QLineEdit" name="txtTitleEn"/>
-         </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="labAutoPwd">
-           <property name="text">
-            <string>记住密码</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="1">
-          <widget class="SwitchButton" name="btnAutoPwd" native="true"/>
-         </item>
-         <item row="2" column="2">
-          <widget class="QLabel" name="labCopyright">
-           <property name="text">
-            <string>版权所有</string>
-           </property>
-          </widget>
-         </item>
-         <item row="2" column="3" colspan="3">
-          <widget class="QLineEdit" name="txtCopyright">
-           <property name="readOnly">
-            <bool>false</bool>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="labSaveLog">
-           <property name="text">
-            <string>调试日志</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="SwitchButton" name="btnSaveLog" native="true"/>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="labWorkMode">
-           <property name="text">
-            <string>工作模式</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="QComboBox" name="cboxWorkMode">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="4">
-          <widget class="QLabel" name="labNavStyle">
-           <property name="text">
-            <string>导航样式</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="5">
+         <item row="4" column="6">
           <widget class="QComboBox" name="cboxNavStyle">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
@@ -170,114 +57,256 @@
            </property>
           </widget>
          </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="labSaveRunTime">
-           <property name="text">
-            <string>运行时间</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="1">
-          <widget class="SwitchButton" name="btnSaveRunTime" native="true"/>
-         </item>
-         <item row="4" column="2">
-          <widget class="QLabel" name="labStyleName">
-           <property name="text">
-            <string>界面样式</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="3">
-          <widget class="QComboBox" name="cboxStyleName"/>
-         </item>
-         <item row="4" column="4">
-          <widget class="QLabel" name="labLogoImage">
-           <property name="text">
-            <string>软件图标</string>
-           </property>
-          </widget>
-         </item>
-         <item row="4" column="5">
-          <widget class="QComboBox" name="cboxLogoImage"/>
-         </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="labFullScreen">
-           <property name="text">
-            <string>全屏模式</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="1">
-          <widget class="SwitchButton" name="btnFullScreen" native="true"/>
-         </item>
-         <item row="5" column="2">
-          <widget class="QLabel" name="labTipInterval">
-           <property name="text">
-            <string>弹框时间</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="3">
+         <item row="6" column="4">
           <widget class="QComboBox" name="cboxTipInterval"/>
          </item>
-         <item row="5" column="4">
-          <widget class="QLabel" name="labAlarmSoundCount">
-           <property name="text">
-            <string>报警声音</string>
-           </property>
-          </widget>
-         </item>
-         <item row="5" column="5">
-          <widget class="QComboBox" name="cboxAlarmSoundCount"/>
-         </item>
-         <item row="6" column="2">
-          <widget class="QLabel" name="labTimeHideCursor">
-           <property name="text">
-            <string>鼠标隐藏</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="3">
-          <widget class="QComboBox" name="cboxTimeHideCursor"/>
-         </item>
-         <item row="6" column="4">
-          <widget class="QLabel" name="labTimeAutoFull">
-           <property name="text">
-            <string>自动全屏</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="5">
-          <widget class="QComboBox" name="cboxTimeAutoFull"/>
-         </item>
-         <item row="7" column="2">
-          <widget class="QLabel" name="labMsgListCount">
-           <property name="text">
-            <string>图文警情</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="3">
-          <widget class="QComboBox" name="cboxMsgListCount"/>
-         </item>
-         <item row="7" column="4">
-          <widget class="QLabel" name="labMsgTableCount">
-           <property name="text">
-            <string>窗口信息</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="5">
-          <widget class="QComboBox" name="cboxMsgTableCount"/>
-         </item>
-         <item row="8" column="0">
+         <item row="9" column="0">
           <widget class="QLabel" name="labWindowOpacity">
            <property name="text">
             <string>透明度值</string>
            </property>
           </widget>
          </item>
-         <item row="8" column="1" colspan="5">
+         <item row="3" column="3">
+          <widget class="QLabel" name="labSyntimeInterval">
+           <property name="text">
+            <string>时间间隔</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="5">
+          <widget class="QLabel" name="labAlarmSoundCount">
+           <property name="text">
+            <string>报警声音</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="labAutoLogin">
+           <property name="text">
+            <string>自动登录</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="1">
+          <widget class="SwitchButton" name="btnSaveUrl" native="true"/>
+         </item>
+         <item row="4" column="5">
+          <widget class="QLabel" name="labNavStyle">
+           <property name="text">
+            <string>导航样式</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="3">
+          <widget class="QLabel" name="labTitleE">
+           <property name="text">
+            <string>英文标题</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1" colspan="2">
+          <widget class="SwitchButton" name="btnAutoPwd" native="true"/>
+         </item>
+         <item row="7" column="1">
+          <widget class="SwitchButton" name="btnRightInfo" native="true"/>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="labRightInfo">
+           <property name="text">
+            <string>右上信息</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="2" colspan="2">
+          <widget class="QLabel" name="labTipInterval">
+           <property name="text">
+            <string>弹框时间</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="SwitchButton" name="btnSaveRunTime" native="true"/>
+         </item>
+         <item row="8" column="2" colspan="2">
+          <widget class="QLabel" name="labMsgListCount">
+           <property name="text">
+            <string>图文警情</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="4">
+          <widget class="QComboBox" name="cboxMsgListCount"/>
+         </item>
+         <item row="4" column="4">
+          <widget class="QComboBox" name="cboxWorkMode">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="labSaveLog">
+           <property name="text">
+            <string>调试日志</string>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="2" colspan="2">
+          <widget class="QLabel" name="labWorkMode">
+           <property name="text">
+            <string>工作模式</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="3">
+          <widget class="QLabel" name="labTitleC">
+           <property name="text">
+            <string>中文标题</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="4" colspan="3">
+          <widget class="QLineEdit" name="txtTitleEn"/>
+         </item>
+         <item row="5" column="2" colspan="2">
+          <widget class="QLabel" name="labStyleName">
+           <property name="text">
+            <string>界面样式</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="6">
+          <widget class="QComboBox" name="cboxLogoImage"/>
+         </item>
+         <item row="1" column="1" colspan="2">
+          <widget class="SwitchButton" name="btnAutoLogin" native="true"/>
+         </item>
+         <item row="7" column="6">
+          <widget class="QComboBox" name="cboxTimeAutoFull"/>
+         </item>
+         <item row="7" column="5">
+          <widget class="QLabel" name="labTimeAutoFull">
+           <property name="text">
+            <string>自动全屏</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="labAutoPwd">
+           <property name="text">
+            <string>记住密码</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="4" colspan="3">
+          <widget class="QLineEdit" name="txtTitleCn"/>
+         </item>
+         <item row="6" column="0">
+          <widget class="QLabel" name="labFullScreen">
+           <property name="text">
+            <string>全屏模式</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="4" colspan="3">
+          <widget class="QLineEdit" name="txtSynTimeInterval">
+           <property name="readOnly">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="4" column="1">
+          <widget class="SwitchButton" name="btnSaveLog" native="true"/>
+         </item>
+         <item row="8" column="6">
+          <widget class="QComboBox" name="cboxMsgTableCount"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="labAutoRun">
+           <property name="text">
+            <string>开机运行</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="3">
+          <widget class="QLabel" name="labCopyright">
+           <property name="text">
+            <string>版权所有</string>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="labSaveUrl">
+           <property name="text">
+            <string>播放记录</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="SwitchButton" name="btnSynTime" native="true"/>
+         </item>
+         <item row="6" column="6">
+          <widget class="QComboBox" name="cboxAlarmSoundCount"/>
+         </item>
+         <item row="2" column="4" colspan="3">
+          <widget class="QLineEdit" name="txtCopyright">
+           <property name="readOnly">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="8" column="5">
+          <widget class="QLabel" name="labMsgTableCount">
+           <property name="text">
+            <string>窗口信息</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="5">
+          <widget class="QLabel" name="labLogoImage">
+           <property name="text">
+            <string>软件图标</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="2" colspan="2">
+          <widget class="QLabel" name="labTimeHideCursor">
+           <property name="text">
+            <string>鼠标隐藏</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="4">
+          <widget class="QComboBox" name="cboxStyleName"/>
+         </item>
+         <item row="0" column="1" colspan="2">
+          <widget class="SwitchButton" name="btnAutoRun" native="true"/>
+         </item>
+         <item row="3" column="0">
+          <widget class="QLabel" name="labSynTime">
+           <property name="text">
+            <string>同步时间</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="0">
+          <widget class="QLabel" name="labSaveRunTime">
+           <property name="text">
+            <string>运行时间</string>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="1">
+          <widget class="SwitchButton" name="btnFullScreen" native="true"/>
+         </item>
+         <item row="7" column="4">
+          <widget class="QComboBox" name="cboxTimeHideCursor"/>
+         </item>
+         <item row="9" column="1" colspan="4">
           <layout class="QHBoxLayout" name="horizontalLayout">
            <property name="spacing">
             <number>6</number>
@@ -295,49 +324,29 @@
              </property>
             </widget>
            </item>
-           <item>
-            <widget class="QLabel" name="labWindowOpacityValue">
-             <property name="minimumSize">
-              <size>
-               <width>35</width>
-               <height>0</height>
-              </size>
-             </property>
-             <property name="frameShape">
-              <enum>QFrame::Box</enum>
-             </property>
-             <property name="frameShadow">
-              <enum>QFrame::Sunken</enum>
-             </property>
-             <property name="text">
-              <string/>
-             </property>
-             <property name="alignment">
-              <set>Qt::AlignCenter</set>
-             </property>
-            </widget>
-           </item>
           </layout>
          </item>
-         <item row="6" column="0">
-          <widget class="QLabel" name="labRightInfo">
+         <item row="9" column="5">
+          <widget class="QLabel" name="labWindowOpacityValue">
+           <property name="minimumSize">
+            <size>
+             <width>35</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::Box</enum>
+           </property>
+           <property name="frameShadow">
+            <enum>QFrame::Sunken</enum>
+           </property>
            <property name="text">
-            <string>右上信息</string>
+            <string/>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignCenter</set>
            </property>
           </widget>
-         </item>
-         <item row="6" column="1">
-          <widget class="SwitchButton" name="btnRightInfo" native="true"/>
-         </item>
-         <item row="7" column="0">
-          <widget class="QLabel" name="labSaveUrl">
-           <property name="text">
-            <string>播放记录</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="SwitchButton" name="btnSaveUrl" native="true"/>
          </item>
         </layout>
        </widget>
@@ -363,10 +372,26 @@
          <property name="spacing">
           <number>6</number>
          </property>
-         <item row="0" column="2">
-          <widget class="QLabel" name="labColorTextWarn">
+         <item row="2" column="0">
+          <widget class="QLabel" name="labColorMsgWait">
            <property name="text">
-            <string>警告文字颜色</string>
+            <string>等待处理颜色</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="ColorComboBox" name="cboxColorTextAlarm"/>
+         </item>
+         <item row="2" column="3">
+          <widget class="ColorComboBox" name="cboxColorMsgSolved"/>
+         </item>
+         <item row="1" column="3">
+          <widget class="ColorComboBox" name="cboxColorIconAlarm"/>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="labColorMsgSolved">
+           <property name="text">
+            <string>已经处理颜色</string>
            </property>
           </widget>
          </item>
@@ -377,24 +402,8 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
-          <widget class="ColorComboBox" name="cboxColorIconAlarm"/>
-         </item>
-         <item row="1" column="1">
-          <widget class="ColorComboBox" name="cboxColorTextAlarm"/>
-         </item>
          <item row="0" column="3">
           <widget class="ColorComboBox" name="cboxColorTextWarn">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="1">
-          <widget class="ColorComboBox" name="cboxColorTextNormal">
            <property name="sizePolicy">
             <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
              <horstretch>0</horstretch>
@@ -410,6 +419,13 @@
            </property>
           </widget>
          </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="labColorTextWarn">
+           <property name="text">
+            <string>警告文字颜色</string>
+           </property>
+          </widget>
+         </item>
          <item row="1" column="0">
           <widget class="QLabel" name="labColorTextAlarm">
            <property name="text">
@@ -417,25 +433,18 @@
            </property>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="labColorMsgWait">
-           <property name="text">
-            <string>等待处理颜色</string>
-           </property>
-          </widget>
-         </item>
          <item row="2" column="1">
           <widget class="ColorComboBox" name="cboxColorMsgWait"/>
          </item>
-         <item row="2" column="2">
-          <widget class="QLabel" name="labColorMsgSolved">
-           <property name="text">
-            <string>已经处理颜色</string>
+         <item row="0" column="1">
+          <widget class="ColorComboBox" name="cboxColorTextNormal">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
           </widget>
-         </item>
-         <item row="2" column="3">
-          <widget class="ColorComboBox" name="cboxColorMsgSolved"/>
          </item>
         </layout>
        </widget>
@@ -474,14 +483,14 @@
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer1">
+       <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
         <property name="sizeHint" stdset="0">
          <size>
           <width>20</width>
-          <height>166</height>
+          <height>40</height>
          </size>
         </property>
        </spacer>
@@ -841,49 +850,14 @@
          <property name="spacing">
           <number>6</number>
          </property>
-         <item row="0" column="0">
-          <widget class="QLabel" name="labSharedData">
-           <property name="text">
-            <string>共享解码</string>
-           </property>
-          </widget>
+         <item row="2" column="3">
+          <widget class="QComboBox" name="cboxHardware"/>
          </item>
-         <item row="0" column="1">
-          <widget class="SwitchButton" name="btnSharedData" native="true"/>
+         <item row="4" column="3">
+          <widget class="QComboBox" name="cboxCaching"/>
          </item>
-         <item row="0" column="2">
-          <widget class="QLabel" name="labScaleMode">
-           <property name="text">
-            <string>画面显示</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="3">
-          <widget class="QComboBox" name="cboxScaleMode">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="4">
-          <widget class="QLabel" name="labVideoMode">
-           <property name="text">
-            <string>显示模式</string>
-           </property>
-          </widget>
-         </item>
-         <item row="0" column="5">
-          <widget class="QComboBox" name="cboxVideoMode">
-           <property name="sizePolicy">
-            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
-             <horstretch>0</horstretch>
-             <verstretch>0</verstretch>
-            </sizepolicy>
-           </property>
-          </widget>
+         <item row="4" column="1">
+          <widget class="SwitchButton" name="btnVideoDrag" native="true"/>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="labPlayAudio">
@@ -892,23 +866,47 @@
            </property>
           </widget>
          </item>
-         <item row="1" column="1">
-          <widget class="SwitchButton" name="btnPlayAudio" native="true"/>
-         </item>
-         <item row="1" column="2">
-          <widget class="QLabel" name="labBorderWidth">
+         <item row="8" column="2">
+          <widget class="QLabel" name="labAlarmSaveTime">
            <property name="text">
-            <string>视频边框</string>
+            <string>报警视频</string>
            </property>
           </widget>
          </item>
-         <item row="1" column="3">
-          <widget class="QComboBox" name="cboxBorderWidth"/>
-         </item>
-         <item row="1" column="4">
-          <widget class="QLabel" name="labBannerPosition">
+         <item row="7" column="4">
+          <widget class="QLabel" name="labTableDataPolicy">
            <property name="text">
-            <string>悬浮工具</string>
+            <string>表格策略</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="5">
+          <widget class="QComboBox" name="cboxEncodeType"/>
+         </item>
+         <item row="3" column="3">
+          <widget class="QComboBox" name="cboxDecodeType"/>
+         </item>
+         <item row="5" column="4">
+          <widget class="QLabel" name="labConnectTimeout">
+           <property name="text">
+            <string>连接超时</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="5">
+          <widget class="QComboBox" name="cboxTransport"/>
+         </item>
+         <item row="4" column="2">
+          <widget class="QLabel" name="labCaching">
+           <property name="text">
+            <string>缓存大小</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="2">
+          <widget class="QLabel" name="labScaleMode">
+           <property name="text">
+            <string>画面显示</string>
            </property>
           </widget>
          </item>
@@ -936,55 +934,42 @@
            </item>
           </widget>
          </item>
-         <item row="2" column="0">
-          <widget class="QLabel" name="labAudioLevel">
+         <item row="1" column="4">
+          <widget class="QLabel" name="labBannerPosition">
            <property name="text">
-            <string>音频振幅</string>
+            <string>悬浮工具</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="1">
-          <widget class="SwitchButton" name="btnAudioLevel" native="true"/>
+         <item row="7" column="3">
+          <widget class="QComboBox" name="cboxOpenMaxCount"/>
          </item>
-         <item row="2" column="2">
-          <widget class="QLabel" name="labHardware">
+         <item row="6" column="3">
+          <widget class="QComboBox" name="cboxOpenIpcPolicy"/>
+         </item>
+         <item row="8" column="0">
+          <widget class="QLabel" name="labCheckOffline">
            <property name="text">
-            <string>硬件加速</string>
+            <string>离线检测</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="3">
-          <widget class="QComboBox" name="cboxHardware"/>
-         </item>
-         <item row="2" column="4">
-          <widget class="QLabel" name="labTransport">
+         <item row="7" column="2">
+          <widget class="QLabel" name="labOpenMaxCount">
            <property name="text">
-            <string>通信方式</string>
+            <string>最大数量</string>
            </property>
           </widget>
          </item>
-         <item row="2" column="5">
-          <widget class="QComboBox" name="cboxTransport"/>
+         <item row="7" column="1">
+          <widget class="SwitchButton" name="btnOnvifNtp" native="true"/>
          </item>
-         <item row="3" column="0">
-          <widget class="QLabel" name="labSaveVideo">
+         <item row="5" column="0">
+          <widget class="QLabel" name="labVideoSmart">
            <property name="text">
-            <string>保存视频</string>
+            <string>人工智能</string>
            </property>
           </widget>
-         </item>
-         <item row="3" column="1">
-          <widget class="SwitchButton" name="btnSaveVideo" native="true"/>
-         </item>
-         <item row="3" column="2">
-          <widget class="QLabel" name="labDecodeType">
-           <property name="text">
-            <string>解码策略</string>
-           </property>
-          </widget>
-         </item>
-         <item row="3" column="3">
-          <widget class="QComboBox" name="cboxDecodeType"/>
          </item>
          <item row="3" column="4">
           <widget class="QLabel" name="labEncodeType">
@@ -993,28 +978,96 @@
            </property>
           </widget>
          </item>
-         <item row="3" column="5">
-          <widget class="QComboBox" name="cboxEncodeType"/>
+         <item row="8" column="5">
+          <widget class="QComboBox" name="cboxChannelBgText"/>
          </item>
-         <item row="4" column="0">
-          <widget class="QLabel" name="labVideoDrag">
+         <item row="3" column="0">
+          <widget class="QLabel" name="labSaveVideo">
            <property name="text">
-            <string>通道交换</string>
+            <string>保存视频</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="1">
-          <widget class="SwitchButton" name="btnVideoDrag" native="true"/>
-         </item>
-         <item row="4" column="2">
-          <widget class="QLabel" name="labCaching">
+         <item row="0" column="4">
+          <widget class="QLabel" name="labVideoMode">
            <property name="text">
-            <string>缓存大小</string>
+            <string>显示模式</string>
            </property>
           </widget>
          </item>
-         <item row="4" column="3">
-          <widget class="QComboBox" name="cboxCaching"/>
+         <item row="5" column="2">
+          <widget class="QLabel" name="labReadTimeout">
+           <property name="text">
+            <string>读取超时</string>
+           </property>
+          </widget>
+         </item>
+         <item row="3" column="1">
+          <widget class="SwitchButton" name="btnSaveVideo" native="true"/>
+         </item>
+         <item row="7" column="5">
+          <widget class="QComboBox" name="cboxTableDataPolicy"/>
+         </item>
+         <item row="2" column="1">
+          <widget class="SwitchButton" name="btnAudioLevel" native="true"/>
+         </item>
+         <item row="6" column="1">
+          <widget class="SwitchButton" name="btnOnvifEvent" native="true"/>
+         </item>
+         <item row="0" column="0">
+          <widget class="QLabel" name="labSharedData">
+           <property name="text">
+            <string>共享解码</string>
+           </property>
+          </widget>
+         </item>
+         <item row="7" column="0">
+          <widget class="QLabel" name="labOnvifNtp">
+           <property name="text">
+            <string>自动校时</string>
+           </property>
+          </widget>
+         </item>
+         <item row="5" column="1">
+          <widget class="SwitchButton" name="btnVideoSmart" native="true"/>
+         </item>
+         <item row="6" column="2">
+          <widget class="QLabel" name="labOpenIpcPolicy">
+           <property name="text">
+            <string>设备双击</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="5">
+          <widget class="QComboBox" name="cboxVideoMode">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
+           </property>
+          </widget>
+         </item>
+         <item row="6" column="4">
+          <widget class="QLabel" name="labOpenNvrPolicy">
+           <property name="text">
+            <string>分组双击</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="4">
+          <widget class="QLabel" name="labTransport">
+           <property name="text">
+            <string>通信方式</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="2">
+          <widget class="QLabel" name="labBorderWidth">
+           <property name="text">
+            <string>视频边框</string>
+           </property>
+          </widget>
          </item>
          <item row="4" column="4">
           <widget class="QLabel" name="labRtspType">
@@ -1022,6 +1075,9 @@
             <string>默认码流</string>
            </property>
           </widget>
+         </item>
+         <item row="8" column="3">
+          <widget class="QComboBox" name="cboxAlarmSaveTime"/>
          </item>
          <item row="4" column="5">
           <widget class="QComboBox" name="cboxRtspType">
@@ -1037,35 +1093,54 @@
            </item>
           </widget>
          </item>
-         <item row="5" column="0">
-          <widget class="QLabel" name="labVideoSmart">
-           <property name="text">
-            <string>人工智能</string>
+         <item row="6" column="5">
+          <widget class="QComboBox" name="cboxOpenNvrPolicy"/>
+         </item>
+         <item row="0" column="3">
+          <widget class="QComboBox" name="cboxScaleMode">
+           <property name="sizePolicy">
+            <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+             <horstretch>0</horstretch>
+             <verstretch>0</verstretch>
+            </sizepolicy>
            </property>
           </widget>
          </item>
-         <item row="5" column="1">
-          <widget class="SwitchButton" name="btnVideoSmart" native="true"/>
-         </item>
-         <item row="5" column="2">
-          <widget class="QLabel" name="labReadTimeout">
-           <property name="text">
-            <string>读取超时</string>
-           </property>
-          </widget>
+         <item row="1" column="3">
+          <widget class="QComboBox" name="cboxBorderWidth"/>
          </item>
          <item row="5" column="3">
           <widget class="QComboBox" name="cboxReadTimeout"/>
          </item>
-         <item row="5" column="4">
-          <widget class="QLabel" name="labConnectTimeout">
+         <item row="8" column="1">
+          <widget class="SwitchButton" name="btnCheckOffline" native="true"/>
+         </item>
+         <item row="4" column="0">
+          <widget class="QLabel" name="labVideoDrag">
            <property name="text">
-            <string>连接超时</string>
+            <string>通道交换</string>
            </property>
           </widget>
          </item>
+         <item row="1" column="1">
+          <widget class="SwitchButton" name="btnPlayAudio" native="true"/>
+         </item>
          <item row="5" column="5">
           <widget class="QComboBox" name="cboxConnectTimeout"/>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="labAudioLevel">
+           <property name="text">
+            <string>音频振幅</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="2">
+          <widget class="QLabel" name="labHardware">
+           <property name="text">
+            <string>硬件加速</string>
+           </property>
+          </widget>
          </item>
          <item row="6" column="0">
           <widget class="QLabel" name="labOnvifEvent">
@@ -1074,78 +1149,15 @@
            </property>
           </widget>
          </item>
-         <item row="6" column="1">
-          <widget class="SwitchButton" name="btnOnvifEvent" native="true"/>
-         </item>
-         <item row="6" column="2">
-          <widget class="QLabel" name="labOpenIpcPolicy">
+         <item row="3" column="2">
+          <widget class="QLabel" name="labDecodeType">
            <property name="text">
-            <string>设备双击</string>
+            <string>解码策略</string>
            </property>
           </widget>
          </item>
-         <item row="6" column="3">
-          <widget class="QComboBox" name="cboxOpenIpcPolicy"/>
-         </item>
-         <item row="6" column="4">
-          <widget class="QLabel" name="labOpenNvrPolicy">
-           <property name="text">
-            <string>分组双击</string>
-           </property>
-          </widget>
-         </item>
-         <item row="6" column="5">
-          <widget class="QComboBox" name="cboxOpenNvrPolicy"/>
-         </item>
-         <item row="7" column="0">
-          <widget class="QLabel" name="labOnvifNtp">
-           <property name="text">
-            <string>自动校时</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="1">
-          <widget class="SwitchButton" name="btnOnvifNtp" native="true"/>
-         </item>
-         <item row="7" column="2">
-          <widget class="QLabel" name="labOpenMaxCount">
-           <property name="text">
-            <string>最大数量</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="3">
-          <widget class="QComboBox" name="cboxOpenMaxCount"/>
-         </item>
-         <item row="7" column="4">
-          <widget class="QLabel" name="labTableDataPolicy">
-           <property name="text">
-            <string>表格策略</string>
-           </property>
-          </widget>
-         </item>
-         <item row="7" column="5">
-          <widget class="QComboBox" name="cboxTableDataPolicy"/>
-         </item>
-         <item row="8" column="0">
-          <widget class="QLabel" name="labCheckOffline">
-           <property name="text">
-            <string>离线检测</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="1">
-          <widget class="SwitchButton" name="btnCheckOffline" native="true"/>
-         </item>
-         <item row="8" column="2">
-          <widget class="QLabel" name="labAlarmSaveTime">
-           <property name="text">
-            <string>报警视频</string>
-           </property>
-          </widget>
-         </item>
-         <item row="8" column="3">
-          <widget class="QComboBox" name="cboxAlarmSaveTime"/>
+         <item row="0" column="1">
+          <widget class="SwitchButton" name="btnSharedData" native="true"/>
          </item>
          <item row="8" column="4">
           <widget class="QLabel" name="labChannelBgText">
@@ -1153,9 +1165,6 @@
             <string>通道文字</string>
            </property>
           </widget>
-         </item>
-         <item row="8" column="5">
-          <widget class="QComboBox" name="cboxChannelBgText"/>
          </item>
         </layout>
        </widget>
@@ -1229,7 +1238,6 @@
   <tabstop>cboxTimeAutoFull</tabstop>
   <tabstop>cboxMsgListCount</tabstop>
   <tabstop>cboxMsgTableCount</tabstop>
-  <tabstop>sliderWindowOpacity</tabstop>
   <tabstop>cboxScaleMode</tabstop>
   <tabstop>cboxVideoMode</tabstop>
   <tabstop>cboxBorderWidth</tabstop>

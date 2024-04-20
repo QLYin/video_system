@@ -32,7 +32,7 @@ private slots:
 private:
     frmConfigIpc* m_configIpc = nullptr;
     QList<IpcInfo> m_ipcList;
-    QTimer* m_timer;
+    QTimer* m_timer = nullptr;
 };
 
 #endif // IPCMANAGER_H

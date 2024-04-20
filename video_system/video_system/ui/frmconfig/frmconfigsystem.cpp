@@ -102,6 +102,9 @@ void frmConfigSystem::initAppConfig1()
 
     ui->txtTitleEn->setText(AppConfig::TitleEn);
     connect(ui->txtTitleEn, SIGNAL(textChanged(QString)), this, SLOT(saveAppConfig1()));
+
+    ui->txtSynTimeInterval->setText(QString::number(AppConfig::SynTimeInterval));
+    connect(ui->txtSynTimeInterval, SIGNAL(textChanged(QString)), this, SLOT(saveAppConfig1()));
 }
 
 void frmConfigSystem::saveAppConfig1()
@@ -159,6 +162,11 @@ void frmConfigSystem::saveAppConfig1()
     if (AppConfig::TitleEn != titleEn) {
         AppConfig::TitleEn = titleEn;
         AppEvent::Instance()->slot_changeTitleInfo();
+    }
+
+    int timeInterval = ui->txtSynTimeInterval->text().trimmed().toInt();
+    if (AppConfig::SynTimeInterval != timeInterval) {
+        AppConfig::SynTimeInterval = timeInterval;
     }
 
     AppConfig::writeConfig();
@@ -252,6 +260,7 @@ void frmConfigSystem::initAppConfig3()
     ui->btnAutoRun->setChecked(AppConfig::AutoRun);
     ui->btnAutoLogin->setChecked(AppConfig::AutoLogin);
     ui->btnAutoPwd->setChecked(AppConfig::AutoPwd);
+    ui->btnSynTime->setChecked(AppConfig::SynTime);
     ui->btnSaveLog->setChecked(AppConfig::SaveLog);
     ui->btnSaveRunTime->setChecked(AppConfig::SaveRunTime);
     ui->btnFullScreen->setChecked(AppConfig::FullScreen);
@@ -262,6 +271,7 @@ void frmConfigSystem::initAppConfig3()
     connect(ui->btnAutoRun, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
     connect(ui->btnAutoLogin, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
     connect(ui->btnAutoPwd, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
+    connect(ui->btnSynTime, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
     connect(ui->btnSaveLog, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
     connect(ui->btnSaveRunTime, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
     connect(ui->btnFullScreen, SIGNAL(checkedChanged(bool)), this, SLOT(saveAppConfig3()));
@@ -286,6 +296,7 @@ void frmConfigSystem::saveAppConfig3()
     AppConfig::AutoRun = ui->btnAutoRun->getChecked();
     AppConfig::AutoLogin = ui->btnAutoLogin->getChecked();
     AppConfig::AutoPwd = ui->btnAutoPwd->getChecked();
+    AppConfig::SynTime = ui->btnSynTime->getChecked();
     AppConfig::FullScreen = ui->btnFullScreen->getChecked();
 
     //立即开启或者停止调试日志记录
