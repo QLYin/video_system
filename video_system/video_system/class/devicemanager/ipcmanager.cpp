@@ -7,6 +7,8 @@
 #include "onvifthread.h"
 #include "deviceonvif.h"
 
+
+
 SINGLETON_IMPL(IPCManager)
 IPCManager::IPCManager(QObject *parent) : QObject(parent)
 {
@@ -71,21 +73,16 @@ void IPCManager::handle(const QVariantMap& data)
         QVector<QVariantMap> vecData;
         QVariant variant = data["cmdDataArrary"];
         vecData = variant.value<QVector<QVariantMap>>();
-        if (vecData.isEmpty())
-        {
-            return;
-        }
 
-        // 先清理ipc表格
         QSqlTableModel* model = nullptr;
         if (m_configIpc)
         {
             model = m_configIpc->sqlModel();
-            DbQuery::clearIpcInfo();
-            AppEvent::Instance()->slot_saveIpcInfo(true);
-            model->select();
+            //DbQuery::clearIpcInfo();
+            //AppEvent::Instance()->slot_saveIpcInfo(true);
+            //model->select();
         }
-        m_ipcList.clear();
+        //m_ipcList.clear();
         for (auto& item : vecData)
         {
             if (!item.isEmpty())
