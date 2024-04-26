@@ -68,6 +68,14 @@ void IPCManager::handle(const QVariantMap& data)
 	auto cmd = data["cmd"].toString();
 	if (cmd == CommandNS::kCmdSyncIpcInfoR)
 	{
+        QVector<QVariantMap> vecData;
+        QVariant variant = data["cmdDataArrary"];
+        vecData = variant.value<QVector<QVariantMap>>();
+        if (vecData.isEmpty())
+        {
+            return;
+        }
+
         // 先清理ipc表格
         QSqlTableModel* model = nullptr;
         if (m_configIpc)
@@ -77,9 +85,6 @@ void IPCManager::handle(const QVariantMap& data)
             AppEvent::Instance()->slot_saveIpcInfo(true);
             model->select();
         }
-        QVector<QVariantMap> vecData;
-        QVariant variant = data["cmdDataArrary"];
-        vecData = variant.value<QVector<QVariantMap>>();
         m_ipcList.clear();
         for (auto& item : vecData)
         {
@@ -130,9 +135,18 @@ void IPCManager::handle(const QVariantMap& data)
 
         if (model)
         {
-            model->submitAll();
-            AppEvent::Instance()->slot_saveIpcInfo(true);
-            model->select();
+            model->database().transaction();
+            if (model->submitAll()) {
+                model->database().commit();
+                AppEvent::Instance()->slot_saveIpcInfo(true);
+                model->select();
+            }
+            else
+            {
+                model->database().rollback();
+                qDebug() << TIMEMS << model->database().lastError();
+            }
+
         }
 	}
 
