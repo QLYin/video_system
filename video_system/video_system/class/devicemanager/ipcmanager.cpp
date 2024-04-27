@@ -30,6 +30,15 @@ IPCManager::IPCManager(QObject *parent) : QObject(parent)
 
 IPCManager::~IPCManager()
 {
+    QSqlTableModel* model = nullptr;
+    if (m_configIpc)
+    {
+        model = m_configIpc->sqlModel();
+        DbQuery::clearIpcInfo();
+        AppEvent::Instance()->slot_saveIpcInfo(true);
+        model->select();
+    }
+
     if (m_timer)
     {
         m_timer->stop();
